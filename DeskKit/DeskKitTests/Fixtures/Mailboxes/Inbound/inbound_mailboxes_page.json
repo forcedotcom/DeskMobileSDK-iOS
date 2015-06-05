@@ -1,0 +1,64 @@
+{
+    "total_entries": 2,
+    "page": 1,
+    "_links": {
+        "self": {
+            "href": "/api/v2/mailboxes/inbound?page=1&per_page=50",
+            "class": "page"
+        },
+        "first": {
+            "href": "/api/v2/mailboxes/inbound?page=1&per_page=50",
+            "class": "page"
+        },
+        "last": {
+            "href": "/api/v2/mailboxes/inbound?page=1&per_page=50",
+            "class": "page"
+        },
+        "previous": null,
+        "next": null
+    },
+    "_embedded": {
+        "entries": [
+                    {
+                    "name": "Support",
+                    "enabled": false,
+                    "type": "imaps",
+                    "hostname": "imap.gmail.com",
+                    "port": "993",
+                    "email": "support@assistly.com",
+                    "last_checked_at": "2014-04-13T06:32:38Z",
+                    "created_at": "2010-01-25T05:37:57Z",
+                    "updated_at": "2014-04-13T06:32:38Z",
+                    "last_error": null,
+                    "_links": {
+                    "self": {
+                    "href": "/api/v2/mailboxes/inbound/13",
+                    "class": "inbound_mailbox"
+                    }
+                    }
+                    },
+                    {
+                    "name": "Postmark Mailbox",
+                    "enabled": true,
+                    "type": "postmark",
+                    "hostname": "postmarkapp.com",
+                    "port": "443",
+                    "email": "e7a1de56611c8f142d53c1dcbec50a5a@support.desk-mail.com",
+                    "last_checked_at": null,
+                    "created_at": "2013-10-02T17:04:53Z",
+                    "updated_at": "2014-09-12T12:09:39Z",
+                    "last_error": null,
+                    "_links": {
+                    "self": {
+                    "href": "/api/v2/mailboxes/inbound/59607",
+                    "class": "inbound_mailbox"
+                    },
+                    "default_group": {
+                    "href": "/api/v2/groups/3826",
+                    "class": "group"
+                    }
+                    }
+                    }
+                    ]
+    }
+}

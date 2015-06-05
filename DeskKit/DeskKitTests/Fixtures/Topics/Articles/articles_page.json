@@ -1,0 +1,42 @@
+{
+    "total_entries": 1,
+    "page": 1,
+    "_links": {
+        "self": {
+            "href": "/api/v2/topics/21845/articles?fields=subject%2Cpublic_url&page=1&per_page=50",
+            "class": "page"
+        },
+        "first": {
+            "href": "/api/v2/topics/21845/articles?fields=subject%2Cpublic_url&page=1&per_page=50",
+            "class": "page"
+        },
+        "last": {
+            "href": "/api/v2/topics/21845/articles?fields=subject%2Cpublic_url&page=1&per_page=50",
+            "class": "page"
+        },
+        "previous": null,
+        "next": null
+    },
+    "_embedded": {
+        "entries": [
+                    {
+                    "subject": "Sample :: What We Do",
+                    "public_url": "https://zzz-deskmobile.deskqa3.com/customer/portal/articles/36511-sample-what-we-do",
+                    "_links": {
+                    "self": {
+                    "href": "/api/v2/articles/36511",
+                    "class": "article"
+                    },
+                    "topic": {
+                    "href": "/api/v2/topics/21845",
+                    "class": "topic"
+                    },
+                    "translations": {
+                    "href": "/api/v2/articles/36511/translations",
+                    "class": "article_translation"
+                    }
+                    }
+                    }
+                    ]
+    }
+}

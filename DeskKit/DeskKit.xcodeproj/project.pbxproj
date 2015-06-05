@@ -1,0 +1,907 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C14FB5D19DB1BA200557345 /* DKSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C14FB5B19DB1BA200557345 /* DKSettings.h */; };
+		1C14FB5E19DB1BA200557345 /* DKSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB5C19DB1BA200557345 /* DKSettings.m */; };
+		1C19053C19CCCF580015BF15 /* DKArticleDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C19053A19CCCF580015BF15 /* DKArticleDetailViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C19053D19CCCF580015BF15 /* DKArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C19053B19CCCF580015BF15 /* DKArticleDetailViewController.m */; };
+		1C1E17E219BF52F20034D202 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1E17E119BF52F20034D202 /* libPods.a */; };
+		1C1E17E319BF53D90034D202 /* DeskKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C75FBF819BF34FE00971E46 /* DeskKit.framework */; };
+		1C1E17E619BF54750034D202 /* DKTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17E519BF54750034D202 /* DKTestUtils.m */; };
+		1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1E17EB19BF60590034D202 /* DKAPIManager.h */; };
+		1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EC19BF60590034D202 /* DKAPIManager.m */; };
+		1C1E17F019BF621D0034D202 /* DKAPIManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */; };
+		1C1E17F819BF66010034D202 /* DeskAPIAuth.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C1E17F719BF66010034D202 /* DeskAPIAuth.plist */; };
+		1C1F5B6A1A362A5600C8D16C /* DKNavigationBarTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */; };
+		1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */; };
+		1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C2D99ED1A36081D00C471FB /* UIColor+Additions.h */; };
+		1C2D99F01A36081D00C471FB /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D99EE1A36081D00C471FB /* UIColor+Additions.m */; };
+		1C46EFDC19C0E740000FBCAC /* DKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */; };
+		1C46EFDF19C0E769000FBCAC /* DKListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C46EFDD19C0E769000FBCAC /* DKListViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C46EFE019C0E769000FBCAC /* DKListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46EFDE19C0E769000FBCAC /* DKListViewController.m */; };
+		1C46EFFC19C123FB000FBCAC /* DKTopicsViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C46EFFA19C123FB000FBCAC /* DKTopicsViewModel.h */; };
+		1C46EFFD19C123FB000FBCAC /* DKTopicsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46EFFB19C123FB000FBCAC /* DKTopicsViewModel.m */; };
+		1C46F00019C1C74A000FBCAC /* DKListViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46EFFF19C1C74A000FBCAC /* DKListViewModelTests.m */; };
+		1C46F00919C1CB41000FBCAC /* DKFixtures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46F00819C1CB41000FBCAC /* DKFixtures.m */; };
+		1C691D7619D0655B004D406C /* DKArticleDetailViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C691D7419D0655B004D406C /* DKArticleDetailViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C691D7719D0655B004D406C /* DKArticleDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7519D0655B004D406C /* DKArticleDetailViewModel.m */; };
+		1C691D7919D0789D004D406C /* DKArticleDetailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */; };
+		1C691D7C19D07A8B004D406C /* topics_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C691D7B19D07A8B004D406C /* topics_page.json */; };
+		1C691D7F19D07A96004D406C /* article.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C691D7D19D07A96004D406C /* article.json */; };
+		1C691D8419D0A4EF004D406C /* DKArticleDetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */; };
+		1C75FBFE19BF34FE00971E46 /* DeskKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C75FBFD19BF34FE00971E46 /* DeskKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7A03D21A6D64560049ED4A /* DKWebViewController.h */; };
+		1C7A03D51A6D64560049ED4A /* DKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D31A6D64560049ED4A /* DKWebViewController.m */; };
+		1C7A03D71A6D66B10049ED4A /* DKWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D61A6D66B10049ED4A /* DKWebViewControllerTests.m */; };
+		1C7A03DA1A6D6AB30049ED4A /* DKContactUsWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7A03D81A6D6AB30049ED4A /* DKContactUsWebViewController.h */; };
+		1C7A03DB1A6D6AB30049ED4A /* DKContactUsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D91A6D6AB30049ED4A /* DKContactUsWebViewController.m */; };
+		1C7A03DD1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03DC1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m */; };
+		1C94680519CBC34D009E4570 /* DKListViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C94680319CBC34D009E4570 /* DKListViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C94680619CBC34D009E4570 /* DKListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C94680419CBC34D009E4570 /* DKListViewModel.m */; };
+		1C94680819CBC456009E4570 /* DKTopicsViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C94680719CBC456009E4570 /* DKTopicsViewModelTests.m */; };
+		1CA021FC19CBE1C70091D8A9 /* DKArticlesViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CA021FA19CBE1C70091D8A9 /* DKArticlesViewModel.h */; };
+		1CA021FD19CBE1C70091D8A9 /* DKArticlesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA021FB19CBE1C70091D8A9 /* DKArticlesViewModel.m */; };
+		1CA021FF19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA021FE19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m */; };
+		1CA0220319CBE8200091D8A9 /* articles_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CA0220119CBE8200091D8A9 /* articles_page.json */; };
+		1CAE840419D9B964007B0C62 /* DKBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CAE840319D9B964007B0C62 /* DKBack.png */; };
+		1CAE840919D9B986007B0C62 /* DKForwardt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CAE840619D9B986007B0C62 /* DKForwardt@2x.png */; };
+		1CAE840A19D9B986007B0C62 /* DKForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CAE840719D9B986007B0C62 /* DKForward.png */; };
+		1CAE840B19D9B986007B0C62 /* DKBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CAE840819D9B986007B0C62 /* DKBack@2x.png */; };
+		1CAE841319D9DF8D007B0C62 /* DKContactUsAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CAE841119D9DF8D007B0C62 /* DKContactUsAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CAE841419D9DF8D007B0C62 /* DKContactUsAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE841219D9DF8D007B0C62 /* DKContactUsAlertController.m */; };
+		1CAE841619D9E17F007B0C62 /* DKContactUsAlertControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE841519D9E17F007B0C62 /* DKContactUsAlertControllerTests.m */; };
+		1CB0AB7219CC619100B9D847 /* DKTopicsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CB0AB7019CC619100B9D847 /* DKTopicsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CB0AB7319CC619100B9D847 /* DKTopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0AB7119CC619100B9D847 /* DKTopicsViewController.m */; };
+		1CB0AB7519CC638A00B9D847 /* DKTopicsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0AB7419CC638A00B9D847 /* DKTopicsViewControllerTests.m */; };
+		1CB0AB7819CC647100B9D847 /* DKArticlesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CB0AB7619CC647100B9D847 /* DKArticlesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CB0AB7919CC647100B9D847 /* DKArticlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0AB7719CC647100B9D847 /* DKArticlesViewController.m */; };
+		1CB0AB7C19CC681F00B9D847 /* DKConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CB0AB7A19CC681F00B9D847 /* DKConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CB0AB7D19CC681F00B9D847 /* DKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0AB7B19CC681F00B9D847 /* DKConstants.m */; };
+		1CB0AB7F19CC6B7700B9D847 /* DKArticlesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0AB7E19CC6B7700B9D847 /* DKArticlesViewControllerTests.m */; };
+		1CB0E6BA19DC54960048B5E6 /* NSTextCheckingResult+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CB0E6B819DC54960048B5E6 /* NSTextCheckingResult+Additions.h */; };
+		1CB0E6BB19DC54960048B5E6 /* NSTextCheckingResult+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0E6B919DC54960048B5E6 /* NSTextCheckingResult+Additions.m */; };
+		1CB0E6BE19DC6CF90048B5E6 /* UIAlertController+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CB0E6BC19DC6CF90048B5E6 /* UIAlertController+Additions.h */; };
+		1CB0E6BF19DC6CF90048B5E6 /* UIAlertController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0E6BD19DC6CF90048B5E6 /* UIAlertController+Additions.m */; };
+		1CB0E6C119DC85A80048B5E6 /* DKSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0E6C019DC85A80048B5E6 /* DKSettingsTests.m */; };
+		1CB6E15119DDFABA00E14B96 /* inbound_mailboxes_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6E14F19DDFABA00E14B96 /* inbound_mailboxes_page.json */; };
+		1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBEEF8C19DDD49F0073A8AC /* DKArticlesSearchViewModel.h */; };
+		1CBEEF8F19DDD49F0073A8AC /* DKArticlesSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBEEF8D19DDD49F0073A8AC /* DKArticlesSearchViewModel.m */; };
+		1CBEEF9119DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBEEF9019DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m */; };
+		1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBEEF9219DDD5D10073A8AC /* DKArticlesTopicViewModel.h */; };
+		1CBEEF9519DDD5D10073A8AC /* DKArticlesTopicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBEEF9319DDD5D10073A8AC /* DKArticlesTopicViewModel.m */; };
+		1CC49B6619CA52C2003E3819 /* DKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */; };
+		1CC49BC219CB11C0003E3819 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		1CC49BC619CB12D7003E3819 /* DKSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC49BC519CB12D7003E3819 /* DKSessionTests.m */; };
+		1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC49BC719CB12EC003E3819 /* DKSession.m */; };
+		1CC49BCA19CB12EC003E3819 /* DKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CC49BC819CB12EC003E3819 /* DKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CD1FD5A19C72DF4003CDB5C /* DKListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FD5919C72DF4003CDB5C /* DKListViewControllerTests.m */; };
+		F18FA2F12E694D51B3933FE5 /* libPods-DeskKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00C7551D47BE4526B666CE85 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		07710415EB4DF3FC31890653 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1C14FB5B19DB1BA200557345 /* DKSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSettings.h; sourceTree = "<group>"; };
+		1C14FB5C19DB1BA200557345 /* DKSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSettings.m; sourceTree = "<group>"; };
+		1C19053A19CCCF580015BF15 /* DKArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKArticleDetailViewController.h; sourceTree = "<group>"; };
+		1C19053B19CCCF580015BF15 /* DKArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKArticleDetailViewController.m; sourceTree = "<group>"; };
+		1C1E17E119BF52F20034D202 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		1C1E17E419BF54750034D202 /* DKTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKTestUtils.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1C1E17E519BF54750034D202 /* DKTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKTestUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C1E17EB19BF60590034D202 /* DKAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKAPIManager.h; sourceTree = "<group>"; };
+		1C1E17EC19BF60590034D202 /* DKAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKAPIManager.m; sourceTree = "<group>"; };
+		1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKAPIManagerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C1E17F719BF66010034D202 /* DeskAPIAuth.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeskAPIAuth.plist; sourceTree = "<group>"; };
+		1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKNavigationBarTitleView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKNavigationBarTitleView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C2D99ED1A36081D00C471FB /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIColor+Additions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1C2D99EE1A36081D00C471FB /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIColor+Additions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DKStoryboard.storyboard; sourceTree = "<group>"; };
+		1C46EFDD19C0E769000FBCAC /* DKListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKListViewController.h; sourceTree = "<group>"; };
+		1C46EFDE19C0E769000FBCAC /* DKListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKListViewController.m; sourceTree = "<group>"; };
+		1C46EFFA19C123FB000FBCAC /* DKTopicsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKTopicsViewModel.h; sourceTree = "<group>"; };
+		1C46EFFB19C123FB000FBCAC /* DKTopicsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKTopicsViewModel.m; sourceTree = "<group>"; };
+		1C46EFFF19C1C74A000FBCAC /* DKListViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKListViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C46F00719C1CB41000FBCAC /* DKFixtures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKFixtures.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1C46F00819C1CB41000FBCAC /* DKFixtures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKFixtures.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C691D7419D0655B004D406C /* DKArticleDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKArticleDetailViewModel.h; sourceTree = "<group>"; };
+		1C691D7519D0655B004D406C /* DKArticleDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKArticleDetailViewModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKArticleDetailViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C691D7B19D07A8B004D406C /* topics_page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topics_page.json; sourceTree = "<group>"; };
+		1C691D7D19D07A96004D406C /* article.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = article.json; sourceTree = SOURCE_ROOT; };
+		1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKArticleDetailViewControllerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1C75FBF819BF34FE00971E46 /* DeskKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeskKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C75FBFC19BF34FE00971E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C75FBFD19BF34FE00971E46 /* DeskKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DeskKit.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1C75FC0319BF34FE00971E46 /* DeskKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeskKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C75FC0619BF34FE00971E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C7A03D21A6D64560049ED4A /* DKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKWebViewController.h; sourceTree = "<group>"; };
+		1C7A03D31A6D64560049ED4A /* DKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKWebViewController.m; sourceTree = "<group>"; };
+		1C7A03D61A6D66B10049ED4A /* DKWebViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKWebViewControllerTests.m; sourceTree = "<group>"; };
+		1C7A03D81A6D6AB30049ED4A /* DKContactUsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsWebViewController.h; sourceTree = "<group>"; };
+		1C7A03D91A6D6AB30049ED4A /* DKContactUsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsWebViewController.m; sourceTree = "<group>"; };
+		1C7A03DC1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsWebViewControllerTests.m; sourceTree = "<group>"; };
+		1C94680319CBC34D009E4570 /* DKListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKListViewModel.h; sourceTree = "<group>"; };
+		1C94680419CBC34D009E4570 /* DKListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKListViewModel.m; sourceTree = "<group>"; };
+		1C94680719CBC456009E4570 /* DKTopicsViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKTopicsViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CA021FA19CBE1C70091D8A9 /* DKArticlesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKArticlesViewModel.h; sourceTree = "<group>"; };
+		1CA021FB19CBE1C70091D8A9 /* DKArticlesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKArticlesViewModel.m; sourceTree = "<group>"; };
+		1CA021FE19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKArticlesTopicViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CA0220119CBE8200091D8A9 /* articles_page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = articles_page.json; sourceTree = "<group>"; };
+		1CAE840319D9B964007B0C62 /* DKBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DKBack.png; sourceTree = "<group>"; };
+		1CAE840619D9B986007B0C62 /* DKForwardt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DKForwardt@2x.png"; sourceTree = "<group>"; };
+		1CAE840719D9B986007B0C62 /* DKForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DKForward.png; sourceTree = "<group>"; };
+		1CAE840819D9B986007B0C62 /* DKBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DKBack@2x.png"; sourceTree = "<group>"; };
+		1CAE841119D9DF8D007B0C62 /* DKContactUsAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsAlertController.h; sourceTree = "<group>"; };
+		1CAE841219D9DF8D007B0C62 /* DKContactUsAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsAlertController.m; sourceTree = "<group>"; };
+		1CAE841519D9E17F007B0C62 /* DKContactUsAlertControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKContactUsAlertControllerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CB0AB7019CC619100B9D847 /* DKTopicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKTopicsViewController.h; sourceTree = "<group>"; };
+		1CB0AB7119CC619100B9D847 /* DKTopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKTopicsViewController.m; sourceTree = "<group>"; };
+		1CB0AB7419CC638A00B9D847 /* DKTopicsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKTopicsViewControllerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CB0AB7619CC647100B9D847 /* DKArticlesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKArticlesViewController.h; sourceTree = "<group>"; };
+		1CB0AB7719CC647100B9D847 /* DKArticlesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKArticlesViewController.m; sourceTree = "<group>"; };
+		1CB0AB7A19CC681F00B9D847 /* DKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKConstants.h; sourceTree = "<group>"; };
+		1CB0AB7B19CC681F00B9D847 /* DKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKConstants.m; sourceTree = "<group>"; };
+		1CB0AB7E19CC6B7700B9D847 /* DKArticlesViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKArticlesViewControllerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CB0E6B819DC54960048B5E6 /* NSTextCheckingResult+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextCheckingResult+Additions.h"; sourceTree = "<group>"; };
+		1CB0E6B919DC54960048B5E6 /* NSTextCheckingResult+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextCheckingResult+Additions.m"; sourceTree = "<group>"; };
+		1CB0E6BC19DC6CF90048B5E6 /* UIAlertController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Additions.h"; sourceTree = "<group>"; };
+		1CB0E6BD19DC6CF90048B5E6 /* UIAlertController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Additions.m"; sourceTree = "<group>"; };
+		1CB0E6C019DC85A80048B5E6 /* DKSettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKSettingsTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CB6E14F19DDFABA00E14B96 /* inbound_mailboxes_page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = inbound_mailboxes_page.json; sourceTree = "<group>"; };
+		1CBEEF8C19DDD49F0073A8AC /* DKArticlesSearchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKArticlesSearchViewModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		1CBEEF8D19DDD49F0073A8AC /* DKArticlesSearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKArticlesSearchViewModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CBEEF9019DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKArticlesSearchViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CBEEF9219DDD5D10073A8AC /* DKArticlesTopicViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKArticlesTopicViewModel.h; sourceTree = "<group>"; };
+		1CBEEF9319DDD5D10073A8AC /* DKArticlesTopicViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKArticlesTopicViewModel.m; sourceTree = "<group>"; };
+		1CC49BC519CB12D7003E3819 /* DKSessionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKSessionTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1CC49BC719CB12EC003E3819 /* DKSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSession.m; sourceTree = "<group>"; };
+		1CC49BC819CB12EC003E3819 /* DKSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSession.h; sourceTree = "<group>"; };
+		1CD1FD5919C72DF4003CDB5C /* DKListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKListViewControllerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		275806F19D8C14407B874E86 /* Pods-DeskKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKitTests/Pods-DeskKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeskKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C72C7D82CE6F1E2BD4465D0E /* Pods-DeskKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKitTests/Pods-DeskKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		F19B1B397F3E26EC44220883 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C75FBF419BF34FE00971E46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1E17E219BF52F20034D202 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C75FC0019BF34FE00971E46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1E17E319BF53D90034D202 /* DeskKit.framework in Frameworks */,
+				F18FA2F12E694D51B3933FE5 /* libPods-DeskKitTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C46EFD919C0E642000FBCAC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C46EFDD19C0E769000FBCAC /* DKListViewController.h */,
+				1C46EFDE19C0E769000FBCAC /* DKListViewController.m */,
+				1CB0AB7019CC619100B9D847 /* DKTopicsViewController.h */,
+				1CB0AB7119CC619100B9D847 /* DKTopicsViewController.m */,
+				1CB0AB7619CC647100B9D847 /* DKArticlesViewController.h */,
+				1CB0AB7719CC647100B9D847 /* DKArticlesViewController.m */,
+				1C7A03D21A6D64560049ED4A /* DKWebViewController.h */,
+				1C7A03D31A6D64560049ED4A /* DKWebViewController.m */,
+				1C19053A19CCCF580015BF15 /* DKArticleDetailViewController.h */,
+				1C19053B19CCCF580015BF15 /* DKArticleDetailViewController.m */,
+				1CAE841119D9DF8D007B0C62 /* DKContactUsAlertController.h */,
+				1CAE841219D9DF8D007B0C62 /* DKContactUsAlertController.m */,
+				1C7A03D81A6D6AB30049ED4A /* DKContactUsWebViewController.h */,
+				1C7A03D91A6D6AB30049ED4A /* DKContactUsWebViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1C46EFDA19C0E671000FBCAC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */,
+				1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */,
+				1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1C46EFF919C123E6000FBCAC /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				1C94680319CBC34D009E4570 /* DKListViewModel.h */,
+				1C94680419CBC34D009E4570 /* DKListViewModel.m */,
+				1C46EFFA19C123FB000FBCAC /* DKTopicsViewModel.h */,
+				1C46EFFB19C123FB000FBCAC /* DKTopicsViewModel.m */,
+				1CA021FA19CBE1C70091D8A9 /* DKArticlesViewModel.h */,
+				1CA021FB19CBE1C70091D8A9 /* DKArticlesViewModel.m */,
+				1CBEEF9219DDD5D10073A8AC /* DKArticlesTopicViewModel.h */,
+				1CBEEF9319DDD5D10073A8AC /* DKArticlesTopicViewModel.m */,
+				1CBEEF8C19DDD49F0073A8AC /* DKArticlesSearchViewModel.h */,
+				1CBEEF8D19DDD49F0073A8AC /* DKArticlesSearchViewModel.m */,
+				1C691D7419D0655B004D406C /* DKArticleDetailViewModel.h */,
+				1C691D7519D0655B004D406C /* DKArticleDetailViewModel.m */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		1C46EFFE19C1C732000FBCAC /* View Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1C46EFFF19C1C74A000FBCAC /* DKListViewModelTests.m */,
+				1C94680719CBC456009E4570 /* DKTopicsViewModelTests.m */,
+				1CA021FE19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m */,
+				1CBEEF9019DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m */,
+				1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */,
+			);
+			path = "View Model Tests";
+			sourceTree = "<group>";
+		};
+		1C46F00119C1CAC3000FBCAC /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				1CB6E14D19DDFA9100E14B96 /* Mailboxes */,
+				1C691D7A19D07A1E004D406C /* Articles */,
+				1C46F00219C1CAD0000FBCAC /* Topics */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		1C46F00219C1CAD0000FBCAC /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				1C691D7B19D07A8B004D406C /* topics_page.json */,
+				1CA0220019CBE8080091D8A9 /* Articles */,
+			);
+			path = Topics;
+			sourceTree = "<group>";
+		};
+		1C691D7A19D07A1E004D406C /* Articles */ = {
+			isa = PBXGroup;
+			children = (
+				1C691D7D19D07A96004D406C /* article.json */,
+			);
+			name = Articles;
+			path = ../Topics;
+			sourceTree = "<group>";
+		};
+		1C75FBEE19BF34FE00971E46 = {
+			isa = PBXGroup;
+			children = (
+				1C75FBFA19BF34FE00971E46 /* DeskKit */,
+				1C75FC0419BF34FE00971E46 /* DeskKitTests */,
+				1C75FBF919BF34FE00971E46 /* Products */,
+				F54C26BAAD894A61BADEF103 /* Frameworks */,
+				3E4F5D24FC637E3D57872BCC /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		1C75FBF919BF34FE00971E46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C75FBF819BF34FE00971E46 /* DeskKit.framework */,
+				1C75FC0319BF34FE00971E46 /* DeskKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C75FBFA19BF34FE00971E46 /* DeskKit */ = {
+			isa = PBXGroup;
+			children = (
+				1CB0E6B719DC54780048B5E6 /* Categories */,
+				1CAE840219D9B949007B0C62 /* Resources */,
+				1C46EFF919C123E6000FBCAC /* View Models */,
+				1C46EFDA19C0E671000FBCAC /* Views */,
+				1C46EFD919C0E642000FBCAC /* View Controllers */,
+				1C75FBFD19BF34FE00971E46 /* DeskKit.h */,
+				1C1E17EB19BF60590034D202 /* DKAPIManager.h */,
+				1C1E17EC19BF60590034D202 /* DKAPIManager.m */,
+				1CC49BC819CB12EC003E3819 /* DKSession.h */,
+				1CC49BC719CB12EC003E3819 /* DKSession.m */,
+				1CB0AB7A19CC681F00B9D847 /* DKConstants.h */,
+				1CB0AB7B19CC681F00B9D847 /* DKConstants.m */,
+				1C14FB5B19DB1BA200557345 /* DKSettings.h */,
+				1C14FB5C19DB1BA200557345 /* DKSettings.m */,
+				1C75FBFB19BF34FE00971E46 /* Supporting Files */,
+			);
+			path = DeskKit;
+			sourceTree = "<group>";
+		};
+		1C75FBFB19BF34FE00971E46 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C75FBFC19BF34FE00971E46 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C75FC0419BF34FE00971E46 /* DeskKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FD5819C72DD3003CDB5C /* View Controller Tests */,
+				1C46EFFE19C1C732000FBCAC /* View Model Tests */,
+				1CFB9B8319BF44B100AE38F0 /* API Tests */,
+				1C75FC0519BF34FE00971E46 /* Supporting Files */,
+				1CC49BC519CB12D7003E3819 /* DKSessionTests.m */,
+				1CB0E6C019DC85A80048B5E6 /* DKSettingsTests.m */,
+				1C1E17E419BF54750034D202 /* DKTestUtils.h */,
+				1C1E17E519BF54750034D202 /* DKTestUtils.m */,
+				1C46F00719C1CB41000FBCAC /* DKFixtures.h */,
+				1C46F00819C1CB41000FBCAC /* DKFixtures.m */,
+			);
+			path = DeskKitTests;
+			sourceTree = "<group>";
+		};
+		1C75FC0519BF34FE00971E46 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C46F00119C1CAC3000FBCAC /* Fixtures */,
+				1C1E17F719BF66010034D202 /* DeskAPIAuth.plist */,
+				1C75FC0619BF34FE00971E46 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CA0220019CBE8080091D8A9 /* Articles */ = {
+			isa = PBXGroup;
+			children = (
+				1CA0220119CBE8200091D8A9 /* articles_page.json */,
+			);
+			path = Articles;
+			sourceTree = "<group>";
+		};
+		1CAE840219D9B949007B0C62 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1CAE840519D9B96C007B0C62 /* Images */,
+			);
+			name = Resources;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
+		1CAE840519D9B96C007B0C62 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1CAE840619D9B986007B0C62 /* DKForwardt@2x.png */,
+				1CAE840719D9B986007B0C62 /* DKForward.png */,
+				1CAE840819D9B986007B0C62 /* DKBack@2x.png */,
+				1CAE840319D9B964007B0C62 /* DKBack.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		1CB0E6B719DC54780048B5E6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1CB0E6BC19DC6CF90048B5E6 /* UIAlertController+Additions.h */,
+				1CB0E6BD19DC6CF90048B5E6 /* UIAlertController+Additions.m */,
+				1CB0E6B819DC54960048B5E6 /* NSTextCheckingResult+Additions.h */,
+				1CB0E6B919DC54960048B5E6 /* NSTextCheckingResult+Additions.m */,
+				1C2D99ED1A36081D00C471FB /* UIColor+Additions.h */,
+				1C2D99EE1A36081D00C471FB /* UIColor+Additions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		1CB6E14D19DDFA9100E14B96 /* Mailboxes */ = {
+			isa = PBXGroup;
+			children = (
+				1CB6E14E19DDFAA000E14B96 /* Inbound */,
+			);
+			path = Mailboxes;
+			sourceTree = "<group>";
+		};
+		1CB6E14E19DDFAA000E14B96 /* Inbound */ = {
+			isa = PBXGroup;
+			children = (
+				1CB6E14F19DDFABA00E14B96 /* inbound_mailboxes_page.json */,
+			);
+			path = Inbound;
+			sourceTree = "<group>";
+		};
+		1CD1FD5819C72DD3003CDB5C /* View Controller Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1FD5919C72DF4003CDB5C /* DKListViewControllerTests.m */,
+				1CB0AB7419CC638A00B9D847 /* DKTopicsViewControllerTests.m */,
+				1C7A03D61A6D66B10049ED4A /* DKWebViewControllerTests.m */,
+				1CB0AB7E19CC6B7700B9D847 /* DKArticlesViewControllerTests.m */,
+				1C7A03DC1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m */,
+				1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */,
+				1CAE841519D9E17F007B0C62 /* DKContactUsAlertControllerTests.m */,
+			);
+			path = "View Controller Tests";
+			sourceTree = "<group>";
+		};
+		1CFB9B8319BF44B100AE38F0 /* API Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */,
+			);
+			path = "API Tests";
+			sourceTree = "<group>";
+		};
+		3E4F5D24FC637E3D57872BCC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F19B1B397F3E26EC44220883 /* Pods.debug.xcconfig */,
+				07710415EB4DF3FC31890653 /* Pods.release.xcconfig */,
+				275806F19D8C14407B874E86 /* Pods-DeskKitTests.debug.xcconfig */,
+				C72C7D82CE6F1E2BD4465D0E /* Pods-DeskKitTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F54C26BAAD894A61BADEF103 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C1E17E119BF52F20034D202 /* libPods.a */,
+				00C7551D47BE4526B666CE85 /* libPods.a */,
+				45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1C75FBF519BF34FE00971E46 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC49BCA19CB12EC003E3819 /* DKSession.h in Headers */,
+				1CB0AB7819CC647100B9D847 /* DKArticlesViewController.h in Headers */,
+				1CAE841319D9DF8D007B0C62 /* DKContactUsAlertController.h in Headers */,
+				1CB0AB7219CC619100B9D847 /* DKTopicsViewController.h in Headers */,
+				1C691D7619D0655B004D406C /* DKArticleDetailViewModel.h in Headers */,
+				1C1F5B6A1A362A5600C8D16C /* DKNavigationBarTitleView.h in Headers */,
+				1C94680519CBC34D009E4570 /* DKListViewModel.h in Headers */,
+				1CB0AB7C19CC681F00B9D847 /* DKConstants.h in Headers */,
+				1C46EFDF19C0E769000FBCAC /* DKListViewController.h in Headers */,
+				1C19053C19CCCF580015BF15 /* DKArticleDetailViewController.h in Headers */,
+				1C14FB5D19DB1BA200557345 /* DKSettings.h in Headers */,
+				1CB0E6BE19DC6CF90048B5E6 /* UIAlertController+Additions.h in Headers */,
+				1CB0E6BA19DC54960048B5E6 /* NSTextCheckingResult+Additions.h in Headers */,
+				1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */,
+				1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */,
+				1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */,
+				1C46EFFC19C123FB000FBCAC /* DKTopicsViewModel.h in Headers */,
+				1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */,
+				1C7A03DA1A6D6AB30049ED4A /* DKContactUsWebViewController.h in Headers */,
+				1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */,
+				1CA021FC19CBE1C70091D8A9 /* DKArticlesViewModel.h in Headers */,
+				1C75FBFE19BF34FE00971E46 /* DeskKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1C75FBF719BF34FE00971E46 /* DeskKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C75FC0B19BF34FE00971E46 /* Build configuration list for PBXNativeTarget "DeskKit" */;
+			buildPhases = (
+				B7FA6C38C69444AEB3E350EA /* Check Pods Manifest.lock */,
+				1C75FBF319BF34FE00971E46 /* Sources */,
+				1C75FBF419BF34FE00971E46 /* Frameworks */,
+				1C75FBF519BF34FE00971E46 /* Headers */,
+				1C75FBF619BF34FE00971E46 /* Resources */,
+				4CB636A03AD04319B1629A5A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeskKit;
+			productName = DeskKit;
+			productReference = 1C75FBF819BF34FE00971E46 /* DeskKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1C75FC0219BF34FE00971E46 /* DeskKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C75FC0E19BF34FE00971E46 /* Build configuration list for PBXNativeTarget "DeskKitTests" */;
+			buildPhases = (
+				20A2E85FDE074C1BA85EF229 /* Check Pods Manifest.lock */,
+				1C75FBFF19BF34FE00971E46 /* Sources */,
+				1C75FC0019BF34FE00971E46 /* Frameworks */,
+				1C75FC0119BF34FE00971E46 /* Resources */,
+				3BD7BAF95FCB42EBA4D36924 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeskKitTests;
+			productName = DeskKitTests;
+			productReference = 1C75FC0319BF34FE00971E46 /* DeskKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C75FBEF19BF34FE00971E46 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Desk.com;
+				TargetAttributes = {
+					1C75FBF719BF34FE00971E46 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					1C75FC0219BF34FE00971E46 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = 1C75FBF219BF34FE00971E46 /* Build configuration list for PBXProject "DeskKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1C75FBEE19BF34FE00971E46;
+			productRefGroup = 1C75FBF919BF34FE00971E46 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C75FBF719BF34FE00971E46 /* DeskKit */,
+				1C75FC0219BF34FE00971E46 /* DeskKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C75FBF619BF34FE00971E46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C46EFDC19C0E740000FBCAC /* DKStoryboard.storyboard in Resources */,
+				1CAE840419D9B964007B0C62 /* DKBack.png in Resources */,
+				1CAE840919D9B986007B0C62 /* DKForwardt@2x.png in Resources */,
+				1CAE840B19D9B986007B0C62 /* DKBack@2x.png in Resources */,
+				1CAE840A19D9B986007B0C62 /* DKForward.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C75FC0119BF34FE00971E46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC49B6619CA52C2003E3819 /* DKStoryboard.storyboard in Resources */,
+				1CA0220319CBE8200091D8A9 /* articles_page.json in Resources */,
+				1C691D7C19D07A8B004D406C /* topics_page.json in Resources */,
+				1CB6E15119DDFABA00E14B96 /* inbound_mailboxes_page.json in Resources */,
+				1C691D7F19D07A96004D406C /* article.json in Resources */,
+				1C1E17F819BF66010034D202 /* DeskAPIAuth.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20A2E85FDE074C1BA85EF229 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3BD7BAF95FCB42EBA4D36924 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeskKitTests/Pods-DeskKitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CB636A03AD04319B1629A5A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7FA6C38C69444AEB3E350EA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C75FBF319BF34FE00971E46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC49BC219CB11C0003E3819 /* (null) in Sources */,
+				1CB0AB7319CC619100B9D847 /* DKTopicsViewController.m in Sources */,
+				1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */,
+				1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */,
+				1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */,
+				1CA021FD19CBE1C70091D8A9 /* DKArticlesViewModel.m in Sources */,
+				1CBEEF9519DDD5D10073A8AC /* DKArticlesTopicViewModel.m in Sources */,
+				1C691D7719D0655B004D406C /* DKArticleDetailViewModel.m in Sources */,
+				1C7A03DB1A6D6AB30049ED4A /* DKContactUsWebViewController.m in Sources */,
+				1C2D99F01A36081D00C471FB /* UIColor+Additions.m in Sources */,
+				1C14FB5E19DB1BA200557345 /* DKSettings.m in Sources */,
+				1C46EFE019C0E769000FBCAC /* DKListViewController.m in Sources */,
+				1CBEEF8F19DDD49F0073A8AC /* DKArticlesSearchViewModel.m in Sources */,
+				1CAE841419D9DF8D007B0C62 /* DKContactUsAlertController.m in Sources */,
+				1C94680619CBC34D009E4570 /* DKListViewModel.m in Sources */,
+				1CB0E6BF19DC6CF90048B5E6 /* UIAlertController+Additions.m in Sources */,
+				1C7A03D51A6D64560049ED4A /* DKWebViewController.m in Sources */,
+				1C19053D19CCCF580015BF15 /* DKArticleDetailViewController.m in Sources */,
+				1CB0E6BB19DC54960048B5E6 /* NSTextCheckingResult+Additions.m in Sources */,
+				1CB0AB7D19CC681F00B9D847 /* DKConstants.m in Sources */,
+				1CB0AB7919CC647100B9D847 /* DKArticlesViewController.m in Sources */,
+				1C46EFFD19C123FB000FBCAC /* DKTopicsViewModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C75FBFF19BF34FE00971E46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C1E17E619BF54750034D202 /* DKTestUtils.m in Sources */,
+				1C94680819CBC456009E4570 /* DKTopicsViewModelTests.m in Sources */,
+				1CB0AB7F19CC6B7700B9D847 /* DKArticlesViewControllerTests.m in Sources */,
+				1C1E17F019BF621D0034D202 /* DKAPIManagerTests.m in Sources */,
+				1C46F00919C1CB41000FBCAC /* DKFixtures.m in Sources */,
+				1C7A03DD1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m in Sources */,
+				1CAE841619D9E17F007B0C62 /* DKContactUsAlertControllerTests.m in Sources */,
+				1CA021FF19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m in Sources */,
+				1C46F00019C1C74A000FBCAC /* DKListViewModelTests.m in Sources */,
+				1C691D8419D0A4EF004D406C /* DKArticleDetailViewControllerTests.m in Sources */,
+				1CB0AB7519CC638A00B9D847 /* DKTopicsViewControllerTests.m in Sources */,
+				1C691D7919D0789D004D406C /* DKArticleDetailViewModelTests.m in Sources */,
+				1CC49BC619CB12D7003E3819 /* DKSessionTests.m in Sources */,
+				1CD1FD5A19C72DF4003CDB5C /* DKListViewControllerTests.m in Sources */,
+				1CBEEF9119DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m in Sources */,
+				1C7A03D71A6D66B10049ED4A /* DKWebViewControllerTests.m in Sources */,
+				1CB0E6C119DC85A80048B5E6 /* DKSettingsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1C75FC0919BF34FE00971E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1C75FC0A19BF34FE00971E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1C75FC0C19BF34FE00971E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F19B1B397F3E26EC44220883 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DeskKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1C75FC0D19BF34FE00971E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07710415EB4DF3FC31890653 /* Pods.release.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DeskKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1C75FC0F19BF34FE00971E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 275806F19D8C14407B874E86 /* Pods-DeskKitTests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DeskKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1C75FC1019BF34FE00971E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C72C7D82CE6F1E2BD4465D0E /* Pods-DeskKitTests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DeskKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C75FBF219BF34FE00971E46 /* Build configuration list for PBXProject "DeskKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C75FC0919BF34FE00971E46 /* Debug */,
+				1C75FC0A19BF34FE00971E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C75FC0B19BF34FE00971E46 /* Build configuration list for PBXNativeTarget "DeskKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C75FC0C19BF34FE00971E46 /* Debug */,
+				1C75FC0D19BF34FE00971E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C75FC0E19BF34FE00971E46 /* Build configuration list for PBXNativeTarget "DeskKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C75FC0F19BF34FE00971E46 /* Debug */,
+				1C75FC1019BF34FE00971E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C75FBEF19BF34FE00971E46 /* Project object */;
+}

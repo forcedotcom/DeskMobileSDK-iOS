@@ -1,0 +1,51 @@
+/* Action button label */
+"Action" = "Action";
+
+/* Back button label */
+"Back" = "Back";
+
+/* Call Us button title */
+"Call Us" = "Call Us";
+
+/* Cancel button title */
+"Cancel" = "Cancel";
+
+/* Contact Us button title */
+"Contact Us" = "Contact Us";
+
+/* Email Us button title */
+"Email Us" = "Email Us";
+
+/* Error alert title */
+"Error" = "Error";
+
+/* Error displayed when a network error occurs. */
+"Failed to load content. Please ensure you are connected to the internet and try again." = "Failed to load content. Please ensure you are connected to the internet and try again.";
+
+/* Forward button label */
+"Forward" = "Forward";
+
+/* Post-email alert title */
+"Message Sent" = "Message Sent";
+
+/* No Results alert title */
+"No Results" = "No Results";
+
+/* OK button title */
+"OK" = "OK";
+
+/* Refresh button label */
+"Refresh" = "Refresh";
+
+/* Placeholder text for search bar on topics screen */
+"Search All Articles" = "Search All Articles";
+
+/* Prefix displayed before the search term when displaying search results */
+"Search Results: " = "Search Results: ";
+
+/* Post-email alert text */
+"Thanks for sending us an email. Someone will respond as soon as possible." = "Thanks for sending us an email. Someone will respond as soon as possible.";
+
+/* No results message body */
+"There are no articles matching that search. Please try again with a different search." = "There are no articles matching that search. Please try again with a different search.";
+

@@ -1,0 +1,4 @@
+#! /bin/bash
+
+find ./ \( -name "*.m" -o -name "*.h" \) -print0 | xargs -0 genstrings -skipTable AFNetworking
+mv Localizable.strings Localizable-Example.strings

@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+
+pod 'DeskAPIClient', :git => 'git@github.com:forcedotcom/DeskApiClient-ObjC', :tag => '1.0.6'
+pod 'DeskCommon', :git => 'git@github.com:forcedotcom/DeskCommon-Cocoa', :tag => '1.0.3'
+
+target 'DeskKitTests', :exclusive => true do
+    pod 'OCMock', '~>3.0.2'
+end
+
+post_install do |installer_representation|
+    installer_representation.project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+        end
+    end
+end
+
