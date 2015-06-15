@@ -18,5 +18,5 @@ DerivedData
 Pods
 
 # Secure docs
-DeskAPIAuth*.plist
+DeskAPIAuth.plist
 DeskKitSettings.plist
