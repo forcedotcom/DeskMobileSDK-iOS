@@ -58,7 +58,7 @@ The following items can be customized in the support portal (all  settings are o
 We have provided an example app to show how the above might work in your app. Here’s how to set it up and run it:
 
 1. From the root of the `desk-kit` directory, `cd DeskKitExample`
-1. `bundle exec pod install`
+1. `pod install`
 1. `cp DeskKitExample/DeskAPIAuth-Example.plist DeskKitExample/DeskAPIAuth.plist`
 1. `cp DeskKitExample/DeskKitSettings-Example.plist DeskKitExample/DeskKitSettings.plist`
 1. `open ./DeskKitExample.xcworkspace`
