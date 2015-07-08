@@ -38,12 +38,14 @@
 
 @property (nonatomic, readonly) NSInteger totalPages;
 @property (nonatomic, weak) id<DKListViewModelDelegate> delegate;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 - (void)reset;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (void)fetchItemsInSection:(NSInteger)section;
 - (void)fetchItemsOnPageNumber:(NSNumber *)pageNumber
                        perPage:(NSNumber *)perPage
+                         queue:(NSOperationQueue *)queue
                        success:(DSAPIPageSuccessBlock)success
                        failure:(DSAPIFailureBlock)failure;
 - (DSAPIResource *)itemAtIndexPath:(NSIndexPath *)indexPath;

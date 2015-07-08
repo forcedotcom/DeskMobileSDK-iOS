@@ -39,11 +39,7 @@
 
 @property (nonatomic) BOOL hasEmailUsAction;
 
-- (void)addCancelButton;
-- (void)addCallUsButton;
-- (void)addCallUsAction;
-- (void)addEmailUsButton;
-- (void)addEmailUsAction;
+@property (nonatomic, weak) UIAlertAction *emailUsAction;
 
 @end
 
@@ -91,21 +87,24 @@
 
 - (void)addEmailUsButton
 {
-    if ([[DKSession sharedInstance] hasContactUsEmailAddress]) {
-        [self addEmailUsAction];
-    }
+    [self addEmailUsAction];
+    self.emailUsAction.enabled = NO;
+    [[DKSession sharedInstance] hasContactUsEmailAddressWithCompletionHandler:^(BOOL hasContactUsEmailAddress) {
+        self.emailUsAction.enabled = YES;
+    }];
 }
 
 - (void)addEmailUsAction
 {
     if (!self.hasEmailUsAction) {
-        [self addAction:[UIAlertAction actionWithTitle:DKEmailUs
-                                                 style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction *action) {
-                                                   if ([self.delegate respondsToSelector:@selector(alertControllerDidTapSendEmail)]) {
-                                                       [self.delegate alertControllerDidTapSendEmail];
-                                                   }
-                                               }]];
+        self.emailUsAction = [UIAlertAction actionWithTitle:DKEmailUs
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction *action) {
+                                                        if ([self.delegate respondsToSelector:@selector(alertControllerDidTapSendEmail)]) {
+                                                            [self.delegate alertControllerDidTapSendEmail];
+                                                        }
+                                                    }];
+        [self addAction:self.emailUsAction];
         self.hasEmailUsAction = YES;
     }
 }

@@ -95,10 +95,9 @@
  The following are internal methods used by DeskKit. Generally clients will not need to call these methods.
  */
 
-- (BOOL)shouldShowContactUsButton;
 - (NSURL *)contactUsPhoneNumberUrl;
 - (BOOL)hasContactUsPhoneNumber;
 - (NSString *)contactUsEmailAddress;
-- (BOOL)hasContactUsEmailAddress;
+- (void)hasContactUsEmailAddressWithCompletionHandler:(void (^)(BOOL hasContactUsEmailAddress))completionHandler;
 
 @end
