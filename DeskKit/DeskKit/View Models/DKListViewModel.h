@@ -38,7 +38,6 @@
 
 @property (nonatomic, readonly) NSInteger totalPages;
 @property (nonatomic, weak) id<DKListViewModelDelegate> delegate;
-@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 - (void)reset;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;

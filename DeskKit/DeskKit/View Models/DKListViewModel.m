@@ -36,6 +36,7 @@
 
 @property (nonatomic) NSNumber *totalItems;
 @property (nonatomic, strong) NSMutableDictionary *loadedPages;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 @end
 
@@ -78,14 +79,14 @@
                                  perPage:@(DKItemsPerPage)
                                    queue:self.APICallbackQueue
                                  success:^(DSAPIPage *page) {
-                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                     dispatch_sync(dispatch_get_main_queue(), ^{
                                          [self handleLoadedItemsOnPage:page];
-                                     }];
+                                     });
                                  }
                                  failure:^(NSHTTPURLResponse *response, NSError *error) {
-                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                     dispatch_sync(dispatch_get_main_queue(), ^{
                                          [self sendFetchDidFailOnPageNumber:@(pageNumber)];
-                                     }];
+                                     });
                                  }];
         }
     }
