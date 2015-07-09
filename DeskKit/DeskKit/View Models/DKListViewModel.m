@@ -78,14 +78,14 @@
                                  perPage:@(DKItemsPerPage)
                                    queue:self.APICallbackQueue
                                  success:^(DSAPIPage *page) {
-                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                          [self handleLoadedItemsOnPage:page];
-                                     });
+                                     }];
                                  }
                                  failure:^(NSHTTPURLResponse *response, NSError *error) {
-                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                          [self sendFetchDidFailOnPageNumber:@(pageNumber)];
-                                     });
+                                     }];
                                  }];
         }
     }

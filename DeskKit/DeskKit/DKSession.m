@@ -163,16 +163,16 @@ static NSInteger const DSMailboxesPerPage = 100;
                                       self.contactUsEmailAddress = [self firstEnabledInboundEmailAddressFromPage:page];
                                   }
                                   if (completionHandler) {
-                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                           completionHandler();
-                                      });
+                                     }];
                                   }
                               }
                               failure:^(NSHTTPURLResponse *response, NSError *error) {
                                   if (completionHandler) {
-                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                           completionHandler();
-                                      });
+                                     }];
                                   }
                               }];
 }
