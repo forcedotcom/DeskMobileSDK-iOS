@@ -63,7 +63,7 @@
 {
     [DSAPIArticle searchArticlesWithParameters:[self parametersForPageNumber:pageNumber
                                                                      perPage:perPage]
-                                         queue:self.APICallbackQueue
+                                         queue:queue
                                        success:success
                                        failure:failure];
 }

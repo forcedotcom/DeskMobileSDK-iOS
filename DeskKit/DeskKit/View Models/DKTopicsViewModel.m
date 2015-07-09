@@ -61,13 +61,13 @@ NSString *const DKInSupportCenterKey = @"in_support_center";
     if (self.shouldAddBrandContext) {
         [self.brand listTopicsWithParameters:[self parametersForPageNumber:pageNumber
                                                                    perPage:perPage]
-                                       queue:self.APICallbackQueue
+                                       queue:queue
                                      success:success
                                      failure:failure];
     } else {
         [DSAPITopic listTopicsWithParameters:[self parametersForPageNumber:pageNumber
                                                                    perPage:perPage]
-                                       queue:self.APICallbackQueue
+                                       queue:queue
                                      success:success
                                      failure:failure];
     }
