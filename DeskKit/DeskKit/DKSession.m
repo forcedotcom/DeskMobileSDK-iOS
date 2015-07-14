@@ -177,7 +177,7 @@ static NSInteger const DSMailboxesPerPage = 100;
                               }];
 }
 
-- (void)hasContactUsEmailAddressWithCompletionHandler:(void (^)(BOOL hasContactUsEmailAddress))completionHandler
+- (void)hasContactUsEmailAddressWithCompletionHandler:(nonnull void (^)(BOOL hasContactUsEmailAddress))completionHandler
 {
     if (self.contactUsEmailAddress.length > 0) {
         completionHandler(YES);
