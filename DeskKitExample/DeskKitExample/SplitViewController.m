@@ -67,9 +67,15 @@ MFMailComposeViewControllerDelegate>
     self.topicsViewController = [self newTopicsViewController];
     [self.masterNavigationController setViewControllers:@[self.topicsViewController]];
     self.masterNavigationController.toolbarHidden = NO;
+    self.masterNavigationController.view.backgroundColor = [UIColor whiteColor];
     self.detailNavigationController.toolbarHidden = NO;
 
     [self showMasterViewControllerIfNeeded];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)showMasterViewControllerIfNeeded

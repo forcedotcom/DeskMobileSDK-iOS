@@ -30,6 +30,7 @@
 
 #import "AppDelegate.h"
 #import <DeskKit/DeskKit.h>
+#import "DKSettings.h"
 
 @interface AppDelegate ()
 
@@ -53,6 +54,8 @@
     
     [DKSession start:authDictionary[@"Hostname"]
             apiToken:authDictionary[@"ApiToken"]];
+    
+    self.window.tintColor = [DKSettings sharedInstance].topNavBarTintColor;
     
     return YES;
 }
