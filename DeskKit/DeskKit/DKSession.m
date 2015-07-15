@@ -152,7 +152,7 @@ static NSInteger const DSMailboxesPerPage = 100;
     }
 }
 
-- (void)fetchInboundMailboxesWithCompletionHandler:(void (^)(void))completionHandler;
+- (void)fetchInboundMailboxesWithCompletionHandler:(void (^)(void))completionHandler
 {
     [DSAPIMailbox listMailboxesOfType:DSAPIMailboxTypeInbound
                            parameters:@{ kPageKey : @1,
@@ -177,7 +177,7 @@ static NSInteger const DSMailboxesPerPage = 100;
                               }];
 }
 
-- (void)hasContactUsEmailAddressWithCompletionHandler:(nonnull void (^)(BOOL hasContactUsEmailAddress))completionHandler
+- (void)hasContactUsEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsEmailAddress))completionHandler
 {
     if (self.contactUsEmailAddress.length > 0) {
         completionHandler(YES);

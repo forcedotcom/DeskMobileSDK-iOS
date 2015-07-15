@@ -101,6 +101,6 @@ NS_ASSUME_NONNULL_END
 - (nullable NSURL *)contactUsPhoneNumberUrl;
 - (BOOL)hasContactUsPhoneNumber;
 - (nullable NSString *)contactUsEmailAddress;
-- (void)hasContactUsEmailAddressWithCompletionHandler:(nonnull void (^)(BOOL hasContactUsEmailAddress))completionHandler;
+- (void)hasContactUsEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsEmailAddress))completionHandler;
 
 @end
