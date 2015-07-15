@@ -103,27 +103,4 @@
     OCMVerifyAll(self.mock);
 }
 
-- (void)testDoesntAddEmailUsButtonIfSessionHasNoEmail
-{
-    id sessionMock = OCMPartialMock([DKSession sharedInstance]);
-    OCMStub([sessionMock hasContactUsEmailAddress]).andReturn(NO);
-    
-    [[self.mock reject] addEmailUsAction];
-    [self.contactUs addEmailUsButton];
-    
-    OCMVerifyAll(self.mock);
-}
-
-- (void)testAddsCallUsButtonIfSessionHasEmail
-{
-    id sessionMock = OCMPartialMock([DKSession sharedInstance]);
-    OCMStub([sessionMock hasContactUsEmailAddress]).andReturn(YES);
-    
-    OCMExpect([self.mock addAction:OCMOCK_ANY]);
-    
-    [self.contactUs addEmailUsButton];
-    
-    OCMVerifyAll(self.mock);
-}
-
 @end

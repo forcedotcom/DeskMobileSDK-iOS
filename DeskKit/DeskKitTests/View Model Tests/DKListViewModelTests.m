@@ -53,6 +53,8 @@
 
 @interface DKListViewModelTests : XCTestCase
 
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
+
 @end
 
 @implementation DKListViewModelTests
@@ -60,6 +62,7 @@
 - (void)setUp
 {
     [super setUp];
+    self.APICallbackQueue = [NSOperationQueue new];
 }
 
 - (void)testLoadsItemsWhenSessionIsStarted
@@ -70,7 +73,7 @@
     id sessionMock = OCMClassMock([DKSession class]);
     OCMStub([sessionMock isSessionStarted]).andReturn(YES);
     
-    OCMExpect([mock fetchItemsOnPageNumber:@1 perPage:@(DKItemsPerPage) success:OCMOCK_ANY failure:OCMOCK_ANY]);
+    OCMExpect([mock fetchItemsOnPageNumber:@1 perPage:@(DKItemsPerPage) queue:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY]);
     
     [viewModel fetchItemsInSection:0];
     
@@ -123,7 +126,7 @@
     OCMStub([SessionClassMock isSessionStarted]).andReturn(YES);
     OCMStub([mock shouldFetchItemsOnPageNumber:@(1)]).andReturn(YES);
     
-    OCMExpect([mock fetchItemsOnPageNumber:@(1) perPage:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY]);
+    OCMExpect([mock fetchItemsOnPageNumber:@(1) perPage:OCMOCK_ANY queue:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY]);
     
     [viewModel fetchItemsInSection:0];
     
@@ -182,7 +185,7 @@
     id sessionMock = OCMClassMock([DKSession class]);
     OCMStub([sessionMock isSessionStarted]).andReturn(NO);
     
-    [[mock reject] fetchItemsOnPageNumber:@1 perPage:@100 success:OCMOCK_ANY failure:OCMOCK_ANY];
+    [[mock reject] fetchItemsOnPageNumber:@1 perPage:@100 queue:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY];
     
     [viewModel fetchItemsInSection:0];
     

@@ -57,7 +57,7 @@
                     transitionDuration:(NSTimeInterval)transitionDuration
                      transitionOptions:(UIViewAnimationOptions)transitionOptions;
 - (void)setupContactUsEmail;
-- (void)fetchInboundMailboxes;
+- (void)fetchInboundMailboxesWithCompletionHandler:(void (^)(void))completionHandler;
 - (DSAPIMailbox *)firstEnabledInboundMailboxFromPage:(DSAPIPage *)page;
 - (NSString *)firstEnabledInboundEmailAddressFromPage:(DSAPIPage *)page;
 
@@ -95,8 +95,8 @@
 {
     id SessionClassMock = OCMClassMock([DKSession class]);
 
-    [DKSession start:nil
-            apiToken:nil];
+    [DKSession start:@""
+            apiToken:@""];
 
     OCMVerify([SessionClassMock setupAppearances]);
 }
@@ -121,7 +121,7 @@
     OCMStub([settingsMock contactUsEmailAddress]).andReturn(email);
 
     id sessionMock = OCMPartialMock([DKSession sharedInstance]);
-    OCMExpect([sessionMock fetchInboundMailboxes]);
+    OCMExpect([sessionMock fetchInboundMailboxesWithCompletionHandler:nil]);
 
     [self.testSession setupContactUsEmail];
 
