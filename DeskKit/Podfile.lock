@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DeskAPIClient:
-    :commit: c9ec5edd7c2cb1791c0edd7eca661a90a7fff9bc
+    :commit: e4001d5fb8eb80a187c5a96e40186c9d8f8fed97
     :git: git@github.com:forcedotcom/DeskApiClient-ObjC
   DeskCommon:
     :git: git@github.com:forcedotcom/DeskCommon-Cocoa
