@@ -38,8 +38,8 @@ static NSString *const DKSettingsContactUsEmailKey = @"ContactUsEmailAddress";
 static NSString *const DKSettingsShowContactUsWebForm = @"ShowContactUsWebForm";
 static NSString *const DKSettingsBrandIdKey = @"BrandId";
 static NSString *const DKSettingsTopNavKey = @"NavigationBar";
-static NSString *const DKSettingsTopNavTintColorRgbaKey = @"TintColorRGBA";
-static NSString *const DKSettingsTopNavBarTintColorRgbaKey = @"BarTintColorRGBA";
+static NSString *const DKSettingsTopNavTintColorRGBAKey = @"TintColorRGBA";
+static NSString *const DKSettingsTopNavBarTintColorRGBAKey = @"BarTintColorRGBA";
 static NSString *const DKSettingsTopNavIconFileNameKey = @"TopNavIconFileName";
 static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
 
@@ -162,34 +162,34 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
     return [self.settings valueForKey:DKSettingsTopNavKey];
 }
 
-- (NSDictionary *)topNavTintColorRgba
+- (NSDictionary *)topNavTintColorRGBA
 {
-    return [self.topNavSettings valueForKey:DKSettingsTopNavTintColorRgbaKey];
+    return [self.topNavSettings valueForKey:DKSettingsTopNavTintColorRGBAKey];
 }
 
-- (BOOL)hasTopNavTintColorRgba
+- (BOOL)hasTopNavTintColorRGBA
 {
-    return self.topNavTintColorRgba != nil;
+    return self.topNavTintColorRGBA != nil;
 }
 
 - (UIColor *)topNavTintColor
 {
-    return self.hasTopNavTintColorRgba ? [UIColor colorWithDictionary:self.topNavTintColorRgba] : [UIColor blackColor];
+    return self.hasTopNavTintColorRGBA ? [UIColor colorWithDictionary:self.topNavTintColorRGBA] : [UIColor blackColor];
 }
 
-- (NSDictionary *)topNavBarTintColorRgba
+- (NSDictionary *)topNavBarTintColorRGBA
 {
-    return [self.topNavSettings valueForKey:DKSettingsTopNavBarTintColorRgbaKey];
+    return [self.topNavSettings valueForKey:DKSettingsTopNavBarTintColorRGBAKey];
 }
 
-- (BOOL)hasTopNavBarTintColorRgba
+- (BOOL)hasTopNavBarTintColorRGBA
 {
-    return self.topNavBarTintColorRgba != nil;
+    return self.topNavBarTintColorRGBA != nil;
 }
 
 - (UIColor *)topNavBarTintColor
 {
-    return self.hasTopNavBarTintColorRgba ? [UIColor colorWithDictionary:self.topNavBarTintColorRgba] : [UIColor whiteColor];
+    return self.hasTopNavBarTintColorRGBA ? [UIColor colorWithDictionary:self.topNavBarTintColorRGBA] : [UIColor whiteColor];
 }
 
 - (NSString *)topNavIconFileName
