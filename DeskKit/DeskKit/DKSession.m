@@ -120,10 +120,11 @@ static NSInteger const DSMailboxesPerPage = 100;
 
     [[UINavigationBar appearance] setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
     [[UINavigationBar appearance] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
-
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
-        setTitleTextAttributes:topNavTitleTextAttributes
-                      forState:UIControlStateNormal];
+    
+    [[UIToolbar appearance] setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
+    [[UIToolbar appearance] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], [UIToolbar class], nil] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
 }
 
 - (NSURL *)contactUsPhoneNumberUrl
