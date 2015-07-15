@@ -90,7 +90,7 @@
     [self addEmailUsAction];
     self.emailUsAction.enabled = NO;
     [[DKSession sharedInstance] hasContactUsEmailAddressWithCompletionHandler:^(BOOL hasContactUsEmailAddress) {
-        self.emailUsAction.enabled = YES;
+        self.emailUsAction.enabled = hasContactUsEmailAddress;
     }];
 }
 
