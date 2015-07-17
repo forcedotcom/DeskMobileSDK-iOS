@@ -45,6 +45,7 @@
 
 @property (nonatomic, strong) DKTopicsViewModel *viewModel;
 @property (nonatomic, strong) id mock;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 @end
 
@@ -55,6 +56,7 @@
     [super setUp];
     self.viewModel = [DKTopicsViewModel new];
     self.mock = OCMPartialMock(self.viewModel);
+    self.APICallbackQueue = [NSOperationQueue new];
 }
 
 - (void)testParameters
@@ -79,10 +81,11 @@
                               DKSortDirectionKey : DKSortDirectionAsc };
 
     OCMExpect([TopicClassMock listTopicsWithParameters:params
+                                                 queue:OCMOCK_ANY
                                                success:OCMOCK_ANY
                                                failure:OCMOCK_ANY]);
 
-    [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 success:nil failure:nil];
+    [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 queue:self.APICallbackQueue success:nil failure:nil];
 
     OCMVerifyAll(TopicClassMock);
 }
@@ -99,14 +102,16 @@
     OCMStub([self.mock brand]).andReturn(brand);
 
     [[brandMock expect] listTopicsWithParameters:OCMOCK_ANY
+                                           queue:OCMOCK_ANY
                                          success:OCMOCK_ANY
                                          failure:OCMOCK_ANY];
 
     [[TopicClassMock reject] listTopicsWithParameters:OCMOCK_ANY
+                                                queue:OCMOCK_ANY
                                               success:OCMOCK_ANY
                                               failure:OCMOCK_ANY];
 
-    [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 success:nil failure:nil];
+    [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 queue:self.APICallbackQueue success:nil failure:nil];
 
     OCMVerifyAll(brandMock);
 }

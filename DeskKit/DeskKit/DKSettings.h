@@ -47,12 +47,12 @@
 - (BOOL)hasBrandId;
 - (DSAPIBrand *)brand;
 
-- (NSDictionary *)topNavTintColorRgba;
-- (BOOL)hasTopNavTintColorRgba;
+- (NSDictionary *)topNavTintColorRGBA;
+- (BOOL)hasTopNavTintColorRGBA;
 - (UIColor *)topNavTintColor;
 
-- (NSDictionary *)topNavBarTintColorRgba;
-- (BOOL)hasTopNavBarTintColorRgba;
+- (NSDictionary *)topNavBarTintColorRGBA;
+- (BOOL)hasTopNavBarTintColorRGBA;
 - (UIColor *)topNavBarTintColor;
 
 - (NSString *)topNavIconFileName;

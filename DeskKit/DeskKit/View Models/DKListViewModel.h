@@ -44,6 +44,7 @@
 - (void)fetchItemsInSection:(NSInteger)section;
 - (void)fetchItemsOnPageNumber:(NSNumber *)pageNumber
                        perPage:(NSNumber *)perPage
+                         queue:(NSOperationQueue *)queue
                        success:(DSAPIPageSuccessBlock)success
                        failure:(DSAPIFailureBlock)failure;
 - (DSAPIResource *)itemAtIndexPath:(NSIndexPath *)indexPath;

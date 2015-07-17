@@ -42,6 +42,7 @@
 
 @property (nonatomic, strong) DKArticlesTopicViewModel *viewModel;
 @property (nonatomic, strong) id mock;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 @end
 
@@ -53,6 +54,7 @@
     self.viewModel = [DKArticlesTopicViewModel new];
     self.viewModel.topic = [DKFixtures topicsPage].entries.firstObject;
     self.mock = OCMPartialMock(self.viewModel);
+    self.APICallbackQueue = [NSOperationQueue new];
 }
 
 - (void)testParameters
@@ -92,10 +94,11 @@
     NSDictionary *params = [self.viewModel parametersForPageNumber:pageNumber perPage:perPage];
 
     OCMExpect([APIArticleClassMock searchArticlesWithParameters:params
+                                                          queue:OCMOCK_ANY
                                                         success:OCMOCK_ANY
                                                         failure:OCMOCK_ANY]);
 
-    [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 success:nil failure:nil];
+    [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 queue:self.APICallbackQueue success:nil failure:nil];
 
     OCMVerifyAll(APIArticleClassMock);
 }

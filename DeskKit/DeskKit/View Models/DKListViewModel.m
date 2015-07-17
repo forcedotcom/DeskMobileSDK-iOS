@@ -36,18 +36,7 @@
 
 @property (nonatomic) NSNumber *totalItems;
 @property (nonatomic, strong) NSMutableDictionary *loadedPages;
-
-- (BOOL)shouldFetchItemsOnPageNumber:(NSNumber *)pageNumber;
-- (BOOL)alreadyLoadedItemsOnPageNumber:(NSNumber *)pageNumber;
-- (BOOL)pageNumberIsFetchable:(NSNumber *)pageNumber;
-- (void)handleLoadedItemsOnPage:(DSAPIPage *)page;
-- (void)sendWillFetchPageNumber:(NSNumber *)pageNumber;
-- (void)sendDidFetchPage:(DSAPIPage *)page;
-- (void)sendFetchDidFailOnPageNumber:(NSNumber *)pageNumber;
-- (void)sendNoResults;
-- (DSAPIPage *)loadedPageAtIndexPath:(NSIndexPath *)indexPath;
-- (NSInteger)pageNumberFromSection:(NSInteger)section;
-- (NSInteger)sectionFromPageNumber:(NSInteger)pageNumber;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 @end
 
@@ -66,6 +55,7 @@
 {
     self.loadedPages = [NSMutableDictionary new];
     self.totalItems = @0;
+    self.APICallbackQueue = [NSOperationQueue new];
 }
 
 - (NSInteger)totalPages
@@ -85,11 +75,19 @@
         NSInteger pageNumber = [self pageNumberFromSection:section];
         if ([self shouldFetchItemsOnPageNumber:@(pageNumber)]) {
             [self sendWillFetchPageNumber:@(pageNumber)];
-            [self fetchItemsOnPageNumber:@(pageNumber) perPage:@(DKItemsPerPage) success:^(DSAPIPage *page) {
-                [self handleLoadedItemsOnPage:page];
-            } failure:^(NSHTTPURLResponse *response, NSError *error) {
-                [self sendFetchDidFailOnPageNumber:@(pageNumber)];
-            }];
+            [self fetchItemsOnPageNumber:@(pageNumber)
+                                 perPage:@(DKItemsPerPage)
+                                   queue:self.APICallbackQueue
+                                 success:^(DSAPIPage *page) {
+                                     dispatch_sync(dispatch_get_main_queue(), ^{
+                                         [self handleLoadedItemsOnPage:page];
+                                     });
+                                 }
+                                 failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                     dispatch_sync(dispatch_get_main_queue(), ^{
+                                         [self sendFetchDidFailOnPageNumber:@(pageNumber)];
+                                     });
+                                 }];
         }
     }
 }
@@ -118,6 +116,7 @@
 
 - (void)fetchItemsOnPageNumber:(NSNumber *)pageNumber
                        perPage:(NSNumber *)perPage
+                         queue:(NSOperationQueue *)queue
                        success:(DSAPIPageSuccessBlock)success
                        failure:(DSAPIFailureBlock)failure
 {

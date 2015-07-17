@@ -36,6 +36,7 @@
 
 @interface DKSession : NSObject
 
+NS_ASSUME_NONNULL_BEGIN
 /**
  Starts a DeskKit Session. This method should be called in your app delegate, or in any view controller
  you'll use to display the DeskKit support screens. You only need to call this once, but multiple calls
@@ -89,16 +90,17 @@
  */
 + (DKArticleDetailViewController *)newArticleDetailViewController;
 
+NS_ASSUME_NONNULL_END
+
 #pragma mark - Internal Methods
 
 /**
  The following are internal methods used by DeskKit. Generally clients will not need to call these methods.
  */
 
-- (BOOL)shouldShowContactUsButton;
-- (NSURL *)contactUsPhoneNumberUrl;
+- (nullable NSURL *)contactUsPhoneNumberUrl;
 - (BOOL)hasContactUsPhoneNumber;
-- (NSString *)contactUsEmailAddress;
-- (BOOL)hasContactUsEmailAddress;
+- (nullable NSString *)contactUsEmailAddress;
+- (void)hasContactUsEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsEmailAddress))completionHandler;
 
 @end

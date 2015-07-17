@@ -36,6 +36,7 @@
 @interface DKAPIManagerTests : XCTestCase
 
 @property (nonatomic, strong) DKAPIManager *manager;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 @end
 
@@ -45,12 +46,13 @@
 {
     [super setUp];
     self.manager = [DKTestUtils authorizedApiManager];
+    self.APICallbackQueue = [NSOperationQueue new];
 }
 
 - (void)testCanAuthorizeApi {
     XCTestExpectation *apiSuccessExpectation = [self expectationWithDescription:@"Makes an api call"];
     
-    [DSAPIArticle listArticlesWithParameters:nil success:^(DSAPIPage *page) {
+    [DSAPIArticle listArticlesWithParameters:nil queue:self.APICallbackQueue success:^(DSAPIPage *page) {
         [apiSuccessExpectation fulfill];
     } failure:^(NSHTTPURLResponse *response, NSError *error) {
         XCTFail(@"Received error: %@ on response %@", error, response);

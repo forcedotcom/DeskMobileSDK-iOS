@@ -59,10 +59,12 @@ static NSString *const DKArticleTextKey = @"text";
 
 - (void)fetchItemsOnPageNumber:(NSNumber *)pageNumber
                        perPage:(NSNumber *)perPage
+                         queue:(NSOperationQueue *)queue
                        success:(DSAPIPageSuccessBlock)success
                        failure:(DSAPIFailureBlock)failure
 {
     [DSAPIArticle searchArticlesWithParameters:[self parametersForPageNumber:pageNumber perPage:perPage]
+                                         queue:queue
                                        success:success
                                        failure:failure];
 }

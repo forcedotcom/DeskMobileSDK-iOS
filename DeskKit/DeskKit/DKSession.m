@@ -43,12 +43,7 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 @property (nonatomic, strong) NSURL *contactUsPhoneNumberUrl;
 @property (nonatomic, strong) NSString *contactUsEmailAddress;
-
-+ (void)setupAppearances;
-- (void)setupContactUsEmail;
-- (void)fetchInboundMailboxes;
-- (DSAPIMailbox *)firstEnabledInboundMailboxFromPage:(DSAPIPage *)page;
-- (NSString *)firstEnabledInboundEmailAddressFromPage:(DSAPIPage *)page;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 @end
 
@@ -74,6 +69,15 @@ static NSInteger const DSMailboxesPerPage = 100;
         sharedInstance = [[DKSession alloc] init];
     });
     return sharedInstance;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _APICallbackQueue = [NSOperationQueue new];
+    }
+    return self;
 }
 
 + (BOOL)isSessionStarted
@@ -122,11 +126,6 @@ static NSInteger const DSMailboxesPerPage = 100;
                       forState:UIControlStateNormal];
 }
 
-- (BOOL)shouldShowContactUsButton
-{
-    return [self hasContactUsEmailAddress] || [self hasContactUsPhoneNumber];
-}
-
 - (NSURL *)contactUsPhoneNumberUrl
 {
     if (!self.hasContactUsPhoneNumber) {
@@ -149,26 +148,44 @@ static NSInteger const DSMailboxesPerPage = 100;
     if ([DKSettings sharedInstance].hasContactUsEmailAddress) {
         self.contactUsEmailAddress = [DKSettings sharedInstance].contactUsEmailAddress;
     } else {
-        [[DKSession sharedInstance] fetchInboundMailboxes];
+        [[DKSession sharedInstance] fetchInboundMailboxesWithCompletionHandler:nil];
     }
 }
 
-- (void)fetchInboundMailboxes
+- (void)fetchInboundMailboxesWithCompletionHandler:(void (^)(void))completionHandler
 {
     [DSAPIMailbox listMailboxesOfType:DSAPIMailboxTypeInbound
                            parameters:@{ kPageKey : @1,
                                          kPerPageKey : @(DSMailboxesPerPage) }
+                                queue:self.APICallbackQueue
                               success:^(DSAPIPage *page) {
                                   if ([page.totalEntries integerValue]) {
                                       self.contactUsEmailAddress = [self firstEnabledInboundEmailAddressFromPage:page];
                                   }
+                                  if (completionHandler) {
+                                     dispatch_sync(dispatch_get_main_queue(), ^{
+                                          completionHandler();
+                                     });
+                                  }
                               }
-                              failure:nil];
+                              failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                  if (completionHandler) {
+                                     dispatch_sync(dispatch_get_main_queue(), ^{
+                                          completionHandler();
+                                     });
+                                  }
+                              }];
 }
 
-- (BOOL)hasContactUsEmailAddress
+- (void)hasContactUsEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsEmailAddress))completionHandler
 {
-    return self.contactUsEmailAddress.length > 0;
+    if (self.contactUsEmailAddress.length > 0) {
+        completionHandler(YES);
+    } else {
+        [self fetchInboundMailboxesWithCompletionHandler:^{
+            self.contactUsEmailAddress.length > 0 ? completionHandler(YES) : completionHandler(NO);
+        }];
+    }
 }
 
 - (DSAPIMailbox *)firstEnabledInboundMailboxFromPage:(DSAPIPage *)page

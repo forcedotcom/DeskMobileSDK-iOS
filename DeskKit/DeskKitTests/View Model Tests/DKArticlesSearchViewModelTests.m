@@ -41,6 +41,7 @@
 
 @property (nonatomic, strong) DKArticlesSearchViewModel *viewModel;
 @property (nonatomic, strong) id mock;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
 
 @end
 
@@ -52,6 +53,7 @@
     self.viewModel = [DKArticlesSearchViewModel new];
     self.viewModel.searchTerm = @"foo";
     self.mock = OCMPartialMock(self.viewModel);
+    self.APICallbackQueue = [NSOperationQueue new];
 }
 
 - (void)testParameters
@@ -97,9 +99,9 @@
     id ArticleClassMock = OCMClassMock([DSAPIArticle class]);
 
     NSDictionary *params = [self.viewModel parametersForPageNumber:@1 perPage:@100];
-    OCMExpect([ArticleClassMock searchArticlesWithParameters:params success:OCMOCK_ANY failure:OCMOCK_ANY]);
+    OCMExpect([ArticleClassMock searchArticlesWithParameters:params queue:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY]);
 
-    [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 success:nil failure:nil];
+    [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 queue:self.APICallbackQueue success:nil failure:nil];
 
     OCMVerifyAll(ArticleClassMock);
 }
