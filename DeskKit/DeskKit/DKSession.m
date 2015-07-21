@@ -4,19 +4,19 @@
 //
 //  Copyright (c) 2015, Salesforce.com, Inc.
 //  All rights reserved.
-//  
+//
 //  Redistribution and use in source and binary forms, with or without modification, are permitted provided
 //  that the following conditions are met:
-//  
+//
 //     Redistributions of source code must retain the above copyright notice, this list of conditions and the
 //     following disclaimer.
-//  
+//
 //     Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
 //     the following disclaimer in the documentation and/or other materials provided with the distribution.
-//  
+//
 //     Neither the name of Salesforce.com, Inc. nor the names of its contributors may be used to endorse or
 //     promote products derived from this software without specific prior written permission.
-//  
+//
 //  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
 //  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
 //  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
@@ -44,6 +44,7 @@ static NSInteger const DSMailboxesPerPage = 100;
 @property (nonatomic, strong) NSURL *contactUsPhoneNumberUrl;
 @property (nonatomic, strong) NSString *contactUsEmailAddress;
 @property (nonatomic) NSOperationQueue *APICallbackQueue;
+@property (nonatomic) NSURLSessionDataTask *listMailboxesTask;
 
 @end
 
@@ -55,9 +56,9 @@ static NSInteger const DSMailboxesPerPage = 100;
     [DKSession sharedInstance];
     [[DKAPIManager sharedInstance] apiClientWithHostname:hostname
                                                 apiToken:apiToken];
-
+    
     [[DKSession sharedInstance] setupContactUsEmail];
-
+    
     [DKSession setupAppearances];
 }
 
@@ -113,11 +114,11 @@ static NSInteger const DSMailboxesPerPage = 100;
 + (void)setupAppearances
 {
     NSDictionary *topNavTitleTextAttributes = @{
-        NSForegroundColorAttributeName : [[DKSettings sharedInstance] topNavTintColor],
-    };
-
+                                                NSForegroundColorAttributeName : [[DKSettings sharedInstance] topNavTintColor],
+                                                };
+    
     [[UINavigationBar appearance] setTitleTextAttributes:topNavTitleTextAttributes];
-
+    
     [[UINavigationBar appearance] setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
     [[UINavigationBar appearance] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
     
@@ -155,27 +156,28 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 - (void)fetchInboundMailboxesWithCompletionHandler:(void (^)(void))completionHandler
 {
-    [DSAPIMailbox listMailboxesOfType:DSAPIMailboxTypeInbound
-                           parameters:@{ kPageKey : @1,
-                                         kPerPageKey : @(DSMailboxesPerPage) }
-                                queue:self.APICallbackQueue
-                              success:^(DSAPIPage *page) {
-                                  if ([page.totalEntries integerValue]) {
-                                      self.contactUsEmailAddress = [self firstEnabledInboundEmailAddressFromPage:page];
-                                  }
-                                  if (completionHandler) {
-                                     dispatch_sync(dispatch_get_main_queue(), ^{
-                                          completionHandler();
-                                     });
-                                  }
-                              }
-                              failure:^(NSHTTPURLResponse *response, NSError *error) {
-                                  if (completionHandler) {
-                                     dispatch_sync(dispatch_get_main_queue(), ^{
-                                          completionHandler();
-                                     });
-                                  }
-                              }];
+    [self.listMailboxesTask cancel];
+    self.listMailboxesTask = [DSAPIMailbox listMailboxesOfType:DSAPIMailboxTypeInbound
+                                                    parameters:@{ kPageKey : @1,
+                                                                  kPerPageKey : @(DSMailboxesPerPage) }
+                                                         queue:self.APICallbackQueue
+                                                       success:^(DSAPIPage *page) {
+                                                           if ([page.totalEntries integerValue]) {
+                                                               self.contactUsEmailAddress = [self firstEnabledInboundEmailAddressFromPage:page];
+                                                           }
+                                                           if (completionHandler) {
+                                                               dispatch_sync(dispatch_get_main_queue(), ^{
+                                                                   completionHandler();
+                                                               });
+                                                           }
+                                                       }
+                                                       failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                                           if (completionHandler) {
+                                                               dispatch_sync(dispatch_get_main_queue(), ^{
+                                                                   completionHandler();
+                                                               });
+                                                           }
+                                                       }];
 }
 
 - (void)hasContactUsEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsEmailAddress))completionHandler

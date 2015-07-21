@@ -52,24 +52,24 @@ NSString *const DKInSupportCenterKey = @"in_support_center";
               DKSortDirectionKey : DKSortDirectionAsc };
 }
 
-- (void)fetchItemsOnPageNumber:(NSNumber *)pageNumber
-                       perPage:(NSNumber *)perPage
-                         queue:(NSOperationQueue *)queue
-                       success:(DSAPIPageSuccessBlock)success
-                       failure:(DSAPIFailureBlock)failure
+- (NSURLSessionDataTask *)fetchItemsOnPageNumber:(NSNumber *)pageNumber
+                                         perPage:(NSNumber *)perPage
+                                           queue:(NSOperationQueue *)queue
+                                         success:(DSAPIPageSuccessBlock)success
+                                         failure:(DSAPIFailureBlock)failure
 {
     if (self.shouldAddBrandContext) {
-        [self.brand listTopicsWithParameters:[self parametersForPageNumber:pageNumber
-                                                                   perPage:perPage]
-                                       queue:queue
-                                     success:success
-                                     failure:failure];
+        return [self.brand listTopicsWithParameters:[self parametersForPageNumber:pageNumber
+                                                                          perPage:perPage]
+                                              queue:queue
+                                            success:success
+                                            failure:failure];
     } else {
-        [DSAPITopic listTopicsWithParameters:[self parametersForPageNumber:pageNumber
-                                                                   perPage:perPage]
-                                       queue:queue
-                                     success:success
-                                     failure:failure];
+        return [DSAPITopic listTopicsWithParameters:[self parametersForPageNumber:pageNumber
+                                                                          perPage:perPage]
+                                              queue:queue
+                                            success:success
+                                            failure:failure];
     }
 }
 

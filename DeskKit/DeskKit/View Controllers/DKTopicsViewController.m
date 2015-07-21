@@ -70,11 +70,6 @@ static NSString *const DKArticlesSegueId = @"DKArticlesSegue";
     [self invalidateArticleCache];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
 #pragma mark - Setup
 
 - (void)setupAppearances
