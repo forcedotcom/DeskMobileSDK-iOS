@@ -6,33 +6,33 @@ PODS:
 
 DEPENDENCIES:
   - DeskAPIClient (from `git@github.com:forcedotcom/DeskApiClient-ObjC.git`, branch
-    `develop`)
+    `tickets/APIC-115-create-ability-to-cancel`)
   - DeskCommon (from `git@github.com:forcedotcom/DeskCommon-Cocoa.git`, tag `1.0.3`)
   - DeskKit (from `../DeskKit`)
   - OCMock (~> 3.0.2)
 
 EXTERNAL SOURCES:
   DeskAPIClient:
-    :branch: develop
+    :branch: tickets/APIC-115-create-ability-to-cancel
     :git: git@github.com:forcedotcom/DeskApiClient-ObjC.git
   DeskCommon:
     :git: git@github.com:forcedotcom/DeskCommon-Cocoa.git
     :tag: 1.0.3
   DeskKit:
-    :path: ../DeskKit
+    :path: "../DeskKit"
 
 CHECKOUT OPTIONS:
   DeskAPIClient:
-    :commit: 504d95991736ba40b9fbfbe1ca4eaa8a1860ae59
+    :commit: e1c78e3db66d7c73da31879c9cc74b27f1d2901a
     :git: git@github.com:forcedotcom/DeskApiClient-ObjC.git
   DeskCommon:
     :git: git@github.com:forcedotcom/DeskCommon-Cocoa.git
     :tag: 1.0.3
 
 SPEC CHECKSUMS:
-  DeskAPIClient: 982985e7d1c78288a6938735c4e0f923829166a1
+  DeskAPIClient: 2b6b1b4064d8e3d4c634de6fd485887d7708fb91
   DeskCommon: 540341996fb4e2c82a2f00f3cf6c7ebfd66480ff
-  DeskKit: da411646c287442f7175447a3c624f40c6ffdf68
+  DeskKit: e3b2a8e21100d76c200d25d3b6ee7a790b3b2d02
   OCMock: 1f0871af0f397183f33e7552cca088bd2b485c25
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2
