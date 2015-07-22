@@ -82,7 +82,7 @@
         NSInteger pageNumber = [self pageNumberFromSection:section];
         if ([self shouldFetchItemsOnPageNumber:@(pageNumber)]) {
             [self sendWillFetchPageNumber:@(pageNumber)];
-            [self.fetchTask cancel];
+            [self cancelFetch];
             self.fetchTask = [self fetchItemsOnPageNumber:@(pageNumber)
                                                   perPage:@(DKItemsPerPage)
                                                     queue:self.APICallbackQueue
