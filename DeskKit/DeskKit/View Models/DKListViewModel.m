@@ -5,19 +5,19 @@
 //  Created by Desk.com on 9/18/14.
 //  Copyright (c) 2015, Salesforce.com, Inc.
 //  All rights reserved.
-//  
+//
 //  Redistribution and use in source and binary forms, with or without modification, are permitted provided
 //  that the following conditions are met:
-//  
+//
 //     Redistributions of source code must retain the above copyright notice, this list of conditions and the
 //     following disclaimer.
-//  
+//
 //     Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
 //     the following disclaimer in the documentation and/or other materials provided with the distribution.
-//  
+//
 //     Neither the name of Salesforce.com, Inc. nor the names of its contributors may be used to endorse or
 //     promote products derived from this software without specific prior written permission.
-//  
+//
 //  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
 //  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
 //  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
@@ -37,6 +37,7 @@
 @property (nonatomic) NSNumber *totalItems;
 @property (nonatomic, strong) NSMutableDictionary *loadedPages;
 @property (nonatomic) NSOperationQueue *APICallbackQueue;
+@property (nonatomic) NSURLSessionDataTask *fetchTask;
 
 @end
 
@@ -53,9 +54,15 @@
 
 - (void)reset
 {
+    [self cancelFetch];
     self.loadedPages = [NSMutableDictionary new];
     self.totalItems = @0;
     self.APICallbackQueue = [NSOperationQueue new];
+}
+
+- (void)cancelFetch
+{
+    [self.fetchTask cancel];
 }
 
 - (NSInteger)totalPages
@@ -75,19 +82,20 @@
         NSInteger pageNumber = [self pageNumberFromSection:section];
         if ([self shouldFetchItemsOnPageNumber:@(pageNumber)]) {
             [self sendWillFetchPageNumber:@(pageNumber)];
-            [self fetchItemsOnPageNumber:@(pageNumber)
-                                 perPage:@(DKItemsPerPage)
-                                   queue:self.APICallbackQueue
-                                 success:^(DSAPIPage *page) {
-                                     dispatch_sync(dispatch_get_main_queue(), ^{
-                                         [self handleLoadedItemsOnPage:page];
-                                     });
-                                 }
-                                 failure:^(NSHTTPURLResponse *response, NSError *error) {
-                                     dispatch_sync(dispatch_get_main_queue(), ^{
-                                         [self sendFetchDidFailOnPageNumber:@(pageNumber)];
-                                     });
-                                 }];
+            [self cancelFetch];
+            self.fetchTask = [self fetchItemsOnPageNumber:@(pageNumber)
+                                                  perPage:@(DKItemsPerPage)
+                                                    queue:self.APICallbackQueue
+                                                  success:^(DSAPIPage *page) {
+                                                      dispatch_sync(dispatch_get_main_queue(), ^{
+                                                          [self handleLoadedItemsOnPage:page];
+                                                      });
+                                                  }
+                                                  failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                                      dispatch_sync(dispatch_get_main_queue(), ^{
+                                                          [self sendFetchDidFailOnPageNumber:@(pageNumber)];
+                                                      });
+                                                  }];
         }
     }
 }
@@ -114,13 +122,14 @@
     return (pageNumber.integerValue > 0 && pageNumber.integerValue <= self.totalPages);
 }
 
-- (void)fetchItemsOnPageNumber:(NSNumber *)pageNumber
-                       perPage:(NSNumber *)perPage
-                         queue:(NSOperationQueue *)queue
-                       success:(DSAPIPageSuccessBlock)success
-                       failure:(DSAPIFailureBlock)failure
+- (NSURLSessionDataTask *)fetchItemsOnPageNumber:(NSNumber *)pageNumber
+                                         perPage:(NSNumber *)perPage
+                                           queue:(NSOperationQueue *)queue
+                                         success:(DSAPIPageSuccessBlock)success
+                                         failure:(DSAPIFailureBlock)failure
 {
     // override in subclass
+    return nil;
 }
 
 - (void)handleLoadedItemsOnPage:(DSAPIPage *)page

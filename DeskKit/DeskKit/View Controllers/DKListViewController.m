@@ -48,6 +48,19 @@ static NSString *const DKListCellId = @"DKListCell";
 {
     [super viewDidLoad];
     self.viewModel.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.viewModel cancelFetch];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     [self beginLoadingData];
 }
 
