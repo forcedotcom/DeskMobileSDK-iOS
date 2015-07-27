@@ -1,6 +1,6 @@
 platform :ios, '8.0'
 
-pod 'DeskAPIClient', :git => 'git@github.com:forcedotcom/DeskApiClient-ObjC.git', :branch => 'tickets/APIC-115-create-ability-to-cancel'
+pod 'DeskAPIClient', :git => 'git@github.com:forcedotcom/DeskApiClient-ObjC.git', :branch => 'develop'
 pod 'DeskKit', :path => '../DeskKit'
 pod 'DeskCommon', :git => 'git@github.com:forcedotcom/DeskCommon-Cocoa.git', :tag => '1.0.3'
 
