@@ -218,7 +218,7 @@
 {
     NSDictionary *color = [self colorRgbaSettings];
     OCMStub([self.mock settings]).andReturn(color);
-    NSDictionary *colorSetting = [self.settingsTest topNavTintColorRgba];
+    NSDictionary *colorSetting = [self.settingsTest topNavTintColorRGBA];
     XCTAssertTrue([colorSetting isEqual:color[@"NavigationBar"][@"TintColorRGBA"]]);
 }
 
@@ -226,14 +226,14 @@
 {
     NSDictionary *settings = [self colorRgbaSettings];
     OCMStub([self.mock settings]).andReturn(settings);
-    XCTAssertTrue([self.settingsTest hasTopNavTintColorRgba]);
+    XCTAssertTrue([self.settingsTest hasTopNavTintColorRGBA]);
 }
 
 - (void)testDoesntHaveTopNavTintColorRgbaForEmptyDictionary
 {
     NSDictionary *settings = @{};
     OCMStub([self.mock settings]).andReturn(settings);
-    XCTAssertFalse([self.settingsTest hasTopNavTintColorRgba]);
+    XCTAssertFalse([self.settingsTest hasTopNavTintColorRGBA]);
 }
 
 - (void)testTopNavTintColor
@@ -247,21 +247,21 @@
 {
     NSDictionary *color = [self colorRgbaSettings];
     OCMStub([self.mock settings]).andReturn(color);
-    NSDictionary *colorSetting = [self.settingsTest topNavBarTintColorRgba];
+    NSDictionary *colorSetting = [self.settingsTest topNavBarTintColorRGBA];
     XCTAssertTrue([colorSetting isEqual:color[@"NavigationBar"][@"BarTintColorRGBA"]]);
 }
 
 - (void)testHasTopNavBarTintColorRgba
 {
     OCMStub([self.mock settings]).andReturn([self colorRgbaSettings]);
-    XCTAssertTrue([self.settingsTest hasTopNavBarTintColorRgba]);
+    XCTAssertTrue([self.settingsTest hasTopNavBarTintColorRGBA]);
 }
 
 - (void)testDoesntHaveTopNavBarTintColorRgbaForEmptyDictionary
 {
     NSDictionary *settings = @{};
     OCMStub([self.mock settings]).andReturn(settings);
-    XCTAssertFalse([self.settingsTest hasTopNavBarTintColorRgba]);
+    XCTAssertFalse([self.settingsTest hasTopNavBarTintColorRGBA]);
 }
 
 - (void)testTopNavBarTintColor
