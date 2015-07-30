@@ -41,8 +41,7 @@ static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 #define DKOkAction NSLocalizedString(@"OK", @"OK Action")
 
 
-@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsAlertControllerDelegate,
-MFMailComposeViewControllerDelegate>
+@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsAlertControllerDelegate, DKContactUsViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic) DKTopicsViewController *topicsViewController;
 @property (nonatomic) DKArticleDetailViewController *articleDetailViewController;
@@ -175,6 +174,18 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
     return [viewController article] != nil;
 }
 
+#pragma mark - DKContactUsViewControllerDelegate
+
+- (void)contactUsViewControllerDidSendMessage:(DKContactUsViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)contactUsViewControllerDidCancel:(DKContactUsViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - DKTopicsViewControllerDelegate
 
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController didSelectTopic:(DSAPITopic *)topic articlesTopicViewModel:(DKArticlesTopicViewModel *)articlesTopicViewModel
@@ -234,18 +245,11 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 
 - (void)alertControllerDidTapSendEmail
 {
-    if ([[DKSettings sharedInstance] showContactUsWebForm]) {
-        DKContactUsWebViewController *vc = [DKSession newContactUsWebViewController];
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTapped:)];
-        vc.navigationItem.rightBarButtonItem = doneButton;
-        vc.navigationItem.title = NSLocalizedString(@"Email Us", comment: @"Email Us");
-        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-        nvc.toolbarHidden = NO;
-        nvc.modalPresentationStyle = UIModalPresentationPageSheet;
-        [self presentViewController:nvc animated:YES completion:nil];
-    } else {
-        [self openMailComposeViewController];
-    }
+    DKContactUsViewController *vc = [DKSession newContactUsViewController];
+    vc.delegate = self;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    nvc.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void)doneButtonTapped:(id)sender

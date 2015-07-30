@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -59,6 +59,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCO-49-QDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1745" y="-59"/>
+        </scene>
+        <!--Contact Us View Controller-->
+        <scene sceneID="Saa-F8-XzF">
+            <objects>
+                <tableViewController storyboardIdentifier="DKContactUsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YwV-sm-abE" customClass="DKContactUsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Yhl-U2-ITh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DKContactUsTextFieldTableViewCell" id="7Rk-xH-z8d" customClass="DKContactUsTextFieldTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Rk-xH-z8d" id="AFI-B4-g2L">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ev0-VX-R0g">
+                                            <rect key="frame" x="8" y="0.0" width="584" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Ev0-VX-R0g" secondAttribute="trailing" id="2vc-fC-w3c"/>
+                                        <constraint firstItem="Ev0-VX-R0g" firstAttribute="top" secondItem="AFI-B4-g2L" secondAttribute="top" id="6SQ-bU-efI"/>
+                                        <constraint firstItem="Ev0-VX-R0g" firstAttribute="leading" secondItem="AFI-B4-g2L" secondAttribute="leadingMargin" id="DuJ-eO-UbJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ev0-VX-R0g" secondAttribute="bottom" id="iFn-jj-BeA"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="Ev0-VX-R0g" id="kBk-08-Q0i"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="DKContactUsMessageTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="DKContactUsTextViewTableViewCell" rowHeight="88" id="pRG-eE-xQ8" customClass="DKContactUsTextViewTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pRG-eE-xQ8" id="KGH-gE-C5j">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-kV-Eck">
+                                            <rect key="frame" x="8" y="0.0" width="584" height="88"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7hY-kV-Eck" firstAttribute="leading" secondItem="KGH-gE-C5j" secondAttribute="leadingMargin" id="9mT-3E-d2N"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7hY-kV-Eck" secondAttribute="trailing" id="Xvg-f7-0Tk"/>
+                                        <constraint firstItem="7hY-kV-Eck" firstAttribute="top" secondItem="KGH-gE-C5j" secondAttribute="top" id="dlK-lg-otn"/>
+                                        <constraint firstAttribute="bottom" secondItem="7hY-kV-Eck" secondAttribute="bottom" id="hjl-kj-5dZ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textView" destination="7hY-kV-Eck" id="Ho9-Ac-nag"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="YwV-sm-abE" id="U1T-GY-8aT"/>
+                            <outlet property="delegate" destination="YwV-sm-abE" id="f0h-Cv-6Bf"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4n-iE-uwL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2503" y="-761"/>
         </scene>
         <!--Articles View Controller-->
         <scene sceneID="TI6-W4-xi1">

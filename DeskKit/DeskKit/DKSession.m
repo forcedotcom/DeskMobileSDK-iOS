@@ -106,6 +106,11 @@ static NSInteger const DSMailboxesPerPage = 100;
     return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsWebViewControllerId];
 }
 
++ (DKContactUsViewController *)newContactUsViewController
+{
+    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerID];
+}
+
 + (DKArticleDetailViewController *)newArticleDetailViewController
 {
     return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKArticleDetailViewControllerId];
