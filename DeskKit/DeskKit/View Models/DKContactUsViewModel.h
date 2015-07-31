@@ -9,6 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DKContactUsInputTextItem.h"
+#import "DSAPICase.h"
 
 static NSString *const DKContactUsTextFieldTableViewCellID = @"DKContactUsTextFieldTableViewCell";
 static NSString *const DKContactUsTextViewTableViewCellID = @"DKContactUsTextViewTableViewCell";
@@ -20,7 +21,14 @@ static NSString *const DKContactUsTextViewTableViewCellID = @"DKContactUsTextVie
 @property (nonatomic) BOOL includeAllOptionalItems;
 @property (nonatomic) BOOL includeYourNameItem;
 @property (nonatomic) BOOL includeSubjectItem;
+@property (nonatomic) NSString *toRecipient;
 
 - (instancetype)initIncludingOptionalItems:(BOOL)include;
+- (void)updateText:(NSAttributedString *)text indexPath:(NSIndexPath *)indexPath;
+
+- (BOOL)isValidEmailCase;
+- (NSURLSessionDataTask *)createEmailCaseWithQueue:(NSOperationQueue *)queue
+                                           success:(void (^)(DSAPICase *newCase))success
+                                           failure:(DSAPIFailureBlock)failure;
 
 @end
