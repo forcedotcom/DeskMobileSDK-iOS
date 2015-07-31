@@ -55,13 +55,6 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     [super viewWillAppear:animated];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    NSLog(@"inset before: %@", NSStringFromUIEdgeInsets(self.tableView.contentInset));
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -71,13 +64,11 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 {
     NSAttributedString *text = self.textView.attributedText;
     CGSize containerSize = self.textView.textContainer.size;
-    NSLog(@"container: %@", NSStringFromCGSize(containerSize));
     CGFloat padding = self.messageCell.contentView.bounds.size.height - containerSize.height;
     CGSize boundingSize = CGSizeMake(containerSize.width, CGFLOAT_MAX);
 
     CGFloat textHeight = ceilf([text boundingRectWithSize:boundingSize options:NSStringDrawingUsesLineFragmentOrigin context:nil].size.height);
     CGFloat minHeight = [self minimumTextViewCellHeight];
-    NSLog(@"textheight: %f padding: %f, min: %f", textHeight, padding, minHeight);
     [self.textView setNeedsDisplay];
     if (textHeight + padding > minHeight) {
         return ceilf(textHeight + padding);
@@ -101,7 +92,6 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     CGFloat totalStandardCellsHeight = standardCellHeight * standardCellCount;
     
     CGFloat minHeight = totalHeight - totalStandardCellsHeight;
-    NSLog(@"%f = %f - %f", minHeight, totalHeight, totalStandardCellsHeight);
     
     return minHeight;
 }
@@ -149,17 +139,10 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     return cell;
 }
 
-- (void)adjustContentInset
-{
-    NSLog(@"inset before: %@", NSStringFromUIEdgeInsets(self.tableView.contentInset));
-}
-
 #pragma mark - UITextViewDelegate
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    NSLog(@"Did change: container size: %@", NSStringFromCGSize(textView.textContainer.size));
-
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
 
@@ -225,7 +208,6 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 }
 
 #pragma mark - UITableViewDelegate
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
