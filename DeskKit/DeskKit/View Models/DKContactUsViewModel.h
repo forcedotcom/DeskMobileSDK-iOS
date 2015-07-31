@@ -17,5 +17,10 @@ static NSString *const DKContactUsTextViewTableViewCellID = @"DKContactUsTextVie
 
 @property (nonatomic, readonly) NSArray *sections;
 @property (nonatomic, readonly) NSIndexPath *messageIndexPath;
+@property (nonatomic) BOOL includeAllOptionalItems;
+@property (nonatomic) BOOL includeYourNameItem;
+@property (nonatomic) BOOL includeSubjectItem;
+
+- (instancetype)initIncludingOptionalItems:(BOOL)include;
 
 @end

@@ -247,6 +247,9 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 {
     DKContactUsViewController *vc = [DKSession newContactUsViewController];
     vc.delegate = self;
+    vc.toRecipients = @[ [DKSession sharedInstance].contactUsEmailAddress ];
+    vc.showAllOptionalItems = YES;
+    
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     nvc.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:nvc animated:YES completion:nil];
@@ -255,17 +258,6 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 - (void)doneButtonTapped:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-/*  Note that due to a bug in the iOS 8 simulator, the MFMailComposeViewController can currently only
- be tested on devices. See http://stackoverflow.com/questions/25961068/uiviewserviceinterfaceerrordomain
- */
-- (void)openMailComposeViewController
-{
-    MFMailComposeViewController *vc = [MFMailComposeViewController new];
-    vc.mailComposeDelegate = self;
-    [vc setToRecipients:@[ [DKSession sharedInstance].contactUsEmailAddress ]];
-    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate

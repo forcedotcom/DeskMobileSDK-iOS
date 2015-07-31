@@ -48,6 +48,9 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.viewModel = [[DKContactUsViewModel alloc] initIncludingOptionalItems:self.showAllOptionalItems];
+    self.viewModel.includeYourNameItem = self.showYourNameItem;
+    self.viewModel.includeSubjectItem = self.showSubjectItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated

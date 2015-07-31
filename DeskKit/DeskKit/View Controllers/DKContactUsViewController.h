@@ -23,5 +23,9 @@ extern NSString *const DKContactUsViewControllerID;
 @interface DKContactUsViewController : UITableViewController
 
 @property (weak, nonatomic) id<DKContactUsViewControllerDelegate> delegate;
+@property (nonatomic) BOOL showAllOptionalItems;
+@property (nonatomic) BOOL showYourNameItem;
+@property (nonatomic) BOOL showSubjectItem;
+@property (nonatomic) NSArray *toRecipients;
 
 @end

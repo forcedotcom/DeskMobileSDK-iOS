@@ -71,6 +71,7 @@ extern CGFloat const DKSearchBarHeight;
 #define DKSearchAllArticles NSLocalizedString(@"Search All Articles", @"Placeholder text for search bar on topics screen")
 #define DKSearchArticlesInTopic NSLocalizedString(@"Search Articles in Topic", @"Placeholder text for search bar on articles screen")
 #define DKNoArticlesResultsMessage NSLocalizedString(@"There are no articles matching that search. Please try again with a different search.", @"No results message body")
+#define DKOptional NSLocalizedString(@"Optional", @"Indicates that a certain input field is optional")
 
 #pragma mark - Error Messages
 

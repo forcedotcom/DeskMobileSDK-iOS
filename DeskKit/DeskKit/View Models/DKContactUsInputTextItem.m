@@ -7,6 +7,7 @@
 //
 
 #import "DKContactUsInputTextItem.h"
+#import "DKConstants.h"
 
 @interface DKContactUsInputTextItem ()
 
@@ -28,6 +29,17 @@
         _required = required;
     }
     return self;
+}
+
+- (NSAttributedString *)placeholderText
+{
+    if (_required) {
+        return _placeholderText;
+    } else {
+        NSString *newString = [NSString stringWithFormat:@"%@ (%@)", _placeholderText.string, DKOptional];
+        return [[NSAttributedString alloc] initWithString:newString];
+    }
+
 }
 
 @end
