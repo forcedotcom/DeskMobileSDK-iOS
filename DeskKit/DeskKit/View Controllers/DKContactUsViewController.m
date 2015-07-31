@@ -24,6 +24,9 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 @property (nonatomic) UITableViewCell *messageCell;
 @property (nonatomic) UITextView *textView;
 @property (nonatomic) CGFloat keyboardOverlap;
+@property (nonatomic) NSOperationQueue *APICallbackQueue;
+@property (nonatomic) NSURLSessionDataTask *createCaseTask;
+@property (nonatomic) BOOL isUIReadOnly;
 
 @end
 
@@ -33,34 +36,50 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 {
     self = [super initWithCoder:coder];
     if (self) {
-        self.viewModel = [DKContactUsViewModel new];
-        [self setupNavigationItem];
         _keyboardOverlap = 0;
-        [self registerKeyboardNotifications];
+        _isUIReadOnly = NO;
+        _APICallbackQueue = [NSOperationQueue new];
+        [self setupNavigationItem];
     }
     return self;
 }
 
-- (void)dealloc
+- (void)viewDidLoad
 {
-    [self unRegisterKeyboardNotfications];
-}
-
-- (void)viewDidLoad {
     [super viewDidLoad];
-    self.viewModel = [[DKContactUsViewModel alloc] initIncludingOptionalItems:self.showAllOptionalItems];
-    self.viewModel.includeYourNameItem = self.showYourNameItem;
-    self.viewModel.includeSubjectItem = self.showSubjectItem;
+    [self setupViewModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self registerKeyboardNotifications];
+    [self registerForUITextFieldNotifications];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self unRegisterKeyboardNotfications];
+    [self unRegisterForUITextFieldNotifications];
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupViewModel
+{
+    NSAssert(self.toRecipient, @"toRecipient cannot be nil");
+    
+    self.viewModel = [[DKContactUsViewModel alloc] initIncludingOptionalItems:self.showAllOptionalItems];
+    self.viewModel.includeYourNameItem = self.showYourNameItem;
+    self.viewModel.includeSubjectItem = self.showSubjectItem;
+    self.viewModel.toRecipient = self.toRecipient;
 }
 
 - (CGFloat)messageCellHeight
@@ -99,6 +118,66 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     return minHeight;
 }
 
+- (UITableViewCell *)configureTextFieldCell:(DKContactUsTextFieldTableViewCell *)cell item:(DKContactUsInputTextItem *)item
+{
+    cell.textField.enabled = !self.isUIReadOnly;
+    cell.textField.attributedText = item.text;
+    cell.textField.attributedPlaceholder = item.placeholderText;
+    
+    return cell;
+}
+
+- (UITableViewCell *)configureTextViewCell:(DKContactUsTextViewTableViewCell *)cell item:(DKContactUsInputTextItem *)item
+{
+    self.messageCell = cell;
+    self.textView = cell.textView;
+    
+    self.textView.editable = !self.isUIReadOnly;
+    self.textView.attributedText = item.text;
+    self.textView.delegate = self;
+    
+    return cell;
+}
+
+- (void)updateSendButtonAndUpdateText:(NSAttributedString *)text indexPath:(NSIndexPath *)indexPath
+{
+    [self.viewModel updateText:text indexPath:indexPath];
+    self.sendButton.enabled = [self shouldEnableSendButton];
+}
+
+- (BOOL)shouldEnableSendButton
+{
+    return [self.viewModel isValidEmailCase];
+}
+
+- (void)makeUIReadOnly:(BOOL)readOnly
+{
+    self.isUIReadOnly = readOnly;
+    self.sendButton.enabled = readOnly ? NO : [self shouldEnableSendButton];
+    [self.tableView reloadData];
+}
+
+- (NSIndexPath *)indexPathWithTextField:(UITextField *)textField
+{
+    __block NSIndexPath *indexPath = nil;
+    [self.viewModel.sections enumerateObjectsUsingBlock:^(NSArray *section, NSUInteger sectionIndex, BOOL *stop) {
+        [section enumerateObjectsUsingBlock:^(DKContactUsItem *item, NSUInteger rowIndex, BOOL *stop) {
+            NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:currentIndexPath];
+            if ([textField isDescendantOfView:cell]) {
+                indexPath = currentIndexPath;
+                *stop = YES;
+            }
+        }];
+        if (indexPath) {
+            *stop = YES;
+        }
+    }];
+    return indexPath;
+}
+
+#pragma mark - Navigation Item
+
 - (void)setupNavigationItem
 {
     self.sendButton = [[UIBarButtonItem alloc] initWithTitle:DKSend
@@ -115,32 +194,48 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 
 - (void)sendButtonTapped:(id)sender
 {
-    [self.delegate contactUsViewControllerDidSendMessage:self];
+    [self resignFirstResponder];
+    [self makeUIReadOnly:YES];
+    self.createCaseTask = [self.viewModel createEmailCaseWithQueue:self.APICallbackQueue
+                                                           success:^(DSAPICase *newCase) {
+                                                               [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                                                   [self.delegate contactUsViewControllerDidSendMessage:self];
+                                                               }];
+                                                           }
+                                                           failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                                               [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                                                   [self makeUIReadOnly:NO];
+                                                               }];
+                                                           }];
+
 }
 
 - (void)cancelButtonTapped:(id)sender
 {
+    [self.createCaseTask cancel];
+    
     [self.delegate contactUsViewControllerDidCancel:self];
 }
 
-- (UITableViewCell *)configureTextFieldCell:(DKContactUsTextFieldTableViewCell *)cell item:(DKContactUsInputTextItem *)item
+#pragma mark - UITextFieldDelegate and Notifications
+- (void)registerForUITextFieldNotifications
 {
-    cell.textField.attributedText = item.text;
-    cell.textField.attributedPlaceholder = item.placeholderText;
-    
-    return cell;
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(textFieldDidChangeNotification:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
-- (UITableViewCell *)configureTextViewCell:(DKContactUsTextViewTableViewCell *)cell item:(DKContactUsInputTextItem *)item
+- (void)unRegisterForUITextFieldNotifications
 {
-    self.messageCell = cell;
-    self.textView = cell.textView;
-    
-    self.textView.attributedText = item.text;
-    self.textView.delegate = self;
-    
-    return cell;
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
 }
+
+- (void)textFieldDidChangeNotification:(NSNotification *)notification
+{
+    UITextField *textField = notification.object;
+    [self updateSendButtonAndUpdateText:textField.attributedText indexPath:[self indexPathWithTextField:textField]];
+}
+
 
 #pragma mark - UITextViewDelegate
 
@@ -149,9 +244,11 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
 
-    CGRect oldRect = self.textView.frame;
-    self.textView.frame = CGRectMake(oldRect.origin.x, oldRect.origin.y, oldRect.size.width, [self messageCellHeight]);
-    self.textView.selectedRange = [self.textView selectedRange];
+    CGRect oldRect = textView.frame;
+    textView.frame = CGRectMake(oldRect.origin.x, oldRect.origin.y, oldRect.size.width, [self messageCellHeight]);
+    textView.selectedRange = [textView selectedRange];
+    
+    [self updateSendButtonAndUpdateText:textView.attributedText indexPath:self.viewModel.messageIndexPath];
 }
 
 #pragma mark - Keyboard
@@ -195,7 +292,6 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.viewModel.sections[section] count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DKContactUsInputTextItem *item = self.viewModel.sections[indexPath.section][indexPath.row];

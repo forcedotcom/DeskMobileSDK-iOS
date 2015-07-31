@@ -26,6 +26,6 @@ extern NSString *const DKContactUsViewControllerID;
 @property (nonatomic) BOOL showAllOptionalItems;
 @property (nonatomic) BOOL showYourNameItem;
 @property (nonatomic) BOOL showSubjectItem;
-@property (nonatomic) NSArray *toRecipients;
+@property (nonatomic) NSString *toRecipient;
 
 @end

@@ -247,7 +247,7 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 {
     DKContactUsViewController *vc = [DKSession newContactUsViewController];
     vc.delegate = self;
-    vc.toRecipients = @[ [DKSession sharedInstance].contactUsEmailAddress ];
+    vc.toRecipient = [DKSession sharedInstance].contactUsEmailAddress;
     vc.showAllOptionalItems = YES;
     
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
