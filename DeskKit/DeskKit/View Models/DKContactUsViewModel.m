@@ -29,7 +29,7 @@ static NSString * const DKMessageDirectionKey = @"direction";
 static NSString * const DKMessageBodyKey = @"body";
 static NSString * const DKMessageFromKey = @"from";
 static NSString * const DKMessageToKey = @"to";
-static NSString * const DKCaseSubjectKey = @"subject";
+static NSString * const DKMessageSubjectKey = @"subject";
 
 
 - (instancetype)init
@@ -166,9 +166,6 @@ static NSString * const DKCaseSubjectKey = @"subject";
     if (![[self class] isEmptyString:self.name.text.string]) {
         dictionary[DKCaseNameKey] = self.name.text.string;
     }
-    if (![[self class] isEmptyString:self.subject.text.string]) {
-        dictionary[DKCaseSubjectKey] = self.subject.text.string;
-    }
     
     // Add required keys
     dictionary[DKCaseTypeKey] = @"email";
@@ -179,12 +176,19 @@ static NSString * const DKCaseSubjectKey = @"subject";
 
 - (NSDictionary *)messageDictionary
 {
-    return @{
-             DKMessageDirectionKey: @"in",
-             DKMessageBodyKey: self.body.text.string,
-             DKMessageFromKey: self.email.text.string,
-             DKMessageToKey: self.toRecipient
-             };
+    NSMutableDictionary *dictionary = [@{
+                                        DKMessageDirectionKey: @"in",
+                                        DKMessageBodyKey: self.body.text.string,
+                                        DKMessageFromKey: self.email.text.string,
+                                        DKMessageToKey: self.toRecipient
+                                        } mutableCopy];
+    
+    // Add optional keys
+    if (![[self class] isEmptyString:self.subject.text.string]) {
+        dictionary[DKMessageSubjectKey] = self.subject.text.string;
+    }
+    
+    return [dictionary copy];
 }
 
 
