@@ -76,3 +76,4 @@ extern CGFloat const DKSearchBarHeight;
 #pragma mark - Error Messages
 
 #define DKErrorMessageNetworkFailed NSLocalizedString(@"Failed to load content. Please ensure you are connected to the internet and try again.", @"Error displayed when a network error occurs.")
+#define DKErrorMessageContactUsFailed NSLocalizedString(@"Failed to send message. Please ensure you are connected to the internet and try again.", @"Error displayed when a network error occurs trying to contact us.")

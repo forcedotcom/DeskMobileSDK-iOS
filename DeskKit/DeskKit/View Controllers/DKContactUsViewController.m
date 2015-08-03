@@ -11,6 +11,7 @@
 #import "DKContactUsTextFieldTableViewCell.h"
 #import "DKContactUsTextViewTableViewCell.h"
 #import "DKConstants.h"
+#import "UIAlertController+Additions.h"
 
 NSString *const DKContactUsViewControllerID = @"DKContactUsViewController";
 static CGFloat standardCellHeight = 44.0; // This matches the contraint in storyboard.
@@ -205,6 +206,8 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
                                                            failure:^(NSHTTPURLResponse *response, NSError *error) {
                                                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                                                    [self makeUIReadOnly:NO];
+                                                                   UIAlertController *alertController = [UIAlertController alertWithTitle:DKError text:DKErrorMessageContactUsFailed];
+                                                                   [self presentViewController:alertController animated:YES completion:nil];
                                                                }];
                                                            }];
 
@@ -218,6 +221,7 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 }
 
 #pragma mark - UITextFieldDelegate and Notifications
+
 - (void)registerForUITextFieldNotifications
 {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
