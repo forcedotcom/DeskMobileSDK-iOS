@@ -54,6 +54,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
 {
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:4];
     
+    // Name
     if (self.includeAllOptionalItems || self.includeYourNameItem) {
         self.name = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
                                                                                      text:nil
@@ -62,12 +63,14 @@ static NSString * const DKMessageSubjectKey = @"subject";
         [items addObject:self.name];
     }
     
+    // Email
     self.email = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
                                                                           text:nil
                                                                placeHolderText:[[NSAttributedString alloc] initWithString:@"Your Email"]
                                                                       required:YES];
     [items addObject:self.email];
     
+    // Subject
     if (self.includeAllOptionalItems || self.includeSubjectItem) {
         self.subject = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
                                                                                         text:nil
@@ -76,6 +79,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
         [items addObject:self.subject];
     }
     
+    // Body
     self.body = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextViewTableViewCellID
                                                                             text:nil
                                                                  placeHolderText:[[NSAttributedString alloc] initWithString:@"Message"]
