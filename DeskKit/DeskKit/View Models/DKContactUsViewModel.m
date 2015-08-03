@@ -7,16 +7,17 @@
 //
 
 #import "DKContactUsViewModel.h"
+#import "DKConstants.h"
 
 @interface DKContactUsViewModel ()
 
 @property (nonatomic) NSArray *sections;
 @property (nonatomic) NSIndexPath *messageIndexPath;
 
-@property (nonatomic) DKContactUsInputTextItem *name;
-@property (nonatomic) DKContactUsInputTextItem *email;
-@property (nonatomic) DKContactUsInputTextItem *body;
-@property (nonatomic) DKContactUsInputTextItem *subject;
+@property (nonatomic) DKContactUsInputTextItem *nameItem;
+@property (nonatomic) DKContactUsInputTextItem *emailItem;
+@property (nonatomic) DKContactUsInputTextItem *bodyItem;
+@property (nonatomic) DKContactUsInputTextItem *subjectItem;
 
 @end
 
@@ -36,7 +37,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
 {
     self = [self initIncludingOptionalItems:YES];
     if (self) {
-
+        
     }
     return self;
 }
@@ -56,37 +57,40 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     // Name
     if (self.includeAllOptionalItems || self.includeYourNameItem) {
-        self.name = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
-                                                                                     text:nil
-                                                                          placeHolderText:[[NSAttributedString alloc] initWithString:@"Your Name"]
-                                                                                 required:NO];
-        [items addObject:self.name];
+        self.nameItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
+                                                                    text:[self attributedTextWithString:self.userIdentity.fullName]
+                                                         placeHolderText:[self attributedPlaceholderTextWithString:DKYourName]
+                                                                required:NO];
+        [items addObject:self.nameItem];
     }
     
     // Email
-    self.email = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
-                                                                          text:nil
-                                                               placeHolderText:[[NSAttributedString alloc] initWithString:@"Your Email"]
-                                                                      required:YES];
-    [items addObject:self.email];
+    if ([[self class] isEmptyString:self.userIdentity.email] || self.includeYourEmailItem) {
+        self.emailItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
+                                                                     text:[self attributedTextWithString:self.userIdentity.email]
+                                                          placeHolderText:[self attributedPlaceholderTextWithString:DKYourEmail]
+                                                                 required:YES];
+        [items addObject:self.emailItem];
+    }
+    
     
     // Subject
     if (self.includeAllOptionalItems || self.includeSubjectItem) {
-        self.subject = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
-                                                                                        text:nil
-                                                                             placeHolderText:[[NSAttributedString alloc] initWithString:@"Subject"]
-                                                                                    required:NO];
-        [items addObject:self.subject];
+        self.subjectItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
+                                                                       text:[self attributedTextWithString:self.subject]
+                                                            placeHolderText:[self attributedPlaceholderTextWithString:DKSubject]
+                                                                   required:NO];
+        [items addObject:self.subjectItem];
     }
     
     // Body
-    self.body = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextViewTableViewCellID
-                                                                            text:nil
-                                                                 placeHolderText:[[NSAttributedString alloc] initWithString:@"Message"]
-                                                                        required:YES];
-    [items addObject:self.body];
+    self.bodyItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextViewTableViewCellID
+                                                                text:nil
+                                                     placeHolderText:[self attributedPlaceholderTextWithString:DKMessage]
+                                                            required:YES];
+    [items addObject:self.bodyItem];
     
-    self.messageIndexPath = [NSIndexPath indexPathForRow:[items indexOfObject:self.body] inSection:0];
+    self.messageIndexPath = [NSIndexPath indexPathForRow:[items indexOfObject:self.bodyItem] inSection:0];
     return [items copy];
 }
 
@@ -99,6 +103,22 @@ static NSString * const DKMessageSubjectKey = @"subject";
     return _sections;
 }
 
+- (NSAttributedString *)attributedTextWithString:(NSString *)string
+{
+    if (string) {
+        return [[NSAttributedString alloc] initWithString:string];
+    }
+    return nil;
+}
+
+- (NSAttributedString *)attributedPlaceholderTextWithString:(NSString *)string
+{
+    if (string) {
+        return [[NSAttributedString alloc] initWithString:string];
+    }
+    return nil;
+}
+
 - (void)updateText:(NSAttributedString *)text indexPath:(NSIndexPath *)indexPath
 {
     DKContactUsItem *item = self.sections[indexPath.section][indexPath.row];
@@ -106,17 +126,17 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     DKContactUsInputTextItem *inputTextItem = (DKContactUsInputTextItem *)item;
     inputTextItem.text = text;
-
+    
 }
 
 - (BOOL)isValidEmailCase
 {
-    BOOL valid = [self validToRecipient] && [self requiredItemsArePresent];
+    BOOL valid = [self validToRecipient] && [self requiredItemsHaveText] && [self validFromEmail];
     
     return valid;
 }
 
-- (BOOL)requiredItemsArePresent
+- (BOOL)requiredItemsHaveText
 {
     __block BOOL allPresent = YES;
     [self.sections enumerateObjectsUsingBlock:^(NSArray *section, NSUInteger idx, BOOL *stop) {
@@ -142,9 +162,52 @@ static NSString * const DKMessageSubjectKey = @"subject";
     return string == nil || [string isEqualToString:@""];
 }
 
++ (BOOL)isNotEmptyString:(NSString *)string
+{
+    return [[self class] isNotEmptyString:string];
+}
+
 - (BOOL)validToRecipient
 {
-    return ![[self class] isEmptyString:self.toRecipient];
+    return [[self class] isNotEmptyString:self.toRecipient];
+}
+
+- (BOOL)validFromEmail
+{
+    return [[self class] isNotEmptyString:[self bestFromEmail]];
+}
+
+- (NSString *)bestFromEmail
+{
+    if ([[self class] isNotEmptyString:self.emailItem.text.string]) {
+        return self.emailItem.text.string;
+    }
+    if ([[self class] isNotEmptyString:self.userIdentity.email]) {
+        return self.userIdentity.email;
+    }
+    return nil;
+}
+
+- (NSString *)bestFullName
+{
+    if ([[self class] isNotEmptyString:self.nameItem.text.string]) {
+        return self.emailItem.text.string;
+    }
+    if ([[self class] isNotEmptyString:self.userIdentity.fullName]) {
+        return self.userIdentity.fullName;
+    }
+    return nil;
+}
+
+- (NSString *)bestSubject
+{
+    if ([[self class] isNotEmptyString:self.subjectItem.text.string]) {
+        return self.emailItem.text.string;
+    }
+    if ([[self class] isNotEmptyString:self.subject]) {
+        return self.userIdentity.fullName;
+    }
+    return nil;
 }
 
 #pragma mark - API Calls
@@ -167,8 +230,9 @@ static NSString * const DKMessageSubjectKey = @"subject";
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithCapacity:4];
     
     // Add optional keys
-    if (![[self class] isEmptyString:self.name.text.string]) {
-        dictionary[DKCaseNameKey] = self.name.text.string;
+    NSString *name = [self bestFullName];
+    if ([[self class] isNotEmptyString:name]) {
+        dictionary[DKCaseNameKey] = self.nameItem.text.string;
     }
     
     // Add required keys
@@ -180,16 +244,18 @@ static NSString * const DKMessageSubjectKey = @"subject";
 
 - (NSDictionary *)messageDictionary
 {
+    NSString *fromEmail = [self bestFromEmail];
     NSMutableDictionary *dictionary = [@{
-                                        DKMessageDirectionKey: @"in",
-                                        DKMessageBodyKey: self.body.text.string,
-                                        DKMessageFromKey: self.email.text.string,
-                                        DKMessageToKey: self.toRecipient
-                                        } mutableCopy];
+                                         DKMessageDirectionKey: @"in",
+                                         DKMessageBodyKey: self.bodyItem.text.string,
+                                         DKMessageFromKey: fromEmail,
+                                         DKMessageToKey: self.toRecipient
+                                         } mutableCopy];
     
     // Add optional keys
-    if (![[self class] isEmptyString:self.subject.text.string]) {
-        dictionary[DKMessageSubjectKey] = self.subject.text.string;
+    NSString *subject = [self bestSubject];
+    if ([[self class] isNotEmptyString:subject]) {
+        dictionary[DKMessageSubjectKey] = subject;
     }
     
     return [dictionary copy];

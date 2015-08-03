@@ -66,6 +66,11 @@ extern CGFloat const DKSearchBarHeight;
 #define DKDone NSLocalizedString(@"Done", @"Done button title")
 #define DKContactUs NSLocalizedString(@"Contact Us", @"Contact Us button title")
 #define DKSend NSLocalizedString(@"Send", comment: @"Send button title")
+#define DKYourName NSLocalizedString(@"Your Name", comment: @"The user's full name")
+#define DKYourEmail NSLocalizedString(@"Your Email", comment: @"The user's email")
+#define DKSubject NSLocalizedString(@"Subject", comment: @"The subject of the message in Contact Us form")
+#define DKMessage NSLocalizedString(@"Message", comment: @"Placeholder for the message to be sent")
+
 #define DKError NSLocalizedString(@"Error", @"Error alert title")
 #define DKNoResults NSLocalizedString(@"No Results", @"No Results alert title")
 #define DKSearchAllArticles NSLocalizedString(@"Search All Articles", @"Placeholder text for search bar on topics screen")

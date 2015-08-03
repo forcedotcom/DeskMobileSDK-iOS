@@ -93,6 +93,8 @@
 		C74819091B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74819071B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m */; };
 		C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C748190A1B682E51009426EF /* DKContactUsViewController.h */; };
 		C748190D1B682E51009426EF /* DKContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C748190B1B682E51009426EF /* DKContactUsViewController.m */; };
+		C77ECFB01B6FEC10008AC3F0 /* DKUserIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = C77ECFAE1B6FEC10008AC3F0 /* DKUserIdentity.h */; };
+		C77ECFB11B6FEC10008AC3F0 /* DKUserIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = C77ECFAF1B6FEC10008AC3F0 /* DKUserIdentity.m */; };
 		F18FA2F12E694D51B3933FE5 /* libPods-DeskKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +193,8 @@
 		C74819071B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsTextFieldTableViewCell.m; sourceTree = "<group>"; };
 		C748190A1B682E51009426EF /* DKContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsViewController.h; sourceTree = "<group>"; };
 		C748190B1B682E51009426EF /* DKContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsViewController.m; sourceTree = "<group>"; };
+		C77ECFAE1B6FEC10008AC3F0 /* DKUserIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKUserIdentity.h; sourceTree = "<group>"; };
+		C77ECFAF1B6FEC10008AC3F0 /* DKUserIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKUserIdentity.m; sourceTree = "<group>"; };
 		F19B1B397F3E26EC44220883 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -354,6 +358,8 @@
 				1CB0AB7B19CC681F00B9D847 /* DKConstants.m */,
 				1C14FB5B19DB1BA200557345 /* DKSettings.h */,
 				1C14FB5C19DB1BA200557345 /* DKSettings.m */,
+				C77ECFAE1B6FEC10008AC3F0 /* DKUserIdentity.h */,
+				C77ECFAF1B6FEC10008AC3F0 /* DKUserIdentity.m */,
 				1C75FBFB19BF34FE00971E46 /* Supporting Files */,
 			);
 			path = DeskKit;
@@ -518,6 +524,7 @@
 				1CB0E6BA19DC54960048B5E6 /* NSTextCheckingResult+Additions.h in Headers */,
 				1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */,
 				1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */,
+				C77ECFB01B6FEC10008AC3F0 /* DKUserIdentity.h in Headers */,
 				1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */,
 				1C46EFFC19C123FB000FBCAC /* DKTopicsViewModel.h in Headers */,
 				1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */,
@@ -707,6 +714,7 @@
 			files = (
 				1CC49BC219CB11C0003E3819 /* (null) in Sources */,
 				1CB0AB7319CC619100B9D847 /* DKTopicsViewController.m in Sources */,
+				C77ECFB11B6FEC10008AC3F0 /* DKUserIdentity.m in Sources */,
 				1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */,
 				1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */,
 				1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */,
