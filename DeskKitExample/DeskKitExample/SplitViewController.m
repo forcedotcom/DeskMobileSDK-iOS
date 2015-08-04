@@ -36,12 +36,8 @@
 #import "DKSettings.h"
 
 static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
-#define DKMessageSent NSLocalizedString(@"Message Sent", @"Post-email alert title")
-#define DKMessageText NSLocalizedString(@"Thanks for sending us an email. Someone will respond as soon as possible.", @"Post-email alert text")
-#define DKOkAction NSLocalizedString(@"OK", @"OK Action")
 
-
-@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsAlertControllerDelegate, DKContactUsViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsAlertControllerDelegate, DKContactUsViewControllerDelegate>
 
 @property (nonatomic) DKTopicsViewController *topicsViewController;
 @property (nonatomic) DKArticleDetailViewController *articleDetailViewController;
@@ -258,49 +254,6 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 - (void)doneButtonTapped:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - MFMailComposeViewControllerDelegate
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller
-          didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError *)error
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self showMailAlertWithResult:result error:error];
-}
-
-- (void)showMailAlertWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
-    NSString *messageTitle;
-    NSString *messageText;
-    
-    switch (result) {
-        case MFMailComposeResultFailed:
-            messageTitle = DKError;
-            messageText = error.localizedDescription;
-            break;
-        case MFMailComposeResultSent:
-            messageTitle = DKMessageSent;
-            messageText = DKMessageText;
-        default:
-            break;
-    }
-    
-    if (messageTitle && messageText) {
-        UIAlertController *ac = [UIAlertController alertControllerWithTitle:messageTitle
-                                                                    message:messageText
-                                                             preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:DKOkAction
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:nil];
-        
-        [ac addAction:okAction];
-        
-        [self presentViewController:ac
-                           animated:YES
-                         completion:nil];
-    }
 }
 
 #pragma mark - View Controllers from Storyboard

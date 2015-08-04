@@ -13,6 +13,9 @@
 #import "DKConstants.h"
 #import "UIAlertController+Additions.h"
 
+#define DKMessageSent NSLocalizedString(@"Message Sent", comment: @"Message Sent title")
+#define DKMessageSentText NSLocalizedString(@"Thank you for contacting us. We will get back to you as soon as possible.", comment: @"Message Sent body.")
+
 NSString *const DKContactUsViewControllerID = @"DKContactUsViewController";
 static CGFloat standardCellHeight = 44.0; // This matches the contraint in storyboard.
 
@@ -200,7 +203,10 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     self.createCaseTask = [self.viewModel createEmailCaseWithQueue:self.APICallbackQueue
                                                            success:^(DSAPICase *newCase) {
                                                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                                                   [self.delegate contactUsViewControllerDidSendMessage:self];
+                                                                   UIAlertController *alertController = [UIAlertController alertWithTitle:DKMessageSent text:DKMessageSentText handler:^(UIAlertAction *action) {
+                                                                       [self.delegate contactUsViewControllerDidSendMessage:self];
+                                                                   }];
+                                                                   [self presentViewController:alertController animated:YES completion:nil];
                                                                }];
                                                            }
                                                            failure:^(NSHTTPURLResponse *response, NSError *error) {
@@ -253,6 +259,7 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     textView.selectedRange = [textView selectedRange];
     
     [self updateSendButtonAndUpdateText:textView.attributedText indexPath:self.viewModel.messageIndexPath];
+    // TODO: Check performance and slow network connection.
 }
 
 #pragma mark - Keyboard
