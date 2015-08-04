@@ -81,6 +81,18 @@
 		1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC49BC719CB12EC003E3819 /* DKSession.m */; };
 		1CC49BCA19CB12EC003E3819 /* DKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CC49BC819CB12EC003E3819 /* DKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CD1FD5A19C72DF4003CDB5C /* DKListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FD5919C72DF4003CDB5C /* DKListViewControllerTests.m */; };
+		C74818F81B6802DA009426EF /* DKContactUsViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C74818F61B6802DA009426EF /* DKContactUsViewModel.h */; };
+		C74818F91B6802DA009426EF /* DKContactUsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C74818F71B6802DA009426EF /* DKContactUsViewModel.m */; };
+		C74818FC1B68064C009426EF /* DKContactUsInputTextItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C74818FA1B68064C009426EF /* DKContactUsInputTextItem.h */; };
+		C74818FD1B68064C009426EF /* DKContactUsInputTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C74818FB1B68064C009426EF /* DKContactUsInputTextItem.m */; };
+		C74819001B680DEE009426EF /* DKContactUsItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C74818FE1B680DEE009426EF /* DKContactUsItem.h */; };
+		C74819011B680DEE009426EF /* DKContactUsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C74818FF1B680DEE009426EF /* DKContactUsItem.m */; };
+		C74819041B6811E9009426EF /* DKContactUsTextViewTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C74819021B6811E9009426EF /* DKContactUsTextViewTableViewCell.h */; };
+		C74819051B6811E9009426EF /* DKContactUsTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74819031B6811E9009426EF /* DKContactUsTextViewTableViewCell.m */; };
+		C74819081B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C74819061B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h */; };
+		C74819091B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74819071B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m */; };
+		C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C748190A1B682E51009426EF /* DKContactUsViewController.h */; };
+		C748190D1B682E51009426EF /* DKContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C748190B1B682E51009426EF /* DKContactUsViewController.m */; };
 		F18FA2F12E694D51B3933FE5 /* libPods-DeskKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +179,18 @@
 		275806F19D8C14407B874E86 /* Pods-DeskKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKitTests/Pods-DeskKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeskKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72C7D82CE6F1E2BD4465D0E /* Pods-DeskKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKitTests/Pods-DeskKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		C74818F61B6802DA009426EF /* DKContactUsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsViewModel.h; sourceTree = "<group>"; };
+		C74818F71B6802DA009426EF /* DKContactUsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsViewModel.m; sourceTree = "<group>"; };
+		C74818FA1B68064C009426EF /* DKContactUsInputTextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsInputTextItem.h; sourceTree = "<group>"; };
+		C74818FB1B68064C009426EF /* DKContactUsInputTextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsInputTextItem.m; sourceTree = "<group>"; };
+		C74818FE1B680DEE009426EF /* DKContactUsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsItem.h; sourceTree = "<group>"; };
+		C74818FF1B680DEE009426EF /* DKContactUsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsItem.m; sourceTree = "<group>"; };
+		C74819021B6811E9009426EF /* DKContactUsTextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsTextViewTableViewCell.h; sourceTree = "<group>"; };
+		C74819031B6811E9009426EF /* DKContactUsTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsTextViewTableViewCell.m; sourceTree = "<group>"; };
+		C74819061B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsTextFieldTableViewCell.h; sourceTree = "<group>"; };
+		C74819071B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsTextFieldTableViewCell.m; sourceTree = "<group>"; };
+		C748190A1B682E51009426EF /* DKContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsViewController.h; sourceTree = "<group>"; };
+		C748190B1B682E51009426EF /* DKContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsViewController.m; sourceTree = "<group>"; };
 		F19B1B397F3E26EC44220883 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +232,8 @@
 				1CAE841219D9DF8D007B0C62 /* DKContactUsAlertController.m */,
 				1C7A03D81A6D6AB30049ED4A /* DKContactUsWebViewController.h */,
 				1C7A03D91A6D6AB30049ED4A /* DKContactUsWebViewController.m */,
+				C748190A1B682E51009426EF /* DKContactUsViewController.h */,
+				C748190B1B682E51009426EF /* DKContactUsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -218,6 +244,10 @@
 				1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */,
 				1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */,
 				1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */,
+				C74819061B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h */,
+				C74819071B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m */,
+				C74819021B6811E9009426EF /* DKContactUsTextViewTableViewCell.h */,
+				C74819031B6811E9009426EF /* DKContactUsTextViewTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,6 +267,12 @@
 				1CBEEF8D19DDD49F0073A8AC /* DKArticlesSearchViewModel.m */,
 				1C691D7419D0655B004D406C /* DKArticleDetailViewModel.h */,
 				1C691D7519D0655B004D406C /* DKArticleDetailViewModel.m */,
+				C74818F61B6802DA009426EF /* DKContactUsViewModel.h */,
+				C74818F71B6802DA009426EF /* DKContactUsViewModel.m */,
+				C74818FE1B680DEE009426EF /* DKContactUsItem.h */,
+				C74818FF1B680DEE009426EF /* DKContactUsItem.m */,
+				C74818FA1B68064C009426EF /* DKContactUsInputTextItem.h */,
+				C74818FB1B68064C009426EF /* DKContactUsInputTextItem.m */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -465,6 +501,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74819081B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h in Headers */,
 				1CC49BCA19CB12EC003E3819 /* DKSession.h in Headers */,
 				1CB0AB7819CC647100B9D847 /* DKArticlesViewController.h in Headers */,
 				1CAE841319D9DF8D007B0C62 /* DKContactUsAlertController.h in Headers */,
@@ -477,16 +514,21 @@
 				1C19053C19CCCF580015BF15 /* DKArticleDetailViewController.h in Headers */,
 				1C14FB5D19DB1BA200557345 /* DKSettings.h in Headers */,
 				1CB0E6BE19DC6CF90048B5E6 /* UIAlertController+Additions.h in Headers */,
+				C74818FC1B68064C009426EF /* DKContactUsInputTextItem.h in Headers */,
 				1CB0E6BA19DC54960048B5E6 /* NSTextCheckingResult+Additions.h in Headers */,
 				1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */,
 				1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */,
 				1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */,
 				1C46EFFC19C123FB000FBCAC /* DKTopicsViewModel.h in Headers */,
 				1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */,
+				C74818F81B6802DA009426EF /* DKContactUsViewModel.h in Headers */,
+				C74819041B6811E9009426EF /* DKContactUsTextViewTableViewCell.h in Headers */,
 				1C7A03DA1A6D6AB30049ED4A /* DKContactUsWebViewController.h in Headers */,
+				C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */,
 				1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */,
 				1CA021FC19CBE1C70091D8A9 /* DKArticlesViewModel.h in Headers */,
 				1C75FBFE19BF34FE00971E46 /* DeskKit.h in Headers */,
+				C74819001B680DEE009426EF /* DKContactUsItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,11 +713,17 @@
 				1CA021FD19CBE1C70091D8A9 /* DKArticlesViewModel.m in Sources */,
 				1CBEEF9519DDD5D10073A8AC /* DKArticlesTopicViewModel.m in Sources */,
 				1C691D7719D0655B004D406C /* DKArticleDetailViewModel.m in Sources */,
+				C74819011B680DEE009426EF /* DKContactUsItem.m in Sources */,
+				C74819051B6811E9009426EF /* DKContactUsTextViewTableViewCell.m in Sources */,
+				C74818F91B6802DA009426EF /* DKContactUsViewModel.m in Sources */,
 				1C7A03DB1A6D6AB30049ED4A /* DKContactUsWebViewController.m in Sources */,
 				1C2D99F01A36081D00C471FB /* UIColor+Additions.m in Sources */,
 				1C14FB5E19DB1BA200557345 /* DKSettings.m in Sources */,
 				1C46EFE019C0E769000FBCAC /* DKListViewController.m in Sources */,
+				C74818FD1B68064C009426EF /* DKContactUsInputTextItem.m in Sources */,
 				1CBEEF8F19DDD49F0073A8AC /* DKArticlesSearchViewModel.m in Sources */,
+				C748190D1B682E51009426EF /* DKContactUsViewController.m in Sources */,
+				C74819091B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m in Sources */,
 				1CAE841419D9DF8D007B0C62 /* DKContactUsAlertController.m in Sources */,
 				1C94680619CBC34D009E4570 /* DKListViewModel.m in Sources */,
 				1CB0E6BF19DC6CF90048B5E6 /* UIAlertController+Additions.m in Sources */,

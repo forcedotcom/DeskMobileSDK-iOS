@@ -33,6 +33,7 @@
 #import "DKArticlesViewController.h"
 #import "DKContactUsWebViewController.h"
 #import "DKArticleDetailViewController.h"
+#import "DKContactUsViewController.h"
 
 @interface DKSession : NSObject
 
@@ -82,6 +83,13 @@ NS_ASSUME_NONNULL_BEGIN
  @return new instance of DKContactUsWebViewController.
  */
 + (DKContactUsWebViewController *)newContactUsWebViewController;
+
+/**
+ New instance of DKContactUsViewController.
+ 
+ @return new instance of DKContactUsViewController.
+ */
++ (DKContactUsViewController *)newContactUsViewController;
 
 /**
  New instance of DKArticleDetailViewController.

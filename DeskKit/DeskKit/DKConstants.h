@@ -65,12 +65,15 @@ extern CGFloat const DKSearchBarHeight;
 #define DKOk NSLocalizedString(@"OK", @"OK button title")
 #define DKDone NSLocalizedString(@"Done", @"Done button title")
 #define DKContactUs NSLocalizedString(@"Contact Us", @"Contact Us button title")
+#define DKSend NSLocalizedString(@"Send", comment: @"Send button title")
 #define DKError NSLocalizedString(@"Error", @"Error alert title")
 #define DKNoResults NSLocalizedString(@"No Results", @"No Results alert title")
 #define DKSearchAllArticles NSLocalizedString(@"Search All Articles", @"Placeholder text for search bar on topics screen")
 #define DKSearchArticlesInTopic NSLocalizedString(@"Search Articles in Topic", @"Placeholder text for search bar on articles screen")
 #define DKNoArticlesResultsMessage NSLocalizedString(@"There are no articles matching that search. Please try again with a different search.", @"No results message body")
+#define DKOptional NSLocalizedString(@"Optional", @"Indicates that a certain input field is optional")
 
 #pragma mark - Error Messages
 
 #define DKErrorMessageNetworkFailed NSLocalizedString(@"Failed to load content. Please ensure you are connected to the internet and try again.", @"Error displayed when a network error occurs.")
+#define DKErrorMessageContactUsFailed NSLocalizedString(@"Failed to send message. Please ensure you are connected to the internet and try again.", @"Error displayed when a network error occurs trying to contact us.")

@@ -36,13 +36,8 @@
 #import "DKSettings.h"
 
 static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
-#define DKMessageSent NSLocalizedString(@"Message Sent", @"Post-email alert title")
-#define DKMessageText NSLocalizedString(@"Thanks for sending us an email. Someone will respond as soon as possible.", @"Post-email alert text")
-#define DKOkAction NSLocalizedString(@"OK", @"OK Action")
 
-
-@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsAlertControllerDelegate,
-MFMailComposeViewControllerDelegate>
+@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsAlertControllerDelegate, DKContactUsViewControllerDelegate>
 
 @property (nonatomic) DKTopicsViewController *topicsViewController;
 @property (nonatomic) DKArticleDetailViewController *articleDetailViewController;
@@ -175,6 +170,18 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
     return [viewController article] != nil;
 }
 
+#pragma mark - DKContactUsViewControllerDelegate
+
+- (void)contactUsViewControllerDidSendMessage:(DKContactUsViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)contactUsViewControllerDidCancel:(DKContactUsViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - DKTopicsViewControllerDelegate
 
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController didSelectTopic:(DSAPITopic *)topic articlesTopicViewModel:(DKArticlesTopicViewModel *)articlesTopicViewModel
@@ -234,77 +241,19 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 
 - (void)alertControllerDidTapSendEmail
 {
-    if ([[DKSettings sharedInstance] showContactUsWebForm]) {
-        DKContactUsWebViewController *vc = [DKSession newContactUsWebViewController];
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTapped:)];
-        vc.navigationItem.rightBarButtonItem = doneButton;
-        vc.navigationItem.title = NSLocalizedString(@"Email Us", comment: @"Email Us");
-        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-        nvc.toolbarHidden = NO;
-        nvc.modalPresentationStyle = UIModalPresentationPageSheet;
-        [self presentViewController:nvc animated:YES completion:nil];
-    } else {
-        [self openMailComposeViewController];
-    }
+    DKContactUsViewController *vc = [DKSession newContactUsViewController];
+    vc.delegate = self;
+    vc.toRecipient = [DKSession sharedInstance].contactUsEmailAddress;
+    vc.showAllOptionalItems = YES;
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    nvc.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void)doneButtonTapped:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-/*  Note that due to a bug in the iOS 8 simulator, the MFMailComposeViewController can currently only
- be tested on devices. See http://stackoverflow.com/questions/25961068/uiviewserviceinterfaceerrordomain
- */
-- (void)openMailComposeViewController
-{
-    MFMailComposeViewController *vc = [MFMailComposeViewController new];
-    vc.mailComposeDelegate = self;
-    [vc setToRecipients:@[ [DKSession sharedInstance].contactUsEmailAddress ]];
-    [self presentViewController:vc animated:YES completion:nil];
-}
-
-#pragma mark - MFMailComposeViewControllerDelegate
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller
-          didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError *)error
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self showMailAlertWithResult:result error:error];
-}
-
-- (void)showMailAlertWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
-    NSString *messageTitle;
-    NSString *messageText;
-    
-    switch (result) {
-        case MFMailComposeResultFailed:
-            messageTitle = DKError;
-            messageText = error.localizedDescription;
-            break;
-        case MFMailComposeResultSent:
-            messageTitle = DKMessageSent;
-            messageText = DKMessageText;
-        default:
-            break;
-    }
-    
-    if (messageTitle && messageText) {
-        UIAlertController *ac = [UIAlertController alertControllerWithTitle:messageTitle
-                                                                    message:messageText
-                                                             preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:DKOkAction
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:nil];
-        
-        [ac addAction:okAction];
-        
-        [self presentViewController:ac
-                           animated:YES
-                         completion:nil];
-    }
 }
 
 #pragma mark - View Controllers from Storyboard
