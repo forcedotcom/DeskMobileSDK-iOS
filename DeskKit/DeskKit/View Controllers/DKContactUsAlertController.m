@@ -39,7 +39,7 @@
 
 @property (nonatomic) BOOL hasEmailUsAction;
 
-@property (nonatomic, weak) UIAlertAction *emailUsAction;
+@property (nonatomic, strong) UIAlertAction *emailUsAction;
 
 @end
 
