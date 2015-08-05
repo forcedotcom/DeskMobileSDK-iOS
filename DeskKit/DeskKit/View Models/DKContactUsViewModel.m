@@ -207,7 +207,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     if ([[self class] isNotEmptyString:self.subject]) {
         return self.userIdentity.fullName;
     }
-    return nil;
+    return DKDefaultSubject;
 }
 
 #pragma mark - API Calls

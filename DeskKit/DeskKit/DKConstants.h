@@ -69,6 +69,7 @@ extern CGFloat const DKSearchBarHeight;
 #define DKYourName NSLocalizedString(@"Your Name", comment: @"The user's full name")
 #define DKYourEmail NSLocalizedString(@"Your Email", comment: @"The user's email")
 #define DKSubject NSLocalizedString(@"Subject", comment: @"The subject of the message in Contact Us form")
+#define DKDefaultSubject NSLocalizedString(@"Feedback via iOS app", comment: @"Default subject for Contact Us")
 #define DKMessage NSLocalizedString(@"Message", comment: @"Placeholder for the message to be sent")
 
 #define DKError NSLocalizedString(@"Error", @"Error alert title")
