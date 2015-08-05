@@ -164,7 +164,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
 
 + (BOOL)isNotEmptyString:(NSString *)string
 {
-    return [[self class] isNotEmptyString:string];
+    return ![[self class] isEmptyString:string];
 }
 
 - (BOOL)validToRecipient
