@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "DKContactUsInputTextItem.h"
 #import "DSAPICase.h"
+#import "DKUserIdentity.h"
 
 static NSString *const DKContactUsTextFieldTableViewCellID = @"DKContactUsTextFieldTableViewCell";
 static NSString *const DKContactUsTextViewTableViewCellID = @"DKContactUsTextViewTableViewCell";
@@ -18,10 +19,17 @@ static NSString *const DKContactUsTextViewTableViewCellID = @"DKContactUsTextVie
 
 @property (nonatomic, readonly) NSArray *sections;
 @property (nonatomic, readonly) NSIndexPath *messageIndexPath;
+
+// Used to configure initial state. User can override these if exposed through the UI.
+@property (nonatomic) DKUserIdentity *userIdentity;
+@property (nonatomic, copy) NSString *subject;
+@property (nonatomic, copy) NSString *toRecipient;
+
+// These control what to show in the UI.
 @property (nonatomic) BOOL includeAllOptionalItems;
 @property (nonatomic) BOOL includeYourNameItem;
+@property (nonatomic) BOOL includeYourEmailItem;
 @property (nonatomic) BOOL includeSubjectItem;
-@property (nonatomic) NSString *toRecipient;
 
 - (instancetype)initIncludingOptionalItems:(BOOL)include;
 - (void)updateText:(NSAttributedString *)text indexPath:(NSIndexPath *)indexPath;

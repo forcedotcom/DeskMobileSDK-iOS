@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DKUserIdentity.h"
 
 extern NSString *const DKContactUsViewControllerID;
 
@@ -23,9 +24,17 @@ extern NSString *const DKContactUsViewControllerID;
 @interface DKContactUsViewController : UITableViewController
 
 @property (weak, nonatomic) id<DKContactUsViewControllerDelegate> delegate;
+
+// Used to configure initial state. User can override these if exposed through the UI.
+@property (nonatomic) DKUserIdentity *userIdentity;
+@property (nonatomic, copy) NSString *subject;
+@property (nonatomic, copy) NSString *toRecipient;
+
+// These control which rows to show in the UI.
 @property (nonatomic) BOOL showAllOptionalItems;
 @property (nonatomic) BOOL showYourNameItem;
+@property (nonatomic) BOOL showYourEmailItem;
 @property (nonatomic) BOOL showSubjectItem;
-@property (nonatomic) NSString *toRecipient;
+
 
 @end
