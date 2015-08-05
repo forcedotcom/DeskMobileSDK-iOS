@@ -52,6 +52,7 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 {
     [super viewDidLoad];
     [self setupViewModel];
+    self.sendButton.enabled = [self shouldEnableSendButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -8,6 +8,7 @@
 
 #import "DKContactUsViewModel.h"
 #import "DKConstants.h"
+#import "NSString+Additions.h"
 
 @interface DKContactUsViewModel ()
 
@@ -65,7 +66,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     }
     
     // Email
-    if ([[self class] isEmptyString:self.userIdentity.email] || self.includeYourEmailItem) {
+    if ([NSString dkIsEmptyString:self.userIdentity.email] || self.includeYourEmailItem) {
         self.emailItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
                                                                      text:[self attributedTextWithString:self.userIdentity.email]
                                                           placeHolderText:[self attributedPlaceholderTextWithString:DKYourEmail]
@@ -143,7 +144,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
         [section enumerateObjectsUsingBlock:^(DKContactUsItem *item, NSUInteger idx, BOOL *stop) {
             if ([item isKindOfClass:[DKContactUsInputTextItem class]]) {
                 DKContactUsInputTextItem *inputTextItem = (DKContactUsInputTextItem *)item;
-                if (inputTextItem.required && [[self class] isEmptyString:inputTextItem.text.string]) {
+                if (inputTextItem.required && [NSString dkIsEmptyString:inputTextItem.text.string]) {
                     allPresent = NO;
                     *stop = YES;
                 }
@@ -157,32 +158,39 @@ static NSString * const DKMessageSubjectKey = @"subject";
     return allPresent;
 }
 
-+ (BOOL)isEmptyString:(NSString *)string
-{
-    return string == nil || [string isEqualToString:@""];
-}
-
-+ (BOOL)isNotEmptyString:(NSString *)string
-{
-    return ![[self class] isEmptyString:string];
-}
-
 - (BOOL)validToRecipient
 {
-    return [[self class] isNotEmptyString:self.toRecipient];
+    return [NSString dkIsNotEmptyString:self.toRecipient];
 }
 
 - (BOOL)validFromEmail
 {
-    return [[self class] isNotEmptyString:[self bestFromEmail]];
+    NSString *email = [self bestFromEmail];
+    return [NSString dkIsNotEmptyString:email] && [self validRFC5322Email:email];
+}
+
+- (BOOL)validRFC5322Email:(NSString *)email
+{
+    // See: http://www.regular-expressions.info/email.html
+    NSString *emailRegex =
+    @"(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"
+    @"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
+    @"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"
+    @"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"
+    @"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"
+    @"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
+    @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:email];
 }
 
 - (NSString *)bestFromEmail
 {
-    if ([[self class] isNotEmptyString:self.emailItem.text.string]) {
+    if ([NSString dkIsNotEmptyString:self.emailItem.text.string]) {
         return self.emailItem.text.string;
     }
-    if ([[self class] isNotEmptyString:self.userIdentity.email]) {
+    if ([NSString dkIsNotEmptyString:self.userIdentity.email]) {
         return self.userIdentity.email;
     }
     return nil;
@@ -190,10 +198,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
 
 - (NSString *)bestFullName
 {
-    if ([[self class] isNotEmptyString:self.nameItem.text.string]) {
+    if ([NSString dkIsNotEmptyString:self.nameItem.text.string]) {
         return self.emailItem.text.string;
     }
-    if ([[self class] isNotEmptyString:self.userIdentity.fullName]) {
+    if ([NSString dkIsNotEmptyString:self.userIdentity.fullName]) {
         return self.userIdentity.fullName;
     }
     return nil;
@@ -201,10 +209,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
 
 - (NSString *)bestSubject
 {
-    if ([[self class] isNotEmptyString:self.subjectItem.text.string]) {
+    if ([NSString dkIsNotEmptyString:self.subjectItem.text.string]) {
         return self.emailItem.text.string;
     }
-    if ([[self class] isNotEmptyString:self.subject]) {
+    if ([NSString dkIsNotEmptyString:self.subject]) {
         return self.userIdentity.fullName;
     }
     return DKDefaultSubject;
@@ -231,7 +239,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     // Add optional keys
     NSString *name = [self bestFullName];
-    if ([[self class] isNotEmptyString:name]) {
+    if ([NSString dkIsNotEmptyString:name]) {
         dictionary[DKCaseNameKey] = self.nameItem.text.string;
     }
     
@@ -254,7 +262,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     // Add optional keys
     NSString *subject = [self bestSubject];
-    if ([[self class] isNotEmptyString:subject]) {
+    if ([NSString dkIsNotEmptyString:subject]) {
         dictionary[DKMessageSubjectKey] = subject;
     }
     
