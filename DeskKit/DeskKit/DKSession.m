@@ -42,7 +42,7 @@ static NSInteger const DSMailboxesPerPage = 100;
 @interface DKSession ()
 
 @property (nonatomic, strong) NSURL *contactUsPhoneNumberUrl;
-@property (nonatomic, strong) NSString *contactUsEmailAddress;
+@property (nonatomic, strong) NSString *contactUsToEmailAddress;
 @property (nonatomic) NSOperationQueue *APICallbackQueue;
 @property (nonatomic) NSURLSessionDataTask *listMailboxesTask;
 
@@ -101,14 +101,21 @@ static NSInteger const DSMailboxesPerPage = 100;
     return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKArticlesViewControllerId];
 }
 
-+ (DKContactUsWebViewController *)newContactUsWebViewController
+- (DKContactUsViewController *)newContactUsViewController
 {
-    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsWebViewControllerId];
-}
+    DKSettings *settings = [DKSettings sharedInstance];
+    DKContactUsViewController *vc = [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerID];
+    vc.toEmailAddress = self.contactUsToEmailAddress;
 
-+ (DKContactUsViewController *)newContactUsViewController
-{
-    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerID];
+    if (settings.hasContactUsSubject) {
+        vc.subject = settings.contactUsSubject;
+    }
+    vc.showSubjectItem = settings.contactUsSubject;
+    vc.showAllOptionalItems = settings.contactUsShowAllOptionalItems;
+    vc.showYourNameItem = settings.contactUsShowYourNameItem;
+    vc.showYourEmailItem = settings.contactUsShowYourEmailItem;
+    
+    return vc;
 }
 
 + (DKArticleDetailViewController *)newArticleDetailViewController
@@ -152,8 +159,8 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 - (void)setupContactUsEmail
 {
-    if ([DKSettings sharedInstance].hasContactUsEmailAddress) {
-        self.contactUsEmailAddress = [DKSettings sharedInstance].contactUsEmailAddress;
+    if ([DKSettings sharedInstance].hasContactUsToEmailAddress) {
+        self.contactUsToEmailAddress = [DKSettings sharedInstance].contactUsToEmailAddress;
     } else {
         [[DKSession sharedInstance] fetchInboundMailboxesWithCompletionHandler:nil];
     }
@@ -168,7 +175,7 @@ static NSInteger const DSMailboxesPerPage = 100;
                                                          queue:self.APICallbackQueue
                                                        success:^(DSAPIPage *page) {
                                                            if ([page.totalEntries integerValue]) {
-                                                               self.contactUsEmailAddress = [self firstEnabledInboundEmailAddressFromPage:page];
+                                                               self.contactUsToEmailAddress = [self firstEnabledInboundEmailAddressFromPage:page];
                                                            }
                                                            if (completionHandler) {
                                                                dispatch_sync(dispatch_get_main_queue(), ^{
@@ -185,13 +192,13 @@ static NSInteger const DSMailboxesPerPage = 100;
                                                        }];
 }
 
-- (void)hasContactUsEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsEmailAddress))completionHandler
+- (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler
 {
-    if (self.contactUsEmailAddress.length > 0) {
+    if (self.contactUsToEmailAddress.length > 0) {
         completionHandler(YES);
     } else {
         [self fetchInboundMailboxesWithCompletionHandler:^{
-            self.contactUsEmailAddress.length > 0 ? completionHandler(YES) : completionHandler(NO);
+            self.contactUsToEmailAddress.length > 0 ? completionHandler(YES) : completionHandler(NO);
         }];
     }
 }

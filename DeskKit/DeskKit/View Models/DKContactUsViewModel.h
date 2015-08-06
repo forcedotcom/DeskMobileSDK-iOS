@@ -23,7 +23,7 @@ static NSString *const DKContactUsTextViewTableViewCellID = @"DKContactUsTextVie
 // Used to configure initial state. User can override these if exposed through the UI.
 @property (nonatomic) DKUserIdentity *userIdentity;
 @property (nonatomic, copy) NSString *subject;
-@property (nonatomic, copy) NSString *toRecipient;
+@property (nonatomic, copy) NSString *toEmailAddress;
 
 // These control what to show in the UI.
 @property (nonatomic) BOOL includeAllOptionalItems;

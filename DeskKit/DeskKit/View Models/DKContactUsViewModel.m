@@ -132,7 +132,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
 
 - (BOOL)isValidEmailCase
 {
-    BOOL valid = [self validToRecipient] && [self requiredItemsHaveText] && [self validFromEmail];
+    BOOL valid = [self validToEmail] && [self requiredItemsHaveText] && [self validFromEmail];
     
     return valid;
 }
@@ -158,9 +158,9 @@ static NSString * const DKMessageSubjectKey = @"subject";
     return allPresent;
 }
 
-- (BOOL)validToRecipient
+- (BOOL)validToEmail
 {
-    return [NSString dkIsNotEmptyString:self.toRecipient];
+    return [NSString dkIsNotEmptyString:self.toEmailAddress];
 }
 
 - (BOOL)validFromEmail
@@ -257,7 +257,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
                                          DKMessageDirectionKey: @"in",
                                          DKMessageBodyKey: self.bodyItem.text.string,
                                          DKMessageFromKey: fromEmail,
-                                         DKMessageToKey: self.toRecipient
+                                         DKMessageToKey: self.toEmailAddress
                                          } mutableCopy];
     
     // Add optional keys

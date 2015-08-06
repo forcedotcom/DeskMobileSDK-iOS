@@ -31,11 +31,16 @@
 #import "DKSettings.h"
 #import "NSTextCheckingResult+Additions.h"
 #import "UIColor+Additions.h"
+#import "NSString+Additions.h"
 
 static NSString *const DKSettingsPListName = @"DeskKitSettings";
 static NSString *const DKSettingsContactUsPhoneNumberKey = @"ContactUsPhoneNumber";
-static NSString *const DKSettingsContactUsEmailKey = @"ContactUsEmailAddress";
-static NSString *const DKSettingsShowContactUsWebForm = @"ShowContactUsWebForm";
+static NSString *const DKSettingsContactUsToEmailKey = @"ContactUsToEmailAddress";
+static NSString *const DKSettingsContactUsSubject = @"ContactUsSubject";
+static NSString *const DKSettingsContactUsShowAllOptionalItems = @"ContactUsShowAllOptionalItems";
+static NSString *const DKSettingsContactUsShowYourNameItem = @"ContactUsShowYourNameItem";
+static NSString *const DKSettingsContactUsShowYourEmailItem = @"ContactUsShowYourEmailItem";
+static NSString *const DKSettingsContactUsShowSubjectItem = @"ContactUsShowSubjectItem";
 static NSString *const DKSettingsBrandIdKey = @"BrandId";
 static NSString *const DKSettingsTopNavKey = @"NavigationBar";
 static NSString *const DKSettingsTopNavTintColorRGBAKey = @"TintColorRGBA";
@@ -107,14 +112,14 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
                            andResultType:NSTextCheckingTypePhoneNumber];
 }
 
-- (NSString *)contactUsEmailAddress
+- (NSString *)contactUsToEmailAddress
 {
-    return [self.settings valueForKey:DKSettingsContactUsEmailKey];
+    return self.settings[DKSettingsContactUsToEmailKey];
 }
 
-- (BOOL)hasContactUsEmailAddress
+- (BOOL)hasContactUsToEmailAddress
 {
-    if (!self.contactUsEmailAddress.length) {
+    if (!self.contactUsToEmailAddress.length) {
         return NO;
     }
 
@@ -124,17 +129,42 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
                                                                       options:NSRegularExpressionCaseInsensitive
                                                                         error:&error];
 
-    NSRange inputRange = NSMakeRange(0, self.contactUsEmailAddress.length);
-    NSArray *results = [regex matchesInString:self.contactUsEmailAddress options:0 range:inputRange];
+    NSRange inputRange = NSMakeRange(0, self.contactUsToEmailAddress.length);
+    NSArray *results = [regex matchesInString:self.contactUsToEmailAddress options:0 range:inputRange];
 
     return [NSTextCheckingResult results:results
                          matchInputRange:inputRange
                            andResultType:NSTextCheckingTypeRegularExpression];
 }
 
-- (BOOL)showContactUsWebForm
+- (NSString *)contactUsSubject
 {
-    return [[self.settings valueForKey:DKSettingsShowContactUsWebForm] boolValue];
+    return self.settings[DKSettingsContactUsSubject];
+}
+
+- (BOOL)hasContactUsSubject
+{
+    return [NSString dkIsNotEmptyString:self.contactUsSubject];
+}
+
+- (BOOL)contactUsShowAllOptionalItems
+{
+    return [self.settings[DKSettingsContactUsShowAllOptionalItems] boolValue];
+}
+
+- (BOOL)contactUsShowYourNameItem
+{
+    return [self.settings[DKSettingsContactUsShowYourNameItem] boolValue];
+}
+
+- (BOOL)contactUsShowYourEmailItem
+{
+    return [self.settings[DKSettingsContactUsShowYourEmailItem] boolValue];
+}
+
+- (BOOL)contactUsShowSubjectItem
+{
+    return [self.settings[DKSettingsContactUsShowSubjectItem] boolValue];
 }
 
 - (NSString *)brandId
