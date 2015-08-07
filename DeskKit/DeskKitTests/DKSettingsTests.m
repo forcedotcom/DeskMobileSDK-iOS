@@ -119,7 +119,7 @@
     NSString *email = @"support@desk.com";
     NSDictionary *settings = @{ @"ContactUsEmailAddress" : email };
     OCMStub([self.mock settings]).andReturn(settings);
-    NSString *contactUs = [self.settingsTest contactUsEmailAddress];
+    NSString *contactUs = [self.settingsTest contactUsToEmailAddress];
     XCTAssertTrue([contactUs isEqualToString:email]);
 }
 
@@ -128,7 +128,7 @@
     NSString *email = @"support@desk.com";
     NSDictionary *settings = @{ @"ContactUsEmailAddress" : email };
     OCMStub([self.mock settings]).andReturn(settings);
-    XCTAssertTrue([self.settingsTest hasContactUsEmailAddress]);
+    XCTAssertTrue([self.settingsTest hasContactUsToEmailAddress]);
 }
 
 - (void)testDoesntHaveContactUsEmailForEmptyString
@@ -136,7 +136,7 @@
     NSString *email = @"";
     NSDictionary *settings = @{ @"ContactUsEmailAddress" : email };
     OCMStub([self.mock settings]).andReturn(settings);
-    XCTAssertFalse([self.settingsTest hasContactUsEmailAddress]);
+    XCTAssertFalse([self.settingsTest hasContactUsToEmailAddress]);
 }
 
 - (void)testDoesntHaveContactUsEmailForBadEmail
@@ -144,7 +144,7 @@
     NSString *email = @"asdf";
     NSDictionary *settings = @{ @"ContactUsEmailAddress" : email };
     OCMStub([self.mock settings]).andReturn(settings);
-    XCTAssertFalse([self.settingsTest hasContactUsEmailAddress]);
+    XCTAssertFalse([self.settingsTest hasContactUsToEmailAddress]);
 }
 
 - (void)testDoesntHaveContactUsEmailForBadEmail2
@@ -152,32 +152,14 @@
     NSString *email = @"support@desk@com";
     NSDictionary *settings = @{ @"ContactUsEmailAddress" : email };
     OCMStub([self.mock settings]).andReturn(settings);
-    XCTAssertFalse([self.settingsTest hasContactUsEmailAddress]);
+    XCTAssertFalse([self.settingsTest hasContactUsToEmailAddress]);
 }
 
 - (void)testDoesntHaveSettings
 {
     OCMStub([self.mock settings]).andReturn(nil);
     XCTAssertFalse([self.settingsTest hasContactUsPhoneNumber]);
-    XCTAssertFalse([self.settingsTest showContactUsWebForm]);
-}
-
-- (void)testShowContactUsWebForm
-{
-    id showContactUsWebForm = @YES;
-    NSDictionary *settings = @{ @"ShowContactUsWebForm" : showContactUsWebForm };
-    OCMStub([self.mock settings]).andReturn(settings);
-    BOOL showContactUsWebFormSetting = [self.settingsTest showContactUsWebForm];
-    XCTAssertTrue(showContactUsWebFormSetting);
-}
-
-- (void)testDontShowContactUsWebForm
-{
-    id showContactUsWebForm = @NO;
-    NSDictionary *settings = @{ @"ShowContactUsWebForm" : showContactUsWebForm };
-    OCMStub([self.mock settings]).andReturn(settings);
-    BOOL showContactUsWebFormSetting = [self.settingsTest showContactUsWebForm];
-    XCTAssertFalse(showContactUsWebFormSetting);
+    XCTAssertFalse([self.settingsTest hasContactUsToEmailAddress]);
 }
 
 - (void)testBrandId

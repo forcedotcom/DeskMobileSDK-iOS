@@ -81,8 +81,8 @@
 {
     NSDictionary *authDictionary = [DKTestUtils authDictionaryFromPlist];
 
-    [DKSession start:authDictionary[DKHostnameKey]
-            apiToken:authDictionary[DKApiTokenKey]];
+    [DKSession startWithHostname:authDictionary[DKHostnameKey]
+                        APIToken:authDictionary[DKApiTokenKey]];
 
     XCTAssertTrue([DKAPIManager sharedInstance].hasClient);
 
@@ -95,8 +95,7 @@
 {
     id SessionClassMock = OCMClassMock([DKSession class]);
 
-    [DKSession start:@""
-            apiToken:@""];
+    [DKSession startWithHostname:@"" APIToken:@""];
 
     OCMVerify([SessionClassMock setupAppearances]);
 }
@@ -105,27 +104,27 @@
 {
     NSString *email = @"support@desk@com";
     id settingsMock = OCMPartialMock([DKSettings sharedInstance]);
-    OCMStub([settingsMock hasContactUsEmailAddress]).andReturn(YES);
-    OCMStub([settingsMock contactUsEmailAddress]).andReturn(email);
+    OCMStub([settingsMock hasContactUsToEmailAddress]).andReturn(YES);
+    OCMStub([settingsMock contactUsToEmailAddress]).andReturn(email);
 
     [self.testSession setupContactUsEmail];
 
-    XCTAssertTrue([self.testSession.contactUsEmailAddress isEqualToString:email]);
+    XCTAssertTrue([self.testSession.contactUsToEmailAddress isEqualToString:email]);
 }
 
 - (void)testSetupContactUsEmailWithOutSettings
 {
     NSString *email = @"support@desk@com";
     id settingsMock = OCMPartialMock([DKSettings sharedInstance]);
-    OCMStub([settingsMock hasContactUsEmailAddress]).andReturn(NO);
-    OCMStub([settingsMock contactUsEmailAddress]).andReturn(email);
+    OCMStub([settingsMock hasContactUsToEmailAddress]).andReturn(NO);
+    OCMStub([settingsMock contactUsToEmailAddress]).andReturn(email);
 
     id sessionMock = OCMPartialMock([DKSession sharedInstance]);
     OCMExpect([sessionMock fetchInboundMailboxesWithCompletionHandler:nil]);
 
     [self.testSession setupContactUsEmail];
 
-    XCTAssertFalse([self.testSession.contactUsEmailAddress isEqualToString:email]);
+    XCTAssertFalse([self.testSession.contactUsToEmailAddress isEqualToString:email]);
     OCMVerifyAll(sessionMock);
 }
 
