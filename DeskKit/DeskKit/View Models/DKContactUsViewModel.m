@@ -210,10 +210,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
 - (NSString *)bestSubject
 {
     if ([NSString dkIsNotEmptyString:self.subjectItem.text.string]) {
-        return self.emailItem.text.string;
+        return self.subjectItem.text.string;
     }
     if ([NSString dkIsNotEmptyString:self.subject]) {
-        return self.userIdentity.fullName;
+        return self.subject;
     }
     return DKDefaultSubject;
 }

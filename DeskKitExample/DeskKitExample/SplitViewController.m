@@ -33,7 +33,6 @@
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewController.h"
 #import "DKSession.h"
-#import "DKSettings.h"
 
 static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 

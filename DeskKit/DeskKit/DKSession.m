@@ -110,7 +110,7 @@ static NSInteger const DSMailboxesPerPage = 100;
     if (settings.hasContactUsSubject) {
         vc.subject = settings.contactUsSubject;
     }
-    vc.showSubjectItem = settings.contactUsSubject;
+    vc.showSubjectItem = settings.contactUsShowSubjectItem;
     vc.showAllOptionalItems = settings.contactUsShowAllOptionalItems;
     vc.showYourNameItem = settings.contactUsShowYourNameItem;
     vc.showYourEmailItem = settings.contactUsShowYourEmailItem;
