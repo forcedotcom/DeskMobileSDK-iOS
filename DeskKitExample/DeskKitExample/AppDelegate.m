@@ -40,19 +40,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    /*
-     * NOTE: A plist is an insecure place for storing any sensitive data. We strongly
-     * recommend using the device's Keychain in your own app to store your Desk credentials, 
-     * including: consumer key, consumer secret, access token, and access secret. 
-     * For more information on using the keychain, see Apple's documentation here:
-     * https://developer.apple.com/library/mac/documentation/Security/Conceptual/keychainServConcepts/iPhoneTasks/iPhoneTasks.html#//apple_ref/doc/uid/TP30000897-CH208-SW1
-     */
-    
-    NSString *authPlistPath = [[NSBundle mainBundle] pathForResource:@"DeskAPIAuth" ofType:@"plist"];
-    NSDictionary *authDictionary = [NSDictionary dictionaryWithContentsOfFile:authPlistPath];
-    
-    [DKSession start:authDictionary[@"Hostname"]
-            apiToken:authDictionary[@"ApiToken"]];
+    [DKSession startWithHostname:@"yoursite.desk.com"
+                        APIToken:@"YOUR_API_TOKEN"];
     
     return YES;
 }
