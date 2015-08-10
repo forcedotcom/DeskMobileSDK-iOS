@@ -82,7 +82,7 @@
     NSDictionary *authDictionary = [DKTestUtils authDictionaryFromPlist];
 
     [DKSession startWithHostname:authDictionary[DKHostnameKey]
-                        APIToken:authDictionary[DKApiTokenKey]];
+                        APIToken:authDictionary[DKAPITokenKey]];
 
     XCTAssertTrue([DKAPIManager sharedInstance].hasClient);
 

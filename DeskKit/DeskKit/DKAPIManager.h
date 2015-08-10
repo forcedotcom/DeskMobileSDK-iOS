@@ -33,8 +33,8 @@
 @interface DKAPIManager : NSObject
 
 + (instancetype)sharedInstance;
-- (DSAPIClient *)apiClientWithHostname:(NSString *)hostname
-                              apiToken:(NSString *)apiToken;
+- (DSAPIClient *)APIClientWithHostname:(NSString *)hostname
+                              APIToken:(NSString *)apiToken;
 - (BOOL)hasClient;
 - (NSURL *)contactUsWebFormUrl;
 

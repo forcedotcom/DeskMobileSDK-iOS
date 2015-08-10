@@ -39,13 +39,13 @@
 extern NSTimeInterval const DKDefaultTestTimeout;
 extern NSString *const DKPListName;
 extern NSString *const DKHostnameKey;
-extern NSString *const DKApiTokenKey;
+extern NSString *const DKAPITokenKey;
 
 @class DKAPIManager;
 
 @interface DKTestUtils : NSObject
 
-+ (DKAPIManager *)authorizedApiManager;
++ (DKAPIManager *)authorizedAPIManager;
 + (NSDictionary *)authDictionaryFromPlist;
 
 #pragma mark - ViewController instanitiators

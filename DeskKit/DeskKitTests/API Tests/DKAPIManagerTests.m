@@ -45,11 +45,11 @@
 - (void)setUp
 {
     [super setUp];
-    self.manager = [DKTestUtils authorizedApiManager];
+    self.manager = [DKTestUtils authorizedAPIManager];
     self.APICallbackQueue = [NSOperationQueue new];
 }
 
-- (void)testCanAuthorizeApi {
+- (void)testCanAuthorizeAPI {
     XCTestExpectation *apiSuccessExpectation = [self expectationWithDescription:@"Makes an api call"];
     
     [DSAPIArticle listArticlesWithParameters:nil queue:self.APICallbackQueue success:^(DSAPIPage *page) {

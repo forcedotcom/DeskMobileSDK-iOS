@@ -38,7 +38,7 @@ NSTimeInterval const DKDefaultTestTimeout = 5;
 
 NSString *const DKPListName = @"DeskAPIAuth";
 NSString *const DKHostnameKey = @"Hostname";
-NSString *const DKApiTokenKey = @"ApiToken";
+NSString *const DKAPITokenKey = @"APIToken";
 
 @interface DKTestUtils()
 
@@ -50,14 +50,14 @@ NSString *const DKApiTokenKey = @"ApiToken";
 
 #pragma mark - Public Methods
 
-+ (DKAPIManager *)authorizedApiManager
++ (DKAPIManager *)authorizedAPIManager
 {
     NSDictionary *authDictionary = [self authDictionaryFromPlist];
     
     DKAPIManager *manager = [DKAPIManager new];
     
-    [manager apiClientWithHostname:authDictionary[DKHostnameKey]
-                          apiToken:authDictionary[DKApiTokenKey]];
+    [manager APIClientWithHostname:authDictionary[DKHostnameKey]
+                          APIToken:authDictionary[DKAPITokenKey]];
     
     return manager;
 }

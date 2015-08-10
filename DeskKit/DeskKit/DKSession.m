@@ -54,8 +54,8 @@ static NSInteger const DSMailboxesPerPage = 100;
                  APIToken:(NSString *)APIToken
 {
     [DKSession sharedInstance];
-    [[DKAPIManager sharedInstance] apiClientWithHostname:hostname
-                                                apiToken:APIToken];
+    [[DKAPIManager sharedInstance] APIClientWithHostname:hostname
+                                                APIToken:APIToken];
     
     [[DKSession sharedInstance] setupContactUsEmail];
     
