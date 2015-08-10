@@ -56,12 +56,12 @@
     XCTAssertEqual(self.viewModel.subject, article[DKArticleSubjectKey]);
 }
 
-- (void)testUrlRequest
+- (void)testURLRequest
 {
     DSAPIArticle *article = [DKFixtures article];
     self.viewModel.article = article;
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:article[DKArticlePublicUrlKey]]];
-    XCTAssertTrue([self.viewModel.urlRequest.URL.absoluteString isEqualToString:urlRequest.URL.absoluteString]);
+    NSURLRequest *URLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:article[DKArticlePublicURLKey]]];
+    XCTAssertTrue([self.viewModel.URLRequest.URL.absoluteString isEqualToString:URLRequest.URL.absoluteString]);
 }
 
 @end

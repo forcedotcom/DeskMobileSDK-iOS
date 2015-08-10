@@ -41,7 +41,7 @@
 - (NSDictionary *)parametersForPageNumber:(NSNumber *)pageNumber
                                   perPage:(NSNumber *)perPage
 {
-    NSString *fields = [NSString stringWithFormat:@"%@,%@", DKArticleSubjectKey, DKArticlePublicUrlKey];
+    NSString *fields = [NSString stringWithFormat:@"%@,%@", DKArticleSubjectKey, DKArticlePublicURLKey];
     id topicId = [self.topic valueForKey:DKTopicIdKey];
     
     NSDictionary *parameters = @{ kPageKey : pageNumber,

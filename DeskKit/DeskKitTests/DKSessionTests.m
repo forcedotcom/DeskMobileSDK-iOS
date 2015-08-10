@@ -50,7 +50,7 @@
 
 @interface DKSession ()
 
-@property (nonatomic, strong) NSURL *contactUsPhoneNumberUrl;
+@property (nonatomic, strong) NSURL *contactUsPhoneNumberURL;
 
 + (void)setupAppearances;
 - (void)transitionToRootViewController:(UIViewController *)rootViewController
@@ -82,7 +82,7 @@
     NSDictionary *authDictionary = [DKTestUtils authDictionaryFromPlist];
 
     [DKSession startWithHostname:authDictionary[DKHostnameKey]
-                        APIToken:authDictionary[DKApiTokenKey]];
+                        APIToken:authDictionary[DKAPITokenKey]];
 
     XCTAssertTrue([DKAPIManager sharedInstance].hasClient);
 

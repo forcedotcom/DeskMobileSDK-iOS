@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DKUserIdentity.h"
 
-extern NSString *const DKContactUsViewControllerID;
+extern NSString *const DKContactUsViewControllerId;
 
 @class DKContactUsViewController;
 

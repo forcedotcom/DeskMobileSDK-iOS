@@ -36,7 +36,7 @@ NSString *const DKContactUsWebViewControllerId = @"DKContactUsWebViewController"
 
 @interface DKContactUsWebViewController ()
 
-@property (nonatomic, strong) NSURL *contactUsUrl;
+@property (nonatomic, strong) NSURL *contactUsURL;
 
 - (void)loadWebForm;
 
@@ -47,13 +47,13 @@ NSString *const DKContactUsWebViewControllerId = @"DKContactUsWebViewController"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.contactUsUrl = [[DKAPIManager sharedInstance] contactUsWebFormUrl];
+    self.contactUsURL = [[DKAPIManager sharedInstance] contactUsWebFormURL];
     [self loadWebForm];
 }
 
 - (void)loadWebForm
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.contactUsUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.contactUsURL];
     [self.webView loadRequest:request];
 }
 
@@ -64,7 +64,7 @@ NSString *const DKContactUsWebViewControllerId = @"DKContactUsWebViewController"
 
 - (void)executeAction
 {
-    [[UIApplication sharedApplication] openURL:self.contactUsUrl];
+    [[UIApplication sharedApplication] openURL:self.contactUsURL];
 }
 
 @end

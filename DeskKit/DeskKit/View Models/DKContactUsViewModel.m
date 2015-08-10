@@ -58,7 +58,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     // Name
     if (self.includeAllOptionalItems || self.includeYourNameItem) {
-        self.nameItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
+        self.nameItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
                                                                     text:[self attributedTextWithString:self.userIdentity.fullName]
                                                          placeHolderText:[self attributedPlaceholderTextWithString:DKYourName]
                                                                 required:NO];
@@ -67,7 +67,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     // Email
     if ([NSString dkIsEmptyString:self.userIdentity.email] || self.includeYourEmailItem) {
-        self.emailItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
+        self.emailItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
                                                                      text:[self attributedTextWithString:self.userIdentity.email]
                                                           placeHolderText:[self attributedPlaceholderTextWithString:DKYourEmail]
                                                                  required:YES];
@@ -77,7 +77,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     // Subject
     if (self.includeAllOptionalItems || self.includeSubjectItem) {
-        self.subjectItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextFieldTableViewCellID
+        self.subjectItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
                                                                        text:[self attributedTextWithString:self.subject]
                                                             placeHolderText:[self attributedPlaceholderTextWithString:DKSubject]
                                                                    required:NO];
@@ -85,7 +85,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     }
     
     // Body
-    self.bodyItem = [[DKContactUsInputTextItem alloc] initWithCellID:DKContactUsTextViewTableViewCellID
+    self.bodyItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextViewTableViewCellId
                                                                 text:nil
                                                      placeHolderText:[self attributedPlaceholderTextWithString:DKMessage]
                                                             required:YES];

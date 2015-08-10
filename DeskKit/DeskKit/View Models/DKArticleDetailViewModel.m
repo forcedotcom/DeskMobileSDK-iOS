@@ -44,14 +44,14 @@
     return [self.article valueForKey:DKArticleSubjectKey];
 }
 
-- (NSURLRequest *)urlRequest
+- (NSURLRequest *)URLRequest
 {
-    return [NSURLRequest requestWithURL:self.url];
+    return [NSURLRequest requestWithURL:self.URL];
 }
 
-- (NSURL *)url
+- (NSURL *)URL
 {
-    return [NSURL URLWithString:[self.article valueForKey:DKArticlePublicUrlKey]];
+    return [NSURL URLWithString:[self.article valueForKey:DKArticlePublicURLKey]];
 }
 
 @end

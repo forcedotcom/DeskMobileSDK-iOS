@@ -59,7 +59,7 @@
 
 - (void)testParameters
 {
-    NSString *fields = [NSString stringWithFormat:@"%@,%@", DKArticleSubjectKey, DKArticlePublicUrlKey];
+    NSString *fields = [NSString stringWithFormat:@"%@,%@", DKArticleSubjectKey, DKArticlePublicURLKey];
     NSDictionary *parameters = @{ kPageKey : @1,
                                   kPerPageKey : @(DKItemsPerPage),
                                   DKFieldsKey : fields,

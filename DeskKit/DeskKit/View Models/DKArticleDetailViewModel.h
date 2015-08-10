@@ -35,8 +35,8 @@
 @interface DKArticleDetailViewModel : NSObject
 
 @property (nonatomic, strong) DSAPIArticle *article;
-@property (nonatomic, readonly) NSURLRequest *urlRequest;
-@property (nonatomic, readonly) NSURL *url;
+@property (nonatomic, readonly) NSURLRequest *URLRequest;
+@property (nonatomic, readonly) NSURL *URL;
 @property (nonatomic, readonly) NSString *subject;
 
 @end

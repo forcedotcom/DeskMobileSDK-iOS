@@ -45,18 +45,18 @@
 - (void)setUp
 {
     [super setUp];
-    self.manager = [DKTestUtils authorizedApiManager];
+    self.manager = [DKTestUtils authorizedAPIManager];
     self.APICallbackQueue = [NSOperationQueue new];
 }
 
-- (void)testCanAuthorizeApi {
-    XCTestExpectation *apiSuccessExpectation = [self expectationWithDescription:@"Makes an api call"];
+- (void)testCanAuthorizeAPI {
+    XCTestExpectation *APISuccessExpectation = [self expectationWithDescription:@"Makes an API call"];
     
     [DSAPIArticle listArticlesWithParameters:nil queue:self.APICallbackQueue success:^(DSAPIPage *page) {
-        [apiSuccessExpectation fulfill];
+        [APISuccessExpectation fulfill];
     } failure:^(NSHTTPURLResponse *response, NSError *error) {
         XCTFail(@"Received error: %@ on response %@", error, response);
-        [apiSuccessExpectation fulfill];
+        [APISuccessExpectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:DKDefaultTestTimeout handler:nil];
@@ -67,12 +67,12 @@
     XCTAssertTrue(self.manager.hasClient);
 }
 
-- (void)testContactUsUrl
+- (void)testContactUsURL
 {
-    NSURL *url = [self.manager contactUsWebFormUrl];
+    NSURL *URL = [self.manager contactUsWebFormURL];
     DSAPIClient *client = [self.manager performSelector:@selector(client)];
-    XCTAssertTrue([url.absoluteString hasPrefix:client.baseURL.absoluteString]);
-    XCTAssertTrue([url.absoluteString hasSuffix:@"/customer/portal/emails/new"]);
+    XCTAssertTrue([URL.absoluteString hasPrefix:client.baseURL.absoluteString]);
+    XCTAssertTrue([URL.absoluteString hasSuffix:@"/customer/portal/emails/new"]);
 }
 
 @end

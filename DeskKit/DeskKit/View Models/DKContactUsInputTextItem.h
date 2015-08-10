@@ -15,7 +15,7 @@
 @property (nonatomic) NSAttributedString *placeholderText;
 @property (nonatomic, readonly) BOOL required;
 
-- (instancetype)initWithCellID:(NSString *)cellID
+- (instancetype)initWithCellId:(NSString *)cellId
                           text:(NSAttributedString *)text
                placeHolderText:(NSAttributedString *)placeholder
                       required:(BOOL)required;

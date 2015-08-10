@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DeskAPIClient:
-    :commit: 5cffdd9849983c39874ae2e8fe8bbcd2e6e6a26b
+    :commit: 3bc52b4eafd4c944b663593ef1a8d2556684caf0
     :git: git@github.com:forcedotcom/DeskApiClient-ObjC
   DeskCommon:
     :git: git@github.com:forcedotcom/DeskCommon-Cocoa
@@ -29,4 +29,4 @@ SPEC CHECKSUMS:
   DeskCommon: 540341996fb4e2c82a2f00f3cf6c7ebfd66480ff
   OCMock: 1f0871af0f397183f33e7552cca088bd2b485c25
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2

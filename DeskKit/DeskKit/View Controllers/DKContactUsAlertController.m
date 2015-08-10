@@ -81,7 +81,7 @@
     [self addAction:[UIAlertAction actionWithTitle:DKCallUs
                                              style:UIAlertActionStyleDefault
                                            handler:^(UIAlertAction *action) {
-                                               [[UIApplication sharedApplication] openURL:[DKSession sharedInstance].contactUsPhoneNumberUrl];
+                                               [[UIApplication sharedApplication] openURL:[DKSession sharedInstance].contactUsPhoneNumberURL];
                                            }]];
 }
 
