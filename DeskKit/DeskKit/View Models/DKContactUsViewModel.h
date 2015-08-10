@@ -12,8 +12,8 @@
 #import "DSAPICase.h"
 #import "DKUserIdentity.h"
 
-static NSString *const DKContactUsTextFieldTableViewCellID = @"DKContactUsTextFieldTableViewCell";
-static NSString *const DKContactUsTextViewTableViewCellID = @"DKContactUsTextViewTableViewCell";
+static NSString *const DKContactUsTextFieldTableViewCellId = @"DKContactUsTextFieldTableViewCell";
+static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextViewTableViewCell";
 
 @interface DKContactUsViewModel : NSObject
 

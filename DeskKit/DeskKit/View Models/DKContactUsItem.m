@@ -10,11 +10,11 @@
 
 @implementation DKContactUsItem
 
-- (instancetype)initWithCellID:(NSString *)cellID
+- (instancetype)initWithCellId:(NSString *)cellId
 {
     self = [super init];
     if (self) {
-        _cellID = cellID;
+        _cellId = cellId;
     }
     return self;
 }

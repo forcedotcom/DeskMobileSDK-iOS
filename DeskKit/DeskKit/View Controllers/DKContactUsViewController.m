@@ -16,7 +16,7 @@
 #define DKMessageSent NSLocalizedString(@"Message Sent", comment: @"Message Sent title")
 #define DKMessageSentText NSLocalizedString(@"Thank you for contacting us. We will get back to you as soon as possible.", comment: @"Message Sent body.")
 
-NSString *const DKContactUsViewControllerID = @"DKContactUsViewController";
+NSString *const DKContactUsViewControllerId = @"DKContactUsViewController";
 static CGFloat standardCellHeight = 44.0; // This matches the contraint in storyboard.
 
 @interface DKContactUsViewController () <UITextViewDelegate>
@@ -114,7 +114,7 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     __block NSUInteger standardCellCount = 0;
     [self.viewModel.sections enumerateObjectsUsingBlock:^(NSArray *section, NSUInteger idx, BOOL *stop) {
         [section enumerateObjectsUsingBlock:^(DKContactUsItem *item, NSUInteger idx, BOOL *stop) {
-            if (item.cellID != DKContactUsTextViewTableViewCellID) {
+            if (item.cellId != DKContactUsTextViewTableViewCellId) {
                 standardCellCount++;
             }
         }];
@@ -313,10 +313,10 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DKContactUsInputTextItem *item = self.viewModel.sections[indexPath.section][indexPath.row];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:item.cellID forIndexPath:indexPath];
-    if ([item.cellID isEqualToString:DKContactUsTextFieldTableViewCellID]) {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:item.cellId forIndexPath:indexPath];
+    if ([item.cellId isEqualToString:DKContactUsTextFieldTableViewCellId]) {
         [self configureTextFieldCell:(DKContactUsTextFieldTableViewCell *)cell item:item];
-    } else if ([item.cellID isEqualToString:DKContactUsTextViewTableViewCellID]) {
+    } else if ([item.cellId isEqualToString:DKContactUsTextViewTableViewCellId]) {
         [self configureTextViewCell:(DKContactUsTextViewTableViewCell *)cell item:item];
     }
     
@@ -328,7 +328,7 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DKContactUsItem *item = self.viewModel.sections[indexPath.section][indexPath.row];
-    if ([item.cellID isEqualToString:DKContactUsTextViewTableViewCellID]) {
+    if ([item.cellId isEqualToString:DKContactUsTextViewTableViewCellId]) {
         return [self messageCellHeight];
     } else {
         return standardCellHeight;

@@ -104,7 +104,7 @@ static NSInteger const DSMailboxesPerPage = 100;
 - (DKContactUsViewController *)newContactUsViewController
 {
     DKSettings *settings = [DKSettings sharedInstance];
-    DKContactUsViewController *vc = [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerID];
+    DKContactUsViewController *vc = [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerId];
     vc.toEmailAddress = self.contactUsToEmailAddress;
 
     if (settings.hasContactUsSubject) {
