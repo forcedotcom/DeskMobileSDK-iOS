@@ -69,10 +69,10 @@
 
 - (void)testContactUsURL
 {
-    NSURL *url = [self.manager contactUsWebFormURL];
+    NSURL *URL = [self.manager contactUsWebFormURL];
     DSAPIClient *client = [self.manager performSelector:@selector(client)];
-    XCTAssertTrue([url.absoluteString hasPrefix:client.baseURL.absoluteString]);
-    XCTAssertTrue([url.absoluteString hasSuffix:@"/customer/portal/emails/new"]);
+    XCTAssertTrue([URL.absoluteString hasPrefix:client.baseURL.absoluteString]);
+    XCTAssertTrue([URL.absoluteString hasSuffix:@"/customer/portal/emails/new"]);
 }
 
 @end

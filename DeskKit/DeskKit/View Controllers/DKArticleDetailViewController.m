@@ -74,7 +74,7 @@ NSString *const DKArticleDetailViewControllerId = @"DKArticleDetailViewControlle
 
 - (void)loadArticle
 {
-    [self.webView loadRequest:self.viewModel.urlRequest];
+    [self.webView loadRequest:self.viewModel.URLRequest];
 }
 
 - (void)refresh
@@ -84,7 +84,7 @@ NSString *const DKArticleDetailViewControllerId = @"DKArticleDetailViewControlle
 
 - (void)executeAction
 {
-    [[UIApplication sharedApplication] openURL:self.viewModel.url];
+    [[UIApplication sharedApplication] openURL:self.viewModel.URL];
 }
 
 @end
