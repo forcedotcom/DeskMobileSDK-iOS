@@ -36,6 +36,6 @@
 - (DSAPIClient *)APIClientWithHostname:(NSString *)hostname
                               APIToken:(NSString *)apiToken;
 - (BOOL)hasClient;
-- (NSURL *)contactUsWebFormUrl;
+- (NSURL *)contactUsWebFormURL;
 
 @end

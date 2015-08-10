@@ -41,7 +41,7 @@ static NSString *const DKArticleTextKey = @"text";
 
 - (NSDictionary *)parametersForPageNumber:(NSNumber *)pageNumber perPage:(NSNumber *)perPage
 {
-    NSString *fields = [NSString stringWithFormat:@"%@,%@", DKArticleSubjectKey, DKArticlePublicUrlKey];
+    NSString *fields = [NSString stringWithFormat:@"%@,%@", DKArticleSubjectKey, DKArticlePublicURLKey];
     NSDictionary *parameters = @{ kPageKey : pageNumber,
                                   kPerPageKey : perPage,
                                   DKArticleTextKey : self.searchTerm,

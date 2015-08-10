@@ -64,8 +64,8 @@ NSString *const DKAPITokenKey = @"APIToken";
 
 + (NSDictionary *)authDictionaryFromPlist
 {
-    NSURL *plistUrl = [[NSBundle bundleForClass:[self class]] URLForResource:DKPListName withExtension:@"plist"];
-    return [NSDictionary dictionaryWithContentsOfURL:plistUrl];
+    NSURL *plistURL = [[NSBundle bundleForClass:[self class]] URLForResource:DKPListName withExtension:@"plist"];
+    return [NSDictionary dictionaryWithContentsOfURL:plistURL];
 }
 
 #pragma mark - ViewController instanitiators

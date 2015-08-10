@@ -81,10 +81,10 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
 - (NSDictionary *)settingsDictionaryFromPlist
 {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSURL *plistUrl = [bundle URLForResource:DKSettingsPListName
+    NSURL *plistURL = [bundle URLForResource:DKSettingsPListName
                                withExtension:@"plist"];
 
-    return [NSDictionary dictionaryWithContentsOfURL:plistUrl];
+    return [NSDictionary dictionaryWithContentsOfURL:plistURL];
 }
 
 - (NSString *)contactUsPhoneNumber

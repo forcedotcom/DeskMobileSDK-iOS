@@ -99,7 +99,7 @@ NS_ASSUME_NONNULL_END
  The following are internal methods used by DeskKit. Generally clients will not need to call these methods.
  */
 
-- (nullable NSURL *)contactUsPhoneNumberUrl;
+- (nullable NSURL *)contactUsPhoneNumberURL;
 - (BOOL)hasContactUsPhoneNumber;
 - (nullable NSString *)contactUsToEmailAddress;
 - (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler;

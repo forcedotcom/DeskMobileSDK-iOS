@@ -39,7 +39,7 @@ extern NSInteger const DKItemsPerPage;
 extern NSString *const DKTopicNameKey;
 extern NSString *const DKTopicPositionKey;
 extern NSString *const DKArticleSubjectKey;
-extern NSString *const DKArticlePublicUrlKey;
+extern NSString *const DKArticlePublicURLKey;
 extern NSString *const DKArticleBodyKey;
 extern NSString *const DKArticlePrivateSearchKey;
 extern NSString *const DKArticlePositionKey;

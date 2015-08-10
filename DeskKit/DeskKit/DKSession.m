@@ -41,7 +41,7 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 @interface DKSession ()
 
-@property (nonatomic, strong) NSURL *contactUsPhoneNumberUrl;
+@property (nonatomic, strong) NSURL *contactUsPhoneNumberURL;
 @property (nonatomic, strong) NSString *contactUsToEmailAddress;
 @property (nonatomic) NSOperationQueue *APICallbackQueue;
 @property (nonatomic) NSURLSessionDataTask *listMailboxesTask;
@@ -140,15 +140,15 @@ static NSInteger const DSMailboxesPerPage = 100;
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], [UIToolbar class], nil] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
 }
 
-- (NSURL *)contactUsPhoneNumberUrl
+- (NSURL *)contactUsPhoneNumberURL
 {
     if (!self.hasContactUsPhoneNumber) {
         return nil;
     } else {
-        NSURL *url = [NSURL URLWithString:[DKTelpromptProtocol stringByAppendingString:[DKSettings sharedInstance].contactUsPhoneNumber]];
+        NSURL *URL = [NSURL URLWithString:[DKTelpromptProtocol stringByAppendingString:[DKSettings sharedInstance].contactUsPhoneNumber]];
         // Add a check to ensure that the telprompt url can be opened. See this link for more info:
         // http://stackoverflow.com/questions/20072123/telprompt-vs-tel-and-app-approval
-        return [[UIApplication sharedApplication] canOpenURL:url] ? url : [NSURL URLWithString:[DKTelProtocol stringByAppendingString:[DKSettings sharedInstance].contactUsPhoneNumber]];
+        return [[UIApplication sharedApplication] canOpenURL:URL] ? URL : [NSURL URLWithString:[DKTelProtocol stringByAppendingString:[DKSettings sharedInstance].contactUsPhoneNumber]];
     }
 }
 

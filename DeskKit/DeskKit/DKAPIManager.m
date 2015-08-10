@@ -71,10 +71,10 @@ static NSString *const DKPathToContactUsForm = @"/customer/portal/emails/new";
     return self.client != nil;
 }
 
-- (NSURL *)contactUsWebFormUrl
+- (NSURL *)contactUsWebFormURL
 {
-    NSURL *baseUrl = self.client.baseURL;
-    return [baseUrl URLByAppendingPathComponent:DKPathToContactUsForm];
+    NSURL *baseURL = self.client.baseURL;
+    return [baseURL URLByAppendingPathComponent:DKPathToContactUsForm];
 }
 
 @end

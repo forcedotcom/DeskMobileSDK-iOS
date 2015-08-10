@@ -118,7 +118,7 @@
 
 - (NSString *)fields
 {
-    return [NSString stringWithFormat:@"%@,%@", DKArticleSubjectKey, DKArticlePublicUrlKey];
+    return [NSString stringWithFormat:@"%@,%@", DKArticleSubjectKey, DKArticlePublicURLKey];
 }
 
 @end

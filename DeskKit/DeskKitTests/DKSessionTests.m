@@ -50,7 +50,7 @@
 
 @interface DKSession ()
 
-@property (nonatomic, strong) NSURL *contactUsPhoneNumberUrl;
+@property (nonatomic, strong) NSURL *contactUsPhoneNumberURL;
 
 + (void)setupAppearances;
 - (void)transitionToRootViewController:(UIViewController *)rootViewController
