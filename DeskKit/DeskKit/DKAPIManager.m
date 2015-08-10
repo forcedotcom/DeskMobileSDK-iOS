@@ -54,14 +54,14 @@ static NSString *const DKPathToContactUsForm = @"/customer/portal/emails/new";
 #pragma mark - Private Methods
 
 - (DSAPIClient *)APIClientWithHostname:(NSString *)hostname
-                              APIToken:(NSString *)apiToken
+                              APIToken:(NSString *)APIToken
 {
     if (self.hasClient) {
         return self.client;
     }
     
     self.client = [DSAPIClient sharedManager];
-    [self.client setHostname:hostname APIToken:apiToken];
+    [self.client setHostname:hostname APIToken:APIToken];
 
     return self.client;
 }

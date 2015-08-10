@@ -50,13 +50,13 @@
 }
 
 - (void)testCanAuthorizeAPI {
-    XCTestExpectation *apiSuccessExpectation = [self expectationWithDescription:@"Makes an api call"];
+    XCTestExpectation *APISuccessExpectation = [self expectationWithDescription:@"Makes an API call"];
     
     [DSAPIArticle listArticlesWithParameters:nil queue:self.APICallbackQueue success:^(DSAPIPage *page) {
-        [apiSuccessExpectation fulfill];
+        [APISuccessExpectation fulfill];
     } failure:^(NSHTTPURLResponse *response, NSError *error) {
         XCTFail(@"Received error: %@ on response %@", error, response);
-        [apiSuccessExpectation fulfill];
+        [APISuccessExpectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:DKDefaultTestTimeout handler:nil];

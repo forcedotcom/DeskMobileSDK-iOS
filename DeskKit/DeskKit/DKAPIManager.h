@@ -34,7 +34,7 @@
 
 + (instancetype)sharedInstance;
 - (DSAPIClient *)APIClientWithHostname:(NSString *)hostname
-                              APIToken:(NSString *)apiToken;
+                              APIToken:(NSString *)APIToken;
 - (BOOL)hasClient;
 - (NSURL *)contactUsWebFormURL;
 
