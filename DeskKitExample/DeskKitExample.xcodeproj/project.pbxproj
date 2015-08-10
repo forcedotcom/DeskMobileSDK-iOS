@@ -13,7 +13,6 @@
 		1CABC2E819E483E5009C63C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CABC2E719E483E5009C63C3 /* Images.xcassets */; };
 		1CABC2EB19E483E5009C63C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CABC2E919E483E5009C63C3 /* LaunchScreen.xib */; };
 		1CABC2F719E483E5009C63C3 /* DeskKitExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CABC2F619E483E5009C63C3 /* DeskKitExampleTests.m */; };
-		1CABC30219E48598009C63C3 /* DeskAPIAuth.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CABC30019E48598009C63C3 /* DeskAPIAuth.plist */; };
 		1CABC30319E48598009C63C3 /* DeskKitSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CABC30119E48598009C63C3 /* DeskKitSettings.plist */; };
 		1CABC30519E4859E009C63C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CABC30419E4859E009C63C3 /* Localizable.strings */; };
 		4BE235EB5C26DC92F9C54C7E /* libPods-DeskKitExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 672D9167398C36EBFCF305F8 /* libPods-DeskKitExampleTests.a */; };
@@ -44,7 +43,6 @@
 		1CABC2F019E483E5009C63C3 /* DeskKitExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeskKitExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CABC2F519E483E5009C63C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CABC2F619E483E5009C63C3 /* DeskKitExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DeskKitExampleTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1CABC30019E48598009C63C3 /* DeskAPIAuth.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeskAPIAuth.plist; sourceTree = "<group>"; };
 		1CABC30119E48598009C63C3 /* DeskKitSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeskKitSettings.plist; sourceTree = "<group>"; };
 		1CABC30419E4859E009C63C3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5EBCCA63B6A3E25730D54D28 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				1CABC30419E4859E009C63C3 /* Localizable.strings */,
-				1CABC30019E48598009C63C3 /* DeskAPIAuth.plist */,
 				1CABC30119E48598009C63C3 /* DeskKitSettings.plist */,
 				1CABC2DB19E483E5009C63C3 /* Info.plist */,
 				1CABC2DC19E483E5009C63C3 /* main.m */,
@@ -251,7 +248,6 @@
 				1CABC2E619E483E5009C63C3 /* Main.storyboard in Resources */,
 				1CABC30519E4859E009C63C3 /* Localizable.strings in Resources */,
 				1CABC2EB19E483E5009C63C3 /* LaunchScreen.xib in Resources */,
-				1CABC30219E48598009C63C3 /* DeskAPIAuth.plist in Resources */,
 				1CABC30319E48598009C63C3 /* DeskKitSettings.plist in Resources */,
 				1CABC2E819E483E5009C63C3 /* Images.xcassets in Resources */,
 			);

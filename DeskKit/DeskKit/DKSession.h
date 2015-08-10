@@ -44,10 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
  have no negative effect if the session has already been started.
  
  @param hostname The Desk.com sitename, e.g. "yoursite.desk.com"
- @param apiToken The api token of the api application found in the site's admin admin
+ @param APIToken The API token of the API application found in the site's admin admin
  */
-+ (void)start:(NSString *)hostname
-     apiToken:(NSString *)apiToken;
++ (void)startWithHostname:(NSString *)hostname
+                 APIToken:(NSString *)APIToken;
 
 /**
  Returns the DeskKit Session singleton
