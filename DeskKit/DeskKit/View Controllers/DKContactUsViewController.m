@@ -79,12 +79,12 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 
 - (void)setupViewModel
 {
-    NSAssert(self.toRecipient, @"toRecipient cannot be nil");
+    NSAssert(self.toEmailAddress, @"toEmailAddress cannot be nil");
     
     self.viewModel = [[DKContactUsViewModel alloc] initIncludingOptionalItems:self.showAllOptionalItems];
     self.viewModel.userIdentity = self.userIdentity;
     self.viewModel.subject = self.subject;
-    self.viewModel.toRecipient = self.toRecipient;
+    self.viewModel.toEmailAddress = self.toEmailAddress;
     
     self.viewModel.includeYourNameItem = self.showYourNameItem;
     self.viewModel.includeYourEmailItem = self.showYourEmailItem;

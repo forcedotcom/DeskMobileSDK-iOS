@@ -38,10 +38,16 @@
 - (NSString *)contactUsPhoneNumber;
 - (BOOL)hasContactUsPhoneNumber;
 
-- (NSString *)contactUsEmailAddress;
-- (BOOL)hasContactUsEmailAddress;
+- (NSString *)contactUsToEmailAddress;
+- (BOOL)hasContactUsToEmailAddress;
 
-- (BOOL)showContactUsWebForm;
+- (NSString *)contactUsSubject;
+- (BOOL)hasContactUsSubject;
+
+- (BOOL)contactUsShowAllOptionalItems;
+- (BOOL)contactUsShowYourNameItem;
+- (BOOL)contactUsShowYourEmailItem;
+- (BOOL)contactUsShowSubjectItem;
 
 - (NSString *)brandId;
 - (BOOL)hasBrandId;

@@ -7,33 +7,41 @@
 		<key>BarTintColorRGBA</key>
 		<dict>
 			<key>Red</key>
-			<integer>255</integer>
+			<integer>240</integer>
 			<key>Green</key>
-			<integer>255</integer>
+			<integer>240</integer>
 			<key>Blue</key>
-			<integer>255</integer>
+			<integer>240</integer>
 			<key>Alpha</key>
-			<integer>255</integer>
+			<integer>1</integer>
 		</dict>
 		<key>TintColorRGBA</key>
 		<dict>
 			<key>Red</key>
 			<integer>0</integer>
 			<key>Green</key>
-			<integer>0</integer>
+			<integer>122</integer>
 			<key>Blue</key>
-			<integer>0</integer>
+			<integer>255</integer>
 			<key>Alpha</key>
 			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>TopNavIconFileName</key>
 	<string></string>
-	<key>ContactUsEmailAddress</key>
+	<key>ContactUsToEmailAddress</key>
 	<string></string>
 	<key>ContactUsPhoneNumber</key>
+	<string>555-123-4567</string>
+	<key>ContactUsSubject</key>
 	<string></string>
-	<key>ShowContactUsWebForm</key>
+	<key>ContactUsShowAllOptionalItems</key>
+	<false/>
+	<key>ContactUsShowYourNameItem</key>
+	<false/>
+	<key>ContactUsShowYourEmailItem</key>
+	<false/>
+	<key>ContactUsShowSubjectItem</key>
 	<false/>
 	<key>BrandId</key>
 	<string></string>

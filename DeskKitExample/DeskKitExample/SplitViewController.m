@@ -33,7 +33,6 @@
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewController.h"
 #import "DKSession.h"
-#import "DKSettings.h"
 
 static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 
@@ -241,10 +240,8 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 
 - (void)alertControllerDidTapSendEmail
 {
-    DKContactUsViewController *vc = [DKSession newContactUsViewController];
+    DKContactUsViewController *vc = [[DKSession sharedInstance] newContactUsViewController];
     vc.delegate = self;
-    vc.toRecipient = [DKSession sharedInstance].contactUsEmailAddress;
-    vc.showAllOptionalItems = YES;
     
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     nvc.modalPresentationStyle = UIModalPresentationPageSheet;

@@ -78,18 +78,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (DKArticlesViewController *)newArticlesViewController;
 
 /**
- New instance of DKContactUsWebViewController.
- 
- @return new instance of DKContactUsWebViewController.
- */
-+ (DKContactUsWebViewController *)newContactUsWebViewController;
-
-/**
  New instance of DKContactUsViewController.
  
  @return new instance of DKContactUsViewController.
  */
-+ (DKContactUsViewController *)newContactUsViewController;
+- (DKContactUsViewController *)newContactUsViewController;
 
 /**
  New instance of DKArticleDetailViewController.
@@ -108,7 +101,7 @@ NS_ASSUME_NONNULL_END
 
 - (nullable NSURL *)contactUsPhoneNumberUrl;
 - (BOOL)hasContactUsPhoneNumber;
-- (nullable NSString *)contactUsEmailAddress;
-- (void)hasContactUsEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsEmailAddress))completionHandler;
+- (nullable NSString *)contactUsToEmailAddress;
+- (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler;
 
 @end
