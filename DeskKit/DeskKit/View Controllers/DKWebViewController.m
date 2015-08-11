@@ -29,6 +29,7 @@
 //
 
 #import "DKWebViewController.h"
+#import "DSAPINetworkIndicatorController.h"
 
 static NSString *const DKWebViewCanGoBack = @"canGoBack";
 static NSString *const DKWebViewCanGoForward = @"canGoForward";
@@ -83,7 +84,6 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
     [self addWebViewToContainerView];
     [self registerKvo];
     [self setupButtonAccessibilityLabels];
-    [self webViewStartedLoading];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -92,12 +92,6 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
     if (self.needsLoad) {
         [self refresh];
     }
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self webViewFinishedLoading];
 }
 
 - (void)dealloc
@@ -224,13 +218,13 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
 
 - (void)webViewStartedLoading
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [[DSAPINetworkIndicatorController sharedController] networkActivityDidStart];
     [self setToolbarButtonsEnabled:NO];
 }
 
 - (void)webViewFinishedLoading
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[DSAPINetworkIndicatorController sharedController] networkActivityDidEnd];
     [self setToolbarButtonsEnabled:YES];
     self.needsLoad = NO;
 }
