@@ -130,7 +130,6 @@ NSString *const DKArticlesViewControllerId = @"DKArticlesViewController";
 
 - (void)viewModelDidFetchNoResults:(DKListViewModel *)viewModel
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.tableView reloadData];
     if ([self shouldShowNoSearchResultsMessage]) {
         UIAlertController *alertController = [UIAlertController alertWithTitle:DKNoResults

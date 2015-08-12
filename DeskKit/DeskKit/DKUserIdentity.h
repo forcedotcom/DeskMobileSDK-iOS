@@ -13,7 +13,10 @@
 NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *givenName; // i.e. First name
 @property (nonatomic, copy) NSString *familyName; // i.e. Last name
-@property (nonatomic, copy) NSString *fullName; // Localized version of name created from givenName and FamilyName
+
+// Localized version of name created from givenName and familyName. Currently only supports "givenName familyName" format.
+@property (nonatomic, readonly) NSString *fullName;
+
 @property (nonatomic, copy) NSString *email;
 
 - (instancetype)initWithEmail:(NSString *)email;

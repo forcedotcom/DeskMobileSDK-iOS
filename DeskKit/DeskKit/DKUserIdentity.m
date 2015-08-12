@@ -7,6 +7,7 @@
 //
 
 #import "DKUserIdentity.h"
+#import "NSString+Additions.h"
 
 @implementation DKUserIdentity
 
@@ -17,6 +18,20 @@
         _email = email;
     }
     return self;
+}
+
+- (NSString *)fullName
+{
+    NSMutableString *name = [NSMutableString new];
+    if ([NSString dkIsNotEmptyString:self.givenName]) {
+        [name appendString:self.givenName];
+    }
+    if ([NSString dkIsNotEmptyString:self.familyName]) {
+        [name appendString:@" "];
+        [name appendString:self.familyName];
+    }
+    
+    return [NSString dkIsNotEmptyString:name] ? [name copy] : nil;
 }
 
 @end

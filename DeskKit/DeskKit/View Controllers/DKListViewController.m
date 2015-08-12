@@ -127,22 +127,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
 }
 
-#pragma mark - ViewModelDelegate
-
-- (void)viewModel:(DKListViewModel *)viewModel willFetchPageNumber:(NSNumber *)pageNumber
-{
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-}
+#pragma mark - DKListViewModelDelegate
 
 - (void)viewModel:(id)viewModel didFetchPage:(DSAPIPage *)page
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.tableView reloadData];
 }
 
 - (void)viewModel:(DKListViewModel *)viewModel fetchDidFailOnPageNumber:(NSNumber *)pageNumber
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     UIAlertController *alertController = [UIAlertController alertWithTitle:DKError text:DKErrorMessageNetworkFailed];
     [self presentViewController:alertController animated:YES completion:nil];
 }
