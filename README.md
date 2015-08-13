@@ -33,7 +33,7 @@ The `DeskKitExample` app presents a support portal in a top-level `UISplitViewCo
 `[DKSession newTopicsViewController]`
 
 ## Presenting Contact Us options
-The `DeskKitExample` app also demonstrates one way to present a “Contact Us” action sheet. The `DKContactUsAlertController` is an action sheet in which your users can choose whether to email you or call you by phone, depending on which settings you have enabled below. This controller can be instantiated like so:
+The `DeskKitExample` app also demonstrates one way to present a “Contact Us” action sheet. `DSSession` has a class method to create a pre-configured `UIAlertController` that allows a user to choose whether to email you or call you by phone, depending on which settings you have enabled below. This controller can be instantiated like so:
 
 ```
 [DKSession newContactUsAlertControllerWithCallHandler:^(UIAlertAction *callAction) {
