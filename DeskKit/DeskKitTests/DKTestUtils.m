@@ -91,9 +91,4 @@ NSString *const DKAPITokenKey = @"APIToken";
     return [[self storyboard] instantiateViewControllerWithIdentifier:@"DKArticleDetailViewController"];
 }
 
-+ (DKContactUsWebViewController *)contactUsWebViewController
-{
-    return [[self storyboard] instantiateViewControllerWithIdentifier:@"DKContactUsWebViewController"];
-}
-
 @end

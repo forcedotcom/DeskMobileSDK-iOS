@@ -35,13 +35,13 @@
 	<string>555-123-4567</string>
 	<key>ContactUsSubject</key>
 	<string></string>
-	<key>ContactUsShowAllOptionalItems</key>
+	<key>ContactUsShowSubjectItem</key>
 	<false/>
 	<key>ContactUsShowYourNameItem</key>
 	<false/>
-	<key>ContactUsShowYourEmailItem</key>
+	<key>ContactUsShowAllOptionalItems</key>
 	<false/>
-	<key>ContactUsShowSubjectItem</key>
+	<key>ContactUsShowYourEmailItem</key>
 	<false/>
 	<key>BrandId</key>
 	<string></string>
