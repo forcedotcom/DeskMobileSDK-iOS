@@ -28,9 +28,8 @@
 //  POSSIBILITY OF SUCH DAMAGE.
 //
 
+@import MessageUI;
 #import "DKListViewController.h"
-#import "DKContactUsAlertController.h"
-#import <MessageUI/MessageUI.h>
 #import "DKTopicsViewModel.h"
 #import "DKArticlesTopicViewModel.h"
 #import "DKArticlesSearchViewModel.h"

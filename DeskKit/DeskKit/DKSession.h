@@ -37,6 +37,9 @@
 
 @interface DKSession : NSObject
 
+// Contact Us Phone Number read from DKSettings
+@property (nonatomic, readonly, nullable) NSURL *contactUsPhoneNumberURL;
+
 NS_ASSUME_NONNULL_BEGIN
 /**
  Starts a DeskKit Session. This method should be called in your app delegate, or in any view controller
@@ -78,6 +81,18 @@ NS_ASSUME_NONNULL_BEGIN
 + (DKArticlesViewController *)newArticlesViewController;
 
 /**
+ New instance of a UIAlertController with Contact Us choices.
+ 
+ @param callHandler Block to execute when Call Us button is tapped.
+ @param emailHandler Block to execute when Email Us button is tapped.
+ 
+ @return instance of a UIAlertController.
+ */
+
++ (UIAlertController *)newContactUsAlertControllerWithCallCandler:(void (^)(UIAlertAction *action))callHandler
+                                                     emailHandler:(void (^)(UIAlertAction *action))emailHandler;
+
+/**
  New instance of DKContactUsViewController.
  
  @return new instance of DKContactUsViewController.
@@ -99,8 +114,7 @@ NS_ASSUME_NONNULL_END
  The following are internal methods used by DeskKit. Generally clients will not need to call these methods.
  */
 
-- (nullable NSURL *)contactUsPhoneNumberURL;
-- (BOOL)hasContactUsPhoneNumber;
++ (BOOL)hasContactUsPhoneNumber;
 - (nullable NSString *)contactUsToEmailAddress;
 - (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler;
 

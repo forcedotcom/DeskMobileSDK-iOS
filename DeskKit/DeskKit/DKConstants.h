@@ -61,6 +61,8 @@ extern CGFloat const DKSearchBarHeight;
 
 #pragma mark - Strings
 
+#define DKCallUs NSLocalizedString(@"Call Us", @"Call Us button title")
+#define DKEmailUs NSLocalizedString(@"Email Us", @"Email Us button title")
 #define DKCancel NSLocalizedString(@"Cancel", @"Cancel button title")
 #define DKOk NSLocalizedString(@"OK", @"OK button title")
 #define DKDone NSLocalizedString(@"Done", @"Done button title")

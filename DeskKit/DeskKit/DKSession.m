@@ -41,7 +41,6 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 @interface DKSession ()
 
-@property (nonatomic, strong) NSURL *contactUsPhoneNumberURL;
 @property (nonatomic, strong) NSString *contactUsToEmailAddress;
 @property (nonatomic) NSOperationQueue *APICallbackQueue;
 @property (nonatomic) NSURLSessionDataTask *listMailboxesTask;
@@ -91,38 +90,6 @@ static NSInteger const DSMailboxesPerPage = 100;
     return [UIStoryboard storyboardWithName:DKStoryboardName bundle:[NSBundle bundleForClass:[self class]]];
 }
 
-+ (DKTopicsViewController *)newTopicsViewController
-{
-    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKTopicsViewControllerId];
-}
-
-+ (DKArticlesViewController *)newArticlesViewController
-{
-    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKArticlesViewControllerId];
-}
-
-- (DKContactUsViewController *)newContactUsViewController
-{
-    DKSettings *settings = [DKSettings sharedInstance];
-    DKContactUsViewController *vc = [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerId];
-    vc.toEmailAddress = self.contactUsToEmailAddress;
-
-    if (settings.hasContactUsSubject) {
-        vc.subject = settings.contactUsSubject;
-    }
-    vc.showSubjectItem = settings.contactUsShowSubjectItem;
-    vc.showAllOptionalItems = settings.contactUsShowAllOptionalItems;
-    vc.showYourNameItem = settings.contactUsShowYourNameItem;
-    vc.showYourEmailItem = settings.contactUsShowYourEmailItem;
-    
-    return vc;
-}
-
-+ (DKArticleDetailViewController *)newArticleDetailViewController
-{
-    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKArticleDetailViewControllerId];
-}
-
 + (void)setupAppearances
 {
     NSDictionary *topNavTitleTextAttributes = @{
@@ -140,22 +107,122 @@ static NSInteger const DSMailboxesPerPage = 100;
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], [UIToolbar class], nil] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
 }
 
++ (DKTopicsViewController *)newTopicsViewController
+{
+    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKTopicsViewControllerId];
+}
+
++ (DKArticlesViewController *)newArticlesViewController
+{
+    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKArticlesViewControllerId];
+}
+
+#pragma mark - Contact US
+
++ (UIAlertController *)newContactUsAlertControllerWithCallCandler:(void (^)(UIAlertAction *action))callHandler
+                                                     emailHandler:(void (^)(UIAlertAction *action))emailHandler;
+{
+    UIAlertController *contactUsSheet = [UIAlertController alertControllerWithTitle:DKContactUs
+                                                                            message:nil
+                                                                     preferredStyle:UIAlertControllerStyleActionSheet];
+    [[self class] addCancelButtonWithAlertController:contactUsSheet];
+    [[self class] addCallUsButtonWithAlertController:contactUsSheet handler:callHandler];
+    [[self class] addEmailUsButtonWithAlertController:contactUsSheet handler:emailHandler];
+    return contactUsSheet;
+}
+
++ (void)addCancelButtonWithAlertController:(UIAlertController *)controller
+{
+    [controller addAction:[UIAlertAction actionWithTitle:DKCancel
+                                                   style:UIAlertActionStyleCancel
+                                                 handler:nil]];
+}
+
++ (void)addCallUsButtonWithAlertController:(UIAlertController *)controller handler:(void (^)(UIAlertAction *action))handler
+{
+    if ([DKSession sharedInstance].contactUsPhoneNumberURL) {
+        [[self class] addCallUsActionWithAlertController:controller handler:handler];
+    }
+}
+
++ (UIAlertAction *)addCallUsActionWithAlertController:(UIAlertController *)controller handler:(void (^)(UIAlertAction *action))handler;
+{
+    UIAlertAction *callUsAction = [UIAlertAction actionWithTitle:DKCallUs
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:handler];
+    [controller addAction:callUsAction];
+    return callUsAction;
+}
+
++ (void)addEmailUsButtonWithAlertController:(UIAlertController *)controller handler:(void (^)(UIAlertAction *action))handler
+{
+    UIAlertAction *emailUsAction = [[self class] addEmailUsActionWithAlertController:controller handler:handler];
+    emailUsAction.enabled = NO;
+    [[DKSession sharedInstance] hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {
+        emailUsAction.enabled = hasContactUsToEmailAddress;
+    }];
+}
+
++ (UIAlertAction *)addEmailUsActionWithAlertController:(UIAlertController *)controller handler:(void (^)(UIAlertAction *action))handler
+{
+    UIAlertAction *emailUsAction = [UIAlertAction actionWithTitle:DKEmailUs
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:handler];
+    [controller addAction:emailUsAction];
+    return emailUsAction;
+}
+
+- (DKContactUsViewController *)newContactUsViewController
+{
+    DKSettings *settings = [DKSettings sharedInstance];
+    DKContactUsViewController *vc = [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerId];
+    vc.toEmailAddress = self.contactUsToEmailAddress;
+    
+    if (settings.hasContactUsSubject) {
+        vc.subject = settings.contactUsSubject;
+    }
+    vc.showSubjectItem = settings.contactUsShowSubjectItem;
+    vc.showAllOptionalItems = settings.contactUsShowAllOptionalItems;
+    vc.showYourNameItem = settings.contactUsShowYourNameItem;
+    vc.showYourEmailItem = settings.contactUsShowYourEmailItem;
+    
+    return vc;
+}
+
++ (DKArticleDetailViewController *)newArticleDetailViewController
+{
+    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKArticleDetailViewControllerId];
+}
+
+#pragma mark - Phone
+
 - (NSURL *)contactUsPhoneNumberURL
 {
-    if (!self.hasContactUsPhoneNumber) {
+    if (![[self class] hasContactUsPhoneNumber]) {
         return nil;
     } else {
         NSURL *URL = [NSURL URLWithString:[DKTelpromptProtocol stringByAppendingString:[DKSettings sharedInstance].contactUsPhoneNumber]];
         // Add a check to ensure that the telprompt url can be opened. See this link for more info:
         // http://stackoverflow.com/questions/20072123/telprompt-vs-tel-and-app-approval
-        return [[UIApplication sharedApplication] canOpenURL:URL] ? URL : [NSURL URLWithString:[DKTelProtocol stringByAppendingString:[DKSettings sharedInstance].contactUsPhoneNumber]];
+        BOOL canOpenURL = [[UIApplication sharedApplication] canOpenURL:URL];
+        if (canOpenURL) {
+            return URL;
+        }
+        URL = [NSURL URLWithString:[DKTelProtocol stringByAppendingString:[DKSettings sharedInstance].contactUsPhoneNumber]];
+        canOpenURL = [[UIApplication sharedApplication] canOpenURL:URL];
+        if (canOpenURL) {
+            return URL;
+        }
+        return nil;
     }
 }
 
-- (BOOL)hasContactUsPhoneNumber
++ (BOOL)hasContactUsPhoneNumber
 {
     return [DKSettings sharedInstance].hasContactUsPhoneNumber;
 }
+
+#pragma mark - Email
 
 - (void)setupContactUsEmail
 {

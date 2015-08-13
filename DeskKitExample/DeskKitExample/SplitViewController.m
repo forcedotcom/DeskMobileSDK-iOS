@@ -36,7 +36,7 @@
 
 static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 
-@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsAlertControllerDelegate, DKContactUsViewControllerDelegate>
+@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsViewControllerDelegate>
 
 @property (nonatomic) DKTopicsViewController *topicsViewController;
 @property (nonatomic) DKArticleDetailViewController *articleDetailViewController;
@@ -225,10 +225,14 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 
 - (void)openActionSheet
 {
-    DKContactUsAlertController *contactUsSheet = [DKContactUsAlertController contactUsAlertController];
+    UIAlertController *contactUsSheet = [DKSession newContactUsAlertControllerWithCallCandler:^(UIAlertAction * __nonnull callAction) {
+        [[UIApplication sharedApplication] openURL:[[DKSession sharedInstance] contactUsPhoneNumberURL]];
+    } emailHandler:^(UIAlertAction * __nonnull emailAction) {
+        [self alertControllerDidTapEmailUs];
+    }];
+    
     UIBarButtonItem *contactUsButton = self.masterNavigationController.topViewController.toolbarItems[self.contactUsButtonIndex];
     contactUsSheet.popoverPresentationController.barButtonItem = contactUsButton;
-    contactUsSheet.delegate = self;
     
     [self presentViewController:contactUsSheet animated:YES completion:nil];
 }
@@ -238,7 +242,7 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
     [self openActionSheet];
 }
 
-- (void)alertControllerDidTapSendEmail
+- (void)alertControllerDidTapEmailUs
 {
     DKContactUsViewController *vc = [[DKSession sharedInstance] newContactUsViewController];
     vc.delegate = self;
