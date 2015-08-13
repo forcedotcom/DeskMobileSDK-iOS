@@ -122,20 +122,6 @@
     OCMVerifyAll(self.mock);
 }
 
-- (void)testViewDidLoadCallsWebViewStartedLoading
-{
-    OCMExpect([self.mock webViewStartedLoading]);
-    [self.viewController view];
-    OCMVerifyAll(self.mock);
-}
-
-- (void)testViewWillDisappearCallsWebViewStartedLoading
-{
-    OCMExpect([self.mock webViewFinishedLoading]);
-    [self.viewController viewWillDisappear:YES];
-    OCMVerifyAll(self.mock);
-}
-
 - (void)testAddWebView
 {
     [self.viewController view];
@@ -220,6 +206,7 @@
 - (void)testWebViewFinishedLoadingEnablesToolbarButtons
 {
     OCMExpect([self.mock setToolbarButtonsEnabled:YES]);
+    [self.viewController webViewStartedLoading];
     [self.viewController webViewFinishedLoading];
     OCMVerifyAll(self.mock);
 }

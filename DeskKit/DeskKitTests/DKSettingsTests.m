@@ -117,7 +117,7 @@
 - (void)testContactUsEmail
 {
     NSString *email = @"support@desk.com";
-    NSDictionary *settings = @{ @"ContactUsEmailAddress" : email };
+    NSDictionary *settings = @{ @"ContactUsToEmailAddress" : email };
     OCMStub([self.mock settings]).andReturn(settings);
     NSString *contactUs = [self.settingsTest contactUsToEmailAddress];
     XCTAssertTrue([contactUs isEqualToString:email]);
@@ -126,7 +126,7 @@
 - (void)testHasContactUsEmail
 {
     NSString *email = @"support@desk.com";
-    NSDictionary *settings = @{ @"ContactUsEmailAddress" : email };
+    NSDictionary *settings = @{ @"ContactUsToEmailAddress" : email };
     OCMStub([self.mock settings]).andReturn(settings);
     XCTAssertTrue([self.settingsTest hasContactUsToEmailAddress]);
 }

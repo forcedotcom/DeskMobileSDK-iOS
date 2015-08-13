@@ -39,9 +39,6 @@
 		1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7A03D21A6D64560049ED4A /* DKWebViewController.h */; };
 		1C7A03D51A6D64560049ED4A /* DKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D31A6D64560049ED4A /* DKWebViewController.m */; };
 		1C7A03D71A6D66B10049ED4A /* DKWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D61A6D66B10049ED4A /* DKWebViewControllerTests.m */; };
-		1C7A03DA1A6D6AB30049ED4A /* DKContactUsWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7A03D81A6D6AB30049ED4A /* DKContactUsWebViewController.h */; };
-		1C7A03DB1A6D6AB30049ED4A /* DKContactUsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D91A6D6AB30049ED4A /* DKContactUsWebViewController.m */; };
-		1C7A03DD1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03DC1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m */; };
 		1C94680519CBC34D009E4570 /* DKListViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C94680319CBC34D009E4570 /* DKListViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C94680619CBC34D009E4570 /* DKListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C94680419CBC34D009E4570 /* DKListViewModel.m */; };
 		1C94680819CBC456009E4570 /* DKTopicsViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C94680719CBC456009E4570 /* DKTopicsViewModelTests.m */; };
@@ -137,9 +134,6 @@
 		1C7A03D21A6D64560049ED4A /* DKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKWebViewController.h; sourceTree = "<group>"; };
 		1C7A03D31A6D64560049ED4A /* DKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKWebViewController.m; sourceTree = "<group>"; };
 		1C7A03D61A6D66B10049ED4A /* DKWebViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKWebViewControllerTests.m; sourceTree = "<group>"; };
-		1C7A03D81A6D6AB30049ED4A /* DKContactUsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsWebViewController.h; sourceTree = "<group>"; };
-		1C7A03D91A6D6AB30049ED4A /* DKContactUsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsWebViewController.m; sourceTree = "<group>"; };
-		1C7A03DC1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsWebViewControllerTests.m; sourceTree = "<group>"; };
 		1C94680319CBC34D009E4570 /* DKListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKListViewModel.h; sourceTree = "<group>"; };
 		1C94680419CBC34D009E4570 /* DKListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKListViewModel.m; sourceTree = "<group>"; };
 		1C94680719CBC456009E4570 /* DKTopicsViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKTopicsViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -230,8 +224,6 @@
 				1C7A03D31A6D64560049ED4A /* DKWebViewController.m */,
 				1C19053A19CCCF580015BF15 /* DKArticleDetailViewController.h */,
 				1C19053B19CCCF580015BF15 /* DKArticleDetailViewController.m */,
-				1C7A03D81A6D6AB30049ED4A /* DKContactUsWebViewController.h */,
-				1C7A03D91A6D6AB30049ED4A /* DKContactUsWebViewController.m */,
 				C748190A1B682E51009426EF /* DKContactUsViewController.h */,
 				C748190B1B682E51009426EF /* DKContactUsViewController.m */,
 			);
@@ -462,7 +454,6 @@
 				1CB0AB7419CC638A00B9D847 /* DKTopicsViewControllerTests.m */,
 				1C7A03D61A6D66B10049ED4A /* DKWebViewControllerTests.m */,
 				1CB0AB7E19CC6B7700B9D847 /* DKArticlesViewControllerTests.m */,
-				1C7A03DC1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m */,
 				1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */,
 			);
 			path = "View Controller Tests";
@@ -526,7 +517,6 @@
 				1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */,
 				C74818F81B6802DA009426EF /* DKContactUsViewModel.h in Headers */,
 				C74819041B6811E9009426EF /* DKContactUsTextViewTableViewCell.h in Headers */,
-				1C7A03DA1A6D6AB30049ED4A /* DKContactUsWebViewController.h in Headers */,
 				C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */,
 				1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */,
 				1CA021FC19CBE1C70091D8A9 /* DKArticlesViewModel.h in Headers */,
@@ -721,7 +711,6 @@
 				C74819011B680DEE009426EF /* DKContactUsItem.m in Sources */,
 				C74819051B6811E9009426EF /* DKContactUsTextViewTableViewCell.m in Sources */,
 				C74818F91B6802DA009426EF /* DKContactUsViewModel.m in Sources */,
-				1C7A03DB1A6D6AB30049ED4A /* DKContactUsWebViewController.m in Sources */,
 				1C2D99F01A36081D00C471FB /* UIColor+Additions.m in Sources */,
 				1C14FB5E19DB1BA200557345 /* DKSettings.m in Sources */,
 				1C46EFE019C0E769000FBCAC /* DKListViewController.m in Sources */,
@@ -750,7 +739,6 @@
 				1CB0AB7F19CC6B7700B9D847 /* DKArticlesViewControllerTests.m in Sources */,
 				1C1E17F019BF621D0034D202 /* DKAPIManagerTests.m in Sources */,
 				1C46F00919C1CB41000FBCAC /* DKFixtures.m in Sources */,
-				1C7A03DD1A6D78CA0049ED4A /* DKContactUsWebViewControllerTests.m in Sources */,
 				1CA021FF19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m in Sources */,
 				1C46F00019C1C74A000FBCAC /* DKListViewModelTests.m in Sources */,
 				1C691D8419D0A4EF004D406C /* DKArticleDetailViewControllerTests.m in Sources */,

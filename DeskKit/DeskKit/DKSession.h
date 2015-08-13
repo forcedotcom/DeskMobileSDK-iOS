@@ -27,11 +27,10 @@
 //  POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import <DeskAPIClient/DeskAPIClient.h>
 #import "DKTopicsViewController.h"
 #import "DKArticlesViewController.h"
-#import "DKContactUsWebViewController.h"
 #import "DKArticleDetailViewController.h"
 #import "DKContactUsViewController.h"
 

@@ -27,14 +27,13 @@
 //  POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import <OCMock/OCMock.h>
 #import "DKSession.h"
 #import "DKFixtures.h"
 #import "DKTopicsViewController.h"
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewController.h"
-#import "DKContactUsWebViewController.h"
 
 extern NSTimeInterval const DKDefaultTestTimeout;
 extern NSString *const DKPListName;
@@ -53,6 +52,5 @@ extern NSString *const DKAPITokenKey;
 + (DKTopicsViewController *)topicsViewController;
 + (DKArticlesViewController *)articlesViewController;
 + (DKArticleDetailViewController *)articleDetailViewController;
-+ (DKContactUsWebViewController *)contactUsWebViewController;
 
 @end
