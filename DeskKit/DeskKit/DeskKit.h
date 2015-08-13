@@ -40,4 +40,3 @@ FOUNDATION_EXPORT const unsigned char DeskKitVersionString[];
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewModel.h"
 #import "DKArticleDetailViewController.h"
-#import "DKContactUsAlertController.h"
