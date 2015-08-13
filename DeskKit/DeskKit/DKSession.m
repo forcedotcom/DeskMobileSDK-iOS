@@ -119,7 +119,7 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 #pragma mark - Contact US
 
-+ (UIAlertController *)newContactUsAlertControllerWithCallCandler:(void (^)(UIAlertAction *action))callHandler
++ (UIAlertController *)newContactUsAlertControllerWithCallHandler:(void (^)(UIAlertAction *action))callHandler
                                                      emailHandler:(void (^)(UIAlertAction *action))emailHandler;
 {
     UIAlertController *contactUsSheet = [UIAlertController alertControllerWithTitle:DKContactUs

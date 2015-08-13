@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return instance of a UIAlertController.
  */
 
-+ (UIAlertController *)newContactUsAlertControllerWithCallCandler:(void (^)(UIAlertAction *action))callHandler
++ (UIAlertController *)newContactUsAlertControllerWithCallHandler:(void (^)(UIAlertAction *action))callHandler
                                                      emailHandler:(void (^)(UIAlertAction *action))emailHandler;
 
 /**

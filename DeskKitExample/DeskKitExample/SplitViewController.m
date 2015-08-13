@@ -225,7 +225,7 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 
 - (void)openActionSheet
 {
-    UIAlertController *contactUsSheet = [DKSession newContactUsAlertControllerWithCallCandler:^(UIAlertAction * __nonnull callAction) {
+    UIAlertController *contactUsSheet = [DKSession newContactUsAlertControllerWithCallHandler:^(UIAlertAction * __nonnull callAction) {
         [[UIApplication sharedApplication] openURL:[[DKSession sharedInstance] contactUsPhoneNumberURL]];
     } emailHandler:^(UIAlertAction * __nonnull emailAction) {
         [self alertControllerDidTapEmailUs];
@@ -244,10 +244,13 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 
 - (void)alertControllerDidTapEmailUs
 {
-    DKContactUsViewController *vc = [[DKSession sharedInstance] newContactUsViewController];
-    vc.delegate = self;
+    DKContactUsViewController *contactUsVC = [[DKSession sharedInstance] newContactUsViewController];
+    contactUsVC.delegate = self;
+
+    // Configure additional properties of DKContactUsViewController here
     
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:contactUsVC];
     nvc.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:nvc animated:YES completion:nil];
 }
