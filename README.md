@@ -1,7 +1,5 @@
 # desk-kit iOS SDK
 
-DISCLAIMER: The DeskKit SDK is in Private Customer Pilot. It does not work out-of-box without a prior arrangement with the Desk.com product team. If you are interested in participating in the Private Customer Pilot, please send an email to jpappas@salesforce.com.
-
 The DeskKit SDK is a framework that makes it easy to incorporate your Desk site’s support portal into your iOS app. The SDK can be installed as a framework, along with its dependencies, but it is much easier to install it via Cocoapods:
 
 ```
