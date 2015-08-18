@@ -1,38 +1,37 @@
 PODS:
   - DeskAPIClient (1.1.0)
-  - DeskCommon (1.0.3)
+  - DeskCommon (1.0.4)
   - DeskKit (1.1.0)
   - OCMock (3.0.2)
 
 DEPENDENCIES:
-  - DeskAPIClient (from `git@github.com:forcedotcom/DeskApiClient-ObjC.git`, branch
-    `develop`)
-  - DeskCommon (from `git@github.com:forcedotcom/DeskCommon-Cocoa.git`, tag `1.0.3`)
+  - DeskAPIClient (from `git@github.com:forcedotcom/DeskApiClient-ObjC.git`, tag `1.1.0`)
+  - DeskCommon (from `git@github.com:forcedotcom/DeskCommon-Cocoa.git`, tag `1.0.4`)
   - DeskKit (from `../DeskKit`)
   - OCMock (~> 3.0.2)
 
 EXTERNAL SOURCES:
   DeskAPIClient:
-    :branch: develop
     :git: git@github.com:forcedotcom/DeskApiClient-ObjC.git
+    :tag: 1.1.0
   DeskCommon:
     :git: git@github.com:forcedotcom/DeskCommon-Cocoa.git
-    :tag: 1.0.3
+    :tag: 1.0.4
   DeskKit:
     :path: "../DeskKit"
 
 CHECKOUT OPTIONS:
   DeskAPIClient:
-    :commit: 7d65bc080e5e0c7ea25aaaf51d2ca6809ce596ef
     :git: git@github.com:forcedotcom/DeskApiClient-ObjC.git
+    :tag: 1.1.0
   DeskCommon:
     :git: git@github.com:forcedotcom/DeskCommon-Cocoa.git
-    :tag: 1.0.3
+    :tag: 1.0.4
 
 SPEC CHECKSUMS:
-  DeskAPIClient: 982985e7d1c78288a6938735c4e0f923829166a1
-  DeskCommon: 540341996fb4e2c82a2f00f3cf6c7ebfd66480ff
-  DeskKit: da411646c287442f7175447a3c624f40c6ffdf68
+  DeskAPIClient: 120761372a8ca03e02b77cade28010e1e61b2172
+  DeskCommon: 73004224f77a3e50ef8f8323705e28c3634754f7
+  DeskKit: 3d358f71753ebc3a5545949a7efcafcc9b984c96
   OCMock: 1f0871af0f397183f33e7552cca088bd2b485c25
 
 COCOAPODS: 0.38.2
