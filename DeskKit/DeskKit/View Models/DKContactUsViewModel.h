@@ -12,9 +12,6 @@
 #import "DSAPICase.h"
 #import "DKUserIdentity.h"
 
-static NSString *const DKContactUsTextFieldTableViewCellId = @"DKContactUsTextFieldTableViewCell";
-static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextViewTableViewCell";
-
 @interface DKContactUsViewModel : NSObject
 
 @property (nonatomic, readonly) NSArray *sections;
@@ -24,6 +21,13 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
 @property (nonatomic) DKUserIdentity *userIdentity;
 @property (nonatomic, copy) NSString *subject;
 @property (nonatomic, copy) NSString *toEmailAddress;
+@property (nonatomic, copy) NSDictionary *customFields;
+
+// Identifiers for UI components. For example, for UITableViewCell identifiers.
+@property (nonatomic, copy) NSString *nameItemIdentifier;
+@property (nonatomic, copy) NSString *emailItemIdentifier;
+@property (nonatomic, copy) NSString *subjectItemIdentifier;
+@property (nonatomic, copy) NSString *messageBodyItemIdentifier;
 
 // These control what to show in the UI.
 @property (nonatomic) BOOL includeAllOptionalItems;

@@ -12,12 +12,15 @@
 #import "DKContactUsTextViewTableViewCell.h"
 #import "DKConstants.h"
 #import "UIAlertController+Additions.h"
+#import "NSDate+DSC.h"
 
 #define DKMessageSent NSLocalizedString(@"Message Sent", comment: @"Message Sent title")
 #define DKMessageSentText NSLocalizedString(@"Thank you for contacting us. We will get back to you as soon as possible.", comment: @"Message Sent body.")
 
 NSString *const DKContactUsViewControllerId = @"DKContactUsViewController";
 static CGFloat standardCellHeight = 44.0; // This matches the contraint in storyboard.
+static NSString *const DKContactUsTextFieldTableViewCellId = @"DKContactUsTextFieldTableViewCell";
+static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextViewTableViewCell";
 
 @interface DKContactUsViewController () <UITextViewDelegate>
 
@@ -82,6 +85,13 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     NSAssert(self.toEmailAddress, @"toEmailAddress cannot be nil");
     
     self.viewModel = [[DKContactUsViewModel alloc] initIncludingOptionalItems:self.showAllOptionalItems];
+    
+    // View Model to View mappings
+    self.viewModel.nameItemIdentifier = DKContactUsTextFieldTableViewCellId;
+    self.viewModel.emailItemIdentifier = DKContactUsTextFieldTableViewCellId;
+    self.viewModel.subjectItemIdentifier = DKContactUsTextFieldTableViewCellId;
+    self.viewModel.messageBodyItemIdentifier = DKContactUsTextViewTableViewCellId;
+    
     self.viewModel.userIdentity = self.userIdentity;
     self.viewModel.subject = self.subject;
     self.viewModel.toEmailAddress = self.toEmailAddress;
@@ -90,6 +100,8 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     self.viewModel.includeYourEmailItem = self.showYourEmailItem;
     self.viewModel.includeSubjectItem = self.showSubjectItem;
 
+    // Custom Fields Example
+//    self.viewModel.customFields = [self customFieldsDictionary];
 }
 
 - (CGFloat)messageCellHeight
@@ -114,7 +126,7 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
     __block NSUInteger standardCellCount = 0;
     [self.viewModel.sections enumerateObjectsUsingBlock:^(NSArray *section, NSUInteger idx, BOOL *stop) {
         [section enumerateObjectsUsingBlock:^(DKContactUsItem *item, NSUInteger idx, BOOL *stop) {
-            if (item.cellId != DKContactUsTextViewTableViewCellId) {
+            if (item.identifier != DKContactUsTextViewTableViewCellId) {
                 standardCellCount++;
             }
         }];
@@ -184,6 +196,19 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
         }
     }];
     return indexPath;
+}
+
+#pragma mark - Custom Fields Example
+
+- (NSDictionary *)customFieldsDictionary
+{
+    // The keys and value types must match your custom fields defined in your Desk site admin.
+    return @{@"my_case_boolean_custom_field" : @YES,
+             @"my_case_date_custom_field" : [[NSDate date] stringWithISO8601Format],
+             @"my_case_list_custom_field" : @"C",
+             @"my_case_number_custom_field" : @45, // Integer
+             @"my_case_text_custom_field" : @"value1"
+             };
 }
 
 #pragma mark - Navigation Item
@@ -313,10 +338,10 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DKContactUsInputTextItem *item = self.viewModel.sections[indexPath.section][indexPath.row];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:item.cellId forIndexPath:indexPath];
-    if ([item.cellId isEqualToString:DKContactUsTextFieldTableViewCellId]) {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:item.identifier forIndexPath:indexPath];
+    if ([item.identifier isEqualToString:DKContactUsTextFieldTableViewCellId]) {
         [self configureTextFieldCell:(DKContactUsTextFieldTableViewCell *)cell item:item];
-    } else if ([item.cellId isEqualToString:DKContactUsTextViewTableViewCellId]) {
+    } else if ([item.identifier isEqualToString:DKContactUsTextViewTableViewCellId]) {
         [self configureTextViewCell:(DKContactUsTextViewTableViewCell *)cell item:item];
     }
     
@@ -328,7 +353,7 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DKContactUsItem *item = self.viewModel.sections[indexPath.section][indexPath.row];
-    if ([item.cellId isEqualToString:DKContactUsTextViewTableViewCellId]) {
+    if ([item.identifier isEqualToString:DKContactUsTextViewTableViewCellId]) {
         return [self messageCellHeight];
     } else {
         return standardCellHeight;

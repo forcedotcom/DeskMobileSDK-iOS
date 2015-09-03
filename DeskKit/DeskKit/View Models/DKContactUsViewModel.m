@@ -27,6 +27,7 @@
 static NSString * const DKCaseTypeKey = @"type";
 static NSString * const DKCaseNameKey = @"name";
 static NSString * const DKCaseMessageKey = @"message";
+static NSString * const DKCaseCustomFieldsKey = @"custom_fields";
 static NSString * const DKMessageDirectionKey = @"direction";
 static NSString * const DKMessageBodyKey = @"body";
 static NSString * const DKMessageFromKey = @"from";
@@ -58,37 +59,37 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     // Name
     if (self.includeAllOptionalItems || self.includeYourNameItem) {
-        self.nameItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
-                                                                    text:[self attributedTextWithString:self.userIdentity.fullName]
-                                                         placeHolderText:[self attributedPlaceholderTextWithString:DKYourName]
-                                                                required:NO];
+        self.nameItem = [[DKContactUsInputTextItem alloc] initWithIdentifier:self.nameItemIdentifier
+                                                                        text:[self attributedTextWithString:self.userIdentity.fullName]
+                                                             placeHolderText:[self attributedPlaceholderTextWithString:DKYourName]
+                                                                    required:NO];
         [items addObject:self.nameItem];
     }
     
     // Email
     if ([NSString dkIsEmptyString:self.userIdentity.email] || self.includeYourEmailItem) {
-        self.emailItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
-                                                                     text:[self attributedTextWithString:self.userIdentity.email]
-                                                          placeHolderText:[self attributedPlaceholderTextWithString:DKYourEmail]
-                                                                 required:YES];
+        self.emailItem = [[DKContactUsInputTextItem alloc] initWithIdentifier:self.emailItemIdentifier
+                                                                         text:[self attributedTextWithString:self.userIdentity.email]
+                                                              placeHolderText:[self attributedPlaceholderTextWithString:DKYourEmail]
+                                                                     required:YES];
         [items addObject:self.emailItem];
     }
     
     
     // Subject
     if (self.includeAllOptionalItems || self.includeSubjectItem) {
-        self.subjectItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
-                                                                       text:[self attributedTextWithString:self.subject]
-                                                            placeHolderText:[self attributedPlaceholderTextWithString:DKSubject]
-                                                                   required:NO];
+        self.subjectItem = [[DKContactUsInputTextItem alloc] initWithIdentifier:self.subjectItemIdentifier
+                                                                           text:[self attributedTextWithString:self.subject]
+                                                                placeHolderText:[self attributedPlaceholderTextWithString:DKSubject]
+                                                                       required:NO];
         [items addObject:self.subjectItem];
     }
     
     // Body
-    self.bodyItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextViewTableViewCellId
-                                                                text:nil
-                                                     placeHolderText:[self attributedPlaceholderTextWithString:DKMessage]
-                                                            required:YES];
+    self.bodyItem = [[DKContactUsInputTextItem alloc] initWithIdentifier:self.messageBodyItemIdentifier
+                                                                    text:nil
+                                                         placeHolderText:[self attributedPlaceholderTextWithString:DKMessage]
+                                                                required:YES];
     [items addObject:self.bodyItem];
     
     self.messageIndexPath = [NSIndexPath indexPathForRow:[items indexOfObject:self.bodyItem] inSection:0];
@@ -242,10 +243,14 @@ static NSString * const DKMessageSubjectKey = @"subject";
     if ([NSString dkIsNotEmptyString:name]) {
         dictionary[DKCaseNameKey] = self.nameItem.text.string;
     }
+    if (self.customFields.count) {
+        dictionary[DKCaseCustomFieldsKey] = self.customFields;
+    }
     
     // Add required keys
     dictionary[DKCaseTypeKey] = @"email";
     dictionary[DKCaseMessageKey] = [self messageDictionary];
+    
     
     return [dictionary copy];
 }
@@ -260,15 +265,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
                                          DKMessageToKey: self.toEmailAddress
                                          } mutableCopy];
     
-    // Add optional keys
     NSString *subject = [self bestSubject];
-    if ([NSString dkIsNotEmptyString:subject]) {
-        dictionary[DKMessageSubjectKey] = subject;
-    }
+    dictionary[DKMessageSubjectKey] = subject;
     
     return [dictionary copy];
 }
-
-
 
 @end
