@@ -10,8 +10,8 @@
 
 @interface DKContactUsItem : NSObject
 
-@property (nonatomic, readonly) NSString *cellId;
+@property (nonatomic, readonly) NSString *identifier;
 
-- (instancetype)initWithCellId:(NSString *)cellId;
+- (instancetype)initWithIdentifer:(NSString *)identifier;
 
 @end

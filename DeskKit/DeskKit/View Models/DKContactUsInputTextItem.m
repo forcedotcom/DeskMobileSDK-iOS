@@ -17,12 +17,12 @@
 
 @implementation DKContactUsInputTextItem
 
-- (instancetype)initWithCellId:(NSString *)cellId
-                          text:(NSAttributedString *)text
-               placeHolderText:(NSAttributedString *)placeholder
-                      required:(BOOL)required
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                              text:(NSAttributedString *)text
+                   placeHolderText:(NSAttributedString *)placeholder
+                          required:(BOOL)required
 {
-    self = [super initWithCellId:cellId];
+    self = [super initWithIdentifer:identifier];
     if (self) {
         _text = text;
         _placeholderText = placeholder;
@@ -39,7 +39,7 @@
         NSString *newString = [NSString stringWithFormat:@"%@ (%@)", _placeholderText.string, DKOptional];
         return [[NSAttributedString alloc] initWithString:newString];
     }
-
+    
 }
 
 @end
