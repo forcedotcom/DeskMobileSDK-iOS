@@ -21,7 +21,7 @@ static CGFloat standardCellHeight = 44.0; // This matches the contraint in story
 static NSString *const DKContactUsTextFieldTableViewCellId = @"DKContactUsTextFieldTableViewCell";
 static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextViewTableViewCell";
 
-@interface DKContactUsViewController () <UITextViewDelegate>
+@interface DKContactUsViewController () <UITextViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic) DKContactUsViewModel *viewModel;
 @property (nonatomic) UIBarButtonItem *sendButton;
@@ -65,6 +65,14 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     [self registerForUITextFieldNotifications];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    UITableViewCell *firstCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [self becomeFirstResponderWithCell:firstCell];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -77,6 +85,16 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)becomeFirstResponderWithCell:(UITableViewCell *)cell
+{
+    if ([cell isKindOfClass:[DKContactUsTextFieldTableViewCell class]]) {
+        [[(DKContactUsTextFieldTableViewCell *)cell textField] becomeFirstResponder];
+    }
+    if ([cell isKindOfClass:[DKContactUsTextViewTableViewCell class]]) {
+        [[(DKContactUsTextViewTableViewCell *)cell textView] becomeFirstResponder];
+    }
 }
 
 - (void)setupViewModel
@@ -139,6 +157,7 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
 
 - (UITableViewCell *)configureTextFieldCell:(DKContactUsTextFieldTableViewCell *)cell item:(DKContactUsInputTextItem *)item
 {
+    cell.textField.delegate = self;
     cell.textField.enabled = !self.isUIReadOnly;
     cell.textField.attributedText = item.text;
     cell.textField.attributedPlaceholder = item.placeholderText;
@@ -209,6 +228,20 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     return indexPath;
 }
 
+- (NSIndexPath *)nextIndexPathWithCurrentIndexPath:(NSIndexPath *)currentIndexPath
+{
+    NSIndexPath *nextIndexPath = nil;
+    if (currentIndexPath.row + 1 < [self.viewModel.sections[currentIndexPath.section] count]) {
+        // Next row in same section
+        nextIndexPath = [NSIndexPath indexPathForRow:currentIndexPath.row + 1 inSection:currentIndexPath.section];
+    } else {
+        if (currentIndexPath.section + 1 < self.viewModel.sections.count) {
+            // First row in next section
+            nextIndexPath = [NSIndexPath indexPathForRow:0 inSection:currentIndexPath.section + 1];
+        }
+    }
+    return nextIndexPath;
+}
 
 
 #pragma mark - Navigation Item
@@ -277,6 +310,16 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     [self updateSendButtonAndUpdateText:textField.attributedText indexPath:[self indexPathWithTextField:textField]];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSIndexPath *currentIndexPath = [self indexPathWithTextField:textField];
+    NSIndexPath *nextIndexPath = [self nextIndexPathWithCurrentIndexPath:currentIndexPath];
+    if (nextIndexPath) {
+        UITableViewCell *nextCell = [self.tableView cellForRowAtIndexPath:nextIndexPath];
+        [self becomeFirstResponderWithCell:nextCell];
+    }
+    return NO;
+}
 
 #pragma mark - UITextViewDelegate
 
@@ -290,7 +333,6 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     textView.selectedRange = [textView selectedRange];
     
     [self updateSendButtonAndUpdateText:textView.attributedText indexPath:self.viewModel.messageIndexPath];
-    // TODO: Check performance and slow network connection.
 }
 
 #pragma mark - Keyboard
