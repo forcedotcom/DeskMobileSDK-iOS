@@ -12,7 +12,6 @@
 #import "DKContactUsTextViewTableViewCell.h"
 #import "DKConstants.h"
 #import "UIAlertController+Additions.h"
-#import "NSDate+DSC.h"
 
 #define DKMessageSent NSLocalizedString(@"Message Sent", comment: @"Message Sent title")
 #define DKMessageSentText NSLocalizedString(@"Thank you for contacting us. We will get back to you as soon as possible.", comment: @"Message Sent body.")
@@ -99,9 +98,7 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     self.viewModel.includeYourNameItem = self.showYourNameItem;
     self.viewModel.includeYourEmailItem = self.showYourEmailItem;
     self.viewModel.includeSubjectItem = self.showSubjectItem;
-
-    // Custom Fields Example
-//    self.viewModel.customFields = [self customFieldsDictionary];
+    self.viewModel.customFields = self.customFields;
 }
 
 - (CGFloat)messageCellHeight
@@ -198,18 +195,7 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     return indexPath;
 }
 
-#pragma mark - Custom Fields Example
 
-- (NSDictionary *)customFieldsDictionary
-{
-    // The keys and value types must match your custom fields defined in your Desk site admin.
-    return @{@"my_case_boolean_custom_field" : @YES,
-             @"my_case_date_custom_field" : [[NSDate date] stringWithISO8601Format],
-             @"my_case_list_custom_field" : @"C",
-             @"my_case_number_custom_field" : @45, // Integer
-             @"my_case_text_custom_field" : @"value1"
-             };
-}
 
 #pragma mark - Navigation Item
 
