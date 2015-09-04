@@ -63,6 +63,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
                                                                         text:[self attributedTextWithString:self.userIdentity.fullName]
                                                              placeHolderText:[self attributedPlaceholderTextWithString:DKYourName]
                                                                     required:NO];
+        self.nameItem.keyboardType = UIKeyboardTypeNamePhonePad;
+        self.nameItem.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.nameItem.returnKeyType = UIReturnKeyNext;
+        
         [items addObject:self.nameItem];
     }
     
@@ -72,6 +76,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
                                                                          text:[self attributedTextWithString:self.userIdentity.email]
                                                               placeHolderText:[self attributedPlaceholderTextWithString:DKYourEmail]
                                                                      required:YES];
+        self.emailItem.keyboardType = UIKeyboardTypeEmailAddress;
+        self.emailItem.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.emailItem.returnKeyType = UIReturnKeyNext;
+        
         [items addObject:self.emailItem];
     }
     
@@ -82,6 +90,9 @@ static NSString * const DKMessageSubjectKey = @"subject";
                                                                            text:[self attributedTextWithString:self.subject]
                                                                 placeHolderText:[self attributedPlaceholderTextWithString:DKSubject]
                                                                        required:NO];
+        self.subjectItem.returnKeyType = UIReturnKeyNext;
+        self.subjectItem.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+        
         [items addObject:self.subjectItem];
     }
     

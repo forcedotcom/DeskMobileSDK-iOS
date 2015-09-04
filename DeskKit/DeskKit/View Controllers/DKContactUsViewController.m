@@ -143,7 +143,21 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     cell.textField.attributedText = item.text;
     cell.textField.attributedPlaceholder = item.placeholderText;
     
+    [self applyInputTraitsWithItem:item textField:cell.textField];
+    
     return cell;
+}
+
+- (void)applyInputTraitsWithItem:(DKContactUsInputTextItem *)item textField:(UITextField *)textField
+{
+    textField.autocapitalizationType = item.autocapitalizationType;
+    textField.autocorrectionType = item.autocorrectionType;
+    textField.spellCheckingType = item.spellCheckingType;
+    textField.enablesReturnKeyAutomatically = item.enablesReturnKeyAutomatically;
+    textField.keyboardAppearance = item.keyboardAppearance;
+    textField.keyboardType = item.keyboardType;
+    textField.returnKeyType = item.returnKeyType;
+    textField.secureTextEntry = item.secureTextEntry;
 }
 
 - (UITableViewCell *)configureTextViewCell:(DKContactUsTextViewTableViewCell *)cell item:(DKContactUsInputTextItem *)item
