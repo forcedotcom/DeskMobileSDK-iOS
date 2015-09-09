@@ -139,7 +139,6 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     DKContactUsInputTextItem *inputTextItem = (DKContactUsInputTextItem *)item;
     inputTextItem.text = text;
-    
 }
 
 - (BOOL)isValidEmailCase
@@ -211,7 +210,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
 - (NSString *)bestFullName
 {
     if ([NSString dkIsNotEmptyString:self.nameItem.text.string]) {
-        return self.emailItem.text.string;
+        return self.nameItem.text.string;
     }
     if ([NSString dkIsNotEmptyString:self.userIdentity.fullName]) {
         return self.userIdentity.fullName;
@@ -252,7 +251,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     // Add optional keys
     NSString *name = [self bestFullName];
     if ([NSString dkIsNotEmptyString:name]) {
-        dictionary[DKCaseNameKey] = self.nameItem.text.string;
+        dictionary[DKCaseNameKey] = name;
     }
     if (self.customFields.count) {
         dictionary[DKCaseCustomFieldsKey] = self.customFields;
@@ -261,7 +260,6 @@ static NSString * const DKMessageSubjectKey = @"subject";
     // Add required keys
     dictionary[DKCaseTypeKey] = @"email";
     dictionary[DKCaseMessageKey] = [self messageDictionary];
-    
     
     return [dictionary copy];
 }
