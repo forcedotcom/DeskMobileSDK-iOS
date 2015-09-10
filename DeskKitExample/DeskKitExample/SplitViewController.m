@@ -248,6 +248,7 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
     DKContactUsViewController *contactUsVC = [[DKSession sharedInstance] newContactUsViewController];
     contactUsVC.delegate = self;
 
+/*
     // Example of adding custom fields
     // 1. Grab initial custom fields populated from DeskKitSettings.plist
     NSMutableDictionary *customFields = [contactUsVC.customFields mutableCopy];
@@ -255,6 +256,7 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
     [customFields addEntriesFromDictionary:[self dynamicCustomFields]];
     // 3. Assign back to property.
     contactUsVC.customFields = customFields;
+*/
 
     // Configure additional properties of DKContactUsViewController here
 
