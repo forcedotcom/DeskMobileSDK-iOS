@@ -70,6 +70,23 @@ contactUsVC.userIdentity = userIdentity;
 
 If the user’s email is not provided via the `userIdentity` property, then a required “Your Email” `UITextfield` will be shown in the form.
 
+### Custom Fields
+
+The Custom Fields you specify through the SDK **must match** the Custom Fields you have defined in your site’s Admin console.
+
+When you create a `DKContactUsViewController` through the `DKSession` singleton, the SDK automatically sets the `customFields` property using the dictionary provided via the `ContactUsStaticCustomFields` key of the DeskKit Settings (see below). You can further modify the `customFields` property at runtime.
+
+```
+// Grab initial custom fields populated from DeskKitSettings.plist
+NSMutableDictionary *customFields = [contactUsVC.customFields mutableCopy];
+// Add your own dynamic custom fields.
+[customFields addEntriesFromDictionary:[self dynamicCustomFields]];
+// Assign back to property.
+contactUsVC.customFields = customFields;
+```
+
+The `customFields` dictionary you specify will be sent along when your customer taps Send in the `DKContactUsViewController`.
+
 ## DeskKit Settings
 The following items can be customized in the support portal (all  settings are optional and can be omitted if desired). To do so, copy the existing `DeskKitSettings-Example.plist` file in this repository, and rename it to `DeskKitSettings.plist`. The following (optional) keys can be set:
 * **NavigationBar** - This is a dictionary that points to another child dictionary that defines the colors for the navigation bar. The keys in the child dictionary are:
@@ -83,6 +100,7 @@ The following items can be customized in the support portal (all  settings are o
 * **ContactUsShowYourNameItem** - Default is NO. The user’s full name field in the Contact Us form is optional. Change this value to YES if you want to allow the user to see/edit the full name sent through the form. You can set an initial value for the user’s name through the `userIdentity` property on `DKContactUsViewController`.
 * **ContactUsShowAllOptionalItems** - Default is NO. Setting this to YES is equivalent as setting `ContactUsShowSubjectItem` and `ContactUsShowYourNameItem` to YES.
 * **ContactUsShowYourEmailItem** - Default is NO. Since the user’s email address is required, this toggle only has an effect when the email has been set through the `userIdentity` property on `DKContactUsViewController`. Change this value to YES if you want to allow the user to edit the email address set through `userIdentity`.
+* **ContactUsStaticCustomFields** - The value is a dictionary with keys that must match the custom fields defined in your site’s Admin console. This dictionary is used to initialize the `customeFields` property of `DKContactUsViewController`.
 * **BrandId** - If you use multiple brands, you may provide a brand id here that will limit the portal to only those topics and articles in that brand. If you omit this setting, the portal will display *all* topics and articles in your support center. Brand ids can be obtained by going to your site’s admin, clicking *Channels*, and then *Brand Overview*. Select the brand you’d like in the dropdown at the upper-right, and then the brand id will be shown in the support center URL. For example, in this support center URL, “https://mysite.desk.com/?b_id=2”, the brand id is 2.
 
 ## DeskKitExample app
