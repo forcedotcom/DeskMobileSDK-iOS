@@ -43,6 +43,19 @@
 	<false/>
 	<key>ContactUsShowYourEmailItem</key>
 	<false/>
+	<key>ContactUsStaticCustomFields</key>
+	<dict>
+		<key>boolKey</key>
+		<true/>
+		<key>dateKey</key>
+		<date>2015-09-03T21:28:03Z</date>
+		<key>numberKey</key>
+		<integer>42</integer>
+		<key>stringKey</key>
+		<string>string1</string>
+		<key>listKey</key>
+		<string>choiceA</string>
+	</dict>
 	<key>BrandId</key>
 	<string></string>
 </dict>

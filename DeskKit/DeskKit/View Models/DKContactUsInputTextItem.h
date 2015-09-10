@@ -9,14 +9,24 @@
 #import <Foundation/Foundation.h>
 #import "DKContactUsItem.h"
 
-@interface DKContactUsInputTextItem : DKContactUsItem
+@interface DKContactUsInputTextItem : DKContactUsItem <UITextInputTraits>
 
 @property (nonatomic) NSAttributedString *text;
 @property (nonatomic) NSAttributedString *placeholderText;
 @property (nonatomic, readonly) BOOL required;
 
-- (instancetype)initWithCellId:(NSString *)cellId
-                          text:(NSAttributedString *)text
-               placeHolderText:(NSAttributedString *)placeholder
-                      required:(BOOL)required;
+// UITextInputTraits
+@property (nonatomic) UITextAutocapitalizationType autocapitalizationType;
+@property (nonatomic) UITextAutocorrectionType autocorrectionType;
+@property (nonatomic) UITextSpellCheckingType spellCheckingType;
+@property (nonatomic) BOOL enablesReturnKeyAutomatically;
+@property (nonatomic) UIKeyboardAppearance keyboardAppearance;
+@property (nonatomic) UIKeyboardType keyboardType;
+@property (nonatomic) UIReturnKeyType returnKeyType;
+@property (nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
+
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                              text:(NSAttributedString *)text
+                   placeHolderText:(NSAttributedString *)placeholder
+                          required:(BOOL)required;
 @end

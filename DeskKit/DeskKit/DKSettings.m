@@ -32,6 +32,7 @@
 #import "NSTextCheckingResult+Additions.h"
 #import "UIColor+Additions.h"
 #import "NSString+Additions.h"
+#import "NSDate+DSC.h"
 
 static NSString *const DKSettingsPListName = @"DeskKitSettings";
 static NSString *const DKSettingsContactUsPhoneNumberKey = @"ContactUsPhoneNumber";
@@ -41,6 +42,7 @@ static NSString *const DKSettingsContactUsShowAllOptionalItems = @"ContactUsShow
 static NSString *const DKSettingsContactUsShowYourNameItem = @"ContactUsShowYourNameItem";
 static NSString *const DKSettingsContactUsShowYourEmailItem = @"ContactUsShowYourEmailItem";
 static NSString *const DKSettingsContactUsShowSubjectItem = @"ContactUsShowSubjectItem";
+static NSString *const DKSettingsContactUsStaticCustomFields = @"ContactUsStaticCustomFields";
 static NSString *const DKSettingsBrandIdKey = @"BrandId";
 static NSString *const DKSettingsTopNavKey = @"NavigationBar";
 static NSString *const DKSettingsTopNavTintColorRGBAKey = @"TintColorRGBA";
@@ -89,7 +91,7 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
 
 - (NSString *)contactUsPhoneNumber
 {
-    return [self.settings valueForKey:DKSettingsContactUsPhoneNumberKey];
+    return self.settings[DKSettingsContactUsPhoneNumberKey];
 }
 
 - (BOOL)hasContactUsPhoneNumber
@@ -167,9 +169,32 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
     return [self.settings[DKSettingsContactUsShowSubjectItem] boolValue];
 }
 
+- (NSDictionary *)contactUsStaticCustomFields
+{
+    return [self dateFormattedDictionaryWithPlistDictionary:self.settings[DKSettingsContactUsStaticCustomFields]];
+}
+
+- (NSDictionary *)dateFormattedDictionaryWithPlistDictionary:(NSDictionary *)plistDictionary
+{
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithCapacity:plistDictionary.count];
+    [plistDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[NSDate class]]) {
+            result[key] = [(NSDate *)obj stringWithISO8601Format];
+        } else {
+            result[key] = obj;
+        }
+    }];
+    return [result copy];
+}
+
+- (BOOL)hasContactUsStaticCustomFields
+{
+    return self.contactUsStaticCustomFields != nil;
+}
+
 - (NSString *)brandId
 {
-    return [self.settings valueForKey:DKSettingsBrandIdKey];
+    return self.settings[DKSettingsBrandIdKey];
 }
 
 - (BOOL)hasBrandId
@@ -189,12 +214,12 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
 
 - (NSDictionary *)topNavSettings
 {
-    return [self.settings valueForKey:DKSettingsTopNavKey];
+    return self.settings[DKSettingsTopNavKey];
 }
 
 - (NSDictionary *)topNavTintColorRGBA
 {
-    return [self.topNavSettings valueForKey:DKSettingsTopNavTintColorRGBAKey];
+    return self.topNavSettings[DKSettingsTopNavTintColorRGBAKey];
 }
 
 - (BOOL)hasTopNavTintColorRGBA
@@ -209,7 +234,7 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
 
 - (NSDictionary *)topNavBarTintColorRGBA
 {
-    return [self.topNavSettings valueForKey:DKSettingsTopNavBarTintColorRGBAKey];
+    return self.topNavSettings[DKSettingsTopNavBarTintColorRGBAKey];
 }
 
 - (BOOL)hasTopNavBarTintColorRGBA
@@ -224,7 +249,7 @@ static NSString *const DKEmailRegex = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z
 
 - (NSString *)topNavIconFileName
 {
-    return [self.settings valueForKey:DKSettingsTopNavIconFileNameKey];
+    return self.settings[DKSettingsTopNavIconFileNameKey];
 }
 
 - (BOOL)hasTopNavIconFileName

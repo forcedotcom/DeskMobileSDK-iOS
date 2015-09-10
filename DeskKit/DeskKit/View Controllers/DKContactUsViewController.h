@@ -29,6 +29,7 @@ extern NSString *const DKContactUsViewControllerId;
 @property (nonatomic) DKUserIdentity *userIdentity;
 @property (nonatomic, copy) NSString *subject;
 @property (nonatomic, copy) NSString *toEmailAddress;
+@property (nonatomic, copy) NSDictionary *customFields;
 
 // These control which rows to show in the UI.
 @property (nonatomic) BOOL showAllOptionalItems;

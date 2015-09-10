@@ -27,6 +27,7 @@
 static NSString * const DKCaseTypeKey = @"type";
 static NSString * const DKCaseNameKey = @"name";
 static NSString * const DKCaseMessageKey = @"message";
+static NSString * const DKCaseCustomFieldsKey = @"custom_fields";
 static NSString * const DKMessageDirectionKey = @"direction";
 static NSString * const DKMessageBodyKey = @"body";
 static NSString * const DKMessageFromKey = @"from";
@@ -58,37 +59,48 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     // Name
     if (self.includeAllOptionalItems || self.includeYourNameItem) {
-        self.nameItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
-                                                                    text:[self attributedTextWithString:self.userIdentity.fullName]
-                                                         placeHolderText:[self attributedPlaceholderTextWithString:DKYourName]
-                                                                required:NO];
+        self.nameItem = [[DKContactUsInputTextItem alloc] initWithIdentifier:self.nameItemIdentifier
+                                                                        text:[self attributedTextWithString:self.userIdentity.fullName]
+                                                             placeHolderText:[self attributedPlaceholderTextWithString:DKYourName]
+                                                                    required:NO];
+        self.nameItem.keyboardType = UIKeyboardTypeNamePhonePad;
+        self.nameItem.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.nameItem.returnKeyType = UIReturnKeyNext;
+        
         [items addObject:self.nameItem];
     }
     
     // Email
     if ([NSString dkIsEmptyString:self.userIdentity.email] || self.includeYourEmailItem) {
-        self.emailItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
-                                                                     text:[self attributedTextWithString:self.userIdentity.email]
-                                                          placeHolderText:[self attributedPlaceholderTextWithString:DKYourEmail]
-                                                                 required:YES];
+        self.emailItem = [[DKContactUsInputTextItem alloc] initWithIdentifier:self.emailItemIdentifier
+                                                                         text:[self attributedTextWithString:self.userIdentity.email]
+                                                              placeHolderText:[self attributedPlaceholderTextWithString:DKYourEmail]
+                                                                     required:YES];
+        self.emailItem.keyboardType = UIKeyboardTypeEmailAddress;
+        self.emailItem.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.emailItem.returnKeyType = UIReturnKeyNext;
+        
         [items addObject:self.emailItem];
     }
     
     
     // Subject
     if (self.includeAllOptionalItems || self.includeSubjectItem) {
-        self.subjectItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextFieldTableViewCellId
-                                                                       text:[self attributedTextWithString:self.subject]
-                                                            placeHolderText:[self attributedPlaceholderTextWithString:DKSubject]
-                                                                   required:NO];
+        self.subjectItem = [[DKContactUsInputTextItem alloc] initWithIdentifier:self.subjectItemIdentifier
+                                                                           text:[self attributedTextWithString:self.subject]
+                                                                placeHolderText:[self attributedPlaceholderTextWithString:DKSubject]
+                                                                       required:NO];
+        self.subjectItem.returnKeyType = UIReturnKeyNext;
+        self.subjectItem.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+        
         [items addObject:self.subjectItem];
     }
     
     // Body
-    self.bodyItem = [[DKContactUsInputTextItem alloc] initWithCellId:DKContactUsTextViewTableViewCellId
-                                                                text:nil
-                                                     placeHolderText:[self attributedPlaceholderTextWithString:DKMessage]
-                                                            required:YES];
+    self.bodyItem = [[DKContactUsInputTextItem alloc] initWithIdentifier:self.messageBodyItemIdentifier
+                                                                    text:nil
+                                                         placeHolderText:[self attributedPlaceholderTextWithString:DKMessage]
+                                                                required:YES];
     [items addObject:self.bodyItem];
     
     self.messageIndexPath = [NSIndexPath indexPathForRow:[items indexOfObject:self.bodyItem] inSection:0];
@@ -127,7 +139,6 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     DKContactUsInputTextItem *inputTextItem = (DKContactUsInputTextItem *)item;
     inputTextItem.text = text;
-    
 }
 
 - (BOOL)isValidEmailCase
@@ -199,7 +210,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
 - (NSString *)bestFullName
 {
     if ([NSString dkIsNotEmptyString:self.nameItem.text.string]) {
-        return self.emailItem.text.string;
+        return self.nameItem.text.string;
     }
     if ([NSString dkIsNotEmptyString:self.userIdentity.fullName]) {
         return self.userIdentity.fullName;
@@ -240,7 +251,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
     // Add optional keys
     NSString *name = [self bestFullName];
     if ([NSString dkIsNotEmptyString:name]) {
-        dictionary[DKCaseNameKey] = self.nameItem.text.string;
+        dictionary[DKCaseNameKey] = name;
+    }
+    if (self.customFields.count) {
+        dictionary[DKCaseCustomFieldsKey] = self.customFields;
     }
     
     // Add required keys
@@ -260,15 +274,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
                                          DKMessageToKey: self.toEmailAddress
                                          } mutableCopy];
     
-    // Add optional keys
     NSString *subject = [self bestSubject];
-    if ([NSString dkIsNotEmptyString:subject]) {
-        dictionary[DKMessageSubjectKey] = subject;
-    }
+    dictionary[DKMessageSubjectKey] = subject;
     
     return [dictionary copy];
 }
-
-
 
 @end

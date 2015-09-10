@@ -186,6 +186,10 @@ static NSInteger const DSMailboxesPerPage = 100;
     vc.showYourNameItem = settings.contactUsShowYourNameItem;
     vc.showYourEmailItem = settings.contactUsShowYourEmailItem;
     
+    if (settings.hasContactUsStaticCustomFields) {
+        vc.customFields = settings.contactUsStaticCustomFields;
+    }
+
     return vc;
 }
 

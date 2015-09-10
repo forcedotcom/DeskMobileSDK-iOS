@@ -49,6 +49,9 @@
 - (BOOL)contactUsShowYourEmailItem;
 - (BOOL)contactUsShowSubjectItem;
 
+- (NSDictionary *)contactUsStaticCustomFields;
+- (BOOL)hasContactUsStaticCustomFields;
+
 - (NSString *)brandId;
 - (BOOL)hasBrandId;
 - (DSAPIBrand *)brand;

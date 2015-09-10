@@ -33,6 +33,7 @@
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewController.h"
 #import "DKSession.h"
+#import "NSDate+DSC.h"
 
 static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 
@@ -247,8 +248,18 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
     DKContactUsViewController *contactUsVC = [[DKSession sharedInstance] newContactUsViewController];
     contactUsVC.delegate = self;
 
+/*
+    // Example of adding custom fields
+    // 1. Grab initial custom fields populated from DeskKitSettings.plist
+    NSMutableDictionary *customFields = [contactUsVC.customFields mutableCopy];
+    // 2. Add your own dynamic custom fields.
+    [customFields addEntriesFromDictionary:[self dynamicCustomFields]];
+    // 3. Assign back to property.
+    contactUsVC.customFields = customFields;
+*/
+
     // Configure additional properties of DKContactUsViewController here
-    
+
     
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:contactUsVC];
     nvc.modalPresentationStyle = UIModalPresentationPageSheet;
@@ -258,6 +269,19 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 - (void)doneButtonTapped:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Custom Fields Example
+
+- (NSDictionary *)dynamicCustomFields
+{
+    // The keys and value types must match the custom fields defined in your Desk admin site.
+    return @{@"my_case_boolean_custom_field" : @YES,
+             @"my_case_date_custom_field" : [[NSDate date] stringWithISO8601Format],
+             @"my_case_list_custom_field" : @"C",
+             @"my_case_number_custom_field" : @45, // Integer
+             @"my_case_text_custom_field" : @"value1"
+             };
 }
 
 #pragma mark - View Controllers from Storyboard
