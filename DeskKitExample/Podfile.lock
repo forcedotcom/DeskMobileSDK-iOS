@@ -1,7 +1,7 @@
 PODS:
   - DeskAPIClient (1.1.0)
   - DeskCommon (1.0.4)
-  - DeskKit (1.1.0)
+  - DeskKit (1.2.0)
   - OCMock (3.0.2)
 
 DEPENDENCIES:
@@ -30,8 +30,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   DeskAPIClient: 120761372a8ca03e02b77cade28010e1e61b2172
-  DeskCommon: 73004224f77a3e50ef8f8323705e28c3634754f7
-  DeskKit: 3d358f71753ebc3a5545949a7efcafcc9b984c96
+  DeskCommon: aa0e105a959a879555846107d2c678957ed4cb5d
+  DeskKit: 6883fcdeed3c331c3c1160472c4bc43bec5e425e
   OCMock: 1f0871af0f397183f33e7552cca088bd2b485c25
 
 COCOAPODS: 0.38.2
