@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 Desk.com. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
+
 #import "DKContactUsItem.h"
 
 @interface DKContactUsInputTextItem : DKContactUsItem <UITextInputTraits>
