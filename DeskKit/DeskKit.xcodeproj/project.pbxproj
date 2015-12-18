@@ -16,7 +16,6 @@
 		1C1E17E619BF54750034D202 /* DKTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17E519BF54750034D202 /* DKTestUtils.m */; };
 		1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1E17EB19BF60590034D202 /* DKAPIManager.h */; };
 		1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EC19BF60590034D202 /* DKAPIManager.m */; };
-		1C1E17F019BF621D0034D202 /* DKAPIManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */; };
 		1C1E17F819BF66010034D202 /* DeskAPIAuth.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C1E17F719BF66010034D202 /* DeskAPIAuth.plist */; };
 		1C1F5B6A1A362A5600C8D16C /* DKNavigationBarTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */; };
 		1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */; };
@@ -31,10 +30,8 @@
 		1C46F00919C1CB41000FBCAC /* DKFixtures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C46F00819C1CB41000FBCAC /* DKFixtures.m */; };
 		1C691D7619D0655B004D406C /* DKArticleDetailViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C691D7419D0655B004D406C /* DKArticleDetailViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C691D7719D0655B004D406C /* DKArticleDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7519D0655B004D406C /* DKArticleDetailViewModel.m */; };
-		1C691D7919D0789D004D406C /* DKArticleDetailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */; };
 		1C691D7C19D07A8B004D406C /* topics_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C691D7B19D07A8B004D406C /* topics_page.json */; };
 		1C691D7F19D07A96004D406C /* article.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C691D7D19D07A96004D406C /* article.json */; };
-		1C691D8419D0A4EF004D406C /* DKArticleDetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */; };
 		1C75FBFE19BF34FE00971E46 /* DeskKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C75FBFD19BF34FE00971E46 /* DeskKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7A03D21A6D64560049ED4A /* DKWebViewController.h */; };
 		1C7A03D51A6D64560049ED4A /* DKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D31A6D64560049ED4A /* DKWebViewController.m */; };
@@ -91,6 +88,9 @@
 		C7747DF01B72A2DF00942DC2 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7747DEE1B72A2DF00942DC2 /* NSString+Additions.m */; };
 		C77ECFB01B6FEC10008AC3F0 /* DKUserIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = C77ECFAE1B6FEC10008AC3F0 /* DKUserIdentity.h */; };
 		C77ECFB11B6FEC10008AC3F0 /* DKUserIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = C77ECFAF1B6FEC10008AC3F0 /* DKUserIdentity.m */; };
+		C788AF6D1C2474F800B4146E /* DKArticleDetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */; };
+		C788AF6F1C24750300B4146E /* DKArticleDetailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */; };
+		C788AF711C2478E500B4146E /* DKAPIManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */; };
 		F18FA2F12E694D51B3933FE5 /* libPods-DeskKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -575,7 +575,7 @@
 		1C75FBEF19BF34FE00971E46 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Desk.com;
 				TargetAttributes = {
 					1C75FBF719BF34FE00971E46 = {
@@ -751,15 +751,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C1E17E619BF54750034D202 /* DKTestUtils.m in Sources */,
+				C788AF711C2478E500B4146E /* DKAPIManagerTests.m in Sources */,
 				1C94680819CBC456009E4570 /* DKTopicsViewModelTests.m in Sources */,
 				1CB0AB7F19CC6B7700B9D847 /* DKArticlesViewControllerTests.m in Sources */,
-				1C1E17F019BF621D0034D202 /* DKAPIManagerTests.m in Sources */,
 				1C46F00919C1CB41000FBCAC /* DKFixtures.m in Sources */,
 				1CA021FF19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m in Sources */,
 				1C46F00019C1C74A000FBCAC /* DKListViewModelTests.m in Sources */,
-				1C691D8419D0A4EF004D406C /* DKArticleDetailViewControllerTests.m in Sources */,
+				C788AF6F1C24750300B4146E /* DKArticleDetailViewModelTests.m in Sources */,
+				C788AF6D1C2474F800B4146E /* DKArticleDetailViewControllerTests.m in Sources */,
 				1CB0AB7519CC638A00B9D847 /* DKTopicsViewControllerTests.m in Sources */,
-				1C691D7919D0789D004D406C /* DKArticleDetailViewModelTests.m in Sources */,
 				1CC49BC619CB12D7003E3819 /* DKSessionTests.m in Sources */,
 				1CD1FD5A19C72DF4003CDB5C /* DKListViewControllerTests.m in Sources */,
 				1CBEEF9119DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m in Sources */,
@@ -791,22 +791,23 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -835,18 +836,19 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -865,11 +867,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DeskKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.desk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -883,11 +885,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DeskKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.desk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -898,16 +900,13 @@
 			baseConfigurationReference = 275806F19D8C14407B874E86 /* Pods-DeskKitTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = DeskKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.desk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -917,12 +916,9 @@
 			baseConfigurationReference = C72C7D82CE6F1E2BD4465D0E /* Pods-DeskKitTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = DeskKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.desk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
