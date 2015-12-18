@@ -10,6 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'DeskKit/DeskKit/*.{h,m}', 'DeskKit/DeskKit/**/*.{h,m}'
   s.resources 	 = 'DeskKit/DeskKit/**/*.{png,storyboard}'
   s.requires_arc = true
-  s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
-  s.dependency 'DeskAPIClient', '~> 1.1.3'
+  s.dependency 'DeskAPIClient', '~> 1.1.4'
 end
