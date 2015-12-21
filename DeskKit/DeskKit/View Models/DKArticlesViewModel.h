@@ -29,7 +29,7 @@
 //
 
 #import "DKListViewModel.h"
-#import "DSAPITopic.h"
+#import <DeskAPIClient/DSAPITopic.h>
 
 @interface DKArticlesViewModel : DKListViewModel
 

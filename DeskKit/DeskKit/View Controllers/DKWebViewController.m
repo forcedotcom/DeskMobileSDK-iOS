@@ -29,7 +29,7 @@
 //
 
 #import "DKWebViewController.h"
-#import "DSAPINetworkIndicatorController.h"
+#import <DeskAPIClient/DSAPINetworkIndicatorController.h>
 
 static NSString *const DKWebViewCanGoBack = @"canGoBack";
 static NSString *const DKWebViewCanGoForward = @"canGoForward";

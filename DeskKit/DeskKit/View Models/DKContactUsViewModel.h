@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DKContactUsInputTextItem.h"
-#import "DSAPICase.h"
+#import <DeskAPIClient/DSAPICase.h>
 #import "DKUserIdentity.h"
 
 @interface DKContactUsViewModel : NSObject

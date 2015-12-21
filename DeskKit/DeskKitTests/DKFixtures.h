@@ -29,7 +29,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DSAPIModels.h"
+#import <DeskAPIClient/DSAPIModels.h>
 
 @interface DKFixtures : NSObject
 
