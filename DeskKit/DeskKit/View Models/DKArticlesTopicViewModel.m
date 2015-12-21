@@ -29,7 +29,7 @@
 //
 
 #import "DKArticlesTopicViewModel.h"
-#import "DSAPIArticle.h"
+#import <DeskAPIClient/DSAPIArticle.h>
 #import "DKConstants.h"
 
 @interface DKArticlesTopicViewModel ()

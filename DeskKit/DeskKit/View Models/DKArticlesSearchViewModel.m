@@ -29,7 +29,7 @@
 //
 
 #import "DKArticlesSearchViewModel.h"
-#import "DSAPIArticle.h"
+#import <DeskAPIClient/DSAPIArticle.h>
 
 static NSString *const DKArticleTextKey = @"text";
 

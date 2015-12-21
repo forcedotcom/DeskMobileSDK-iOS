@@ -29,7 +29,7 @@
 //
 
 #import "DKArticleDetailViewModel.h"
-#import "DSAPIArticle.h"
+#import <DeskAPIClient/DSAPIArticle.h>
 #import "DKAPIManager.h"
 #import "DKConstants.h"
 

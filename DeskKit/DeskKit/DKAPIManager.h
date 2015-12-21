@@ -28,7 +28,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DSAPIClient.h"
+#import <DeskAPIClient/DSAPIClient.h>
 
 @interface DKAPIManager : NSObject
 
