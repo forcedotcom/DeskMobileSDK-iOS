@@ -17,7 +17,6 @@
 		1CABC30519E4859E009C63C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CABC30419E4859E009C63C3 /* Localizable.strings */; };
 		C765CB261AA65365002DEB8F /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C765CB251AA65365002DEB8F /* SplitViewController.m */; };
 		C765CB281AA72A6C002DEB8F /* DKSplitViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C765CB271AA72A6C002DEB8F /* DKSplitViewControllerTests.m */; };
-		CF3B473286242374B356D2E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C13FDD3889DD404C0DAF71 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +48,6 @@
 		C765CB241AA65365002DEB8F /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
 		C765CB251AA65365002DEB8F /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
 		C765CB271AA72A6C002DEB8F /* DKSplitViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSplitViewControllerTests.m; sourceTree = "<group>"; };
-		F8C13FDD3889DD404C0DAF71 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF3B473286242374B356D2E7 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +137,6 @@
 		223196C6E9104A9F71801113 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F8C13FDD3889DD404C0DAF71 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,7 +169,6 @@
 			buildConfigurationList = 1CABC2FD19E483E5009C63C3 /* Build configuration list for PBXNativeTarget "DeskKitExampleTests" */;
 			buildPhases = (
 				1CABC2EC19E483E5009C63C3 /* Sources */,
-				1CABC2ED19E483E5009C63C3 /* Frameworks */,
 				1CABC2EE19E483E5009C63C3 /* Resources */,
 			);
 			buildRules = (
