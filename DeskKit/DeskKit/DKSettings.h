@@ -29,7 +29,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DSAPIBrand.h"
+#import <DeskAPIClient/DSAPIBrand.h>
 
 @interface DKSettings : NSObject
 

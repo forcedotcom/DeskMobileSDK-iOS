@@ -29,7 +29,6 @@
 //
 
 #import "DKTopicsViewModel.h"
-#import "DSAPITopic.h"
 
 NSString *const DKInSupportCenterKey = @"in_support_center";
 
