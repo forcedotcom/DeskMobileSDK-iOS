@@ -117,6 +117,11 @@ static NSInteger const DSMailboxesPerPage = 100;
     return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKArticlesViewControllerId];
 }
 
++ (DKSearchResultsViewController *)newSearchResultsViewController
+{
+    return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKSearchResultsViewControllerId];
+}
+
 #pragma mark - Contact US
 
 + (UIAlertController *)newContactUsAlertControllerWithCallHandler:(void (^)(UIAlertAction *action))callHandler

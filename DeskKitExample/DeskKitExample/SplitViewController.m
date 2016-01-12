@@ -29,7 +29,6 @@
 //
 
 #import "SplitViewController.h"
-#import "DKTopicsViewController.h"
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewController.h"
 #import "DKSession.h"
@@ -192,22 +191,24 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
     [self.masterNavigationController pushViewController:controller animated:YES];
 }
 
-- (void)topicsViewController:(DKTopicsViewController *)topicsViewController didSearchTerm:(NSString *)searchTerm
+- (void)topicsViewController:(DKTopicsViewController *)topicsViewController didSelectSearchedArticle:(DSAPIArticle *)article
 {
-    DKArticlesViewController *controller = [self newArticlesViewController];
-    controller.delegate = self;
-    [controller setSearchTerm:searchTerm];
-    [self.masterNavigationController pushViewController:controller animated:YES];
+    [self showArticle:article];
 }
 
 #pragma mark - DKArticlesViewControllerDelegate
 
-- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didChangeSearchTerm:(NSString *)searchTerm
+- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSelectSearchedArticle:(DSAPIArticle *)article
 {
-    [self.topicsViewController setSearchBarSearchTerm:searchTerm];
+    [self showArticle:article];
 }
 
 - (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSelectArticle:(DSAPIArticle *)article
+{
+    [self showArticle:article];
+}
+
+- (void)showArticle:(DSAPIArticle *)article
 {
     self.selectedArticle = article;
     if (!self.articleDetailViewController) {

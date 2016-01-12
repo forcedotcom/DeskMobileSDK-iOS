@@ -91,6 +91,8 @@
 		C788AF6D1C2474F800B4146E /* DKArticleDetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */; };
 		C788AF6F1C24750300B4146E /* DKArticleDetailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */; };
 		C788AF711C2478E500B4146E /* DKAPIManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */; };
+		C7CAAD1F1C455715004B767B /* DKSearchResultsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */; };
+		C7CAAD201C455715004B767B /* DKSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CAAD1E1C455715004B767B /* DKSearchResultsViewController.m */; };
 		F18FA2F12E694D51B3933FE5 /* libPods-DeskKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +189,8 @@
 		C7747DEE1B72A2DF00942DC2 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		C77ECFAE1B6FEC10008AC3F0 /* DKUserIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKUserIdentity.h; sourceTree = "<group>"; };
 		C77ECFAF1B6FEC10008AC3F0 /* DKUserIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKUserIdentity.m; sourceTree = "<group>"; };
+		C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSearchResultsViewController.h; sourceTree = "<group>"; };
+		C7CAAD1E1C455715004B767B /* DKSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSearchResultsViewController.m; sourceTree = "<group>"; };
 		F19B1B397F3E26EC44220883 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +224,8 @@
 				1CB0AB7119CC619100B9D847 /* DKTopicsViewController.m */,
 				1CB0AB7619CC647100B9D847 /* DKArticlesViewController.h */,
 				1CB0AB7719CC647100B9D847 /* DKArticlesViewController.m */,
+				C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */,
+				C7CAAD1E1C455715004B767B /* DKSearchResultsViewController.m */,
 				1C7A03D21A6D64560049ED4A /* DKWebViewController.h */,
 				1C7A03D31A6D64560049ED4A /* DKWebViewController.m */,
 				1C19053A19CCCF580015BF15 /* DKArticleDetailViewController.h */,
@@ -511,6 +517,7 @@
 				1CB0E6BA19DC54960048B5E6 /* NSTextCheckingResult+Additions.h in Headers */,
 				1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */,
 				1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */,
+				C7CAAD1F1C455715004B767B /* DKSearchResultsViewController.h in Headers */,
 				C77ECFB01B6FEC10008AC3F0 /* DKUserIdentity.h in Headers */,
 				1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */,
 				1C46EFFC19C123FB000FBCAC /* DKTopicsViewModel.h in Headers */,
@@ -718,6 +725,7 @@
 				1CC49BC219CB11C0003E3819 /* (null) in Sources */,
 				1CB0AB7319CC619100B9D847 /* DKTopicsViewController.m in Sources */,
 				C77ECFB11B6FEC10008AC3F0 /* DKUserIdentity.m in Sources */,
+				C7CAAD201C455715004B767B /* DKSearchResultsViewController.m in Sources */,
 				1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */,
 				1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */,
 				1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */,
