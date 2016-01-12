@@ -2,15 +2,25 @@ PODS:
   - DeskAPIClient (1.1.4):
     - DeskCommon (~> 1.0.4)
   - DeskCommon (1.0.4)
-  - DeskKit (1.2.1):
+  - DeskKit (2.0.0):
     - DeskAPIClient (~> 1.1.4)
 
 DEPENDENCIES:
-  - DeskKit (~> 1.2.1)
+  - DeskKit (from `git@github.com:forcedotcom/DeskMobileSDK-iOS.git`, tag `2.0.0`)
+
+EXTERNAL SOURCES:
+  DeskKit:
+    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
+    :tag: 2.0.0
+
+CHECKOUT OPTIONS:
+  DeskKit:
+    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
+    :tag: 2.0.0
 
 SPEC CHECKSUMS:
   DeskAPIClient: 851b60ea6c744e97cfe3b7ac3cfe381fe814ba25
   DeskCommon: aa0e105a959a879555846107d2c678957ed4cb5d
-  DeskKit: e8e800b6d04b2d395f6c0cb50f1b4484300998a9
+  DeskKit: 4cbaee525ddbfa9fcdf3d23f63f072bdfd27fcf0
 
 COCOAPODS: 0.39.0
