@@ -28,11 +28,11 @@
 //
 
 #import "DKListViewController.h"
-#import "DKArticleDetailViewController.h"
 #import "DKSearchResultsViewController.h"
 
 #import "UIAlertController+Additions.h"
 #import "DKConstants.h"
+#import "DKSettings.h"
 
 #pragma mark - private constants
 
@@ -70,6 +70,8 @@ static NSString *const DKListCellId = @"DKListCell";
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:resultsViewController];
     self.searchController.searchBar.delegate = self;
     self.searchController.searchBar.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(self.tableView.frame), DKSearchBarHeight);
+    self.searchController.searchBar.barTintColor = [[DKSettings sharedInstance] topNavBarTintColor];
+    self.searchController.searchBar.tintColor = [[DKSettings sharedInstance] topNavTintColor];
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
 }
