@@ -6,17 +6,7 @@ PODS:
     - DeskAPIClient (~> 1.1.4)
 
 DEPENDENCIES:
-  - DeskKit (from `git@github.com:forcedotcom/DeskMobileSDK-iOS.git`, tag `2.0.0`)
-
-EXTERNAL SOURCES:
-  DeskKit:
-    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
-    :tag: 2.0.0
-
-CHECKOUT OPTIONS:
-  DeskKit:
-    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
-    :tag: 2.0.0
+  - DeskKit (~> 2.0.0)
 
 SPEC CHECKSUMS:
   DeskAPIClient: 851b60ea6c744e97cfe3b7ac3cfe381fe814ba25
