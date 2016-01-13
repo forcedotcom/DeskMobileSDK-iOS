@@ -50,7 +50,6 @@ NSString *const DKSearchResultsViewControllerId = @"DKSearchResultsViewControlle
     self.title = [DKSearchResultsPrefix stringByAppendingString:searchTerm];
     self.viewModel.searchTerm = searchTerm;
     self.viewModel.topic = topic;
-//    [self sendDelegateChangeSearchTerm:searchTerm];
 }
 
 - (void)resetSearchWithSearchTerm:(NSString *)searchTerm topic:(DSAPITopic *)topic
@@ -84,10 +83,10 @@ NSString *const DKSearchResultsViewControllerId = @"DKSearchResultsViewControlle
 
 - (BOOL)shouldShowNoSearchResultsMessage
 {
-    return [self userEnteredSearchTerms];
+    return [self hasSearchTerm];
 }
 
-- (BOOL)userEnteredSearchTerms
+- (BOOL)hasSearchTerm
 {
     return self.viewModel.searchTerm.length > 0;
 }

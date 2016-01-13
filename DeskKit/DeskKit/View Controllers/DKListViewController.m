@@ -40,7 +40,7 @@ static NSString *const DKListCellId = @"DKListCell";
 
 @interface DKListViewController ()
 
-@property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic) UISearchController *searchController;
 
 @end
 

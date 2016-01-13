@@ -141,7 +141,7 @@ static NSString *const DKArticlesSegueId = @"DKArticlesSegue";
 
 - (void)sendDelegateSearchTerm:(NSString *)searchTerm
 {
-    if ([self.delegate respondsToSelector:@selector(articlesViewController:didSearchTerm:)]) {
+    if ([self.delegate respondsToSelector:@selector(topicsViewController:didSearchTerm:)]) {
         [self.delegate topicsViewController:self didSearchTerm:searchTerm];
     }
 }
