@@ -34,6 +34,7 @@
 #import "DKTopicsViewController.h"
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewController.h"
+#import "DKSearchResultsViewController.h"
 
 extern NSTimeInterval const DKDefaultTestTimeout;
 extern NSString *const DKPListName;
@@ -52,5 +53,6 @@ extern NSString *const DKAPITokenKey;
 + (DKTopicsViewController *)topicsViewController;
 + (DKArticlesViewController *)articlesViewController;
 + (DKArticleDetailViewController *)articleDetailViewController;
++ (DKSearchResultsViewController *)searchResultsViewController;
 
 @end

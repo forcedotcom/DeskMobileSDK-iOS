@@ -39,7 +39,7 @@
 		1C94680519CBC34D009E4570 /* DKListViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C94680319CBC34D009E4570 /* DKListViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C94680619CBC34D009E4570 /* DKListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C94680419CBC34D009E4570 /* DKListViewModel.m */; };
 		1C94680819CBC456009E4570 /* DKTopicsViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C94680719CBC456009E4570 /* DKTopicsViewModelTests.m */; };
-		1CA021FC19CBE1C70091D8A9 /* DKArticlesViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CA021FA19CBE1C70091D8A9 /* DKArticlesViewModel.h */; };
+		1CA021FC19CBE1C70091D8A9 /* DKArticlesViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CA021FA19CBE1C70091D8A9 /* DKArticlesViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CA021FD19CBE1C70091D8A9 /* DKArticlesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA021FB19CBE1C70091D8A9 /* DKArticlesViewModel.m */; };
 		1CA021FF19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA021FE19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m */; };
 		1CA0220319CBE8200091D8A9 /* articles_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CA0220119CBE8200091D8A9 /* articles_page.json */; };
@@ -61,7 +61,7 @@
 		1CB0E6BF19DC6CF90048B5E6 /* UIAlertController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0E6BD19DC6CF90048B5E6 /* UIAlertController+Additions.m */; };
 		1CB0E6C119DC85A80048B5E6 /* DKSettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0E6C019DC85A80048B5E6 /* DKSettingsTests.m */; };
 		1CB6E15119DDFABA00E14B96 /* inbound_mailboxes_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6E14F19DDFABA00E14B96 /* inbound_mailboxes_page.json */; };
-		1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBEEF8C19DDD49F0073A8AC /* DKArticlesSearchViewModel.h */; };
+		1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBEEF8C19DDD49F0073A8AC /* DKArticlesSearchViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CBEEF8F19DDD49F0073A8AC /* DKArticlesSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBEEF8D19DDD49F0073A8AC /* DKArticlesSearchViewModel.m */; };
 		1CBEEF9119DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBEEF9019DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m */; };
 		1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBEEF9219DDD5D10073A8AC /* DKArticlesTopicViewModel.h */; };
@@ -72,6 +72,7 @@
 		1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC49BC719CB12EC003E3819 /* DKSession.m */; };
 		1CC49BCA19CB12EC003E3819 /* DKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CC49BC819CB12EC003E3819 /* DKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CD1FD5A19C72DF4003CDB5C /* DKListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FD5919C72DF4003CDB5C /* DKListViewControllerTests.m */; };
+		C73813DA1C46B7B300613B19 /* DKSearchResultsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C73813D91C46B7B300613B19 /* DKSearchResultsViewControllerTests.m */; };
 		C74818F81B6802DA009426EF /* DKContactUsViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C74818F61B6802DA009426EF /* DKContactUsViewModel.h */; };
 		C74818F91B6802DA009426EF /* DKContactUsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C74818F71B6802DA009426EF /* DKContactUsViewModel.m */; };
 		C74818FC1B68064C009426EF /* DKContactUsInputTextItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C74818FA1B68064C009426EF /* DKContactUsInputTextItem.h */; };
@@ -91,7 +92,7 @@
 		C788AF6D1C2474F800B4146E /* DKArticleDetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */; };
 		C788AF6F1C24750300B4146E /* DKArticleDetailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */; };
 		C788AF711C2478E500B4146E /* DKAPIManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */; };
-		C7CAAD1F1C455715004B767B /* DKSearchResultsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */; };
+		C7CAAD1F1C455715004B767B /* DKSearchResultsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7CAAD201C455715004B767B /* DKSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CAAD1E1C455715004B767B /* DKSearchResultsViewController.m */; };
 		F18FA2F12E694D51B3933FE5 /* libPods-DeskKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */; };
 /* End PBXBuildFile section */
@@ -173,6 +174,7 @@
 		275806F19D8C14407B874E86 /* Pods-DeskKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKitTests/Pods-DeskKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeskKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72C7D82CE6F1E2BD4465D0E /* Pods-DeskKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKitTests/Pods-DeskKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		C73813D91C46B7B300613B19 /* DKSearchResultsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSearchResultsViewControllerTests.m; sourceTree = "<group>"; };
 		C74818F61B6802DA009426EF /* DKContactUsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsViewModel.h; sourceTree = "<group>"; };
 		C74818F71B6802DA009426EF /* DKContactUsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsViewModel.m; sourceTree = "<group>"; };
 		C74818FA1B68064C009426EF /* DKContactUsInputTextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsInputTextItem.h; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				1CB0AB7419CC638A00B9D847 /* DKTopicsViewControllerTests.m */,
 				1C7A03D61A6D66B10049ED4A /* DKWebViewControllerTests.m */,
 				1CB0AB7E19CC6B7700B9D847 /* DKArticlesViewControllerTests.m */,
+				C73813D91C46B7B300613B19 /* DKSearchResultsViewControllerTests.m */,
 				1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */,
 			);
 			path = "View Controller Tests";
@@ -766,6 +769,7 @@
 				1CA021FF19CBE1D10091D8A9 /* DKArticlesTopicViewModelTests.m in Sources */,
 				1C46F00019C1C74A000FBCAC /* DKListViewModelTests.m in Sources */,
 				C788AF6F1C24750300B4146E /* DKArticleDetailViewModelTests.m in Sources */,
+				C73813DA1C46B7B300613B19 /* DKSearchResultsViewControllerTests.m in Sources */,
 				C788AF6D1C2474F800B4146E /* DKArticleDetailViewControllerTests.m in Sources */,
 				1CB0AB7519CC638A00B9D847 /* DKTopicsViewControllerTests.m in Sources */,
 				1CC49BC619CB12D7003E3819 /* DKSessionTests.m in Sources */,

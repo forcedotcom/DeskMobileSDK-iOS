@@ -61,10 +61,10 @@
 @property (nonatomic, strong) NSMutableDictionary *cachedArticlesViewModels;
 @property (nonatomic, weak) IBOutlet UIButton *contactUsButton;
 @property (nonatomic, weak) IBOutlet UIView *contactUsContainerView;
-@property (nonatomic, strong) UISearchController *articleSearchController;
+@property (nonatomic, strong) UISearchController *searchController;
 
 - (void)setupAppearances;
-- (void)setupSearchBar;
+- (void)setupSearch;
 - (void)setupContactUsSheet;
 - (void)setTopicOnArticlesViewController:(DKArticlesViewController *)viewController
                                     cell:(UITableViewCell *)cell;
@@ -177,7 +177,7 @@
 
 - (void)testViewDidLoadSetsUpSearchBar
 {
-    OCMExpect([self.mock setupSearchBar]);
+    OCMExpect([self.mock setupSearch]);
 
     [self.viewController viewDidLoad];
 
@@ -187,13 +187,12 @@
 - (void)testSearchButtonClicked
 {
     id tableViewMock = OCMPartialMock(self.viewController.tableView);
-    id articleSearchControllerMock = OCMPartialMock(self.viewController.articleSearchController);
+    id articleSearchControllerMock = OCMPartialMock(self.viewController.searchController);
     id delegate = OCMProtocolMock(@protocol(DKTopicsViewControllerDelegte));
     self.viewController.delegate = delegate;
     NSString *searchTerm = @"foo";
     
     OCMExpect([tableViewMock deselectRowAtIndexPath:OCMOCK_ANY animated:YES]);
-    OCMExpect([articleSearchControllerMock dismissViewControllerAnimated:YES completion:nil]);
     OCMExpect([delegate topicsViewController:self.viewController didSearchTerm:searchTerm]);
     
     UISearchBar *searchBar = [UISearchBar new];
