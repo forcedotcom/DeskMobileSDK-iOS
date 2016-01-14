@@ -91,4 +91,9 @@ NSString *const DKAPITokenKey = @"APIToken";
     return [[self storyboard] instantiateViewControllerWithIdentifier:@"DKArticleDetailViewController"];
 }
 
++ (DKSearchResultsViewController *)searchResultsViewController
+{
+    return [[self storyboard] instantiateViewControllerWithIdentifier:@"DKSearchResultsViewController"];
+}
+
 @end

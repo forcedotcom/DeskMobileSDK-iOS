@@ -37,17 +37,15 @@
 
 @interface DKArticlesViewController ()
 
-@property (nonatomic, weak) DKArticlesViewModel *viewModel;
-@property (nonatomic, strong) DKArticlesTopicViewModel *topicViewModel;
-@property (nonatomic, strong) DKArticlesSearchViewModel *searchViewModel;
+@property (nonatomic) DKArticlesTopicViewModel *viewModel;
+@property (nonatomic) UISearchController *searchController;
 
-- (void)setupSearchBar;
+- (void)setupSearch;
 - (NSString *)searchBarPlaceholderText;
 - (void)sendDelegateChangeSearchTerm:(NSString *)searchTerm;
 - (void)resetSearchWithSearchTerm:(NSString *)searchTerm;
 - (void)cancelSearchForArticlesInTopic;
 - (BOOL)shouldShowNoSearchResultsMessage;
-- (BOOL)userEnteredSearchTerms;
 - (BOOL)hasTopic;
 
 @end
@@ -57,7 +55,6 @@
 @property (nonatomic, strong) DKArticlesViewController *viewController;
 @property (nonatomic, strong) id viewControllerMock;
 @property (nonatomic, strong) id topicViewModelMock;
-@property (nonatomic, strong) id searchViewModelMock;
 
 @end
 
@@ -69,13 +66,12 @@
     self.viewController = [DKTestUtils articlesViewController];
     [self.viewController view];
     self.topicViewModelMock = OCMPartialMock(self.viewController.viewModel);
-    self.searchViewModelMock = OCMPartialMock(self.viewController.searchViewModel);
     self.viewControllerMock = OCMPartialMock(self.viewController);
 }
 
 - (void)testViewDidLoadSetsUpSearchBar
 {
-    OCMExpect([self.viewControllerMock setupSearchBar]);
+    OCMExpect([self.viewControllerMock setupSearch]);
     
     [self.viewController viewDidLoad];
     
@@ -100,20 +96,8 @@
     DSAPITopic *topic = [DSAPITopic new];
     id mock = OCMPartialMock(topic);
     OCMStub([mock valueForKey:DKTopicNameKey]).andReturn(@"foo");
-    [self.viewController setViewModel:self.viewController.topicViewModel topic:topic];
-    XCTAssertEqual(self.viewController.topicViewModel.topic, topic);
-    XCTAssertEqual(self.viewController.viewModel, self.viewController.topicViewModel);
-    XCTAssertNotEqual(self.viewController.viewModel, self.viewController.searchViewModel);
-    XCTAssertEqual(self.viewController.searchViewModel.topic, topic);
-}
-
-- (void)testSetSearchTermSetsViewModel
-{
-    NSString *searchTerm = @"foo";
-    [self.viewController setSearchTerm:searchTerm];
-    XCTAssertEqual(self.viewController.searchViewModel.searchTerm, searchTerm);
-    XCTAssertEqual(self.viewController.viewModel, self.viewController.searchViewModel);
-    XCTAssertNotEqual(self.viewController.viewModel, self.viewController.topicViewModel);
+    [self.viewController setViewModel:self.viewController.viewModel topic:topic];
+    XCTAssertEqual(self.viewController.viewModel.topic, topic);
 }
 
 - (void)testDidChangeSearchTerm
@@ -122,7 +106,7 @@
     self.viewController.delegate = delegate;
     NSString *searchTerm = @"foo";
     
-    OCMExpect([delegate articlesViewController:self.viewController didChangeSearchTerm:searchTerm]);
+    OCMExpect([delegate articlesViewController:self.viewController didSearchTerm:searchTerm]);
     
     UISearchBar *searchBar = [UISearchBar new];
     searchBar.text = searchTerm;
@@ -151,90 +135,12 @@
     OCMVerifyAll(delegate);
 }
 
-- (void)testDoesntShowAlertWhenNoResultsAndNoSearchTerm
-{
-    id AlertControllerClassMock = OCMClassMock([UIAlertController class]);
-    [[AlertControllerClassMock reject] alertWithTitle:OCMOCK_ANY text:OCMOCK_ANY handler:OCMOCK_ANY];
-    [[self.viewControllerMock reject] presentViewController:OCMOCK_ANY animated:YES completion:nil];
-    
-    [self.viewController viewModelDidFetchNoResults:nil];
-    
-    OCMVerifyAll(AlertControllerClassMock);
-    OCMVerifyAll(self.viewControllerMock);
-}
-
-- (void)testShowsAlertWhenNoResultsAndSearchTerm
-{
-    self.viewController.searchViewModel.searchTerm = @"foo";
-    id tableViewMock = OCMPartialMock(self.viewController.tableView);
-    OCMExpect([tableViewMock reloadData]);
-    
-    id AlertControllerClassMock = OCMClassMock([UIAlertController class]);
-    OCMExpect([AlertControllerClassMock alertWithTitle:OCMOCK_ANY text:OCMOCK_ANY handler:OCMOCK_ANY]);
-    OCMExpect([self.viewControllerMock presentViewController:OCMOCK_ANY animated:YES completion:nil]);
-    
-    [self.viewController viewModelDidFetchNoResults:nil];
-    
-    OCMVerifyAll(tableViewMock);
-    OCMVerifyAll(AlertControllerClassMock);
-    OCMVerifyAll(self.viewControllerMock);
-}
-
-- (void)testShouldShowNoSearchResultsMessage
-{
-    OCMStub([self.viewControllerMock userEnteredSearchTerms]).andReturn(YES);
-    
-    XCTAssertTrue([self.viewController shouldShowNoSearchResultsMessage]);
-}
-
-- (void)testShouldNotShowNoSearchResultsMessage
-{
-    OCMStub([self.viewControllerMock userEnteredSearchTerms]).andReturn(NO);
-    
-    XCTAssertFalse([self.viewController shouldShowNoSearchResultsMessage]);
-}
-
-- (void)testUserEnteredSearchTerms
-{
-    self.viewController.searchViewModel.searchTerm = @"foo";
-    
-    XCTAssertTrue([self.viewController userEnteredSearchTerms]);
-}
-
-- (void)testUserDidNotEnterSearchTerms
-{
-    self.viewController.searchViewModel.searchTerm = nil;
-    
-    XCTAssertFalse([self.viewController userEnteredSearchTerms]);
-}
-
-- (void)testResetSearchWithSearchTerm
-{
-    OCMExpect([self.searchViewModelMock reset]);
-    OCMExpect([self.viewControllerMock setSearchTerm:@"foo"]);
-    OCMExpect([self.viewControllerMock beginLoadingData]);
-    
-    [self.viewController resetSearchWithSearchTerm:@"foo"];
-    
-    OCMVerifyAll(self.searchViewModelMock);
-    OCMVerifyAll(self.viewControllerMock);
-}
-
-- (void)testCancelSearchBar
-{
-    id mock = OCMPartialMock(self.viewController.tableView);
-    [self.viewController cancelSearchForArticlesInTopic];
-    
-    OCMVerify([mock reloadData]);
-    OCMVerify([self.viewControllerMock setViewModel:OCMOCK_ANY topic:OCMOCK_ANY]);
-}
-
 - (void)testHasTopic
 {
     DKArticlesTopicViewModel *viewModel = [DKArticlesTopicViewModel new];
     viewModel.topic = nil;
     
-    OCMStub([self.viewControllerMock topicViewModel]).andReturn(viewModel);
+    OCMStub([self.viewControllerMock viewModel]).andReturn(viewModel);
     
     XCTAssertFalse(self.viewController.hasTopic);
     
@@ -244,11 +150,8 @@
 
 - (void)testSearchBarPlaceholderText
 {
-    self.viewController.topicViewModel.topic = nil;
-    XCTAssertTrue([self.viewController.searchBarPlaceholderText isEqualToString:DKSearchAllArticles]);
-    
-    self.viewController.topicViewModel.topic = [DSAPITopic new];
-    XCTAssertTrue([self.viewController.searchBarPlaceholderText isEqualToString:DKSearchArticlesInTopic]);
+    [self.viewController setupSearch];
+    XCTAssertTrue([self.viewController.searchController.searchBar.placeholder isEqualToString:DKSearchArticlesInTopic]);
 }
 
 @end

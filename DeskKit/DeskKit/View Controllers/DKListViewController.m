@@ -28,9 +28,11 @@
 //
 
 #import "DKListViewController.h"
-#import "DKArticleDetailViewController.h"
+#import "DKSearchResultsViewController.h"
+
 #import "UIAlertController+Additions.h"
 #import "DKConstants.h"
+#import "DKSettings.h"
 
 #pragma mark - private constants
 
@@ -38,7 +40,7 @@ static NSString *const DKListCellId = @"DKListCell";
 
 @interface DKListViewController ()
 
-@property (nonatomic, strong) UISearchController *articleSearchController;
+@property (nonatomic) UISearchController *searchController;
 
 @end
 
@@ -57,34 +59,31 @@ static NSString *const DKListCellId = @"DKListCell";
     [self.viewModel cancelFetch];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self beginLoadingData];
-}
-
 - (void)beginLoadingData
 {
     [self.viewModel fetchItemsInSection:0];
 }
 
-- (void)setupSearchBar
+- (void)setupSearchWithResultsViewController:(DKSearchResultsViewController *)resultsViewController
 {
-    self.articleSearchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.articleSearchController.searchBar.delegate = self;
-    self.articleSearchController.searchBar.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(self.tableView.frame), DKSearchBarHeight);
-    self.tableView.tableHeaderView = self.articleSearchController.searchBar;
+    self.resultsViewController = resultsViewController;
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:resultsViewController];
+    self.searchController.searchBar.delegate = self;
+    self.searchController.searchBar.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(self.tableView.frame), DKSearchBarHeight);
+    self.searchController.searchBar.barTintColor = [[DKSettings sharedInstance] topNavBarTintColor];
+    self.searchController.searchBar.tintColor = [[DKSettings sharedInstance] topNavTintColor];
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.definesPresentationContext = YES;
 }
 
 - (void)setSearchBarPlaceholder:(NSString *)placeholder
 {
-    self.articleSearchController.searchBar.placeholder = placeholder;
+    self.searchController.searchBar.placeholder = placeholder;
 }
 
 - (void)setSearchBarSearchTerm:(NSString *)searchTerm
 {
-    self.articleSearchController.searchBar.text = searchTerm;
+    self.searchController.searchBar.text = searchTerm;
 }
 
 #pragma mark - UISearchBarDelegate
@@ -92,8 +91,20 @@ static NSString *const DKListCellId = @"DKListCell";
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    [self.articleSearchController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.resultsViewController reset];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText isEqualToString:@""]) {
+        [self.resultsViewController reset];
+    }
+}
+
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 

@@ -29,6 +29,8 @@
 //
 
 #import "DKTopicsViewController.h"
+#import "DKTopicsViewModel.h"
+
 #import "DKSession.h"
 #import "UIAlertController+Additions.h"
 #import "DKNavigationBarTitleView.h"
@@ -37,14 +39,9 @@
 NSString *const DKTopicsViewControllerId = @"DKTopicsViewController";
 static NSString *const DKArticlesSegueId = @"DKArticlesSegue";
 
-@interface DKTopicsViewController ()
+@interface DKTopicsViewController ()<DKSearchResultsViewControllerDelegate>
 
-@property (nonatomic, strong) NSCache *cachedArticlesViewModels;
-
-- (void)setupAppearances;
-- (void)setupSearchBar;
-- (DKArticlesTopicViewModel *)cachedArticlesViewModelFromTopicName:(id)topicName;
-- (void)setCachedArticlesViewModel:(DKArticlesTopicViewModel *)articleViewModel topicName:(id)topicName;
+@property (nonatomic) NSCache *cachedArticlesViewModels;
 
 @end
 
@@ -65,8 +62,14 @@ static NSString *const DKArticlesSegueId = @"DKArticlesSegue";
 {
     [super viewDidLoad];
     [self setupAppearances];
-    [self setupSearchBar];
+    [self setupSearch];
     [self invalidateArticleCache];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self beginLoadingData];
 }
 
 #pragma mark - Setup
@@ -76,10 +79,12 @@ static NSString *const DKArticlesSegueId = @"DKArticlesSegue";
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
-- (void)setupSearchBar
+- (void)setupSearch
 {
-    [super setupSearchBar];
-    [super setSearchBarPlaceholder:DKSearchAllArticles];
+    self.resultsViewController = [DKSession newSearchResultsViewController];
+    self.resultsViewController.delegate = self;
+    [self setupSearchWithResultsViewController:self.resultsViewController];
+    [self setSearchBarPlaceholder:DKSearchAllArticles];
 }
 
 - (void)setTitle:(NSString *)title
@@ -128,12 +133,27 @@ static NSString *const DKArticlesSegueId = @"DKArticlesSegue";
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [super searchBarSearchButtonClicked:searchBar];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    NSString *text = [self.resultsViewController textFromSearchBar:searchBar];
+    [self sendDelegateSearchTerm:text];
+    [self.resultsViewController resetSearchWithSearchTerm:text topic:nil];
+}
+
+- (void)sendDelegateSearchTerm:(NSString *)searchTerm
+{
     if ([self.delegate respondsToSelector:@selector(topicsViewController:didSearchTerm:)]) {
-        NSString *text = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        [self.delegate topicsViewController:self didSearchTerm:text];
+        [self.delegate topicsViewController:self didSearchTerm:searchTerm];
     }
 }
+
+#pragma mark - DKSearchResultsViewControllerDelegate
+
+- (void)searchResultsViewController:(DKSearchResultsViewController *)searchResultsViewController didSelectArticle:(DSAPIArticle *)article
+{
+    if ([self.delegate respondsToSelector:@selector(topicsViewController:didSelectSearchedArticle:)]) {
+        [self.delegate topicsViewController:self didSelectSearchedArticle:article];
+    }
+}     
 
 #pragma mark - UITableViewDelegate
 
