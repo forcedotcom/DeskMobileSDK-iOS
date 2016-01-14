@@ -30,6 +30,7 @@
 @import UIKit;
 #import <DeskAPIClient/DeskAPIClient.h>
 #import "DKTopicsViewController.h"
+#import "DKSearchResultsViewController.h"
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewController.h"
 #import "DKContactUsViewController.h"
@@ -113,8 +114,10 @@ NS_ASSUME_NONNULL_END
  The following are internal methods used by DeskKit. Generally clients will not need to call these methods.
  */
 
++ (DKSearchResultsViewController * __nonnull)newSearchResultsViewController;
 + (BOOL)hasContactUsPhoneNumber;
 - (nullable NSString *)contactUsToEmailAddress;
 - (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler;
+
 
 @end

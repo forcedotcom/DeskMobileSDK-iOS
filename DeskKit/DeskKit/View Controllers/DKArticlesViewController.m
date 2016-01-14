@@ -29,32 +29,21 @@
 //
 
 #import "DKArticlesViewController.h"
+#import "DKSearchResultsViewController.h"
 #import "DKArticleDetailViewController.h"
-#import "DKArticlesSearchViewModel.h"
-#import "UIAlertController+Additions.h"
 
-#define DKSearchResultsPrefix NSLocalizedString(@"Search Results: ", @"Prefix displayed before the search term when displaying search results")
+#import "DKSession.h"
 
 NSString *const DKArticlesViewControllerId = @"DKArticlesViewController";
 
-@interface DKArticlesViewController ()
+@interface DKArticlesViewController ()<DKSearchResultsViewControllerDelegate>
 
-@property (nonatomic, weak) DKArticlesViewModel *viewModel;
-@property (nonatomic, strong) DKArticlesTopicViewModel *topicViewModel;
-@property (nonatomic, strong) DKArticlesSearchViewModel *searchViewModel;
-
-- (void)setupSearchBar;
-- (NSString *)searchBarPlaceholderText;
-- (void)sendDelegateChangeSearchTerm:(NSString *)searchTerm;
-- (void)resetSearchWithSearchTerm:(NSString *)searchTerm;
-- (void)cancelSearchForArticlesInTopic;
-- (BOOL)shouldShowNoSearchResultsMessage;
-- (BOOL)userEnteredSearchTerms;
-- (BOOL)hasTopic;
+@property (nonatomic) DKArticlesTopicViewModel *viewModel;
 
 @end
 
 @implementation DKArticlesViewController
+
 @dynamic viewModel;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -62,10 +51,7 @@ NSString *const DKArticlesViewControllerId = @"DKArticlesViewController";
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initializing the viewmodel here so it's ready by the time the superclass's viewDidLoad is called
-        self.topicViewModel = [DKArticlesTopicViewModel new];
-        self.searchViewModel = [DKArticlesSearchViewModel new];
-        self.searchViewModel.delegate = self;
-        self.viewModel = self.topicViewModel;
+        self.viewModel = [DKArticlesTopicViewModel new];
     }
     return self;
 }
@@ -73,85 +59,40 @@ NSString *const DKArticlesViewControllerId = @"DKArticlesViewController";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupSearchBar];
+    [self setupSearch];
 }
 
-- (void)setupSearchBar
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super setupSearchBar];
-    [self setSearchBarPlaceholder:self.searchBarPlaceholderText];
-    if (self.searchViewModel.searchTerm) {
-        [super setSearchBarSearchTerm:self.searchViewModel.searchTerm];
-    }
+    [super viewWillAppear:animated];
+    [self beginLoadingData];
 }
 
-- (NSString *)searchBarPlaceholderText
+- (void)setupSearch
 {
-    return self.topicViewModel.topic ? DKSearchArticlesInTopic : DKSearchAllArticles;
+    self.resultsViewController = [DKSession newSearchResultsViewController];
+    self.resultsViewController.delegate = self;
+    [self setupSearchWithResultsViewController:self.resultsViewController];
+    [self setSearchBarPlaceholder:DKSearchArticlesInTopic];
 }
 
 - (void)setViewModel:(DKArticlesTopicViewModel *)viewModel topic:(DSAPITopic *)topic;
 {
     self.title = [topic valueForKey:DKTopicNameKey];
-    self.topicViewModel = viewModel;
-    self.topicViewModel.topic = topic;
-    self.viewModel = self.topicViewModel;
-    self.searchViewModel.topic = topic;
+    self.viewModel = viewModel;
+    self.viewModel.topic = topic;
 }
 
-- (void)setSearchTerm:(NSString *)searchTerm
+- (void)sendDelegateSearchTerm:(NSString *)searchTerm
 {
-    self.title = [DKSearchResultsPrefix stringByAppendingString:searchTerm];
-    self.searchViewModel.searchTerm = searchTerm;
-    self.viewModel = self.searchViewModel;
-    [self sendDelegateChangeSearchTerm:searchTerm];
-}
-
-- (void)sendDelegateChangeSearchTerm:(NSString *)searchTerm
-{
-    if ([self.delegate respondsToSelector:@selector(articlesViewController:didChangeSearchTerm:)]) {
-        [self.delegate articlesViewController:self didChangeSearchTerm:searchTerm];
+    if ([self.delegate respondsToSelector:@selector(articlesViewController:didSearchTerm:)]) {
+        [self.delegate articlesViewController:self didSearchTerm:searchTerm];
     }
-}
-
-- (void)resetSearchWithSearchTerm:(NSString *)searchTerm
-{
-    [self.searchViewModel reset];
-    [self setSearchTerm:searchTerm];
-    [self beginLoadingData];
-}
-
-- (void)cancelSearchForArticlesInTopic
-{
-    [self setViewModel:self.topicViewModel topic:self.topicViewModel.topic];
-    [self.tableView reloadData];
-}
-
-
-- (void)viewModelDidFetchNoResults:(DKListViewModel *)viewModel
-{
-    [self.tableView reloadData];
-    if ([self shouldShowNoSearchResultsMessage]) {
-        UIAlertController *alertController = [UIAlertController alertWithTitle:DKNoResults
-                                                                          text:DKNoArticlesResultsMessage
-                                                                       handler:nil];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-}
-
-- (BOOL)shouldShowNoSearchResultsMessage
-{
-    return [self userEnteredSearchTerms];
-}
-
-- (BOOL)userEnteredSearchTerms
-{
-    return self.searchViewModel.searchTerm.length > 0;
 }
 
 - (BOOL)hasTopic
 {
-    return self.topicViewModel.topic != nil;
+    return self.viewModel.topic != nil;
 }
 
 #pragma mark - UISearchBarDelegate
@@ -159,12 +100,18 @@ NSString *const DKArticlesViewControllerId = @"DKArticlesViewController";
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [super searchBarSearchButtonClicked:searchBar];
-    [self resetSearchWithSearchTerm:searchBar.text];
+    NSString *text = [self.resultsViewController textFromSearchBar:searchBar];
+    [self sendDelegateSearchTerm:text];
+    [self.resultsViewController resetSearchWithSearchTerm:text topic:self.viewModel.topic];
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+#pragma mark - DKSearchResultsViewControllerDelegate
+
+- (void)searchResultsViewController:(DKSearchResultsViewController *)searchResultsViewController didSelectArticle:(DSAPIArticle *)article
 {
-    [self cancelSearchForArticlesInTopic];
+    if ([self.delegate respondsToSelector:@selector(topicsViewController:didSelectSearchedArticle:)]) {
+        [self.delegate articlesViewController:self didSelectSearchedArticle:article];
+    }
 }
 
 #pragma mark - UITableViewDelegate

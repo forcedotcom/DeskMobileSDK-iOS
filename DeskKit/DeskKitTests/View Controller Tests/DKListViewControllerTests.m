@@ -35,7 +35,7 @@
 
 @interface DKListViewController ()
 
-@property (nonatomic, strong) UISearchController *articleSearchController;
+@property (nonatomic) UISearchController *searchController;
 
 @end
 
@@ -134,10 +134,10 @@
 {
     [self.viewController view];
     [self.viewController setSearchBarPlaceholder:@"Foo"];
-    XCTAssertNotNil(self.viewController.articleSearchController);
-    XCTAssertTrue([self.viewController.articleSearchController.searchBar.delegate isEqual:self.viewController]);
-    XCTAssertTrue([self.viewController.articleSearchController.searchBar.placeholder isEqualToString:@"Foo"]);
-    XCTAssertEqual(self.viewController.tableView.tableHeaderView, self.viewController.articleSearchController.searchBar);
+    XCTAssertNotNil(self.viewController.searchController);
+    XCTAssertTrue([self.viewController.searchController.searchBar.delegate isEqual:self.viewController]);
+    XCTAssertTrue([self.viewController.searchController.searchBar.placeholder isEqualToString:@"Foo"]);
+    XCTAssertEqual(self.viewController.tableView.tableHeaderView, self.viewController.searchController.searchBar);
 }
 
 @end

@@ -94,6 +94,14 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
     }
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if (self.needsLoad) {
+        [[DSAPINetworkIndicatorController sharedController] networkActivityDidEnd];
+    }
+}
+
 - (void)dealloc
 {
     [self removeKvo];

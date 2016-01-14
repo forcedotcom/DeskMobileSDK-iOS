@@ -1,23 +1,23 @@
 //
-//  DKArticlesViewController.h
+//  DKSearchResultsViewController.h
 //  DeskKit
 //
 //  Created by Desk.com on 9/19/14.
 //  Copyright (c) 2015, Salesforce.com, Inc.
 //  All rights reserved.
-//  
+//
 //  Redistribution and use in source and binary forms, with or without modification, are permitted provided
 //  that the following conditions are met:
-//  
+//
 //     Redistributions of source code must retain the above copyright notice, this list of conditions and the
 //     following disclaimer.
-//  
+//
 //     Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
 //     the following disclaimer in the documentation and/or other materials provided with the distribution.
-//  
+//
 //     Neither the name of Salesforce.com, Inc. nor the names of its contributors may be used to endorse or
 //     promote products derived from this software without specific prior written permission.
-//  
+//
 //  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
 //  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
 //  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
@@ -29,27 +29,24 @@
 //
 
 #import "DKListViewController.h"
-#import <DeskAPIClient/DeskAPIClient.h>
-#import "DKArticlesTopicViewModel.h"
 
-extern NSString *const DKArticlesViewControllerId;
+extern NSString *const DKSearchResultsViewControllerId;
 
-@class DKArticlesViewController;
+@class DKSearchResultsViewController;
 
-@protocol DKArticlesViewControllerDelegate <NSObject>
+@protocol DKSearchResultsViewControllerDelegate <NSObject>
 
 @optional
-- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSearchTerm:(NSString *)searchTerm;
-- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSelectArticle:(DSAPIArticle *)article;
-- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSelectSearchedArticle:(DSAPIArticle *)article;
+- (void)searchResultsViewController:(DKSearchResultsViewController *)searchResultsViewController didSelectArticle:(DSAPIArticle *)article;
 
 @end
 
-@interface DKArticlesViewController : DKListViewController
+@interface DKSearchResultsViewController : DKListViewController
 
-@property (nonatomic, weak) id<DKArticlesViewControllerDelegate>delegate;
+@property (nonatomic, weak) id<DKSearchResultsViewControllerDelegate>delegate;
 
-- (void)setViewModel:(DKArticlesTopicViewModel *)viewModel topic:(DSAPITopic *)topic;
-
+- (void)reset;
+- (void)resetSearchWithSearchTerm:(NSString *)searchTerm topic:(DSAPITopic *)topic;
+- (NSString *)textFromSearchBar:(UISearchBar *)searchBar;
 
 @end

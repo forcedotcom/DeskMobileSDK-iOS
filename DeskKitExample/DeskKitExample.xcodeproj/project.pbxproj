@@ -15,6 +15,7 @@
 		1CABC2F719E483E5009C63C3 /* DeskKitExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CABC2F619E483E5009C63C3 /* DeskKitExampleTests.m */; };
 		1CABC30319E48598009C63C3 /* DeskKitSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CABC30119E48598009C63C3 /* DeskKitSettings.plist */; };
 		1CABC30519E4859E009C63C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CABC30419E4859E009C63C3 /* Localizable.strings */; };
+		9E5D57BC6C4418F47F295E84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B1721D9FC4091A522CB853 /* libPods.a */; };
 		C765CB261AA65365002DEB8F /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C765CB251AA65365002DEB8F /* SplitViewController.m */; };
 		C765CB281AA72A6C002DEB8F /* DKSplitViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C765CB271AA72A6C002DEB8F /* DKSplitViewControllerTests.m */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		1CABC30119E48598009C63C3 /* DeskKitSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeskKitSettings.plist; sourceTree = "<group>"; };
 		1CABC30419E4859E009C63C3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B982DB30DE0C095C7A005F69 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C6B1721D9FC4091A522CB853 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C765CB241AA65365002DEB8F /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
 		C765CB251AA65365002DEB8F /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
 		C765CB271AA72A6C002DEB8F /* DKSplitViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSplitViewControllerTests.m; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5D57BC6C4418F47F295E84 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +140,7 @@
 		223196C6E9104A9F71801113 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6B1721D9FC4091A522CB853 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

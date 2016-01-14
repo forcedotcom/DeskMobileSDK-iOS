@@ -30,9 +30,7 @@
 
 @import MessageUI;
 #import "DKListViewController.h"
-#import "DKTopicsViewModel.h"
 #import "DKArticlesTopicViewModel.h"
-#import "DKArticlesSearchViewModel.h"
 
 extern NSString *const DKTopicsViewControllerId;
 
@@ -42,10 +40,12 @@ extern NSString *const DKTopicsViewControllerId;
 
 @optional
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController
+               didSearchTerm:(NSString *)searchTerm;
+- (void)topicsViewController:(DKTopicsViewController *)topicsViewController
               didSelectTopic:(DSAPITopic *)topic
       articlesTopicViewModel:(DKArticlesTopicViewModel *)articlesTopicViewModel;
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController
-               didSearchTerm:(NSString *)searchTerm;
+    didSelectSearchedArticle:(DSAPIArticle *)article;
 @end
 
 @interface DKTopicsViewController : DKListViewController <UISearchBarDelegate>
