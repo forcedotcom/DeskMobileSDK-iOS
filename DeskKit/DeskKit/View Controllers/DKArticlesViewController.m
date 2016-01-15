@@ -109,7 +109,7 @@ NSString *const DKArticlesViewControllerId = @"DKArticlesViewController";
 
 - (void)searchResultsViewController:(DKSearchResultsViewController *)searchResultsViewController didSelectArticle:(DSAPIArticle *)article
 {
-    if ([self.delegate respondsToSelector:@selector(topicsViewController:didSelectSearchedArticle:)]) {
+    if ([self.delegate respondsToSelector:@selector(articlesViewController:didSelectSearchedArticle:)]) {
         [self.delegate articlesViewController:self didSelectSearchedArticle:article];
     }
 }
