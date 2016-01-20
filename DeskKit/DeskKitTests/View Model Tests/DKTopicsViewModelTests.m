@@ -81,6 +81,7 @@
                               DKSortDirectionKey : DKSortDirectionAsc };
 
     OCMExpect([TopicClassMock listTopicsWithParameters:params
+                                                client:OCMOCK_ANY
                                                  queue:OCMOCK_ANY
                                                success:OCMOCK_ANY
                                                failure:OCMOCK_ANY]);
@@ -92,7 +93,10 @@
 
 - (void)testFetchItemsInBrand
 {
+    DSAPIClient *client = [DSAPIClient new];
+    client.baseURL = [NSURL URLWithString:@"http://google.com"];
     DSAPIBrand *brand = (DSAPIBrand *)[DSAPIResource resourceWithId:@"1234"
+                                                             client:client
                                                           className:@"brand"];
 
     id brandMock = OCMPartialMock(brand);
@@ -107,6 +111,7 @@
                                          failure:OCMOCK_ANY];
 
     [[TopicClassMock reject] listTopicsWithParameters:OCMOCK_ANY
+                                               client:OCMOCK_ANY
                                                 queue:OCMOCK_ANY
                                               success:OCMOCK_ANY
                                               failure:OCMOCK_ANY];

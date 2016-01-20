@@ -29,6 +29,7 @@
 //
 
 #import "DKTopicsViewModel.h"
+#import "DKAPIManager.h"
 
 NSString *const DKInSupportCenterKey = @"in_support_center";
 
@@ -66,6 +67,7 @@ NSString *const DKInSupportCenterKey = @"in_support_center";
     } else {
         return [DSAPITopic listTopicsWithParameters:[self parametersForPageNumber:pageNumber
                                                                           perPage:perPage]
+                                             client:[DKAPIManager sharedInstance].client
                                               queue:queue
                                             success:success
                                             failure:failure];

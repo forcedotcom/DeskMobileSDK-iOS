@@ -29,6 +29,8 @@
 //
 
 #import "DKArticlesSearchViewModel.h"
+#import "DKAPIManager.h"
+
 #import <DeskAPIClient/DSAPIArticle.h>
 
 static NSString *const DKArticleTextKey = @"text";
@@ -64,6 +66,7 @@ static NSString *const DKArticleTextKey = @"text";
                                          failure:(DSAPIFailureBlock)failure
 {
     return [DSAPIArticle searchArticlesWithParameters:[self parametersForPageNumber:pageNumber perPage:perPage]
+                                               client:[DKAPIManager sharedInstance].client
                                                 queue:queue
                                               success:success
                                               failure:failure];

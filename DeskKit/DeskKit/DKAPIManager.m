@@ -33,7 +33,6 @@ static NSString *const DKPathToContactUsForm = @"/customer/portal/emails/new";
 
 @interface DKAPIManager()
 
-@property (nonatomic, strong) DSAPIClient *client;
 
 @end
 
@@ -60,7 +59,7 @@ static NSString *const DKPathToContactUsForm = @"/customer/portal/emails/new";
         return self.client;
     }
     
-    self.client = [DSAPIClient sharedManager];
+    _client = [DSAPIClient new];
     [self.client setHostname:hostname APIToken:APIToken];
 
     return self.client;

@@ -32,6 +32,8 @@
 
 @interface DKAPIManager : NSObject
 
+@property (nonatomic, strong, readonly) DSAPIClient *client;
+
 + (instancetype)sharedInstance;
 - (DSAPIClient *)APIClientWithHostname:(NSString *)hostname
                               APIToken:(NSString *)APIToken;

@@ -7,6 +7,7 @@
 //
 
 #import "DKContactUsViewModel.h"
+#import "DKAPIManager.h"
 #import "DKConstants.h"
 #import "NSString+Additions.h"
 
@@ -239,6 +240,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
     
     NSDictionary *dictionary = [self caseDictionary];
     return [DSAPICase createCase:dictionary
+                          client:[DKAPIManager sharedInstance].client
                            queue:queue
                          success:success
                          failure:failure];
