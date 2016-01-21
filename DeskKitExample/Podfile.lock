@@ -1,16 +1,34 @@
 PODS:
-  - DeskAPIClient (1.1.4):
+  - DeskAPIClient (2.0.0):
     - DeskCommon (~> 1.0.4)
   - DeskCommon (1.0.4)
-  - DeskKit (2.0.0):
-    - DeskAPIClient (~> 1.1.4)
+  - DeskKit (3.0.0):
+    - DeskAPIClient (~> 2.0.0)
 
 DEPENDENCIES:
-  - DeskKit (~> 2.0.0)
+  - DeskAPIClient (from `https://github.com/forcedotcom/DeskApiClient-ObjC.git`, branch
+    `tickets/APIC-141-Convert-DSAPIClient-to-non-singleton`)
+  - DeskKit (from `git@github.com:forcedotcom/DeskMobileSDK-iOS.git`, branch `tickets/MSDKI-38-Use-non-singleton-version-of-DSAPIClient`)
+
+EXTERNAL SOURCES:
+  DeskAPIClient:
+    :branch: tickets/APIC-141-Convert-DSAPIClient-to-non-singleton
+    :git: https://github.com/forcedotcom/DeskApiClient-ObjC.git
+  DeskKit:
+    :branch: tickets/MSDKI-38-Use-non-singleton-version-of-DSAPIClient
+    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
+
+CHECKOUT OPTIONS:
+  DeskAPIClient:
+    :commit: 3d2499c931da60f4abe16841a5fcb86e61c8187c
+    :git: https://github.com/forcedotcom/DeskApiClient-ObjC.git
+  DeskKit:
+    :commit: 15f3c691ec119ecf6097539944dcba5bc756f69d
+    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
 
 SPEC CHECKSUMS:
-  DeskAPIClient: 851b60ea6c744e97cfe3b7ac3cfe381fe814ba25
+  DeskAPIClient: 0708efec60eef0a53c9ee60a7912a7c10eeb39b8
   DeskCommon: aa0e105a959a879555846107d2c678957ed4cb5d
-  DeskKit: 4cbaee525ddbfa9fcdf3d23f63f072bdfd27fcf0
+  DeskKit: b1f18f7349bb48819abb3ae879c3ee46ded1329e
 
 COCOAPODS: 0.39.0
