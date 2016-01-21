@@ -1,6 +1,7 @@
 platform :ios, '8.0'
 
-pod 'DeskAPIClient', '~> 1.1.4'
+#pod 'DeskAPIClient', '~> 2.0.0'
+pod 'DeskAPIClient', :git => 'https://github.com/forcedotcom/DeskApiClient-ObjC.git', :branch => 'tickets/APIC-141-Convert-DSAPIClient-to-non-singleton'
 
 target 'DeskKitTests', :exclusive => true do
     pod 'OCMock', '~> 3.0.2'
