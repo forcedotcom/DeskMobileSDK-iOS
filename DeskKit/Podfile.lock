@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DeskAPIClient:
-    :commit: 3d2499c931da60f4abe16841a5fcb86e61c8187c
+    :commit: 036de3552085267f06bc65c2648935c37d010ac0
     :git: https://github.com/forcedotcom/DeskApiClient-ObjC.git
 
 SPEC CHECKSUMS:

@@ -1,23 +1,23 @@
 //
-//  DKFixtures.m
-//  DeskKit
+//  DSAPIResource+Testing.m
+//  DeskAPIClient
 //
-//  Created by Desk.com on 9/11/14.
-//  Copyright (c) 2015, Salesforce.com, Inc.
+//  Created by Desk.com on 1/21/16.
+//  Copyright (c) 2016, Salesforce.com, Inc.
 //  All rights reserved.
-//  
+//
 //  Redistribution and use in source and binary forms, with or without modification, are permitted provided
 //  that the following conditions are met:
-//  
+//
 //     Redistributions of source code must retain the above copyright notice, this list of conditions and the
 //     following disclaimer.
-//  
+//
 //     Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
 //     the following disclaimer in the documentation and/or other materials provided with the distribution.
-//  
+//
 //     Neither the name of Salesforce.com, Inc. nor the names of its contributors may be used to endorse or
 //     promote products derived from this software without specific prior written permission.
-//  
+//
 //  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
 //  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
 //  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
@@ -28,46 +28,18 @@
 //  POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import "DKFixtures.h"
 #import "DSAPIResource+Testing.h"
 
-@interface DKFixtures()
+#import <DeskAPIClient/DSAPIClient.h>
 
-+ (NSDictionary *)dictionaryFromJSONFile:(NSString *)filename;
+@implementation DSAPIResource (Testing)
 
-@end
-
-@implementation DKFixtures
-
-+ (DSAPIPage *)topicsPage
+- (instancetype)initWithTestDictionary:(NSDictionary *)dictionary
 {
-    NSDictionary *dictionary = [self dictionaryFromJSONFile:@"topics_page"];
-    return [[DSAPIPage alloc] initWithTestDictionary:dictionary];
+    DSAPIClient *dummyClient = [DSAPIClient new];
+    dummyClient.baseURL = [NSURL URLWithString:@"http://google.com"];
+    return [self initWithDictionary:dictionary client:dummyClient];
 }
 
-+ (DSAPIPage *)articlesPage
-{
-    NSDictionary *dictionary = [self dictionaryFromJSONFile:@"articles_page"];
-    return [[DSAPIPage alloc] initWithTestDictionary:dictionary];
-}
-
-+ (DSAPIArticle *)article
-{
-    NSDictionary *dictionary = [self dictionaryFromJSONFile:@"article"];
-    return [[DSAPIArticle alloc] initWithTestDictionary:dictionary];
-}
-
-+ (DSAPIPage *)inboundMailboxesPage
-{
-    NSDictionary *dictionary = [self dictionaryFromJSONFile:@"inbound_mailboxes_page"];
-    return [[DSAPIPage alloc] initWithTestDictionary:dictionary];
-}
-
-+ (NSDictionary *)dictionaryFromJSONFile:(NSString *)filename
-{
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:filename ofType:@"json"];
-    NSData *requestBody = [NSData dataWithContentsOfFile:filePath];
-    return [NSJSONSerialization JSONObjectWithData:requestBody options:0 error:nil];
-}
 
 @end
