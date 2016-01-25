@@ -35,7 +35,6 @@
 #import "DKConstants.h"
 #import "UIAlertController+Additions.h"
 #import "DKSession.h"
-#import "DKNavigationControllerViewModel.h"
 
 #define DKMessageSent NSLocalizedString(@"Message Sent", comment: @"Message Sent title")
 #define DKMessageSentText NSLocalizedString(@"Thank you for contacting us. We will get back to you as soon as possible.", comment: @"Message Sent body.")
@@ -57,7 +56,6 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
 @property (nonatomic) NSOperationQueue *APICallbackQueue;
 @property (nonatomic) NSURLSessionDataTask *createCaseTask;
 @property (nonatomic) BOOL isUIReadOnly;
-@property (nonatomic) DKNavigationControllerViewModel *originalNavigationControllerViewModel;
 
 @end
 
@@ -88,9 +86,6 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     
     [self registerKeyboardNotifications];
     [self registerForUITextFieldNotifications];
-    
-    self.originalNavigationControllerViewModel = [DKSession navigationControllerViewModelWithViewController:self];
-    [DKSession setupAppearancesWithViewController:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -107,8 +102,6 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     
     [self unRegisterKeyboardNotfications];
     [self unRegisterForUITextFieldNotifications];
-    
-    [DKSession setNavigationControllerViewModel:self.originalNavigationControllerViewModel viewController:self];
 }
 
 - (void)didReceiveMemoryWarning

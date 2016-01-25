@@ -33,7 +33,6 @@
 #import <MessageUI/MessageUI.h>
 #import "DKTestUtils.h"
 #import "DKArticlesTopicViewModel.h"
-#import "DKNavigationBarTitleView.h"
 
 @interface MFMailComposeViewControllerTest : UIViewController
 
@@ -99,12 +98,6 @@
     self.viewModelMock = OCMPartialMock(self.viewController.viewModel);
     self.mock = OCMPartialMock(self.viewController);
     self.testSession = [[DKSession alloc] init];
-}
-
-- (void)testSetTitleSetsUpNavigationTitleView
-{
-    [self.viewController setTitle:@"Foo"];
-    XCTAssertTrue([self.viewController.navigationItem.titleView isKindOfClass:[DKNavigationBarTitleView class]]);
 }
 
 - (void)testCellHasTopicName

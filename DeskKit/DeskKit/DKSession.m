@@ -88,40 +88,6 @@ static NSInteger const DSMailboxesPerPage = 100;
     return [UIStoryboard storyboardWithName:DKStoryboardName bundle:[NSBundle bundleForClass:[self class]]];
 }
 
-+ (void)setupAppearancesWithViewController:(UIViewController *)viewController
-{
-    DKNavigationControllerViewModel *vm = [DKNavigationControllerViewModel new];
-    [self setNavigationControllerViewModel:vm viewController:viewController];
-}
-
-+ (DKNavigationControllerViewModel *)navigationControllerViewModelWithViewController:(UIViewController *)viewController
-{
-    DKNavigationControllerViewModel *vm = [DKNavigationControllerViewModel new];
-    
-    UINavigationBar *navigationBar = viewController.navigationController.navigationBar;
-    vm.navigationBarTitleTextAttributes = navigationBar.titleTextAttributes;
-    vm.navigationBarBarTintColor = navigationBar.barTintColor;
-    vm.navigationBarTintColor = navigationBar.tintColor;
-    
-    UIToolbar *toolBar = viewController.navigationController.toolbar;
-    vm.toolBarBarTintColor = toolBar.barTintColor;
-    vm.toolBarTintColor = toolBar.tintColor;
-    
-    return vm;
-}
-
-+ (void)setNavigationControllerViewModel:(DKNavigationControllerViewModel *)vm viewController:(UIViewController *)viewController
-{
-    UINavigationBar *navigationBar = viewController.navigationController.navigationBar;
-    [navigationBar setTitleTextAttributes:vm.navigationBarTitleTextAttributes];
-    [navigationBar setBarTintColor:vm.navigationBarBarTintColor];
-    [navigationBar setTintColor:vm.navigationBarTintColor];
-    
-    UIToolbar *toolBar = viewController.navigationController.toolbar;
-    [toolBar setBarTintColor:vm.toolBarBarTintColor];
-    [toolBar setTintColor:vm.toolBarTintColor];
-}
-
 + (DKTopicsViewController *)newTopicsViewController
 {
     return [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKTopicsViewControllerId];

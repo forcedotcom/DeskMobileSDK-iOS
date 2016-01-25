@@ -33,7 +33,6 @@
 
 #import "DKSession.h"
 #import "UIAlertController+Additions.h"
-#import "DKNavigationBarTitleView.h"
 #import "DKSettings.h"
 
 NSString *const DKTopicsViewControllerId = @"DKTopicsViewController";
@@ -85,15 +84,6 @@ static NSString *const DKArticlesSegueId = @"DKArticlesSegue";
     self.resultsViewController.delegate = self;
     [self setupSearchWithResultsViewController:self.resultsViewController];
     [self setSearchBarPlaceholder:DKSearchAllArticles];
-}
-
-- (void)setTitle:(NSString *)title
-{
-    [super setTitle:title];
-    UIView *titleView = [[DKNavigationBarTitleView alloc] initWithIconImage:[DKSettings sharedInstance].topNavIcon
-                                                                      title:self.title];
-
-    self.navigationItem.titleView = titleView;
 }
 
 #pragma mark - Article View Model Caching
