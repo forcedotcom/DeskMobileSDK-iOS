@@ -90,12 +90,11 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 + (void)setupAppearancesWithViewController:(UIViewController *)viewController
 {
-    NSDictionary *topNavTitleTextAttributes = @{
-                                                NSForegroundColorAttributeName : [[DKSettings sharedInstance] topNavTintColor],
-                                                };
-    
     UINavigationBar *navigationBar = viewController.navigationController.navigationBar;
     if (navigationBar) {
+        NSDictionary *topNavTitleTextAttributes = @{
+                                                    NSForegroundColorAttributeName : [[DKSettings sharedInstance] topNavTintColor],
+                                                    };
         [navigationBar setTitleTextAttributes:topNavTitleTextAttributes];
         
         [navigationBar setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
