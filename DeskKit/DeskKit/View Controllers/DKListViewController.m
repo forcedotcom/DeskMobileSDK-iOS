@@ -34,6 +34,7 @@
 #import "DKConstants.h"
 #import "DKSettings.h"
 #import "DKSession.h"
+#import "DKNavigationControllerViewModel.h"
 
 #pragma mark - private constants
 
@@ -42,6 +43,7 @@ static NSString *const DKListCellId = @"DKListCell";
 @interface DKListViewController ()
 
 @property (nonatomic) UISearchController *searchController;
+@property (nonatomic) DKNavigationControllerViewModel *originalNavigationControllerViewModel;
 
 @end
 
@@ -50,8 +52,15 @@ static NSString *const DKListCellId = @"DKListCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [DKSession setupAppearancesWithViewController:self];
     self.viewModel.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.originalNavigationControllerViewModel = [DKSession navigationControllerViewModelWithViewController:self];
+    [DKSession setupAppearancesWithViewController:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -59,6 +68,7 @@ static NSString *const DKListCellId = @"DKListCell";
     [super viewWillDisappear:animated];
     
     [self.viewModel cancelFetch];
+    [DKSession setNavigationControllerViewModel:self.originalNavigationControllerViewModel viewController:self];
 }
 
 - (void)beginLoadingData

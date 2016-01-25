@@ -92,6 +92,8 @@
 		C788AF6D1C2474F800B4146E /* DKArticleDetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */; };
 		C788AF6F1C24750300B4146E /* DKArticleDetailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */; };
 		C788AF711C2478E500B4146E /* DKAPIManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */; };
+		C7ABE9D91C56A3CA008B6BFE /* DKNavigationControllerViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C7ABE9D71C56A3CA008B6BFE /* DKNavigationControllerViewModel.h */; };
+		C7ABE9DA1C56A3CA008B6BFE /* DKNavigationControllerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7ABE9D81C56A3CA008B6BFE /* DKNavigationControllerViewModel.m */; };
 		C7C7BFAA1C52845200B886A0 /* DSAPIResource+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C7BFA91C52845200B886A0 /* DSAPIResource+Testing.m */; };
 		C7CAAD1F1C455715004B767B /* DKSearchResultsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7CAAD201C455715004B767B /* DKSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CAAD1E1C455715004B767B /* DKSearchResultsViewController.m */; };
@@ -192,6 +194,8 @@
 		C7747DEE1B72A2DF00942DC2 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		C77ECFAE1B6FEC10008AC3F0 /* DKUserIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKUserIdentity.h; sourceTree = "<group>"; };
 		C77ECFAF1B6FEC10008AC3F0 /* DKUserIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKUserIdentity.m; sourceTree = "<group>"; };
+		C7ABE9D71C56A3CA008B6BFE /* DKNavigationControllerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKNavigationControllerViewModel.h; sourceTree = "<group>"; };
+		C7ABE9D81C56A3CA008B6BFE /* DKNavigationControllerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKNavigationControllerViewModel.m; sourceTree = "<group>"; };
 		C7C7BFA81C52844800B886A0 /* DSAPIResource+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSAPIResource+Testing.h"; sourceTree = "<group>"; };
 		C7C7BFA91C52845200B886A0 /* DSAPIResource+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DSAPIResource+Testing.m"; sourceTree = "<group>"; };
 		C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSearchResultsViewController.h; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 				C74818FF1B680DEE009426EF /* DKContactUsItem.m */,
 				C74818FA1B68064C009426EF /* DKContactUsInputTextItem.h */,
 				C74818FB1B68064C009426EF /* DKContactUsInputTextItem.m */,
+				C7ABE9D71C56A3CA008B6BFE /* DKNavigationControllerViewModel.h */,
+				C7ABE9D81C56A3CA008B6BFE /* DKNavigationControllerViewModel.m */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -533,6 +539,7 @@
 				C74818F81B6802DA009426EF /* DKContactUsViewModel.h in Headers */,
 				C74819041B6811E9009426EF /* DKContactUsTextViewTableViewCell.h in Headers */,
 				C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */,
+				C7ABE9D91C56A3CA008B6BFE /* DKNavigationControllerViewModel.h in Headers */,
 				1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */,
 				1CA021FC19CBE1C70091D8A9 /* DKArticlesViewModel.h in Headers */,
 				1C75FBFE19BF34FE00971E46 /* DeskKit.h in Headers */,
@@ -739,6 +746,7 @@
 				1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */,
 				1CA021FD19CBE1C70091D8A9 /* DKArticlesViewModel.m in Sources */,
 				1CBEEF9519DDD5D10073A8AC /* DKArticlesTopicViewModel.m in Sources */,
+				C7ABE9DA1C56A3CA008B6BFE /* DKNavigationControllerViewModel.m in Sources */,
 				1C691D7719D0655B004D406C /* DKArticleDetailViewModel.m in Sources */,
 				C74819011B680DEE009426EF /* DKContactUsItem.m in Sources */,
 				C74819051B6811E9009426EF /* DKContactUsTextViewTableViewCell.m in Sources */,

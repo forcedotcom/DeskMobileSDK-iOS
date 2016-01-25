@@ -30,6 +30,7 @@
 
 #import "DKWebViewController.h"
 #import "DKSession.h"
+#import "DKNavigationControllerViewModel.h"
 
 #import <DeskAPIClient/DSAPINetworkIndicatorController.h>
 
@@ -51,6 +52,7 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
 
 @property (strong, nonatomic) WKWebView *webView;
 @property (nonatomic, assign) BOOL needsLoad;
+@property (nonatomic) DKNavigationControllerViewModel *originalNavigationControllerViewModel;
 
 - (void)addWebViewToContainerView;
 - (void)addConstraintsFromWebViewToContainerView;
@@ -86,6 +88,13 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
     [self addWebViewToContainerView];
     [self registerKvo];
     [self setupButtonAccessibilityLabels];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.originalNavigationControllerViewModel = [DKSession navigationControllerViewModelWithViewController:self];
     [DKSession setupAppearancesWithViewController:self];
 }
 
@@ -95,6 +104,13 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
     if (self.needsLoad) {
         [self refresh];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [DKSession setNavigationControllerViewModel:self.originalNavigationControllerViewModel viewController:self];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

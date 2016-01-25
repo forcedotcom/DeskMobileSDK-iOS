@@ -34,6 +34,7 @@
 #import "DKArticlesViewController.h"
 #import "DKArticleDetailViewController.h"
 #import "DKContactUsViewController.h"
+#import "DKNavigationControllerViewModel.h"
 
 @interface DKSession : NSObject
 
@@ -117,6 +118,8 @@ NS_ASSUME_NONNULL_END
 + (DKSearchResultsViewController * __nonnull)newSearchResultsViewController;
 + (BOOL)hasContactUsPhoneNumber;
 + (void)setupAppearancesWithViewController:(UIViewController * __nonnull)viewController;
++ (DKNavigationControllerViewModel *__nonnull)navigationControllerViewModelWithViewController:(UIViewController * __nonnull)viewController;
++ (void)setNavigationControllerViewModel:(DKNavigationControllerViewModel *__nonnull)vm viewController:(UIViewController *__nonnull)viewController;
 - (nullable NSString *)contactUsToEmailAddress;
 - (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler;
 

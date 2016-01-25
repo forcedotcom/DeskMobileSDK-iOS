@@ -90,22 +90,36 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 + (void)setupAppearancesWithViewController:(UIViewController *)viewController
 {
+    DKNavigationControllerViewModel *vm = [DKNavigationControllerViewModel new];
+    [self setNavigationControllerViewModel:vm viewController:viewController];
+}
+
++ (DKNavigationControllerViewModel *)navigationControllerViewModelWithViewController:(UIViewController *)viewController
+{
+    DKNavigationControllerViewModel *vm = [DKNavigationControllerViewModel new];
+    
     UINavigationBar *navigationBar = viewController.navigationController.navigationBar;
-    if (navigationBar) {
-        NSDictionary *topNavTitleTextAttributes = @{
-                                                    NSForegroundColorAttributeName : [[DKSettings sharedInstance] topNavTintColor],
-                                                    };
-        [navigationBar setTitleTextAttributes:topNavTitleTextAttributes];
-        
-        [navigationBar setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
-        [navigationBar setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
-            }
+    vm.navigationBarTitleTextAttributes = navigationBar.titleTextAttributes;
+    vm.navigationBarBarTintColor = navigationBar.barTintColor;
+    vm.navigationBarTintColor = navigationBar.tintColor;
     
     UIToolbar *toolBar = viewController.navigationController.toolbar;
-    if (toolBar) {
-        [toolBar setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
-        [toolBar setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
-    }
+    vm.toolBarBarTintColor = toolBar.barTintColor;
+    vm.toolBarTintColor = toolBar.tintColor;
+    
+    return vm;
+}
+
++ (void)setNavigationControllerViewModel:(DKNavigationControllerViewModel *)vm viewController:(UIViewController *)viewController
+{
+    UINavigationBar *navigationBar = viewController.navigationController.navigationBar;
+    [navigationBar setTitleTextAttributes:vm.navigationBarTitleTextAttributes];
+    [navigationBar setBarTintColor:vm.navigationBarBarTintColor];
+    [navigationBar setTintColor:vm.navigationBarTintColor];
+    
+    UIToolbar *toolBar = viewController.navigationController.toolbar;
+    [toolBar setBarTintColor:vm.toolBarBarTintColor];
+    [toolBar setTintColor:vm.toolBarTintColor];
 }
 
 + (DKTopicsViewController *)newTopicsViewController
@@ -195,7 +209,7 @@ static NSInteger const DSMailboxesPerPage = 100;
     if (settings.hasContactUsStaticCustomFields) {
         vc.customFields = settings.contactUsStaticCustomFields;
     }
-
+    
     return vc;
 }
 
