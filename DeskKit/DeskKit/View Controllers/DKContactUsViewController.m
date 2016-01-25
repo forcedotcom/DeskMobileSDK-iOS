@@ -34,6 +34,7 @@
 #import "DKContactUsTextViewTableViewCell.h"
 #import "DKConstants.h"
 #import "UIAlertController+Additions.h"
+#import "DKSession.h"
 
 #define DKMessageSent NSLocalizedString(@"Message Sent", comment: @"Message Sent title")
 #define DKMessageSentText NSLocalizedString(@"Thank you for contacting us. We will get back to you as soon as possible.", comment: @"Message Sent body.")
@@ -77,6 +78,7 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     [super viewDidLoad];
     [self setupViewModel];
     self.sendButton.enabled = [self shouldEnableSendButton];
+    [DKSession setupAppearancesWithViewController:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated

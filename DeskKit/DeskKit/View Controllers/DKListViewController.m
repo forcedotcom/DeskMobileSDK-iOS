@@ -33,6 +33,7 @@
 #import "UIAlertController+Additions.h"
 #import "DKConstants.h"
 #import "DKSettings.h"
+#import "DKSession.h"
 
 #pragma mark - private constants
 
@@ -49,6 +50,7 @@ static NSString *const DKListCellId = @"DKListCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [DKSession setupAppearancesWithViewController:self];
     self.viewModel.delegate = self;
 }
 

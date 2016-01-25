@@ -29,6 +29,8 @@
 //
 
 #import "DKWebViewController.h"
+#import "DKSession.h"
+
 #import <DeskAPIClient/DSAPINetworkIndicatorController.h>
 
 static NSString *const DKWebViewCanGoBack = @"canGoBack";
@@ -84,6 +86,7 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
     [self addWebViewToContainerView];
     [self registerKvo];
     [self setupButtonAccessibilityLabels];
+    [DKSession setupAppearancesWithViewController:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -57,8 +57,6 @@ static NSInteger const DSMailboxesPerPage = 100;
                                                 APIToken:APIToken];
     
     [[DKSession sharedInstance] setupContactUsEmail];
-    
-    [DKSession setupAppearances];
 }
 
 + (instancetype)sharedInstance
@@ -90,21 +88,25 @@ static NSInteger const DSMailboxesPerPage = 100;
     return [UIStoryboard storyboardWithName:DKStoryboardName bundle:[NSBundle bundleForClass:[self class]]];
 }
 
-+ (void)setupAppearances
++ (void)setupAppearancesWithViewController:(UIViewController *)viewController
 {
     NSDictionary *topNavTitleTextAttributes = @{
                                                 NSForegroundColorAttributeName : [[DKSettings sharedInstance] topNavTintColor],
                                                 };
     
-    [[UINavigationBar appearance] setTitleTextAttributes:topNavTitleTextAttributes];
+    UINavigationBar *navigationBar = viewController.navigationController.navigationBar;
+    if (navigationBar) {
+        [navigationBar setTitleTextAttributes:topNavTitleTextAttributes];
+        
+        [navigationBar setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
+        [navigationBar setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
+            }
     
-    [[UINavigationBar appearance] setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
-    [[UINavigationBar appearance] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
-    
-    [[UIToolbar appearance] setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
-    [[UIToolbar appearance] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
-    
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], [UIToolbar class], nil] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
+    UIToolbar *toolBar = viewController.navigationController.toolbar;
+    if (toolBar) {
+        [toolBar setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
+        [toolBar setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
+    }
 }
 
 + (DKTopicsViewController *)newTopicsViewController

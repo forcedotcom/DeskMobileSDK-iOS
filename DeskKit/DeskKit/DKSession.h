@@ -116,6 +116,7 @@ NS_ASSUME_NONNULL_END
 
 + (DKSearchResultsViewController * __nonnull)newSearchResultsViewController;
 + (BOOL)hasContactUsPhoneNumber;
++ (void)setupAppearancesWithViewController:(UIViewController * __nonnull)viewController;
 - (nullable NSString *)contactUsToEmailAddress;
 - (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler;
 
