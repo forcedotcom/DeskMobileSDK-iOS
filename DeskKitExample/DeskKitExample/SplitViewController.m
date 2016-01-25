@@ -58,6 +58,8 @@ static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 {
     [super viewDidLoad];
     self.delegate = self;
+    [self setupAppearances];
+
     self.topicsViewController = [self newTopicsViewController];
     [self.masterNavigationController setViewControllers:@[self.topicsViewController]];
     self.masterNavigationController.toolbarHidden = NO;
@@ -90,6 +92,24 @@ static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 - (UINavigationController *)detailNavigationController
 {
     return self.viewControllers.lastObject;
+}
+
+- (void)setupAppearances
+{
+    UIColor *tintColor = [UIColor colorWithRed:16.0/255.0 green:122.0/255.0 blue:135.0/255.0 alpha:1.0];
+    UIColor *barTintColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
+    
+    NSDictionary *topNavTitleTextAttributes = @{
+                                                NSForegroundColorAttributeName : tintColor,
+                                                };
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:topNavTitleTextAttributes];
+    
+    [[UINavigationBar appearance] setBarTintColor:barTintColor];
+    [[UINavigationBar appearance] setTintColor:tintColor];
+    
+    [[UIToolbar appearance] setBarTintColor:barTintColor];
+    [[UIToolbar appearance] setTintColor:tintColor];
 }
 
 #pragma mark - Split View Controller Delegate
