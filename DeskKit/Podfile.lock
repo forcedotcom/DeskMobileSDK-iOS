@@ -6,17 +6,17 @@ PODS:
 
 DEPENDENCIES:
   - DeskAPIClient (from `https://github.com/forcedotcom/DeskApiClient-ObjC.git`, branch
-    `tickets/APIC-141-Convert-DSAPIClient-to-non-singleton`)
+    `develop`)
   - OCMock (~> 3.0.2)
 
 EXTERNAL SOURCES:
   DeskAPIClient:
-    :branch: tickets/APIC-141-Convert-DSAPIClient-to-non-singleton
+    :branch: develop
     :git: https://github.com/forcedotcom/DeskApiClient-ObjC.git
 
 CHECKOUT OPTIONS:
   DeskAPIClient:
-    :commit: 036de3552085267f06bc65c2648935c37d010ac0
+    :commit: a73f015e9b16bb184571fcd213e04a145c98733b
     :git: https://github.com/forcedotcom/DeskApiClient-ObjC.git
 
 SPEC CHECKSUMS:
