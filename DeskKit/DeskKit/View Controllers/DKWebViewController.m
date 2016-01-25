@@ -51,6 +51,7 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
 
 @property (strong, nonatomic) WKWebView *webView;
 @property (nonatomic, assign) BOOL needsLoad;
+@property (nonatomic) BOOL activityIndicatorActive;
 
 - (void)addWebViewToContainerView;
 - (void)addConstraintsFromWebViewToContainerView;
@@ -105,7 +106,7 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
 {
     [self removeKvo];
     self.webView = nil;
-    if (self.needsLoad) {
+    if (self.activityIndicatorActive) {
         [[DSAPINetworkIndicatorController sharedController] networkActivityDidEnd];
     }
 }
@@ -229,12 +230,14 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
 - (void)webViewStartedLoading
 {
     [[DSAPINetworkIndicatorController sharedController] networkActivityDidStart];
+    self.activityIndicatorActive = YES;
     [self setToolbarButtonsEnabled:NO];
 }
 
 - (void)webViewFinishedLoading
 {
     [[DSAPINetworkIndicatorController sharedController] networkActivityDidEnd];
+    self.activityIndicatorActive = NO;
     [self setToolbarButtonsEnabled:YES];
     self.needsLoad = NO;
 }
