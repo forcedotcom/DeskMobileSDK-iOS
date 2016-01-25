@@ -248,6 +248,7 @@ static NSInteger const DSMailboxesPerPage = 100;
     self.listMailboxesTask = [DSAPIMailbox listMailboxesOfType:DSAPIMailboxTypeInbound
                                                     parameters:@{ kPageKey : @1,
                                                                   kPerPageKey : @(DSMailboxesPerPage) }
+                                                        client:[DKAPIManager sharedInstance].client
                                                          queue:self.APICallbackQueue
                                                        success:^(DSAPIPage *page) {
                                                            if ([page.totalEntries integerValue]) {

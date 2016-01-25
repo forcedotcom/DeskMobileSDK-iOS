@@ -29,6 +29,7 @@
 //
 
 #import "DKFixtures.h"
+#import "DSAPIResource+Testing.h"
 
 @interface DKFixtures()
 
@@ -41,25 +42,25 @@
 + (DSAPIPage *)topicsPage
 {
     NSDictionary *dictionary = [self dictionaryFromJSONFile:@"topics_page"];
-    return [[DSAPIPage alloc] initWithDictionary:dictionary];
+    return [[DSAPIPage alloc] initWithTestDictionary:dictionary];
 }
 
 + (DSAPIPage *)articlesPage
 {
     NSDictionary *dictionary = [self dictionaryFromJSONFile:@"articles_page"];
-    return [[DSAPIPage alloc] initWithDictionary:dictionary];
+    return [[DSAPIPage alloc] initWithTestDictionary:dictionary];
 }
 
 + (DSAPIArticle *)article
 {
     NSDictionary *dictionary = [self dictionaryFromJSONFile:@"article"];
-    return [[DSAPIArticle alloc] initWithDictionary:dictionary];
+    return [[DSAPIArticle alloc] initWithTestDictionary:dictionary];
 }
 
 + (DSAPIPage *)inboundMailboxesPage
 {
     NSDictionary *dictionary = [self dictionaryFromJSONFile:@"inbound_mailboxes_page"];
-    return [[DSAPIPage alloc] initWithDictionary:dictionary];
+    return [[DSAPIPage alloc] initWithTestDictionary:dictionary];
 }
 
 + (NSDictionary *)dictionaryFromJSONFile:(NSString *)filename

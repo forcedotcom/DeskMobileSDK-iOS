@@ -52,7 +52,7 @@
 - (void)testCanAuthorizeAPI {
     XCTestExpectation *APISuccessExpectation = [self expectationWithDescription:@"Makes an API call"];
     
-    [DSAPIArticle listArticlesWithParameters:nil queue:self.APICallbackQueue success:^(DSAPIPage *page) {
+    [DSAPIArticle listArticlesWithParameters:nil client:self.manager.client queue:self.APICallbackQueue success:^(DSAPIPage *page) {
         [APISuccessExpectation fulfill];
     } failure:^(NSHTTPURLResponse *response, NSError *error) {
         XCTFail(@"Received error: %@ on response %@", error, response);

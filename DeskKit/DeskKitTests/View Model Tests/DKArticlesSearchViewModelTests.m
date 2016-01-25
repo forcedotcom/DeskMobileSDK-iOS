@@ -83,7 +83,10 @@
 
 - (void)testParametersWithBrandIdAdded
 {
+    DSAPIClient *client = [DSAPIClient new];
+    client.baseURL = [NSURL URLWithString:@"http://google.com"];
     DSAPIBrand *brand = (DSAPIBrand *)[DSAPIResource resourceWithId:@"1234"
+                                                             client:client
                                                           className:@"brand"];
 
     OCMStub([self.mock shouldAddBrandContext]).andReturn(YES);
@@ -99,7 +102,7 @@
     id ArticleClassMock = OCMClassMock([DSAPIArticle class]);
 
     NSDictionary *params = [self.viewModel parametersForPageNumber:@1 perPage:@100];
-    OCMExpect([ArticleClassMock searchArticlesWithParameters:params queue:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY]);
+    OCMExpect([ArticleClassMock searchArticlesWithParameters:params client:OCMOCK_ANY queue:OCMOCK_ANY success:OCMOCK_ANY failure:OCMOCK_ANY]);
 
     [self.viewModel fetchItemsOnPageNumber:@1 perPage:@100 queue:self.APICallbackQueue success:nil failure:nil];
 

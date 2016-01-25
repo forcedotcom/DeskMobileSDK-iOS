@@ -31,6 +31,7 @@
 #import "DKArticlesTopicViewModel.h"
 #import <DeskAPIClient/DSAPIArticle.h>
 #import "DKConstants.h"
+#import "DKAPIManager.h"
 
 @interface DKArticlesTopicViewModel ()
 
@@ -63,6 +64,7 @@
 {
     return [DSAPIArticle searchArticlesWithParameters:[self parametersForPageNumber:pageNumber
                                                                             perPage:perPage]
+                                               client:[DKAPIManager sharedInstance].client
                                                 queue:queue
                                               success:success
                                               failure:failure];
