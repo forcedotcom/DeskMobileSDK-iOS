@@ -57,8 +57,6 @@ static NSInteger const DSMailboxesPerPage = 100;
                                                 APIToken:APIToken];
     
     [[DKSession sharedInstance] setupContactUsEmail];
-    
-    [DKSession setupAppearances];
 }
 
 + (instancetype)sharedInstance
@@ -88,23 +86,6 @@ static NSInteger const DSMailboxesPerPage = 100;
 + (UIStoryboard *)storyboard
 {
     return [UIStoryboard storyboardWithName:DKStoryboardName bundle:[NSBundle bundleForClass:[self class]]];
-}
-
-+ (void)setupAppearances
-{
-    NSDictionary *topNavTitleTextAttributes = @{
-                                                NSForegroundColorAttributeName : [[DKSettings sharedInstance] topNavTintColor],
-                                                };
-    
-    [[UINavigationBar appearance] setTitleTextAttributes:topNavTitleTextAttributes];
-    
-    [[UINavigationBar appearance] setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
-    [[UINavigationBar appearance] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
-    
-    [[UIToolbar appearance] setBarTintColor:[[DKSettings sharedInstance] topNavBarTintColor]];
-    [[UIToolbar appearance] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
-    
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], [UIToolbar class], nil] setTintColor:[[DKSettings sharedInstance] topNavTintColor]];
 }
 
 + (DKTopicsViewController *)newTopicsViewController
@@ -194,7 +175,7 @@ static NSInteger const DSMailboxesPerPage = 100;
     if (settings.hasContactUsStaticCustomFields) {
         vc.customFields = settings.contactUsStaticCustomFields;
     }
-
+    
     return vc;
 }
 

@@ -2,33 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NavigationBar</key>
-	<dict>
-		<key>BarTintColorRGBA</key>
-		<dict>
-			<key>Red</key>
-			<integer>240</integer>
-			<key>Green</key>
-			<integer>240</integer>
-			<key>Blue</key>
-			<integer>240</integer>
-			<key>Alpha</key>
-			<integer>1</integer>
-		</dict>
-		<key>TintColorRGBA</key>
-		<dict>
-			<key>Red</key>
-			<integer>0</integer>
-			<key>Green</key>
-			<integer>122</integer>
-			<key>Blue</key>
-			<integer>255</integer>
-			<key>Alpha</key>
-			<integer>1</integer>
-		</dict>
-	</dict>
-	<key>TopNavIconFileName</key>
-	<string></string>
 	<key>ContactUsToEmailAddress</key>
 	<string></string>
 	<key>ContactUsPhoneNumber</key>

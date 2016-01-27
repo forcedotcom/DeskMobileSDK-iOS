@@ -5,5 +5,5 @@ platform :ios, '8.0'
 # use_frameworks!
 
 #pod 'DeskKit', '~> 2.1.0'
-pod 'DeskAPIClient', :git => 'https://github.com/forcedotcom/DeskApiClient-ObjC.git', :branch => 'tickets/APIC-141-Convert-DSAPIClient-to-non-singleton'
-pod 'DeskKit', :git => 'git@github.com:forcedotcom/DeskMobileSDK-iOS.git', :branch => 'tickets/MSDKI-38-Use-non-singleton-version-of-DSAPIClient'
+pod 'DeskAPIClient', :git => 'https://github.com/forcedotcom/DeskApiClient-ObjC.git', :branch => 'develop'
+pod 'DeskKit', :git => 'git@github.com:forcedotcom/DeskMobileSDK-iOS.git', :branch => 'tickets/MSDKI-39-Make-it-easier-for-clients-to-style-the-SDK-differently-than-their-app'

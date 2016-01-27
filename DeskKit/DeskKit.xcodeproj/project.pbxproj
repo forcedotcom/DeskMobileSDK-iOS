@@ -17,8 +17,6 @@
 		1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1E17EB19BF60590034D202 /* DKAPIManager.h */; };
 		1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EC19BF60590034D202 /* DKAPIManager.m */; };
 		1C1E17F819BF66010034D202 /* DeskAPIAuth.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C1E17F719BF66010034D202 /* DeskAPIAuth.plist */; };
-		1C1F5B6A1A362A5600C8D16C /* DKNavigationBarTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */; };
-		1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */; };
 		1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C2D99ED1A36081D00C471FB /* UIColor+Additions.h */; };
 		1C2D99F01A36081D00C471FB /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D99EE1A36081D00C471FB /* UIColor+Additions.m */; };
 		1C46EFDC19C0E740000FBCAC /* DKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */; };
@@ -112,8 +110,6 @@
 		1C1E17EC19BF60590034D202 /* DKAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKAPIManager.m; sourceTree = "<group>"; };
 		1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKAPIManagerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1C1E17F719BF66010034D202 /* DeskAPIAuth.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeskAPIAuth.plist; sourceTree = "<group>"; };
-		1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKNavigationBarTitleView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKNavigationBarTitleView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1C2D99ED1A36081D00C471FB /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIColor+Additions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1C2D99EE1A36081D00C471FB /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIColor+Additions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DKStoryboard.storyboard; sourceTree = "<group>"; };
@@ -245,8 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */,
-				1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */,
-				1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */,
 				C74819061B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h */,
 				C74819071B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m */,
 				C74819021B6811E9009426EF /* DKContactUsTextViewTableViewCell.h */,
@@ -514,7 +508,6 @@
 				1CB0AB7819CC647100B9D847 /* DKArticlesViewController.h in Headers */,
 				1CB0AB7219CC619100B9D847 /* DKTopicsViewController.h in Headers */,
 				1C691D7619D0655B004D406C /* DKArticleDetailViewModel.h in Headers */,
-				1C1F5B6A1A362A5600C8D16C /* DKNavigationBarTitleView.h in Headers */,
 				1C94680519CBC34D009E4570 /* DKListViewModel.h in Headers */,
 				1CB0AB7C19CC681F00B9D847 /* DKConstants.h in Headers */,
 				1C46EFDF19C0E769000FBCAC /* DKListViewController.h in Headers */,
@@ -735,7 +728,6 @@
 				C77ECFB11B6FEC10008AC3F0 /* DKUserIdentity.m in Sources */,
 				C7CAAD201C455715004B767B /* DKSearchResultsViewController.m in Sources */,
 				1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */,
-				1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */,
 				1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */,
 				1CA021FD19CBE1C70091D8A9 /* DKArticlesViewModel.m in Sources */,
 				1CBEEF9519DDD5D10073A8AC /* DKArticlesTopicViewModel.m in Sources */,
