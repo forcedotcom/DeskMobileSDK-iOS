@@ -56,16 +56,4 @@
 - (BOOL)hasBrandId;
 - (DSAPIBrand *)brand;
 
-- (NSDictionary *)topNavTintColorRGBA;
-- (BOOL)hasTopNavTintColorRGBA;
-- (UIColor *)topNavTintColor;
-
-- (NSDictionary *)topNavBarTintColorRGBA;
-- (BOOL)hasTopNavBarTintColorRGBA;
-- (UIColor *)topNavBarTintColor;
-
-- (NSString *)topNavIconFileName;
-- (BOOL)hasTopNavIconFileName;
-- (UIImage *)topNavIcon;
-
 @end

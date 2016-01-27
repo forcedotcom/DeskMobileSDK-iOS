@@ -52,7 +52,6 @@
 
 @property (nonatomic, strong) NSURL *contactUsPhoneNumberURL;
 
-+ (void)setupAppearances;
 - (void)transitionToRootViewController:(UIViewController *)rootViewController
                     transitionDuration:(NSTimeInterval)transitionDuration
                      transitionOptions:(UIViewAnimationOptions)transitionOptions;
@@ -89,15 +88,6 @@
     XCTAssertTrue([DKSession isSessionStarted]);
 
     XCTAssertNotNil(self.testSession);
-}
-
-- (void)testSessionSetsUpAppearances
-{
-    id SessionClassMock = OCMClassMock([DKSession class]);
-
-    [DKSession startWithHostname:@"" APIToken:@""];
-
-    OCMVerify([SessionClassMock setupAppearances]);
 }
 
 - (void)testSetupContactUsEmailWithSettings

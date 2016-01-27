@@ -33,6 +33,7 @@
 #import "UIAlertController+Additions.h"
 #import "DKConstants.h"
 #import "DKSettings.h"
+#import "DKSession.h"
 
 #pragma mark - private constants
 
@@ -50,6 +51,11 @@ static NSString *const DKListCellId = @"DKListCell";
 {
     [super viewDidLoad];
     self.viewModel.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -70,8 +76,8 @@ static NSString *const DKListCellId = @"DKListCell";
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:resultsViewController];
     self.searchController.searchBar.delegate = self;
     self.searchController.searchBar.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(self.tableView.frame), DKSearchBarHeight);
-    self.searchController.searchBar.barTintColor = [[DKSettings sharedInstance] topNavBarTintColor];
-    self.searchController.searchBar.tintColor = [[DKSettings sharedInstance] topNavTintColor];
+    self.searchController.searchBar.barTintColor = self.navigationController.navigationBar.barTintColor;
+    self.searchController.searchBar.tintColor = self.navigationController.navigationBar.tintColor;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
 }

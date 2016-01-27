@@ -17,8 +17,6 @@
 		1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1E17EB19BF60590034D202 /* DKAPIManager.h */; };
 		1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EC19BF60590034D202 /* DKAPIManager.m */; };
 		1C1E17F819BF66010034D202 /* DeskAPIAuth.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C1E17F719BF66010034D202 /* DeskAPIAuth.plist */; };
-		1C1F5B6A1A362A5600C8D16C /* DKNavigationBarTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */; };
-		1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */; };
 		1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C2D99ED1A36081D00C471FB /* UIColor+Additions.h */; };
 		1C2D99F01A36081D00C471FB /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D99EE1A36081D00C471FB /* UIColor+Additions.m */; };
 		1C46EFDC19C0E740000FBCAC /* DKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */; };
@@ -92,6 +90,7 @@
 		C788AF6D1C2474F800B4146E /* DKArticleDetailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D8319D0A4EF004D406C /* DKArticleDetailViewControllerTests.m */; };
 		C788AF6F1C24750300B4146E /* DKArticleDetailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C691D7819D0789D004D406C /* DKArticleDetailViewModelTests.m */; };
 		C788AF711C2478E500B4146E /* DKAPIManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */; };
+		C7C7BFAA1C52845200B886A0 /* DSAPIResource+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C7BFA91C52845200B886A0 /* DSAPIResource+Testing.m */; };
 		C7CAAD1F1C455715004B767B /* DKSearchResultsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7CAAD201C455715004B767B /* DKSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CAAD1E1C455715004B767B /* DKSearchResultsViewController.m */; };
 		F18FA2F12E694D51B3933FE5 /* libPods-DeskKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B68D1854804E72B063BCC4 /* libPods-DeskKitTests.a */; };
@@ -111,8 +110,6 @@
 		1C1E17EC19BF60590034D202 /* DKAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKAPIManager.m; sourceTree = "<group>"; };
 		1C1E17EF19BF621D0034D202 /* DKAPIManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKAPIManagerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1C1E17F719BF66010034D202 /* DeskAPIAuth.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeskAPIAuth.plist; sourceTree = "<group>"; };
-		1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DKNavigationBarTitleView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKNavigationBarTitleView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1C2D99ED1A36081D00C471FB /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIColor+Additions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1C2D99EE1A36081D00C471FB /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIColor+Additions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DKStoryboard.storyboard; sourceTree = "<group>"; };
@@ -191,6 +188,8 @@
 		C7747DEE1B72A2DF00942DC2 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		C77ECFAE1B6FEC10008AC3F0 /* DKUserIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKUserIdentity.h; sourceTree = "<group>"; };
 		C77ECFAF1B6FEC10008AC3F0 /* DKUserIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKUserIdentity.m; sourceTree = "<group>"; };
+		C7C7BFA81C52844800B886A0 /* DSAPIResource+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DSAPIResource+Testing.h"; sourceTree = "<group>"; };
+		C7C7BFA91C52845200B886A0 /* DSAPIResource+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DSAPIResource+Testing.m"; sourceTree = "<group>"; };
 		C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSearchResultsViewController.h; sourceTree = "<group>"; };
 		C7CAAD1E1C455715004B767B /* DKSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSearchResultsViewController.m; sourceTree = "<group>"; };
 		F19B1B397F3E26EC44220883 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,8 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */,
-				1C1F5B681A362A5600C8D16C /* DKNavigationBarTitleView.h */,
-				1C1F5B691A362A5600C8D16C /* DKNavigationBarTitleView.m */,
 				C74819061B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h */,
 				C74819071B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m */,
 				C74819021B6811E9009426EF /* DKContactUsTextViewTableViewCell.h */,
@@ -382,6 +379,8 @@
 				1C1E17E519BF54750034D202 /* DKTestUtils.m */,
 				1C46F00719C1CB41000FBCAC /* DKFixtures.h */,
 				1C46F00819C1CB41000FBCAC /* DKFixtures.m */,
+				C7C7BFA81C52844800B886A0 /* DSAPIResource+Testing.h */,
+				C7C7BFA91C52845200B886A0 /* DSAPIResource+Testing.m */,
 			);
 			path = DeskKitTests;
 			sourceTree = "<group>";
@@ -509,7 +508,6 @@
 				1CB0AB7819CC647100B9D847 /* DKArticlesViewController.h in Headers */,
 				1CB0AB7219CC619100B9D847 /* DKTopicsViewController.h in Headers */,
 				1C691D7619D0655B004D406C /* DKArticleDetailViewModel.h in Headers */,
-				1C1F5B6A1A362A5600C8D16C /* DKNavigationBarTitleView.h in Headers */,
 				1C94680519CBC34D009E4570 /* DKListViewModel.h in Headers */,
 				1CB0AB7C19CC681F00B9D847 /* DKConstants.h in Headers */,
 				1C46EFDF19C0E769000FBCAC /* DKListViewController.h in Headers */,
@@ -730,7 +728,6 @@
 				C77ECFB11B6FEC10008AC3F0 /* DKUserIdentity.m in Sources */,
 				C7CAAD201C455715004B767B /* DKSearchResultsViewController.m in Sources */,
 				1C1E17EE19BF60590034D202 /* DKAPIManager.m in Sources */,
-				1C1F5B6B1A362A5600C8D16C /* DKNavigationBarTitleView.m in Sources */,
 				1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */,
 				1CA021FD19CBE1C70091D8A9 /* DKArticlesViewModel.m in Sources */,
 				1CBEEF9519DDD5D10073A8AC /* DKArticlesTopicViewModel.m in Sources */,
@@ -776,6 +773,7 @@
 				1CD1FD5A19C72DF4003CDB5C /* DKListViewControllerTests.m in Sources */,
 				1CBEEF9119DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m in Sources */,
 				1C7A03D71A6D66B10049ED4A /* DKWebViewControllerTests.m in Sources */,
+				C7C7BFAA1C52845200B886A0 /* DSAPIResource+Testing.m in Sources */,
 				1CB0E6C119DC85A80048B5E6 /* DKSettingsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

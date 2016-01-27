@@ -1,9 +1,9 @@
 //
-//  DKContactUsItem.m
-//  DeskKit
+//  DSAPIResource+Testing.h
+//  DeskAPIClient
 //
-//  Created by Desk.com on 7/28/15.
-//  Copyright (c) 2015, Salesforce.com, Inc.
+//  Created by Desk.com on 1/21/16.
+//  Copyright (c) 2016, Salesforce.com, Inc.
 //  All rights reserved.
 //
 //  Redistribution and use in source and binary forms, with or without modification, are permitted provided
@@ -28,16 +28,11 @@
 //  POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import "DKContactUsItem.h"
+#import <Foundation/Foundation.h>
+#import <DeskAPIClient/DSAPIResource.h>
 
-@implementation DKContactUsItem
+@interface DSAPIResource (Testing)
 
-- (instancetype)initWithIdentifer:(NSString *)identifier
-{
-    self = [super init];
-    if (self) {
-        _identifier = identifier;
-    }
-    return self;
-}
+- (instancetype)initWithTestDictionary:(NSDictionary *)dictionary;
+
 @end

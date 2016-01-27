@@ -29,6 +29,8 @@
 //
 
 #import "DKWebViewController.h"
+#import "DKSession.h"
+
 #import <DeskAPIClient/DSAPINetworkIndicatorController.h>
 
 static NSString *const DKWebViewCanGoBack = @"canGoBack";
@@ -49,6 +51,7 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
 
 @property (strong, nonatomic) WKWebView *webView;
 @property (nonatomic, assign) BOOL needsLoad;
+@property (nonatomic) BOOL activityIndicatorActive;
 
 - (void)addWebViewToContainerView;
 - (void)addConstraintsFromWebViewToContainerView;
@@ -86,6 +89,11 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
     [self setupButtonAccessibilityLabels];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -94,18 +102,11 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
     }
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    if (self.needsLoad) {
-        [[DSAPINetworkIndicatorController sharedController] networkActivityDidEnd];
-    }
-}
-
 - (void)dealloc
 {
     [self removeKvo];
     self.webView = nil;
+    [self hideActivityIndicator];
 }
 
 - (void)setupToolbar
@@ -163,6 +164,19 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
         [self refresh];
     } else {
         _needsLoad = YES;
+    }
+}
+
+- (void)showActivityIndicator {
+    if (!self.activityIndicatorActive) {
+        [[DSAPINetworkIndicatorController sharedController] networkActivityDidStart];
+        self.activityIndicatorActive = YES;
+    }
+}
+- (void)hideActivityIndicator {
+    if (self.activityIndicatorActive) {
+        [[DSAPINetworkIndicatorController sharedController] networkActivityDidEnd];
+        self.activityIndicatorActive = NO;
     }
 }
 
@@ -226,13 +240,13 @@ static NSString *const DKWebViewCanGoForward = @"canGoForward";
 
 - (void)webViewStartedLoading
 {
-    [[DSAPINetworkIndicatorController sharedController] networkActivityDidStart];
+    [self showActivityIndicator];
     [self setToolbarButtonsEnabled:NO];
 }
 
 - (void)webViewFinishedLoading
 {
-    [[DSAPINetworkIndicatorController sharedController] networkActivityDidEnd];
+    [self hideActivityIndicator];
     [self setToolbarButtonsEnabled:YES];
     self.needsLoad = NO;
 }

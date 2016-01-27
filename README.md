@@ -3,7 +3,7 @@
 The DeskKit SDK is a framework that makes it easy to incorporate your Desk site’s support portal into your iOS app. The SDK can be installed as a framework, along with its dependencies, but it is much easier to install it via Cocoapods:
 
 ```
-pod 'DeskKit', '~> 1.2.2'
+pod 'DeskKit', '~> 3.0.0’
 ```
 
 ## Starting up the Support Portal
@@ -82,10 +82,6 @@ The `customFields` dictionary you specify will be sent along when your customer 
 
 ## DeskKit Settings
 The following items can be customized in the support portal (all  settings are optional and can be omitted if desired). To do so, copy the existing `DeskKitSettings-Example.plist` file in this repository, and rename it to `DeskKitSettings.plist`. The following (optional) keys can be set:
-* **NavigationBar** - This is a dictionary that points to another child dictionary that defines the colors for the navigation bar. The keys in the child dictionary are:
-  * **TintColorRGBA** - This is a dictionary that defines the Red, Green, Blue, and Alpha values for your navigation bar’s tint color (the color of the title and button text in the bar). RGB values are 0-255, while Alpha is a floating point number between 0 and 1.
-  * **BarTintColorRGBA** - This is a dictionary that defines the Red, Green, Blue, and Alpha values for your navigation bar’s bar tint color (the background color of the bar). RGB values are 0-255, while Alpha is a floating point number between 0 and 1.
-* **TopNavIconFileName** - This is the filename of an icon to place in the navigation bar beside its title. You must add the image asset to your project first. For best results, use a square image approximately 33 x 33 pixels at 1x resolution.
 * **ContactUsEmailAddress** - By default the SDK will check your list of inbound email addresses set up in your site admin and use the first one it finds. Use this setting if you would like to override that with an email address of your choosing.
 * **ContactUsPhoneNumber** - If desired, you may provide a phone number that will allow users of your app to call you directly from the support portal. If omitted, this ‘Call Us’ option will not be available. The ‘Call Us’ option will also not be available if device cannot make phone calls.
 * **ContactUsSubject** - By default the SDK uses a subject of “Feedback via iOS app” for emails sent through the `DKContactUsViewController`. You can override this string through this key. You can also specify the email subject in code through the `subject` property on `DKContactUsViewController`.
