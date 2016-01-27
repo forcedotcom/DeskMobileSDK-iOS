@@ -5,19 +5,8 @@ PODS:
   - OCMock (3.0.2)
 
 DEPENDENCIES:
-  - DeskAPIClient (from `https://github.com/forcedotcom/DeskApiClient-ObjC.git`, branch
-    `develop`)
+  - DeskAPIClient (~> 2.0.0)
   - OCMock (~> 3.0.2)
-
-EXTERNAL SOURCES:
-  DeskAPIClient:
-    :branch: develop
-    :git: https://github.com/forcedotcom/DeskApiClient-ObjC.git
-
-CHECKOUT OPTIONS:
-  DeskAPIClient:
-    :commit: a73f015e9b16bb184571fcd213e04a145c98733b
-    :git: https://github.com/forcedotcom/DeskApiClient-ObjC.git
 
 SPEC CHECKSUMS:
   DeskAPIClient: 0708efec60eef0a53c9ee60a7912a7c10eeb39b8

@@ -1,7 +1,6 @@
 platform :ios, '8.0'
 
-#pod 'DeskAPIClient', '~> 2.0.0'
-pod 'DeskAPIClient', :git => 'https://github.com/forcedotcom/DeskApiClient-ObjC.git', :branch => 'develop'
+pod 'DeskAPIClient', '~> 2.0.0'
 
 target 'DeskKitTests', :exclusive => true do
     pod 'OCMock', '~> 3.0.2'
