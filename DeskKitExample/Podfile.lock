@@ -6,18 +6,7 @@ PODS:
     - DeskAPIClient (~> 2.0.0)
 
 DEPENDENCIES:
-  - DeskAPIClient (~> 2.0.0)
-  - DeskKit (from `git@github.com:forcedotcom/DeskMobileSDK-iOS.git`, branch `tickets/MSDKI-39-Make-it-easier-for-clients-to-style-the-SDK-differently-than-their-app`)
-
-EXTERNAL SOURCES:
-  DeskKit:
-    :branch: tickets/MSDKI-39-Make-it-easier-for-clients-to-style-the-SDK-differently-than-their-app
-    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
-
-CHECKOUT OPTIONS:
-  DeskKit:
-    :commit: ba0b808726cda0c43e3d2e0b5f832d1adc90c02c
-    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
+  - DeskKit (~> 3.0.0)
 
 SPEC CHECKSUMS:
   DeskAPIClient: 0708efec60eef0a53c9ee60a7912a7c10eeb39b8
