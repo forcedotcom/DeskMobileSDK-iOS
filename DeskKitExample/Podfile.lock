@@ -6,7 +6,17 @@ PODS:
     - DeskAPIClient (~> 2.0.0)
 
 DEPENDENCIES:
-  - DeskKit (~> 3.0.0)
+  - DeskKit (from `git@github.com:forcedotcom/DeskMobileSDK-iOS.git`, branch `tickets/MSDKI-41-Customer's-API-requests-from-Mobile-SDKs-are-being-rate-limited`)
+
+EXTERNAL SOURCES:
+  DeskKit:
+    :branch: tickets/MSDKI-41-Customer's-API-requests-from-Mobile-SDKs-are-being-rate-limited
+    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
+
+CHECKOUT OPTIONS:
+  DeskKit:
+    :commit: 451236d3d47feba8cc7a326a7bb7782f3eff781d
+    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
 
 SPEC CHECKSUMS:
   DeskAPIClient: 0708efec60eef0a53c9ee60a7912a7c10eeb39b8
