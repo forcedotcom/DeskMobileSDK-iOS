@@ -4,5 +4,4 @@ platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
-#pod 'DeskKit', '~> 3.0.1'
-pod 'DeskKit', :git => 'git@github.com:forcedotcom/DeskMobileSDK-iOS.git', :branch => "tickets/MSDKI-41-Customer's-API-requests-from-Mobile-SDKs-are-being-rate-limited"
+pod 'DeskKit', '~> 3.0.1'
