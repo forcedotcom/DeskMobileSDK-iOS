@@ -55,8 +55,6 @@ static NSInteger const DSMailboxesPerPage = 100;
     [DKSession sharedInstance];
     [[DKAPIManager sharedInstance] APIClientWithHostname:hostname
                                                 APIToken:APIToken];
-    
-    [[DKSession sharedInstance] setupContactUsEmail];
 }
 
 + (instancetype)sharedInstance
@@ -162,7 +160,11 @@ static NSInteger const DSMailboxesPerPage = 100;
 {
     DKSettings *settings = [DKSettings sharedInstance];
     DKContactUsViewController *vc = [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerId];
-    vc.toEmailAddress = self.contactUsToEmailAddress;
+    [[DKSession sharedInstance] hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {
+        if (hasContactUsToEmailAddress) {
+            vc.toEmailAddress = self.contactUsToEmailAddress;
+        }
+    }];
     
     if (settings.hasContactUsSubject) {
         vc.subject = settings.contactUsSubject;
