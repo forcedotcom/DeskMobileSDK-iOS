@@ -1,6 +1,6 @@
 # desk-kit iOS SDK
 
-The DeskKit SDK is a framework that makes it easy to incorporate your Desk site’s support portal into your iOS app. The SDK can be installed as a framework, along with its dependencies, but it is much easier to install it via Cocoapods:
+The DeskKit SDK is a framework that makes it easy to incorporate your Desk site’s support portal into your iOS app. The SDK can be installed as a framework, along with its dependencies, but it is much easier to install it via CocoaPods:
 
 ```
 pod 'DeskKit', '~> 3.0.0’
