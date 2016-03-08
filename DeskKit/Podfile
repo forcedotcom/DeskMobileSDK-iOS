@@ -1,9 +1,7 @@
 platform :ios, '8.0'
 
-pod 'DeskAPIClient', '~> 2.0.0'
+pod 'DeskAPIClient', :git => 'https://github.com/forcedotcom/DeskApiClient-ObjC.git', :branch => 'tickets/APIC-140-Update-API-layer-with-proper-Etag-cache-policies'
 
 target 'DeskKitTests', :exclusive => true do
     pod 'OCMock', '~> 3.0.2'
 end
-
-
