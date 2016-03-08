@@ -1,9 +1,7 @@
 platform :ios, '8.0'
 
-pod 'DeskAPIClient', '~> 2.0.0'
+pod 'DeskAPIClient', '~> 2.0'
 
 target 'DeskKitTests', :exclusive => true do
     pod 'OCMock', '~> 3.0.2'
 end
-
-

@@ -1,15 +1,15 @@
 PODS:
-  - DeskAPIClient (2.0.0):
+  - DeskAPIClient (2.1.0):
     - DeskCommon (~> 1.0.4)
   - DeskCommon (1.0.4)
   - OCMock (3.0.2)
 
 DEPENDENCIES:
-  - DeskAPIClient (~> 2.0.0)
+  - DeskAPIClient (~> 2.0)
   - OCMock (~> 3.0.2)
 
 SPEC CHECKSUMS:
-  DeskAPIClient: 0708efec60eef0a53c9ee60a7912a7c10eeb39b8
+  DeskAPIClient: ea2ff4ac7cc9c271f68455509e067ad3faccd8c8
   DeskCommon: aa0e105a959a879555846107d2c678957ed4cb5d
   OCMock: 1f0871af0f397183f33e7552cca088bd2b485c25
 
