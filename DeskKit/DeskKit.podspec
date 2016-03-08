@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'DeskKit/DeskKit/*.{h,m}', 'DeskKit/DeskKit/**/*.{h,m}'
   s.resources    = 'DeskKit/DeskKit/**/*.{png,storyboard}'
   s.requires_arc = true
-  s.dependency 'DeskAPIClient', '~> 2.0.0'
+  s.dependency 'DeskAPIClient', '~> 2.0'
 end
