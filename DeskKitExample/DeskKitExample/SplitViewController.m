@@ -39,7 +39,6 @@ static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 @interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsViewControllerDelegate>
 
 @property (nonatomic) DKTopicsViewController *topicsViewController;
-@property (nonatomic) DKArticleDetailViewController *articleDetailViewController;
 @property (nonatomic, assign) NSInteger contactUsButtonIndex;
 @property (nonatomic, assign) DSAPIArticle *selectedArticle;
 
@@ -158,7 +157,7 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
                 [primaryNavVC popViewControllerAnimated:NO];
             }
             else {
-                detailVC = self.articleDetailViewController;
+                detailVC = [self newArticleDetailViewController];
                 detailVC.article = self.selectedArticle;
             }
             detailVC.navigationItem.leftBarButtonItem = self.displayModeButtonItem;
@@ -231,15 +230,15 @@ separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)pri
 - (void)showArticle:(DSAPIArticle *)article
 {
     self.selectedArticle = article;
-    if (!self.articleDetailViewController) {
-        self.articleDetailViewController = [self newArticleDetailViewController];
-    }
-    self.articleDetailViewController.article = article;
+
+    DKArticleDetailViewController *articleDetailViewController = [self newArticleDetailViewController];
+    articleDetailViewController.article = article;
+    
     if (self.viewControllers.count == 2) {
-        self.articleDetailViewController.navigationItem.leftBarButtonItem = self.displayModeButtonItem;
-        [self.detailNavigationController setViewControllers:@[self.articleDetailViewController]];
+        articleDetailViewController.navigationItem.leftBarButtonItem = self.displayModeButtonItem;
+        [self.detailNavigationController setViewControllers:@[articleDetailViewController]];
     } else {
-        [self.detailNavigationController pushViewController:self.articleDetailViewController animated:YES];
+        [self.detailNavigationController pushViewController:articleDetailViewController animated:YES];
     }
 }
 
