@@ -34,5 +34,6 @@
 
 + (BOOL)dkIsEmptyString:(NSString *)string;
 + (BOOL)dkIsNotEmptyString:(NSString *)string;
+- (NSString *)dkTrimmedString;
 
 @end

@@ -178,7 +178,7 @@ static NSString * const DKMessageSubjectKey = @"subject";
         [section enumerateObjectsUsingBlock:^(DKContactUsItem *item, NSUInteger idx, BOOL *stop) {
             if ([item isKindOfClass:[DKContactUsInputTextItem class]]) {
                 DKContactUsInputTextItem *inputTextItem = (DKContactUsInputTextItem *)item;
-                if (inputTextItem.required && [NSString dkIsEmptyString:inputTextItem.text.string]) {
+                if (inputTextItem.required && [NSString dkIsEmptyString:inputTextItem.text.string.dkTrimmedString]) {
                     allPresent = NO;
                     *stop = YES;
                 }
@@ -291,9 +291,11 @@ static NSString * const DKMessageSubjectKey = @"subject";
 - (NSDictionary *)messageDictionary
 {
     NSString *fromEmail = [self bestFromEmail];
+    NSString *body = self.bodyItem.text.string.dkTrimmedString;
+    
     NSMutableDictionary *dictionary = [@{
                                          DKMessageDirectionKey: @"in",
-                                         DKMessageBodyKey: self.bodyItem.text.string,
+                                         DKMessageBodyKey: body,
                                          DKMessageFromKey: fromEmail,
                                          DKMessageToKey: self.toEmailAddress
                                          } mutableCopy];
