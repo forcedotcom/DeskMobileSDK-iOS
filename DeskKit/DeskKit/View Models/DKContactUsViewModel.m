@@ -291,11 +291,10 @@ static NSString * const DKMessageSubjectKey = @"subject";
 - (NSDictionary *)messageDictionary
 {
     NSString *fromEmail = [self bestFromEmail];
-    NSString *body = self.bodyItem.text.string.dkTrimmedString;
     
     NSMutableDictionary *dictionary = [@{
                                          DKMessageDirectionKey: @"in",
-                                         DKMessageBodyKey: body,
+                                         DKMessageBodyKey: self.bodyItem.text.string,
                                          DKMessageFromKey: fromEmail,
                                          DKMessageToKey: self.toEmailAddress
                                          } mutableCopy];
