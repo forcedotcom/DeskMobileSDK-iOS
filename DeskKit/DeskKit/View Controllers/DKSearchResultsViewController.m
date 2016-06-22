@@ -32,6 +32,7 @@
 #import "DKArticlesSearchViewModel.h"
 
 #import "UIAlertController+Additions.h"
+#import "NSString+Additions.h"
 
 #define DKSearchResultsPrefix NSLocalizedString(@"Search Results: ", @"Prefix displayed before the search term when displaying search results")
 
@@ -89,7 +90,7 @@ NSString *const DKSearchResultsViewControllerId = @"DKSearchResultsViewControlle
 
 - (NSString *)textFromSearchBar:(UISearchBar *)searchBar
 {
-    return [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return searchBar.text.dkTrimmedString;
 }
 
 - (void)viewModelDidFetchNoResults:(DKListViewModel *)viewModel

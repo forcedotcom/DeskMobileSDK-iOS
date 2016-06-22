@@ -42,4 +42,9 @@
     return ![[self class] dkIsEmptyString:string];
 }
 
+- (NSString *)dkTrimmedString
+{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 @end
