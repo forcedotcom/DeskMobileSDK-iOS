@@ -1,26 +1,18 @@
 PODS:
-  - DeskAPIClient (2.0.0):
+  - DeskAPIClient (3.1.0):
     - DeskCommon (~> 1.0.4)
   - DeskCommon (1.0.4)
-  - DeskKit (3.0.0):
-    - DeskAPIClient (~> 2.0.0)
+  - DeskKit (3.0.3):
+    - DeskAPIClient (~> 3.0)
 
 DEPENDENCIES:
-  - DeskKit (from `git@github.com:forcedotcom/DeskMobileSDK-iOS.git`, branch `tickets/MSDKI-41-Customer's-API-requests-from-Mobile-SDKs-are-being-rate-limited`)
-
-EXTERNAL SOURCES:
-  DeskKit:
-    :branch: tickets/MSDKI-41-Customer's-API-requests-from-Mobile-SDKs-are-being-rate-limited
-    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
-
-CHECKOUT OPTIONS:
-  DeskKit:
-    :commit: 451236d3d47feba8cc7a326a7bb7782f3eff781d
-    :git: git@github.com:forcedotcom/DeskMobileSDK-iOS.git
+  - DeskKit (~> 3.0)
 
 SPEC CHECKSUMS:
-  DeskAPIClient: 0708efec60eef0a53c9ee60a7912a7c10eeb39b8
+  DeskAPIClient: 0d27e9d1876c96dc42b83d940604a855d1a3538c
   DeskCommon: aa0e105a959a879555846107d2c678957ed4cb5d
-  DeskKit: b1f18f7349bb48819abb3ae879c3ee46ded1329e
+  DeskKit: 2de610aa221b0b277e820332a6dc48e088621688
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: a681598e0f8523948a6079f3bc7b208b465af458
+
+COCOAPODS: 1.0.1
