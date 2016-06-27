@@ -16,6 +16,26 @@ Before presenting any support portal view controllers, you must start a `DKSessi
 
 You can obtain an API token in your site’s Admin console by visiting the Settings > API page. You can set up an API Application, and then click on the link for “Your Mobile SDK Token” to obtain the token you need to enter here.
 
+### Configuring Apple’s App Transport Security
+If your Support Center’s Security Mode (Admin->Channels->Advanced Settings->Security Mode) is set to ‘HTTP Only’ or ‘Mixed’ you’ll need to configure Apple’s App Transport Security to allow http content via the SDK. If your Security Mode is set to ‘HTTPS Only’ then you can skip the following.
+* Open your Info.plist file and add the following:
+```	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>yourdomain.desk.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+```
+* This will only apply to Desk SDK endpoints and should not affect other web content loaded in your app.
+
+
 ## Presenting Support Portal Topics
 The `DeskKitExample` app presents a support portal in a top-level `UISplitViewController`. Of course, how you present your own support portal is up to you. The usual starting point, however, is the `DKTopicsViewController` which is a table-based list of all the support topics in your portal. This view controller also includes a search bar that lets your users search articles.
 
