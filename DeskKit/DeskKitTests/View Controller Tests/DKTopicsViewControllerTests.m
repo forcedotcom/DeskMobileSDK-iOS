@@ -121,7 +121,7 @@
     DKArticlesTopicViewModel *articlesViewModel = [DKArticlesTopicViewModel new];
     articlesViewModel.topic = topic;
 
-    id delegate = OCMProtocolMock(@protocol(DKTopicsViewControllerDelegte));
+    id delegate = OCMProtocolMock(@protocol(DKTopicsViewControllerDelegate));
     self.viewController.delegate = delegate;
     OCMExpect([delegate topicsViewController:self.viewController
                               didSelectTopic:topic
@@ -181,7 +181,7 @@
 {
     id tableViewMock = OCMPartialMock(self.viewController.tableView);
     id articleSearchControllerMock = OCMPartialMock(self.viewController.searchController);
-    id delegate = OCMProtocolMock(@protocol(DKTopicsViewControllerDelegte));
+    id delegate = OCMProtocolMock(@protocol(DKTopicsViewControllerDelegate));
     self.viewController.delegate = delegate;
     NSString *searchTerm = @"foo";
     

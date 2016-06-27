@@ -36,7 +36,7 @@
 
 static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 
-@interface SplitViewController () <DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsViewControllerDelegate>
+@interface SplitViewController () <DKTopicsViewControllerDelegate, DKArticlesViewControllerDelegate, DKContactUsViewControllerDelegate>
 
 @property (nonatomic) DKTopicsViewController *topicsViewController;
 @property (nonatomic, assign) NSInteger contactUsButtonIndex;
