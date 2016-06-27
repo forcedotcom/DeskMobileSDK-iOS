@@ -36,7 +36,7 @@ extern NSString *const DKTopicsViewControllerId;
 
 @class DKTopicsViewController;
 
-@protocol DKTopicsViewControllerDelegte <NSObject>
+@protocol DKTopicsViewControllerDelegate <NSObject>
 
 @optional
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController
@@ -50,7 +50,7 @@ extern NSString *const DKTopicsViewControllerId;
 
 @interface DKTopicsViewController : DKListViewController <UISearchBarDelegate>
 
-@property (weak, nonatomic) id<DKTopicsViewControllerDelegte>   delegate;
+@property (weak, nonatomic) id<DKTopicsViewControllerDelegate>   delegate;
 
 - (void)invalidateArticleCache;
 
