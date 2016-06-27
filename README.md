@@ -43,6 +43,8 @@ The `DeskKitExample` app presents a support portal in a top-level `UISplitViewCo
 
 `[DKSession newTopicsViewController]`
 
+You’ll probably want to set yourself as the `DKTopicsViewControllerDelegate` and use a `DKArticleDetailViewController` to show the article. Please refer to the `DeskKitExample` app for an example of how to hook up these two view controllers.
+
 ## Presenting Contact Us options
 The `DeskKitExample` app also demonstrates one way to present a “Contact Us” action sheet. `DSSession` has a class method to create a pre-configured `UIAlertController` that allows a user to choose whether to email you or call you by phone, depending on which settings you have enabled below. This controller can be instantiated like so:
 
