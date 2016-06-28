@@ -3,4 +3,5 @@
 //
 
 #import <DeskKit/DeskKit.h>
+#import <DeskKit/DKConstants.h>
 #import <DeskCommon/NSDate+DSC.h>

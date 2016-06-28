@@ -94,7 +94,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
     private var contactUsToolbarItems: [UIBarButtonItem] {
         let spacer1 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let spacer2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let contactUsButton = UIBarButtonItem(title: "XXXXXXXXXXXX", style: .plain, target: self, action: #selector(contactUsButtonTapped(sender:)))
+        let contactUsButton = UIBarButtonItem(title: NSLocalizedString("Contact Us", comment: "Contact Us"), style: .plain, target: self, action: #selector(contactUsButtonTapped(sender:)))
         contactUsButtonIndex = 1
         
         return [spacer1, contactUsButton, spacer2]
