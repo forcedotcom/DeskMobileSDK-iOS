@@ -44,7 +44,7 @@
 		1C691D7C19D07A8B004D406C /* topics_page.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C691D7B19D07A8B004D406C /* topics_page.json */; };
 		1C691D7F19D07A96004D406C /* article.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C691D7D19D07A96004D406C /* article.json */; };
 		1C75FBFE19BF34FE00971E46 /* DeskKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C75FBFD19BF34FE00971E46 /* DeskKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7A03D21A6D64560049ED4A /* DKWebViewController.h */; };
+		1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C7A03D21A6D64560049ED4A /* DKWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C7A03D51A6D64560049ED4A /* DKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D31A6D64560049ED4A /* DKWebViewController.m */; };
 		1C7A03D71A6D66B10049ED4A /* DKWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A03D61A6D66B10049ED4A /* DKWebViewControllerTests.m */; };
 		1C94680519CBC34D009E4570 /* DKListViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C94680319CBC34D009E4570 /* DKListViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -96,7 +96,7 @@
 		C74819051B6811E9009426EF /* DKContactUsTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74819031B6811E9009426EF /* DKContactUsTextViewTableViewCell.m */; };
 		C74819081B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C74819061B6816DC009426EF /* DKContactUsTextFieldTableViewCell.h */; };
 		C74819091B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74819071B6816DC009426EF /* DKContactUsTextFieldTableViewCell.m */; };
-		C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C748190A1B682E51009426EF /* DKContactUsViewController.h */; };
+		C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C748190A1B682E51009426EF /* DKContactUsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C748190D1B682E51009426EF /* DKContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C748190B1B682E51009426EF /* DKContactUsViewController.m */; };
 		C7747DEF1B72A2DF00942DC2 /* NSString+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = C7747DED1B72A2DF00942DC2 /* NSString+Additions.h */; };
 		C7747DF01B72A2DF00942DC2 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7747DEE1B72A2DF00942DC2 /* NSString+Additions.m */; };
@@ -528,6 +528,8 @@
 				1C19053C19CCCF580015BF15 /* DKArticleDetailViewController.h in Headers */,
 				1C14FB5D19DB1BA200557345 /* DKSettings.h in Headers */,
 				1CB0E6BE19DC6CF90048B5E6 /* UIAlertController+Additions.h in Headers */,
+				1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */,
+				C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */,
 				C74818FC1B68064C009426EF /* DKContactUsInputTextItem.h in Headers */,
 				1CB0E6BA19DC54960048B5E6 /* NSTextCheckingResult+Additions.h in Headers */,
 				1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */,
@@ -539,8 +541,6 @@
 				1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */,
 				C74818F81B6802DA009426EF /* DKContactUsViewModel.h in Headers */,
 				C74819041B6811E9009426EF /* DKContactUsTextViewTableViewCell.h in Headers */,
-				C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */,
-				1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */,
 				1CA021FC19CBE1C70091D8A9 /* DKArticlesViewModel.h in Headers */,
 				1C75FBFE19BF34FE00971E46 /* DeskKit.h in Headers */,
 				C7747DEF1B72A2DF00942DC2 /* NSString+Additions.h in Headers */,
@@ -1015,6 +1015,7 @@
 				526688FD1D22E43800AD60FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

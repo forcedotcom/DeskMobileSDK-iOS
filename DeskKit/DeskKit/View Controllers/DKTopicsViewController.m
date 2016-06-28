@@ -30,6 +30,7 @@
 
 #import "DKTopicsViewController.h"
 #import "DKTopicsViewModel.h"
+#import "DKArticlesTopicViewModel.h"
 
 #import "DKSession.h"
 #import "UIAlertController+Additions.h"

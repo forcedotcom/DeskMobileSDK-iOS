@@ -30,11 +30,10 @@
 
 #import "DKListViewController.h"
 #import <DeskAPIClient/DeskAPIClient.h>
-#import "DKArticlesTopicViewModel.h"
 
 extern NSString *const DKArticlesViewControllerId;
 
-@class DKArticlesViewController;
+@class DKArticlesViewController, DKArticlesTopicViewModel;
 
 @protocol DKArticlesViewControllerDelegate <NSObject>
 

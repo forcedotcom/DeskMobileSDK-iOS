@@ -31,6 +31,7 @@
 #import "DKArticlesViewController.h"
 #import "DKSearchResultsViewController.h"
 #import "DKArticleDetailViewController.h"
+#import "DKArticlesTopicViewModel.h"
 
 #import "DKSession.h"
 

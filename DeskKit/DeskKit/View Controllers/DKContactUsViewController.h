@@ -29,11 +29,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DKUserIdentity.h"
 
 extern NSString *const DKContactUsViewControllerId;
 
-@class DKContactUsViewController;
+@class DKContactUsViewController, DKUserIdentity;
 
 @protocol DKContactUsViewControllerDelegate <NSObject>
 

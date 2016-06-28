@@ -30,11 +30,10 @@
 
 @import MessageUI;
 #import "DKListViewController.h"
-#import "DKArticlesTopicViewModel.h"
 
 extern NSString *const DKTopicsViewControllerId;
 
-@class DKTopicsViewController;
+@class DKTopicsViewController, DKArticlesTopicViewModel;
 
 @protocol DKTopicsViewControllerDelegte <NSObject>
 
