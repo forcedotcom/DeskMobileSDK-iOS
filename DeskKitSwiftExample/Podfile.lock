@@ -1,0 +1,18 @@
+PODS:
+  - DeskAPIClient (3.1.0):
+    - DeskCommon (~> 1.0.4)
+  - DeskCommon (1.0.4)
+  - DeskKit (3.0.3):
+    - DeskAPIClient (~> 3.0)
+
+DEPENDENCIES:
+  - DeskKit (~> 3.0)
+
+SPEC CHECKSUMS:
+  DeskAPIClient: 0d27e9d1876c96dc42b83d940604a855d1a3538c
+  DeskCommon: aa0e105a959a879555846107d2c678957ed4cb5d
+  DeskKit: 2de610aa221b0b277e820332a6dc48e088621688
+
+PODFILE CHECKSUM: 183ca42d2be43def99dec5c0b8189e8643908595
+
+COCOAPODS: 1.0.1
