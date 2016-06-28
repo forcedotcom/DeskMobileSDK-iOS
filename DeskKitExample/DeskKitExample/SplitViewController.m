@@ -29,10 +29,10 @@
 //
 
 #import "SplitViewController.h"
-#import "DKArticlesViewController.h"
-#import "DKArticleDetailViewController.h"
-#import "DKSession.h"
-#import "NSDate+DSC.h"
+#import <DeskKit/DKArticlesViewController.h>
+#import <DeskKit/DKArticleDetailViewController.h>
+#import <DeskKit/DKSession.h>
+#import <DeskCommon/NSDate+DSC.h>
 
 static NSString *const DKEmptyViewControllerId = @"DKEmptyViewController";
 
