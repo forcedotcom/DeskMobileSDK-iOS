@@ -33,7 +33,7 @@
 #import "NSTextCheckingResult+Additions.h"
 #import "UIColor+Additions.h"
 #import "NSString+Additions.h"
-#import "NSDate+DSC.h"
+#import <DeskCommon/NSDate+DSC.h>
 
 static NSString *const DKSettingsPListName = @"DeskKitSettings";
 static NSString *const DKSettingsContactUsPhoneNumberKey = @"ContactUsPhoneNumber";
