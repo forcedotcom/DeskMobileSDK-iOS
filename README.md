@@ -1,10 +1,45 @@
 # desk-kit iOS SDK
 
-The DeskKit SDK is a framework that makes it easy to incorporate your Desk site’s support portal into your iOS app. The SDK can be installed as a framework, along with its dependencies, but it is much easier to install it via CocoaPods:
+The DeskKit SDK is a framework that makes it easy to incorporate your Desk site’s support portal into your iOS app. The SDK supports multiple methods for installing the framework in a project.
 
+### Installation with CocoaPods
+[CocoaPods](http://cocoapods.org) is a dependency manager, which automates and simplifies the process of using 3rd-party libraries in your projects.
+
+You can install it with the following command:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target 'TargetName' do
+pod 'DeskKit', '~> 4.0'
+end
 ```
-pod 'DeskKit', '~> 3.0.0’
+Then, run the following command:
+
+```bash
+$ pod install
 ```
+
+### Installation with Carthage
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+To integrate DeskKit SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "forcedotcom/DeskMobileSDK-iOS" ~> 4.0
+```
+Run `carthage` to build the framework and drag the built `DeskKit.framework` into your Xcode project.
+
+**IMPORTANT: Currently we only support prebuilt frameworks. If you run carthage with `--no-use-binaries` option, you will get an error.**
+
+### Installation using prebuilt Framework
+Starting DeskKit SDK version `4.0`, prebuilt frameworks are attached in github releases. In order to use prebuilt frameworks:
+
+1. Download the appropriate version `Frameworks.zip` file from [Releases](https://github.com/forcedotcom/DeskMobileSDK-iOS/releases)
+2. Unarchive the zip file  
+3. With your project open in Xcode, select your Target. Under General tab, find Embedded Binaries and then click the + button.
+4. Click the Add Other... button, navigate to the framework files (`DeskKit.framework`, `DeskAPIClient.framework`, `DeskCommon.framework`) and select them. Check the Destination: Copy items if needed checkbox when prompted.
 
 ## Starting up the Support Portal
 Before presenting any support portal view controllers, you must start a `DKSession` to authorize the Desk API:
@@ -64,8 +99,8 @@ When the user taps “Email Us” you can instantiate and configure an instance 
     contactUsVC.delegate = self;
 
     // Configure additional properties of DKContactUsViewController here
-    
-    
+
+
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:contactUsVC];
     nvc.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:nvc animated:YES completion:nil];
