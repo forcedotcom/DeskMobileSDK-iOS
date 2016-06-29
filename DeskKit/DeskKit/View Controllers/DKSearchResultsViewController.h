@@ -30,6 +30,8 @@
 
 #import "DKListViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString *const DKSearchResultsViewControllerId;
 
 @class DKSearchResultsViewController;
@@ -37,16 +39,18 @@ extern NSString *const DKSearchResultsViewControllerId;
 @protocol DKSearchResultsViewControllerDelegate <NSObject>
 
 @optional
-- (void)searchResultsViewController:(DKSearchResultsViewController *)searchResultsViewController didSelectArticle:(DSAPIArticle *)article;
+- (void)searchResultsViewController:(DKSearchResultsViewController *)searchResultsViewController didSelectArticle:(nullable DSAPIArticle *)article;
 
 @end
 
 @interface DKSearchResultsViewController : DKListViewController
 
-@property (nonatomic, weak) id<DKSearchResultsViewControllerDelegate>delegate;
+@property (nonatomic, weak, nullable) id<DKSearchResultsViewControllerDelegate>delegate;
 
 - (void)reset;
 - (void)resetSearchWithSearchTerm:(NSString *)searchTerm topic:(DSAPITopic *)topic;
-- (NSString *)textFromSearchBar:(UISearchBar *)searchBar;
+- (nullable NSString *)textFromSearchBar:(UISearchBar *)searchBar;
 
 @end
+
+NS_ASSUME_NONNULL_END

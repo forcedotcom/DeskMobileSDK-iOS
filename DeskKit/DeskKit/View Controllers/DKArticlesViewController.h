@@ -31,6 +31,8 @@
 #import "DKListViewController.h"
 #import <DeskAPIClient/DeskAPIClient.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString *const DKArticlesViewControllerId;
 
 @class DKArticlesViewController, DKArticlesTopicViewModel;
@@ -38,17 +40,19 @@ extern NSString *const DKArticlesViewControllerId;
 @protocol DKArticlesViewControllerDelegate <NSObject>
 
 @optional
-- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSearchTerm:(NSString *)searchTerm;
-- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSelectArticle:(DSAPIArticle *)article;
-- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSelectSearchedArticle:(DSAPIArticle *)article;
+- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSearchTerm:(nullable NSString *)searchTerm;
+- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSelectArticle:(nullable DSAPIArticle *)article;
+- (void)articlesViewController:(DKArticlesViewController *)articlesViewController didSelectSearchedArticle:(nullable DSAPIArticle *)article;
 
 @end
 
 @interface DKArticlesViewController : DKListViewController
 
-@property (nonatomic, weak) id<DKArticlesViewControllerDelegate>delegate;
+@property (nonatomic, weak, nullable) id<DKArticlesViewControllerDelegate>delegate;
 
 - (void)setViewModel:(DKArticlesTopicViewModel *)viewModel topic:(DSAPITopic *)topic;
 
 
 @end
+
+NS_ASSUME_NONNULL_END
