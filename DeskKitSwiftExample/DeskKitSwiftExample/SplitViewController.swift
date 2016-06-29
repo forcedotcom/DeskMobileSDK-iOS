@@ -184,17 +184,19 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
     
     // MARK: DKContactUsViewControllerDelegate
     
-    func contactUsViewControllerDidSendMessage(_ viewController: DKContactUsViewController!) {
+    func contactUsViewControllerDidSendMessage(_ viewController: DKContactUsViewController) {
         dismiss(animated: true, completion: nil)
     }
     
-    func contactUsViewControllerDidCancel(_ viewController: DKContactUsViewController!) {
+    func contactUsViewControllerDidCancel(_ viewController: DKContactUsViewController) {
         dismiss(animated: true, completion: nil)
     }
     
     // MARK: DKTopicsViewControllerDelegate
     
-    func topicsViewController(_ topicsViewController: DKTopicsViewController!, didSelect topic: DSAPITopic!, articlesTopicViewModel: DKArticlesTopicViewModel!) {
+    func topicsViewController(_ topicsViewController: DKTopicsViewController, didSelect topic: DSAPITopic?, articlesTopicViewModel: DKArticlesTopicViewModel?) {
+        guard let topic = topic, let articlesTopicViewModel = articlesTopicViewModel else { return }
+        
         let controller = newArticlesViewController()
         
         controller.delegate = self
@@ -203,17 +205,23 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
         masterNavigationController?.pushViewController(controller, animated: true)
     }
     
-    func topicsViewController(_ topicsViewController: DKTopicsViewController!, didSelectSearchedArticle article: DSAPIArticle!) {
+    func topicsViewController(_ topicsViewController: DKTopicsViewController, didSelectSearchedArticle article: DSAPIArticle?) {
+        guard let article = article else { return }
+        
         showArticle(article: article)
     }
     
     // MARK: DKArticlesViewControllerDelegate
     
-    func articlesViewController(_ articlesViewController: DKArticlesViewController!, didSelectSearchedArticle article: DSAPIArticle!) {
+    func articlesViewController(_ articlesViewController: DKArticlesViewController, didSelectSearchedArticle article: DSAPIArticle?) {
+        guard let article = article else { return }
+        
         showArticle(article: article)
     }
     
-    func articlesViewController(_ articlesViewController: DKArticlesViewController!, didSelect article: DSAPIArticle!) {
+    func articlesViewController(_ articlesViewController: DKArticlesViewController, didSelect article: DSAPIArticle?) {
+        guard let article = article else { return }
+        
         showArticle(article: article)
     }
     
