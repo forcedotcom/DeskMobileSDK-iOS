@@ -1,0 +1,2 @@
+github "forcedotcom/DeskApiClient-ObjC" ~> 3.2
+github "forcedotcom/DeskCommon-Cocoa" ~> 1.1
