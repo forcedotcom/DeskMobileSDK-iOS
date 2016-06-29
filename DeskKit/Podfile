@@ -1,7 +1,7 @@
 platform :ios, '8.0'
 
 target 'DeskKit' do
-    pod 'DeskAPIClient', '~> 3.0'
+    pod 'DeskAPIClient', '~> 3.2'
 end
 
 target 'DeskKitTests' do
