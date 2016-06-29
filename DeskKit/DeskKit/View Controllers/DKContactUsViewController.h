@@ -30,6 +30,7 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 extern NSString *const DKContactUsViewControllerId;
 
 @class DKContactUsViewController, DKUserIdentity;
@@ -47,10 +48,10 @@ extern NSString *const DKContactUsViewControllerId;
 @property (weak, nonatomic) id<DKContactUsViewControllerDelegate> delegate;
 
 // Used to configure initial state. User can override these if exposed through the UI.
-@property (nonatomic) DKUserIdentity *userIdentity;
-@property (nonatomic, copy) NSString *subject;
-@property (nonatomic, copy) NSString *toEmailAddress;
-@property (nonatomic, copy) NSDictionary *customFields;
+@property (nonatomic, nullable) DKUserIdentity *userIdentity;
+@property (nonatomic, copy, nullable) NSString *subject;
+@property (nonatomic, copy, nullable) NSString *toEmailAddress;
+@property (nonatomic, copy, nullable) NSDictionary *customFields;
 
 // These control which rows to show in the UI.
 @property (nonatomic) BOOL showAllOptionalItems;
@@ -60,3 +61,5 @@ extern NSString *const DKContactUsViewControllerId;
 
 
 @end
+
+NS_ASSUME_NONNULL_END

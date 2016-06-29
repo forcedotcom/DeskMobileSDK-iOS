@@ -30,12 +30,16 @@
 
 #import "DKWebViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString *const DKArticleDetailViewControllerId;
 
 @class DSAPIArticle;
 
 @interface DKArticleDetailViewController : DKWebViewController
 
-@property (nonatomic, readwrite) DSAPIArticle *article;
+@property (nonatomic, readwrite, nullable) DSAPIArticle *article;
 
 @end
+
+NS_ASSUME_NONNULL_END

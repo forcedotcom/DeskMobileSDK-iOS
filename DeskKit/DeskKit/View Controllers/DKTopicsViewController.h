@@ -31,6 +31,8 @@
 @import MessageUI;
 #import "DKListViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString *const DKTopicsViewControllerId;
 
 @class DKTopicsViewController, DKArticlesTopicViewModel;
@@ -39,18 +41,20 @@ extern NSString *const DKTopicsViewControllerId;
 
 @optional
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController
-               didSearchTerm:(NSString *)searchTerm;
+               didSearchTerm:(nullable NSString *)searchTerm;
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController
-              didSelectTopic:(DSAPITopic *)topic
+              didSelectTopic:(nullable DSAPITopic *)topic
       articlesTopicViewModel:(DKArticlesTopicViewModel *)articlesTopicViewModel;
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController
-    didSelectSearchedArticle:(DSAPIArticle *)article;
+    didSelectSearchedArticle:(nullable DSAPIArticle *)article;
 @end
 
 @interface DKTopicsViewController : DKListViewController <UISearchBarDelegate>
 
-@property (weak, nonatomic) id<DKTopicsViewControllerDelegate>   delegate;
+@property (weak, nonatomic, nullable) id<DKTopicsViewControllerDelegate>   delegate;
 
 - (void)invalidateArticleCache;
 
 @end
+
+NS_ASSUME_NONNULL_END
