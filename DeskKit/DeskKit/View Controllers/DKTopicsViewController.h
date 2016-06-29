@@ -44,7 +44,7 @@ extern NSString *const DKTopicsViewControllerId;
                didSearchTerm:(nullable NSString *)searchTerm;
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController
               didSelectTopic:(nullable DSAPITopic *)topic
-      articlesTopicViewModel:(DKArticlesTopicViewModel *)articlesTopicViewModel;
+      articlesTopicViewModel:(nullable DKArticlesTopicViewModel *)articlesTopicViewModel;
 - (void)topicsViewController:(DKTopicsViewController *)topicsViewController
     didSelectSearchedArticle:(nullable DSAPIArticle *)article;
 @end
