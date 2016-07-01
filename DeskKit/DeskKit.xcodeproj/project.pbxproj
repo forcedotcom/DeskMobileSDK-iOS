@@ -83,8 +83,8 @@
 		1CC49BC919CB12EC003E3819 /* DKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC49BC719CB12EC003E3819 /* DKSession.m */; };
 		1CC49BCA19CB12EC003E3819 /* DKSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CC49BC819CB12EC003E3819 /* DKSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CD1FD5A19C72DF4003CDB5C /* DKListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1FD5919C72DF4003CDB5C /* DKListViewControllerTests.m */; };
-		504ED4BABE7365080A52653B /* libPods-DeskKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 814086A9664AA77FE8077B42 /* libPods-DeskKit.a */; };
-		B9ECF02CB496F78FCF80F9AD /* libPods-DeskKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 917B2BEF840A41D847699806 /* libPods-DeskKitTests.a */; };
+		6DA3F0E3D471C50A7A92201D /* Pods_DeskKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB650A108AE135E25ECA7C2C /* Pods_DeskKit.framework */; };
+		8BC51CE2D62DD2DB1804A997 /* Pods_DeskKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADB3C13F168BD1746955E14 /* Pods_DeskKitTests.framework */; };
 		C73813DA1C46B7B300613B19 /* DKSearchResultsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C73813D91C46B7B300613B19 /* DKSearchResultsViewControllerTests.m */; };
 		C74818F81B6802DA009426EF /* DKContactUsViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C74818F61B6802DA009426EF /* DKContactUsViewModel.h */; };
 		C74818F91B6802DA009426EF /* DKContactUsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C74818F71B6802DA009426EF /* DKContactUsViewModel.m */; };
@@ -182,9 +182,8 @@
 		1CC49BC819CB12EC003E3819 /* DKSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSession.h; sourceTree = "<group>"; };
 		1CD1FD5919C72DF4003CDB5C /* DKListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DKListViewControllerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7AF892B82CCB8186395F3235 /* Pods-DeskKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKit/Pods-DeskKit.release.xcconfig"; sourceTree = "<group>"; };
-		814086A9664AA77FE8077B42 /* libPods-DeskKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeskKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		917B2BEF840A41D847699806 /* libPods-DeskKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeskKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB75CA40F77E44FC6B90739 /* Pods-DeskKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKit/Pods-DeskKit.debug.xcconfig"; sourceTree = "<group>"; };
+		AB650A108AE135E25ECA7C2C /* Pods_DeskKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeskKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73813D91C46B7B300613B19 /* DKSearchResultsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSearchResultsViewControllerTests.m; sourceTree = "<group>"; };
 		C74818F61B6802DA009426EF /* DKContactUsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKContactUsViewModel.h; sourceTree = "<group>"; };
 		C74818F71B6802DA009426EF /* DKContactUsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKContactUsViewModel.m; sourceTree = "<group>"; };
@@ -207,6 +206,7 @@
 		C7CAAD1D1C455715004B767B /* DKSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSearchResultsViewController.h; sourceTree = "<group>"; };
 		C7CAAD1E1C455715004B767B /* DKSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSearchResultsViewController.m; sourceTree = "<group>"; };
 		E4B63ED482E5E79BEBF4BFB0 /* Pods-DeskKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeskKitTests/Pods-DeskKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FADB3C13F168BD1746955E14 /* Pods_DeskKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeskKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				504ED4BABE7365080A52653B /* libPods-DeskKit.a in Frameworks */,
+				6DA3F0E3D471C50A7A92201D /* Pods_DeskKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C1E17E319BF53D90034D202 /* DeskKit.framework in Frameworks */,
-				B9ECF02CB496F78FCF80F9AD /* libPods-DeskKitTests.a in Frameworks */,
+				8BC51CE2D62DD2DB1804A997 /* Pods_DeskKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,8 +504,8 @@
 			isa = PBXGroup;
 			children = (
 				1C1E17E119BF52F20034D202 /* libPods.a */,
-				814086A9664AA77FE8077B42 /* libPods-DeskKit.a */,
-				917B2BEF840A41D847699806 /* libPods-DeskKitTests.a */,
+				AB650A108AE135E25ECA7C2C /* Pods_DeskKit.framework */,
+				FADB3C13F168BD1746955E14 /* Pods_DeskKitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
