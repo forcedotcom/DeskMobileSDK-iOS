@@ -30,7 +30,7 @@
 
 import UIKit
 
-class SplitViewController: UISplitViewController, UISplitViewControllerDelegate, DKTopicsViewControllerDelegte, DKArticlesViewControllerDelegate, DKContactUsViewControllerDelegate {
+class SplitViewController: UISplitViewController, UISplitViewControllerDelegate, DKTopicsViewControllerDelegate, DKArticlesViewControllerDelegate, DKContactUsViewControllerDelegate {
     private var topicsViewController: DKTopicsViewController?
     private var contactUsButtonIndex: Int = 0
     private var selectedArticle: DSAPIArticle?
