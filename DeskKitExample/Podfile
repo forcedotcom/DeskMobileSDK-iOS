@@ -5,5 +5,5 @@ platform :ios, '8.0'
 # use_frameworks!
 
 target 'DeskKitExample' do
-    pod 'DeskKit', '~> 3.0'
+    pod 'DeskKit', '~> 4.0'
 end
