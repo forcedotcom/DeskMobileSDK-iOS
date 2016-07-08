@@ -75,7 +75,7 @@
 		1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBEEF8C19DDD49F0073A8AC /* DKArticlesSearchViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CBEEF8F19DDD49F0073A8AC /* DKArticlesSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBEEF8D19DDD49F0073A8AC /* DKArticlesSearchViewModel.m */; };
 		1CBEEF9119DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBEEF9019DDD53D0073A8AC /* DKArticlesSearchViewModelTests.m */; };
-		1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBEEF9219DDD5D10073A8AC /* DKArticlesTopicViewModel.h */; };
+		1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBEEF9219DDD5D10073A8AC /* DKArticlesTopicViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CBEEF9519DDD5D10073A8AC /* DKArticlesTopicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBEEF9319DDD5D10073A8AC /* DKArticlesTopicViewModel.m */; };
 		1CC49B6619CA52C2003E3819 /* DKStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C46EFDB19C0E740000FBCAC /* DKStoryboard.storyboard */; };
 		1CC49BC219CB11C0003E3819 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -530,13 +530,13 @@
 				1CB0E6BE19DC6CF90048B5E6 /* UIAlertController+Additions.h in Headers */,
 				1C7A03D41A6D64560049ED4A /* DKWebViewController.h in Headers */,
 				C748190C1B682E51009426EF /* DKContactUsViewController.h in Headers */,
+				1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */,
 				C74818FC1B68064C009426EF /* DKContactUsInputTextItem.h in Headers */,
 				1CB0E6BA19DC54960048B5E6 /* NSTextCheckingResult+Additions.h in Headers */,
 				1CBEEF8E19DDD49F0073A8AC /* DKArticlesSearchViewModel.h in Headers */,
 				1C1E17ED19BF60590034D202 /* DKAPIManager.h in Headers */,
 				C7CAAD1F1C455715004B767B /* DKSearchResultsViewController.h in Headers */,
 				C77ECFB01B6FEC10008AC3F0 /* DKUserIdentity.h in Headers */,
-				1CBEEF9419DDD5D10073A8AC /* DKArticlesTopicViewModel.h in Headers */,
 				1C46EFFC19C123FB000FBCAC /* DKTopicsViewModel.h in Headers */,
 				1C2D99EF1A36081D00C471FB /* UIColor+Additions.h in Headers */,
 				C74818F81B6802DA009426EF /* DKContactUsViewModel.h in Headers */,
