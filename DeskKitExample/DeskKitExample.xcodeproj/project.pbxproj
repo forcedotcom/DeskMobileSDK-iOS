@@ -204,7 +204,6 @@
 				TargetAttributes = {
 					1CABC2D619E483E5009C63C3 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = 4PZ44KB26X;
 					};
 					1CABC2EF19E483E5009C63C3 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -438,6 +437,7 @@
 			baseConfigurationReference = A5CAC06908F9A65AE790E89F /* Pods-DeskKitExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DeskKitExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.desk.internal.$(PRODUCT_NAME:rfc1034identifier)";
@@ -450,6 +450,7 @@
 			baseConfigurationReference = 01DA278A0E78B11BA25A7A95 /* Pods-DeskKitExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DeskKitExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.desk.internal.$(PRODUCT_NAME:rfc1034identifier)";
