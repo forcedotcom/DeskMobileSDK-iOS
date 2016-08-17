@@ -145,7 +145,7 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
             if (strongSelf && hasContactUsToEmailAddress) {
                 strongSelf.toEmailAddress = [DKSession sharedInstance].contactUsToEmailAddress;
                 strongSelf.viewModel.toEmailAddress = strongSelf.toEmailAddress;
-                [strongSelf shouldEnableSendButton];
+                strongSelf.sendButton.enabled = [strongSelf shouldEnableSendButton];
             }
         }];
     }
