@@ -124,18 +124,6 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
 {
     self.viewModel = [[DKContactUsViewModel alloc] initIncludingOptionalItems:self.showAllOptionalItems];
     
-    if (self.toEmailAddress == nil) {
-        __weak typeof(self) weakSelf = self;
-        [[DKSession sharedInstance] hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {
-            __weak typeof(self) strongSelf = weakSelf;
-            if (strongSelf && hasContactUsToEmailAddress) {
-                strongSelf.toEmailAddress = [DKSession sharedInstance].contactUsToEmailAddress;
-                strongSelf.viewModel.toEmailAddress = strongSelf.toEmailAddress;
-                [strongSelf shouldEnableSendButton];
-            }
-        }];
-    }
-    
     // View Model to View mappings
     self.viewModel.nameItemIdentifier = DKContactUsTextFieldTableViewCellId;
     self.viewModel.emailItemIdentifier = DKContactUsTextFieldTableViewCellId;
@@ -149,6 +137,18 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     self.viewModel.includeYourEmailItem = self.showYourEmailItem;
     self.viewModel.includeSubjectItem = self.showSubjectItem;
     self.viewModel.customFields = self.customFields;
+    
+    if (self.toEmailAddress == nil) {
+        __weak typeof(self) weakSelf = self;
+        [[DKSession sharedInstance] hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {
+            __weak typeof(self) strongSelf = weakSelf;
+            if (strongSelf && hasContactUsToEmailAddress) {
+                strongSelf.toEmailAddress = [DKSession sharedInstance].contactUsToEmailAddress;
+                strongSelf.viewModel.toEmailAddress = strongSelf.toEmailAddress;
+                [strongSelf shouldEnableSendButton];
+            }
+        }];
+    }
 }
 
 - (CGFloat)messageCellHeight
