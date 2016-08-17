@@ -122,9 +122,19 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
 
 - (void)setupViewModel
 {
-    NSAssert(self.toEmailAddress, @"toEmailAddress cannot be nil");
-    
     self.viewModel = [[DKContactUsViewModel alloc] initIncludingOptionalItems:self.showAllOptionalItems];
+    
+    if (self.toEmailAddress == nil) {
+        __weak typeof(self) weakSelf = self;
+        [[DKSession sharedInstance] hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {
+            __weak typeof(self) strongSelf = weakSelf;
+            if (strongSelf && hasContactUsToEmailAddress) {
+                strongSelf.toEmailAddress = [DKSession sharedInstance].contactUsToEmailAddress;
+                strongSelf.viewModel.toEmailAddress = strongSelf.toEmailAddress;
+                [strongSelf shouldEnableSendButton];
+            }
+        }];
+    }
     
     // View Model to View mappings
     self.viewModel.nameItemIdentifier = DKContactUsTextFieldTableViewCellId;
@@ -134,7 +144,6 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     
     self.viewModel.userIdentity = self.userIdentity;
     self.viewModel.subject = self.subject;
-    self.viewModel.toEmailAddress = self.toEmailAddress;
     
     self.viewModel.includeYourNameItem = self.showYourNameItem;
     self.viewModel.includeYourEmailItem = self.showYourEmailItem;
