@@ -216,15 +216,6 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 #pragma mark - Email
 
-- (void)setupContactUsEmail
-{
-    if ([DKSettings sharedInstance].hasContactUsToEmailAddress) {
-        self.contactUsToEmailAddress = [DKSettings sharedInstance].contactUsToEmailAddress;
-    } else {
-        [[DKSession sharedInstance] fetchInboundMailboxesWithCompletionHandler:nil];
-    }
-}
-
 - (void)fetchInboundMailboxesWithCompletionHandler:(void (^)(void))completionHandler
 {
     [self.listMailboxesTask cancel];
@@ -254,6 +245,10 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 - (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler
 {
+    if ([DKSettings sharedInstance].hasContactUsToEmailAddress) {
+        self.contactUsToEmailAddress = [DKSettings sharedInstance].contactUsToEmailAddress;
+    }
+    
     if (self.contactUsToEmailAddress.length > 0) {
         completionHandler(YES);
     } else {
