@@ -55,7 +55,6 @@
 - (void)transitionToRootViewController:(UIViewController *)rootViewController
                     transitionDuration:(NSTimeInterval)transitionDuration
                      transitionOptions:(UIViewAnimationOptions)transitionOptions;
-- (void)setupContactUsEmail;
 - (void)fetchInboundMailboxesWithCompletionHandler:(void (^)(void))completionHandler;
 - (DSAPIMailbox *)firstEnabledInboundMailboxFromPage:(DSAPIPage *)page;
 - (NSString *)firstEnabledInboundEmailAddressFromPage:(DSAPIPage *)page;
@@ -97,7 +96,7 @@
     OCMStub([settingsMock hasContactUsToEmailAddress]).andReturn(YES);
     OCMStub([settingsMock contactUsToEmailAddress]).andReturn(email);
 
-    [self.testSession setupContactUsEmail];
+    [self.testSession hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {}];
 
     XCTAssertTrue([self.testSession.contactUsToEmailAddress isEqualToString:email]);
 }
@@ -107,13 +106,12 @@
     NSString *email = @"support@desk@com";
     id settingsMock = OCMPartialMock([DKSettings sharedInstance]);
     OCMStub([settingsMock hasContactUsToEmailAddress]).andReturn(NO);
-    OCMStub([settingsMock contactUsToEmailAddress]).andReturn(email);
 
-    id sessionMock = OCMPartialMock([DKSession sharedInstance]);
-    OCMExpect([sessionMock fetchInboundMailboxesWithCompletionHandler:nil]);
+    id sessionMock = OCMPartialMock(self.testSession);
+    OCMExpect([sessionMock fetchInboundMailboxesWithCompletionHandler:OCMOCK_ANY]);
 
-    [self.testSession setupContactUsEmail];
-
+    [self.testSession hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {}];
+    
     XCTAssertFalse([self.testSession.contactUsToEmailAddress isEqualToString:email]);
     OCMVerifyAll(sessionMock);
 }

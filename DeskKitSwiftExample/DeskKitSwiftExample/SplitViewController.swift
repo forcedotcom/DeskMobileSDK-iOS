@@ -133,12 +133,12 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
     }
     
     private func openActionSheet() {
-        guard let toolbarItems = masterNavigationController?.topViewController?.toolbarItems where contactUsButtonIndex < toolbarItems.count else { return }
+        guard let toolbarItems = masterNavigationController?.topViewController?.toolbarItems, contactUsButtonIndex < toolbarItems.count else { return }
         
         let contactUsSheet = DKSession.newContactUsAlertController(callHandler: { (callAction) in
             guard let phoneURL = DKSession.sharedInstance().contactUsPhoneNumberURL else { return }
             
-            UIApplication.shared().openURL(phoneURL)
+            UIApplication.shared.openURL(phoneURL)
             }) { (emailAction) in
                 self.alertControllerDidTapEmailUs()
         }
@@ -232,7 +232,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
         controller.article = article
         
         if viewControllers.count == 2 {
-            controller.navigationItem.leftBarButtonItem = displayModeButtonItem()
+            controller.navigationItem.leftBarButtonItem = displayModeButtonItem
             detailNavigationController?.viewControllers = [controller]
         } else {
             detailNavigationController?.pushViewController(controller, animated: true)
@@ -286,7 +286,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
             detailVC.article = selectedArticle
         }
         
-        detailVC.navigationItem.leftBarButtonItem = displayModeButtonItem()
+        detailVC.navigationItem.leftBarButtonItem = displayModeButtonItem
         let secondaryNavigationController = UINavigationController(rootViewController: detailVC)
         return secondaryNavigationController
     }

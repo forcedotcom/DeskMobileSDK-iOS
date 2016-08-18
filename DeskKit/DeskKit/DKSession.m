@@ -160,20 +160,15 @@ static NSInteger const DSMailboxesPerPage = 100;
 {
     DKSettings *settings = [DKSettings sharedInstance];
     DKContactUsViewController *vc = [[[self class] storyboard] instantiateViewControllerWithIdentifier:DKContactUsViewControllerId];
-    [[DKSession sharedInstance] hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {
-        if (hasContactUsToEmailAddress) {
-            vc.toEmailAddress = self.contactUsToEmailAddress;
-        }
-    }];
     
-    if (settings.hasContactUsSubject) {
-        vc.subject = settings.contactUsSubject;
-    }
     vc.showSubjectItem = settings.contactUsShowSubjectItem;
     vc.showAllOptionalItems = settings.contactUsShowAllOptionalItems;
     vc.showYourNameItem = settings.contactUsShowYourNameItem;
     vc.showYourEmailItem = settings.contactUsShowYourEmailItem;
     
+    if (settings.hasContactUsSubject) {
+        vc.subject = settings.contactUsSubject;
+    }
     if (settings.hasContactUsStaticCustomFields) {
         vc.customFields = settings.contactUsStaticCustomFields;
     }
@@ -216,15 +211,6 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 #pragma mark - Email
 
-- (void)setupContactUsEmail
-{
-    if ([DKSettings sharedInstance].hasContactUsToEmailAddress) {
-        self.contactUsToEmailAddress = [DKSettings sharedInstance].contactUsToEmailAddress;
-    } else {
-        [[DKSession sharedInstance] fetchInboundMailboxesWithCompletionHandler:nil];
-    }
-}
-
 - (void)fetchInboundMailboxesWithCompletionHandler:(void (^)(void))completionHandler
 {
     [self.listMailboxesTask cancel];
@@ -254,6 +240,10 @@ static NSInteger const DSMailboxesPerPage = 100;
 
 - (void)hasContactUsToEmailAddressWithCompletionHandler:(void (^ __nonnull)(BOOL hasContactUsToEmailAddress))completionHandler
 {
+    if ([DKSettings sharedInstance].hasContactUsToEmailAddress) {
+        self.contactUsToEmailAddress = [DKSettings sharedInstance].contactUsToEmailAddress;
+    }
+    
     if (self.contactUsToEmailAddress.length > 0) {
         completionHandler(YES);
     } else {

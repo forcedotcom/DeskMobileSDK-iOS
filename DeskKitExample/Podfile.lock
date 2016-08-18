@@ -1,18 +1,18 @@
 PODS:
-  - DeskAPIClient (3.1.0):
-    - DeskCommon (~> 1.0.4)
-  - DeskCommon (1.0.4)
-  - DeskKit (3.0.3):
+  - DeskAPIClient (3.2.2):
+    - DeskCommon (~> 1.1)
+  - DeskCommon (1.1.1)
+  - DeskKit (4.0.0):
     - DeskAPIClient (~> 3.0)
 
 DEPENDENCIES:
-  - DeskKit (~> 3.0)
+  - DeskKit (~> 4.0)
 
 SPEC CHECKSUMS:
-  DeskAPIClient: 0d27e9d1876c96dc42b83d940604a855d1a3538c
-  DeskCommon: aa0e105a959a879555846107d2c678957ed4cb5d
-  DeskKit: 2de610aa221b0b277e820332a6dc48e088621688
+  DeskAPIClient: b8e4f8d2430fb86d8da13d07fb4dc4882327b3ea
+  DeskCommon: b9686c1aaa3f5ca58915804e069fbc2b272978e9
+  DeskKit: 044e61db5c6af4246744199bbdc71f4453bcf563
 
-PODFILE CHECKSUM: a681598e0f8523948a6079f3bc7b208b465af458
+PODFILE CHECKSUM: 841df7acd0a1b358d64dddc119048d2233741cfa
 
 COCOAPODS: 1.0.1

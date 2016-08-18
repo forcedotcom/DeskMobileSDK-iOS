@@ -6,5 +6,6 @@ target 'DeskKit' do
 end
 
 target 'DeskKitTests' do
+    pod 'DeskAPIClient', '~> 3.2'
     pod 'OCMock', '~> 3.0.2'
 end

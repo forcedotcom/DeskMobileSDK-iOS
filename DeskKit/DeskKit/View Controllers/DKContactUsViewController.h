@@ -46,11 +46,11 @@ extern NSString *const DKContactUsViewControllerId;
 @interface DKContactUsViewController : UITableViewController
 
 @property (weak, nonatomic) id<DKContactUsViewControllerDelegate> delegate;
+@property (nonatomic, copy, nullable) NSString *toEmailAddress;
 
-// Used to configure initial state. User can override these if exposed through the UI.
+// Used to configure initial state. User can set these if exposed through the UI.
 @property (nonatomic, nullable) DKUserIdentity *userIdentity;
 @property (nonatomic, copy, nullable) NSString *subject;
-@property (nonatomic, copy, nullable) NSString *toEmailAddress;
 @property (nonatomic, copy, nullable) NSDictionary *customFields;
 
 // These control which rows to show in the UI.
