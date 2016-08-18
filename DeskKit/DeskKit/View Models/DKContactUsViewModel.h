@@ -37,11 +37,11 @@
 
 @property (nonatomic, readonly) NSArray *sections;
 @property (nonatomic, readonly) NSIndexPath *messageIndexPath;
+@property (nonatomic, copy) NSString *toEmailAddress;
 
-// Used to configure initial state. User can override these if exposed through the UI.
+// Used to configure initial state. User can set these if exposed through the UI.
 @property (nonatomic) DKUserIdentity *userIdentity;
 @property (nonatomic, copy) NSString *subject;
-@property (nonatomic, copy) NSString *toEmailAddress;
 @property (nonatomic, copy) NSDictionary *customFields;
 
 // Identifiers for UI components. For example, for UITableViewCell identifiers.
