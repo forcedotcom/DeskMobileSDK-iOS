@@ -141,7 +141,7 @@ static NSString *const DKContactUsTextViewTableViewCellId = @"DKContactUsTextVie
     if (self.toEmailAddress == nil) {
         __weak typeof(self) weakSelf = self;
         [[DKSession sharedInstance] hasContactUsToEmailAddressWithCompletionHandler:^(BOOL hasContactUsToEmailAddress) {
-            __weak typeof(self) strongSelf = weakSelf;
+            DKContactUsViewController *strongSelf = weakSelf;
             if (strongSelf && hasContactUsToEmailAddress) {
                 strongSelf.toEmailAddress = [DKSession sharedInstance].contactUsToEmailAddress;
                 strongSelf.viewModel.toEmailAddress = strongSelf.toEmailAddress;
