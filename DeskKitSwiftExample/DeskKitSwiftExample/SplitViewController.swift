@@ -172,7 +172,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
     
     // MARK: Custom Field Example
     
-    var dynamicCustomFields: [NSObject: AnyObject] {
+    var dynamicCustomFields: [String: Any] {
         return [
             "my_case_boolean_custom_field" : true,
             "my_case_date_custom_field" : NSDate().stringWithISO8601Format(),
