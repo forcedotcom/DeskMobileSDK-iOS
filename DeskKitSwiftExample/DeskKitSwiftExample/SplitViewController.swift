@@ -138,7 +138,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
         let contactUsSheet = DKSession.newContactUsAlertController(callHandler: { (callAction) in
             guard let phoneURL = DKSession.sharedInstance().contactUsPhoneNumberURL else { return }
             
-            UIApplication.shared.openURL(phoneURL)
+            UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
             }) { (emailAction) in
                 self.alertControllerDidTapEmailUs()
         }
