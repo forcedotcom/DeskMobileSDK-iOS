@@ -138,7 +138,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
         let contactUsSheet = DKSession.newContactUsAlertController(callHandler: { (callAction) in
             guard let phoneURL = DKSession.sharedInstance().contactUsPhoneNumberURL else { return }
             
-            UIApplication.shared.openURL(phoneURL)
+            UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
             }) { (emailAction) in
                 self.alertControllerDidTapEmailUs()
         }
@@ -172,7 +172,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate,
     
     // MARK: Custom Field Example
     
-    var dynamicCustomFields: [NSObject: AnyObject] {
+    var dynamicCustomFields: [String: Any] {
         return [
             "my_case_boolean_custom_field" : true,
             "my_case_date_custom_field" : NSDate().stringWithISO8601Format(),
